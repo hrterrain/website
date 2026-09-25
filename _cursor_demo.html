@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HR Terrain — cursor options</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0F3473; --n3:#3A6BC0; --ink:#14233D; --slate:#586A88;
+    --warm:#FDFBF7; --panel:#F3F0E8; --line:#E4DED0; --sky:#EAF0FA; --gold:#C9974A;
+    --fd:'Space Grotesk',sans-serif; --fb:'Inter',sans-serif; --fm:'DM Mono',monospace;
+    --e:cubic-bezier(.16,1,.3,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--fb);background:var(--warm);color:var(--ink);line-height:1.55;
+    padding:40px 32px 120px;max-width:1080px;margin:0 auto;transition:background .3s,color .3s}
+  body.dark{background:#0B1526;color:#E4EBF5}
+  h1{font-family:var(--fd);font-size:1.55rem;font-weight:600;letter-spacing:-.02em}
+  .sub{color:var(--slate);margin:8px 0 22px;max-width:66ch;font-size:.95rem}
+  body.dark .sub{color:#9EAFCB}
+
+  .topbar{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;flex-wrap:wrap}
+  .theme-btn{font-family:var(--fm);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;
+    border:1px solid currentColor;background:none;color:inherit;padding:8px 14px;border-radius:8px;cursor:pointer}
+
+  .group{margin-bottom:14px}
+  .group .gl{font-family:var(--fm);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--slate);margin-bottom:7px}
+  .modes{display:flex;flex-wrap:wrap;gap:7px}
+  .modes button{font-family:var(--fm);font-size:.72rem;letter-spacing:.04em;
+    border:1px solid var(--navy);background:#fff;color:var(--navy);padding:8px 13px;border-radius:9px;cursor:pointer;transition:.15s}
+  body.dark .modes button{border-color:#5A82C8;background:#12233d;color:#cfe0f5}
+  .modes button[aria-pressed="true"]{background:var(--navy);color:#fff}
+  body.dark .modes button[aria-pressed="true"]{background:#5A82C8;color:#0B1526}
+  .note{font-family:var(--fm);font-size:.72rem;color:var(--slate);margin:14px 0 30px;min-height:2.6em;max-width:70ch}
+  body.dark .note{color:#9EAFCB}
+
+  .pg{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+  .zone{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;min-height:150px;
+    display:flex;flex-direction:column;gap:12px;justify-content:center}
+  body.dark .zone{background:#12233d;border-color:rgba(255,255,255,.1)}
+  .zone .lab{font-family:var(--fm);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--slate)}
+  .zone h3{font-family:var(--fd);font-weight:600;font-size:1.05rem}
+  .btn{align-self:flex-start;font-family:var(--fd);font-weight:600;font-size:.9rem;background:var(--navy);color:#fff;
+    border:0;border-radius:100px;padding:11px 20px;cursor:pointer;text-decoration:none;display:inline-block}
+  .btn.ghost{background:transparent;color:var(--navy);border:1.5px solid var(--navy)}
+  body.dark .btn.ghost{color:#cfe0f5;border-color:#5A82C8}
+  a.link{color:var(--navy);font-weight:600;text-decoration:underline;text-underline-offset:3px;width:max-content}
+  body.dark a.link{color:#8FBCF0}
+  .card-z{cursor:pointer}
+  .drag-z{background:repeating-linear-gradient(45deg,var(--sky),var(--sky) 10px,#fff 10px,#fff 20px);cursor:grab}
+  body.dark .drag-z{background:repeating-linear-gradient(45deg,#12233d,#12233d 10px,#0e1c30 10px,#0e1c30 20px)}
+  .big{grid-column:1/-1;min-height:190px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--fd);font-weight:600;font-size:clamp(1.4rem,3.4vw,2.4rem);letter-spacing:-.02em;color:var(--navy);text-align:center}
+  body.dark .big{color:#8FBCF0}
+
+  /* ===== CSS-only cursors ===== */
+  body.m-arrow{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='26' viewBox='0 0 26 26'%3E%3Cpath d='M3 2 L3 20 L8 15 L11.5 22 L14.5 20.5 L11 14 L18 14 Z' fill='%230F3473' stroke='white' stroke-width='1.4' stroke-linejoin='round'/%3E%3C/svg%3E") 3 2, auto}
+  body.m-arrow a,body.m-arrow button,body.m-arrow .card-z{cursor:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3E%3Ccircle cx='15' cy='15' r='9' fill='none' stroke='%230F3473' stroke-width='2'/%3E%3Ccircle cx='15' cy='15' r='2.5' fill='%230F3473'/%3E%3C/svg%3E") 15 15, pointer}
+  body.m-cross{cursor:crosshair}
+  body.m-cross a,body.m-cross button{cursor:pointer}
+  body.m-none-native{cursor:none}
+
+  /* ===== JS cursor layers ===== */
+  .cur{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;opacity:0;will-change:transform}
+  body.js-cursor{cursor:none}
+  body.js-cursor a,body.js-cursor button,body.js-cursor .card-z,body.js-cursor .drag-z,body.js-cursor .big{cursor:none}
+  body.js-cursor .cur.on{opacity:1;transition:opacity .25s}
+
+  .cur-dot{width:8px;height:8px;border-radius:50%;background:var(--navy);transform:translate(-50%,-50%);
+    transition:width .2s,height .2s,background .2s}
+  body.dark .cur-dot{background:#8FBCF0}
+  body.cur-hover .cur-dot{width:16px;height:16px}
+
+  .cur-ring{width:34px;height:34px;border:1.6px solid var(--navy);border-radius:50%;transform:translate(-50%,-50%);
+    transition:width .22s var(--e),height .22s var(--e),background .22s,border-color .22s,border-radius .22s}
+  body.dark .cur-ring{border-color:#8FBCF0}
+  body.cur-hover .cur-ring{width:54px;height:54px;background:rgba(15,52,115,.10)}
+  body.cur-down .cur-ring{width:26px;height:26px}
+
+  .cur-label{transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;
+    min-width:12px;height:12px;border-radius:100px;background:var(--navy);color:#fff;
+    font-family:var(--fd);font-weight:600;font-size:.72rem;white-space:nowrap;overflow:hidden;
+    transition:min-width .22s var(--e),height .22s var(--e),padding .22s}
+  body.dark .cur-label{background:#8FBCF0;color:#0B1526}
+  body.cur-hover .cur-label{height:34px;padding:0 16px;min-width:34px}
+  .cur-label span{opacity:0;transition:opacity .15s}
+  body.cur-hover .cur-label span{opacity:1;transition-delay:.08s}
+
+  .cur-glow{width:340px;height:340px;border-radius:50%;transform:translate(-50%,-50%);
+    background:radial-gradient(circle,rgba(15,52,115,.14),transparent 65%)}
+  body.dark .cur-glow{background:radial-gradient(circle,rgba(143,188,240,.20),transparent 62%)}
+
+  .cur-blend{width:26px;height:26px;border-radius:50%;background:#fff;transform:translate(-50%,-50%);
+    mix-blend-mode:difference;transition:width .22s var(--e),height .22s var(--e)}
+  body.cur-hover .cur-blend{width:70px;height:70px}
+
+  .cur-compass{width:44px;height:44px;transform:translate(-50%,-50%)}
+  .cur-compass .ringc{position:absolute;inset:0;border:1.4px solid var(--navy);border-radius:50%;opacity:.4}
+  body.dark .cur-compass .ringc{border-color:#8FBCF0}
+  .cur-compass .needle{position:absolute;left:50%;top:50%;width:2px;height:22px;background:var(--navy);
+    transform-origin:50% 100%;transform:translate(-50%,-100%) rotate(0deg);transition:transform .12s linear}
+  body.dark .cur-compass .needle{background:#8FBCF0}
+  .cur-compass .needle::after{content:"";position:absolute;top:-3px;left:50%;transform:translateX(-50%);
+    border-left:4px solid transparent;border-right:4px solid transparent;border-bottom:6px solid var(--gold)}
+
+  .cur-survey{position:fixed;inset:0;pointer-events:none}
+  .cur-survey .hl,.cur-survey .vl{position:absolute;background:rgba(15,52,115,.35)}
+  body.dark .cur-survey .hl,body.dark .cur-survey .vl{background:rgba(143,188,240,.4)}
+  .cur-survey .hl{left:0;right:0;height:1px}
+  .cur-survey .vl{top:0;bottom:0;width:1px}
+  .cur-survey .rd{position:absolute;font-family:var(--fm);font-size:9px;letter-spacing:.08em;
+    color:var(--navy);background:var(--warm);border:1px solid var(--navy);border-radius:4px;padding:3px 6px;white-space:nowrap}
+  body.dark .cur-survey .rd{color:#cfe0f5;background:#0B1526;border-color:#5A82C8}
+  .cur-survey .mk{position:absolute;width:10px;height:10px;border:1.5px solid var(--gold);border-radius:50%;transform:translate(-50%,-50%)}
+
+  .ripple{position:fixed;border:1.5px solid var(--navy);border-radius:50%;transform:translate(-50%,-50%) scale(0);
+    pointer-events:none;z-index:9998;opacity:.6;animation:rip .9s var(--e) forwards}
+  body.dark .ripple{border-color:#8FBCF0}
+  @keyframes rip{to{transform:translate(-50%,-50%) scale(1);opacity:0}}
+
+  footer{margin-top:50px;font-family:var(--fm);font-size:.72rem;color:var(--slate);max-width:74ch;line-height:1.7}
+  body.dark footer{color:#9EAFCB}
+  @media (prefers-reduced-motion:reduce){.cur,.ripple{display:none!important}body.js-cursor,body.js-cursor *{cursor:auto!important}}
+</style>
+</head>
+<body class="m-native">
+
+<div class="topbar">
+  <h1>HR Terrain — cursor options</h1>
+  <button class="theme-btn" id="themeBtn">Dark ◐</button>
+</div>
+<p class="sub">The cursor is fully changeable — CSS for the simple ones, a little JS for the animated ones. Pick a mode, then move over the blocks. Custom cursors are desktop-only; touch devices see the normal cursor / nothing.</p>
+
+<div class="group">
+  <div class="gl">Minimal — safe for an enterprise site</div>
+  <div class="modes">
+    <button data-mode="native" aria-pressed="true">1 · Native (current)</button>
+    <button data-mode="arrow">2 · Custom SVG arrow</button>
+    <button data-mode="cross">3 · Crosshair</button>
+    <button data-mode="dot">4 · Brand dot</button>
+  </div>
+</div>
+<div class="group">
+  <div class="gl">Animated followers</div>
+  <div class="modes">
+    <button data-mode="ring">5 · Ring follower</button>
+    <button data-mode="label">6 · Contextual label</button>
+    <button data-mode="magnet">7 · Magnetic morph</button>
+    <button data-mode="glow">8 · Spotlight glow</button>
+  </div>
+</div>
+<div class="group">
+  <div class="gl">On-brand — navigation / terrain / survey</div>
+  <div class="modes">
+    <button data-mode="compass">9 · Compass bearing</button>
+    <button data-mode="survey">10 · Survey reticle + coords</button>
+    <button data-mode="ripple">11 · Contour click-ripple</button>
+  </div>
+</div>
+<div class="group">
+  <div class="gl">Bold / editorial</div>
+  <div class="modes">
+    <button data-mode="blend">12 · Invert / blend circle</button>
+  </div>
+</div>
+
+<div class="note" id="modeNote"></div>
+
+<div class="pg">
+  <div class="big" data-cursor-label="Read">Navigate the complexity of HR with confidence.</div>
+  <div class="zone">
+    <span class="lab">Primary button</span><h3>Call to action</h3>
+    <a href="#" class="btn" data-cursor-label="Let's talk">Talk to an HR Expert →</a>
+  </div>
+  <div class="zone">
+    <span class="lab">Secondary button</span><h3>Ghost style</h3>
+    <button class="btn ghost" data-cursor-label="Open">Explore Our Services</button>
+  </div>
+  <div class="zone">
+    <span class="lab">Text link</span><h3>Inline link</h3>
+    <a href="#" class="link" data-cursor-label="Go">Read the compliance guide</a>
+  </div>
+  <div class="zone card-z" data-cursor-label="View">
+    <span class="lab">Whole card clickable</span><h3>Resource card</h3>
+    <p style="color:var(--slate);font-size:.9rem">Hover anywhere on this card.</p>
+  </div>
+  <div class="zone drag-z" data-cursor-label="Drag" style="grid-column:span 2">
+    <span class="lab">Draggable / scrollable strip</span><h3>Carousel area</h3>
+  </div>
+  <div class="zone">
+    <span class="lab">Plain text</span><h3>Body copy</h3>
+    <p style="color:var(--slate);font-size:.9rem">Regular paragraph — no interaction.</p>
+  </div>
+</div>
+
+<footer>
+  For HR Terrain: <b>1</b> is the safe default. <b>2</b> or a restrained <b>5 / 7</b> add polish without noise and pair well with the magnetic buttons you already have. <b>9–11</b> reinforce the "navigator of HR landscape" idea and could be used site-wide or just in the hero. <b>12</b> is striking but reads as "design agency" — use sparingly. All ship with reduced-motion + touch guards.
+</footer>
+
+<div class="cur cur-glow" id="curGlow"></div>
+<div class="cur cur-compass" id="curCompass"><span class="ringc"></span><span class="needle"></span></div>
+<div class="cur cur-blend" id="curBlend"></div>
+<div class="cur cur-ring" id="curRing"></div>
+<div class="cur cur-dot" id="curDot"></div>
+<div class="cur cur-label" id="curLabel"><span id="curLabelText"></span></div>
+<div class="cur-survey cur" id="curSurvey"><span class="hl"></span><span class="vl"></span><span class="mk"></span><span class="rd"></span></div>
+
+<script>
+(function(){
+  var body = document.body;
+  var $ = function(id){ return document.getElementById(id); };
+  var dot=$('curDot'), ring=$('curRing'), label=$('curLabel'), labelText=$('curLabelText'),
+      glow=$('curGlow'), compass=$('curCompass'), needle=compass.querySelector('.needle'),
+      blend=$('curBlend'), survey=$('curSurvey'),
+      sHL=survey.querySelector('.hl'), sVL=survey.querySelector('.vl'),
+      sMK=survey.querySelector('.mk'), sRD=survey.querySelector('.rd');
+
+  var notes = {
+    native:"Native browser cursor — arrow everywhere, hand on links. Zero overhead, most familiar.",
+    arrow:"A custom navy SVG arrow replaces the OS pointer; links get a target reticle. Pure CSS, no JS, no lag.",
+    cross:"Crosshair over content — leans into the navigation / terrain brand idea. Links keep the hand.",
+    dot:"A small brand dot tracks the mouse 1:1 and grows on interactive elements. Minimal and modern.",
+    ring:"A hollow ring trails the mouse with easing and expands + fills over links, buttons and cards.",
+    label:"The ring becomes a pill that spells out the action ('Let's talk', 'View', 'Drag') on interactive elements. Editorial feel.",
+    magnet:"The ring snaps onto the hovered button and morphs to its exact shape and size — a 'locked on' effect. Pairs with magnetic buttons.",
+    glow:"A soft light follows the cursor — subtle in light mode, atmospheric in dark mode. Native cursor stays visible.",
+    compass:"A compass needle points the way you're moving; a gold tip marks the heading. Straight from 'Navigator of HR Landscape'.",
+    survey:"A full-screen survey reticle with a live coordinate readout — the instrument aesthetic from the plotting-chart concepts, as a cursor.",
+    ripple:"A small ring cursor; every click sends out topographic contour rings from that point.",
+    blend:"A white circle with 'difference' blend mode — it inverts whatever is under it and swells over interactive elements. Bold, design-studio."
+  };
+
+  var mq = window.matchMedia('(hover:hover) and (pointer:fine)');
+  var rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var mode = 'native';
+
+  var tx=innerWidth/2, ty=innerHeight/2, rx=tx, ry=ty, lastX=tx, lastY=ty, vx=0, vy=0;
+  var locked=null; // magnet target rect
+
+  window.addEventListener('mousemove', function(e){
+    tx=e.clientX; ty=e.clientY;
+    vx = vx*0.7 + (tx-lastX)*0.3; vy = vy*0.7 + (ty-lastY)*0.3;
+    lastX=tx; lastY=ty;
+    // 1:1 layers
+    var solid = 'translate('+tx+'px,'+ty+'px) translate(-50%,-50%)';
+    dot.style.transform = solid;
+    glow.style.transform = solid;
+    blend.style.transform = solid;
+    compass.style.transform = solid;
+    if (mode==='survey'){
+      sHL.style.top = ty+'px'; sVL.style.left = tx+'px';
+      sMK.style.left = tx+'px'; sMK.style.top = ty+'px';
+      sRD.style.left = (tx+16)+'px'; sRD.style.top = (ty+16)+'px';
+      sRD.textContent = 'X '+tx+'  Y '+ty+'   ·  N '+(11 + ty/innerHeight).toFixed(4)+'°  E '+(75 + tx/innerWidth).toFixed(4)+'°';
+    }
+  });
+  window.addEventListener('mousedown', function(e){
+    body.classList.add('cur-down');
+    if (mode==='ripple' && !rm) spawnRipple(e.clientX, e.clientY);
+  });
+  window.addEventListener('mouseup', function(){ body.classList.remove('cur-down'); });
+
+  function spawnRipple(x,y){
+    for (var i=0;i<3;i++){
+      (function(k){
+        var r=document.createElement('div'); r.className='ripple';
+        r.style.left=x+'px'; r.style.top=y+'px';
+        r.style.width=r.style.height=(40+k*46)+'px';
+        r.style.animationDelay=(k*0.08)+'s';
+        document.body.appendChild(r);
+        setTimeout(function(){ r.remove(); }, 1100+k*80);
+      })(i);
+    }
+  }
+
+  (function loop(){
+    var ease = 0.2;
+    rx += (tx-rx)*ease; ry += (ty-ry)*ease;
+    if (mode==='magnet' && locked){
+      var cx = locked.left + locked.width/2, cy = locked.top + locked.height/2;
+      rx += (cx-rx)*0.15; ry += (cy-ry)*0.15;
+      ring.style.width = (locked.width+14)+'px';
+      ring.style.height = (locked.height+14)+'px';
+      ring.style.borderRadius = locked.br;
+    } else if (mode==='magnet'){
+      ring.style.borderRadius='50%';
+    }
+    var t = 'translate('+rx.toFixed(1)+'px,'+ry.toFixed(1)+'px) translate(-50%,-50%)';
+    ring.style.transform = t; label.style.transform = t;
+    if (mode==='compass'){
+      var sp = Math.sqrt(vx*vx+vy*vy);
+      if (sp > 0.8){ var ang = Math.atan2(vy,vx)*180/Math.PI + 90; needle.style.transform='translate(-50%,-100%) rotate('+ang+'deg)'; }
+    }
+    requestAnimationFrame(loop);
+  })();
+
+  var interactive = 'a, button, .card-z, .drag-z, [data-cursor-label]';
+  function nearest(n){ return (n && n.closest) ? n.closest(interactive) : null; }
+  document.addEventListener('mouseover', function(e){
+    var el = nearest(e.target);
+    if (el){
+      body.classList.add('cur-hover');
+      labelText.textContent = el.getAttribute('data-cursor-label') || 'Open';
+      if (mode==='magnet' && (el.tagName==='A' || el.tagName==='BUTTON')){
+        var b = el.getBoundingClientRect();
+        var cs = getComputedStyle(el);
+        locked = { left:b.left, top:b.top, width:b.width, height:b.height, br: cs.borderRadius };
+      }
+    }
+  });
+  document.addEventListener('mouseout', function(e){
+    if (nearest(e.target) && !nearest(e.relatedTarget)){
+      body.classList.remove('cur-hover');
+      locked = null;
+      if (mode==='magnet'){ ring.style.width=''; ring.style.height=''; ring.style.borderRadius='50%'; }
+    }
+  });
+
+  var JS_MODES = { dot:['curDot'], ring:['curRing'], label:['curLabel'], magnet:['curRing'],
+                   glow:['curGlow'], compass:['curCompass'], survey:['curSurvey'], blend:['curBlend'] };
+  var ALL = ['native','arrow','cross','dot','ring','label','magnet','glow','compass','survey','ripple','blend'];
+
+  function setMode(m){
+    mode = m;
+    ALL.forEach(function(x){ body.classList.remove('m-'+x); });
+    body.classList.remove('js-cursor');
+    body.classList.add('m-'+m);
+    // hide all cur layers
+    ['curDot','curRing','curLabel','curGlow','curCompass','curSurvey','curBlend'].forEach(function(id){ $(id).classList.remove('on'); });
+    locked=null; ring.style.width=''; ring.style.height=''; ring.style.borderRadius='50%';
+
+    var usesJS = JS_MODES[m];
+    if (m==='ripple'){ body.classList.add('js-cursor'); $('curRing').classList.add('on'); }
+    else if (usesJS && mq.matches && !rm){
+      body.classList.add('js-cursor');
+      usesJS.forEach(function(id){ $(id).classList.add('on'); });
+      if (m==='glow'){ body.classList.remove('js-cursor'); } // keep native cursor + glow
+    }
+    $('modeNote').textContent = notes[m] || '';
+    document.querySelectorAll('.modes button').forEach(function(b){
+      b.setAttribute('aria-pressed', b.dataset.mode===m ? 'true':'false');
+    });
+  }
+  document.querySelectorAll('.modes').forEach(function(g){
+    g.addEventListener('click', function(e){ var b=e.target.closest('button'); if(b) setMode(b.dataset.mode); });
+  });
+  setMode('native');
+
+  $('themeBtn').addEventListener('click', function(){
+    body.classList.toggle('dark');
+    this.textContent = body.classList.contains('dark') ? 'Light ◑' : 'Dark ◐';
+  });
+
+  if (!mq.matches){
+    document.querySelector('.sub').insertAdjacentHTML('beforeend',
+      '<br><strong style="color:#0F3473">You are on a touch device — custom cursors will not appear. Open on a laptop to try them.</strong>');
+  }
+})();
+</script>
+</body>
+</html>

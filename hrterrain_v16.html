@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HR Terrain — Modern HR, Payroll &amp; Statutory Compliance Infrastructure</title>
+<meta name="description" content="HR Terrain helps businesses navigate HR operations, payroll and statutory compliance through expert support, structured processes and technology-enabled systems. Serving Kerala, Karnataka and pan-India remote." />
+<meta name="theme-color" content="#0A0E1A" />
+<link rel="canonical" href="https://hrterrain.com/" />
+
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HR Terrain" />
+<meta property="og:title" content="HR Terrain — Modern HR, Payroll &amp; Statutory Compliance Infrastructure" />
+<meta property="og:description" content="Navigate HR complexity. Run your business with confidence. Expert-led HR operations, payroll and statutory compliance, backed by technology." />
+<meta property="og:url" content="https://hrterrain.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="HR Terrain — Modern HR, Payroll &amp; Statutory Compliance Infrastructure" />
+<meta name="twitter:description" content="Navigate HR complexity. Run your business with confidence." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HR Terrain",
+  "description": "HR Terrain helps businesses navigate HR operations, payroll and statutory compliance through expert support, structured processes and technology-enabled systems.",
+  "url": "https://hrterrain.com/",
+  "email": "info.hrterrain@gmail.com",
+  "telephone": "+91-99950-94978",
+  "areaServed": ["Kerala", "Karnataka", "India"],
+  "knowsAbout": ["HR Operations", "Payroll", "Statutory Compliance", "Labour Law Compliance", "Employee Lifecycle Management", "HR Documentation", "Compliance Audits", "HR Advisory"],
+  "slogan": "Navigator of HR Landscapes"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What HR services does HR Terrain provide?","acceptedAnswer":{"@type":"Answer","text":"HR Terrain supports HR operations, payroll processing, statutory compliance, compliance management and monitoring, HR advisory, and technology-enabled HR workflows. Engagements are scoped to what your organisation actually needs."}},
+    {"@type":"Question","name":"Do you handle payroll?","acceptedAnswer":{"@type":"Answer","text":"Yes. We manage monthly payroll processing, salary structures, attendance and leave inputs, statutory deductions such as PF, ESI, PT and TDS, payslip generation, and full-and-final settlements, with branch-wise reporting."}},
+    {"@type":"Question","name":"Which statutory compliances do you support?","acceptedAnswer":{"@type":"Answer","text":"We work across EPF, ESI, Professional Tax and Labour Welfare Fund, along with related registers, returns and documentation. Other labour-law obligations are handled based on their applicability to your establishment."}},
+    {"@type":"Question","name":"Can you manage employee onboarding and documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes. We handle offer and joining documentation, onboarding workflows, employee records, statutory registrations, and exit documentation as one connected employee lifecycle."}},
+    {"@type":"Question","name":"Do you support multi-location organisations?","acceptedAnswer":{"@type":"Answer","text":"Yes. We support multi-branch and multi-state operations with consolidated processing and branch-wise compliance and reporting."}},
+    {"@type":"Question","name":"Can HR Terrain help with compliance audits?","acceptedAnswer":{"@type":"Answer","text":"Yes. We help organisations prepare for audits and inspections through documentation review, gap identification, record readiness and coordination during departmental queries."}},
+    {"@type":"Question","name":"Can you work alongside our existing HR or payroll systems?","acceptedAnswer":{"@type":"Answer","text":"Yes. We adapt to the tools your team already uses and build structured processes around them rather than forcing a platform change."}},
+    {"@type":"Question","name":"Is the compliance dashboard a live product?","acceptedAnswer":{"@type":"Answer","text":"The dashboard shown on this site is an illustrative concept. Reporting and visibility are provided to clients as part of an engagement; a self-serve live product is not currently offered."}}
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   DESIGN TOKENS
+   ============================================================ */
+:root{
+  --bg:#0A0E1A;
+  --bg-1:#0C1120;
+  --bg-2:#0F1526;
+  --surface:rgba(255,255,255,0.024);
+  --surface-2:rgba(255,255,255,0.04);
+  --line:rgba(150,164,214,0.13);
+  --line-2:rgba(150,164,214,0.22);
+
+  --text:#EEF1FA;
+  --text-2:#A9B0CE;
+  --text-3:#6E7599;
+
+  --indigo:#6366F1;
+  --indigo-1:#818CF8;
+  --violet:#8B5CF6;
+  --sky:#38BDF8;
+  --ok:#34D399;
+  --warn:#FBBF24;
+
+  --ring:rgba(129,140,248,0.55);
+
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:22px;
+  --maxw:1180px;
+  --pad:clamp(20px,5vw,48px);
+
+  --font-display:'Space Grotesk','Inter',system-ui,sans-serif;
+  --font-body:'Inter',system-ui,-apple-system,sans-serif;
+
+  --ease:cubic-bezier(0.16,1,0.3,1);
+  --dur:0.7s;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:var(--font-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:rgba(99,102,241,0.32)}
+
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:20px;border:3px solid var(--bg)}
+
+:focus-visible{outline:2px solid var(--ring);outline-offset:3px;border-radius:4px}
+
+/* ============================================================
+   TYPOGRAPHY PRIMITIVES
+   ============================================================ */
+h1,h2,h3,h4{font-family:var(--font-display);font-weight:600;letter-spacing:-0.02em;line-height:1.12}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--font-display);
+  font-size:0.72rem;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--indigo-1);
+}
+.eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:0.6}
+.eyebrow.no-rule::before{display:none}
+
+.section{padding:clamp(64px,9vw,120px) var(--pad);position:relative}
+.wrap{max-width:var(--maxw);margin:0 auto}
+.section-head{max-width:640px;margin-bottom:clamp(36px,5vw,60px)}
+.section-head h2{
+  font-size:clamp(1.9rem,4vw,3rem);
+  margin:18px 0 16px;
+}
+.section-head p{color:var(--text-2);font-size:1.02rem}
+
+.lead{color:var(--text-2)}
+
+/* ============================================================
+   BUTTONS
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  font-family:var(--font-display);font-weight:600;font-size:0.92rem;
+  padding:13px 22px;border-radius:var(--r-sm);
+  border:1px solid transparent;cursor:pointer;
+  transition:transform 0.25s var(--ease),background 0.25s var(--ease),border-color 0.25s var(--ease),box-shadow 0.25s var(--ease);
+  min-height:46px;
+}
+.btn svg{width:16px;height:16px;transition:transform 0.25s var(--ease)}
+.btn-primary{
+  background:linear-gradient(180deg,var(--indigo-1),var(--indigo));
+  color:#0a0e1a;
+  box-shadow:0 1px 0 rgba(255,255,255,0.25) inset, 0 10px 30px -12px rgba(99,102,241,0.7);
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 1px 0 rgba(255,255,255,0.25) inset,0 16px 38px -12px rgba(99,102,241,0.8)}
+.btn-primary:hover svg{transform:translateX(3px)}
+.btn-ghost{
+  background:var(--surface);border-color:var(--line-2);color:var(--text);
+}
+.btn-ghost:hover{border-color:var(--indigo-1);background:var(--surface-2);transform:translateY(-2px)}
+.btn-lg{padding:16px 28px;font-size:1rem;min-height:54px}
+.btn-block{width:100%}
+
+/* ============================================================
+   REVEAL ANIMATION
+   ============================================================ */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity var(--dur) var(--ease),transform var(--dur) var(--ease)}
+.reveal.in{opacity:1;transform:none}
+[data-stagger] > *{opacity:0;transform:translateY(22px);transition:opacity 0.6s var(--ease),transform 0.6s var(--ease)}
+[data-stagger].in > *{opacity:1;transform:none}
+[data-stagger].in > *:nth-child(1){transition-delay:.00s}
+[data-stagger].in > *:nth-child(2){transition-delay:.06s}
+[data-stagger].in > *:nth-child(3){transition-delay:.12s}
+[data-stagger].in > *:nth-child(4){transition-delay:.18s}
+[data-stagger].in > *:nth-child(5){transition-delay:.24s}
+[data-stagger].in > *:nth-child(6){transition-delay:.30s}
+[data-stagger].in > *:nth-child(7){transition-delay:.36s}
+[data-stagger].in > *:nth-child(8){transition-delay:.42s}
+[data-stagger].in > *:nth-child(9){transition-delay:.48s}
+
+/* ============================================================
+   SCROLL PROGRESS
+   ============================================================ */
+#progress{
+  position:fixed;top:0;left:0;height:2px;width:0;z-index:1000;
+  background:linear-gradient(90deg,var(--indigo),var(--sky));
+  transition:width 0.1s linear;
+}
+
+/* ============================================================
+   NAV
+   ============================================================ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:24px;
+  padding:0 var(--pad);height:76px;
+  background:rgba(10,14,26,0.55);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid transparent;
+  transition:background 0.3s var(--ease),border-color 0.3s var(--ease),height 0.3s var(--ease);
+}
+.nav.solid{background:rgba(10,14,26,0.92);border-bottom-color:var(--line)}
+.nav-logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.nav-logo img{height:34px;width:auto}
+.nav-logo .lw{display:flex;flex-direction:column;line-height:1}
+.nav-logo .lw b{font-family:var(--font-display);font-weight:600;font-size:1.02rem;letter-spacing:-0.01em}
+.nav-logo .lw span{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--text-3);margin-top:3px}
+
+.nav-links{display:flex;align-items:center;gap:6px}
+.nav-links a{
+  font-size:0.86rem;font-weight:500;color:var(--text-2);
+  padding:8px 12px;border-radius:6px;position:relative;
+  transition:color 0.2s var(--ease),background 0.2s var(--ease);
+}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+.nav-links a.active{color:var(--text)}
+.nav-links a.active::after{
+  content:"";position:absolute;left:12px;right:12px;bottom:2px;height:1.5px;
+  background:var(--indigo-1);border-radius:2px;
+}
+.nav-actions{display:flex;align-items:center;gap:10px;flex-shrink:0}
+
+.nav-toggle{
+  display:none;width:44px;height:44px;align-items:center;justify-content:center;
+  background:var(--surface);border:1px solid var(--line);border-radius:8px;cursor:pointer;
+}
+.nav-toggle svg{width:20px;height:20px}
+
+.mobile-menu{
+  position:fixed;inset:76px 0 auto 0;z-index:899;
+  background:rgba(10,14,26,0.98);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+  padding:14px var(--pad) 26px;
+  display:none;flex-direction:column;gap:2px;
+  transform:translateY(-8px);opacity:0;
+  transition:transform 0.28s var(--ease),opacity 0.28s var(--ease);
+}
+.mobile-menu.open{display:flex;transform:none;opacity:1}
+.mobile-menu a{
+  font-family:var(--font-display);font-size:1.05rem;font-weight:500;
+  padding:15px 6px;border-bottom:1px solid var(--line);color:var(--text-2);
+}
+.mobile-menu a:last-of-type{border-bottom:none}
+.mobile-menu .btn{margin-top:16px}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;
+  padding:calc(76px + clamp(40px,7vw,80px)) var(--pad) clamp(56px,8vw,90px);
+}
+.hero-bg{
+  position:absolute;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(60% 50% at 15% 15%,rgba(99,102,241,0.16),transparent 70%),
+    radial-gradient(50% 55% at 92% 30%,rgba(56,189,248,0.10),transparent 70%);
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.5;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:64px 64px;
+  -webkit-mask-image:radial-gradient(80% 70% at 50% 30%,#000,transparent 85%);
+          mask-image:radial-gradient(80% 70% at 50% 30%,#000,transparent 85%);
+}
+.hero-inner{
+  position:relative;z-index:1;max-width:var(--maxw);margin:0 auto;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.02fr);
+  gap:clamp(32px,5vw,64px);align-items:center;
+}
+.hero-inner > *{min-width:0}
+.hero-visual{max-width:540px;margin-inline:auto;width:100%}
+.hero-copy h1{
+  font-size:clamp(2.4rem,5.4vw,4rem);
+  margin:22px 0 20px;
+  letter-spacing:-0.035em;
+}
+.hero-copy h1 .muted{color:var(--text-2)}
+.hero-copy .lead{font-size:clamp(1rem,1.3vw,1.13rem);max-width:34ch}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
+.hero-meta{
+  display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:30px;
+  font-size:0.8rem;color:var(--text-3);
+}
+.hero-meta span{display:inline-flex;align-items:center;gap:7px}
+.hero-meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--indigo-1)}
+
+/* ---- Signature connected-system visual (pure SVG, scales as one unit) ---- */
+.system{display:block;width:100%;max-width:100%;height:auto;margin-inline:auto;overflow:visible}
+.system.float{animation:sysfloat 9s ease-in-out infinite}
+@keyframes sysfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.system .s-link{stroke:var(--line-2);stroke-width:1.4;fill:none}
+.system .s-flow{
+  stroke:var(--indigo-1);stroke-width:1.6;fill:none;
+  stroke-dasharray:3 10;stroke-linecap:round;opacity:0.85;
+  animation:flow 2.6s linear infinite;
+}
+@keyframes flow{to{stroke-dashoffset:-78}}
+.system .s-chip{fill:var(--bg-1);stroke:var(--line-2);stroke-width:1}
+.system .s-dot{fill:var(--indigo-1)}
+.system .s-label{fill:var(--text-2);font-family:var(--font-body);font-size:15px;font-weight:500}
+.system .s-core-box{fill:rgba(99,102,241,0.12);stroke:var(--ring);stroke-width:1.4}
+.system .s-core-name{fill:#fff;font-family:var(--font-display);font-size:22px;font-weight:600;letter-spacing:0.2px}
+.system .s-core-sub{fill:var(--indigo-1);font-family:var(--font-display);font-size:10px;font-weight:600;letter-spacing:2.4px}
+.system .s-node .s-chip{transition:stroke 0.3s var(--ease)}
+.system-caption{
+  text-align:center;margin-top:16px;font-family:var(--font-display);
+  font-size:0.82rem;color:var(--text-3);letter-spacing:0.02em;
+}
+@media (prefers-reduced-motion:reduce){.system .s-flow{animation:none;opacity:0.5}}
+
+/* ============================================================
+   TRUST BAR
+   ============================================================ */
+.trust{
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:var(--bg-1);
+  padding:22px var(--pad);
+}
+.trust-inner{
+  max-width:var(--maxw);margin:0 auto;
+  display:flex;align-items:center;gap:14px 30px;flex-wrap:wrap;justify-content:space-between;
+}
+.trust p{font-size:0.76rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);font-family:var(--font-display)}
+.trust ul{display:flex;gap:10px 26px;flex-wrap:wrap;list-style:none}
+.trust li{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:0.83rem;color:var(--text-2);font-weight:500;
+}
+.trust li svg{width:15px;height:15px;color:var(--indigo-1);flex:none}
+
+/* ============================================================
+   PROBLEM
+   ============================================================ */
+.problem-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:14px;margin-top:8px;
+}
+.problem-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:22px;transition:border-color 0.3s var(--ease),background 0.3s var(--ease);
+}
+.problem-card:hover{border-color:var(--line-2);background:var(--surface-2)}
+.problem-card svg{width:20px;height:20px;color:var(--text-3);margin-bottom:14px}
+.problem-card h3{font-size:1rem;font-weight:600;margin-bottom:6px}
+.problem-card p{font-size:0.88rem;color:var(--text-3);line-height:1.55}
+.problem-bridge{
+  margin-top:34px;padding:26px 28px;border-radius:var(--r-lg);
+  border:1px solid var(--line-2);
+  background:linear-gradient(180deg,rgba(99,102,241,0.09),transparent);
+  display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+}
+.problem-bridge p{flex:1 1 300px;font-family:var(--font-display);font-size:clamp(1.1rem,2vw,1.4rem);font-weight:500;color:var(--text)}
+.problem-bridge .btn{flex:none;margin-left:auto}
+
+/* ============================================================
+   SERVICES
+   ============================================================ */
+#services{background:var(--bg-1)}
+.svc{display:grid;grid-template-columns:300px minmax(0,1fr);gap:clamp(20px,3vw,44px);margin-top:12px}
+.svc-tabs{display:flex;flex-direction:column;gap:6px;position:sticky;top:96px;align-self:start}
+.svc-tab{
+  display:flex;gap:13px;align-items:flex-start;text-align:left;
+  padding:14px 15px;border-radius:var(--r-md);
+  background:transparent;border:1px solid transparent;cursor:pointer;width:100%;
+  transition:background 0.25s var(--ease),border-color 0.25s var(--ease);
+}
+.svc-tab:hover{background:var(--surface)}
+.svc-tab[aria-selected="true"]{background:var(--surface-2);border-color:var(--line-2)}
+.svc-tab i{
+  width:34px;height:34px;flex:none;border-radius:9px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface-2);color:var(--text-3);
+  transition:color 0.25s var(--ease),background 0.25s var(--ease);
+}
+.svc-tab[aria-selected="true"] i{background:linear-gradient(180deg,var(--indigo-1),var(--indigo));color:#0a0e1a}
+.svc-tab i svg{width:17px;height:17px}
+.svc-tab b{font-family:var(--font-display);font-weight:600;font-size:0.94rem;display:block}
+.svc-tab span{font-size:0.78rem;color:var(--text-3)}
+
+.svc-panel{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:clamp(24px,3vw,40px);
+}
+.svc-panel[hidden]{display:none}
+.svc-panel .n{font-family:var(--font-display);font-size:0.74rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--indigo-1)}
+.svc-panel h3{font-size:clamp(1.4rem,2.6vw,1.9rem);margin:10px 0 14px}
+.svc-panel > p{color:var(--text-2);max-width:60ch;margin-bottom:22px}
+.svc-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.svc-list div{
+  display:flex;gap:11px;align-items:flex-start;
+  font-size:0.87rem;color:var(--text-2);line-height:1.5;
+  padding:13px 15px;background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-sm);
+}
+.svc-list svg{width:15px;height:15px;color:var(--ok);flex:none;margin-top:3px}
+
+/* ============================================================
+   COMPLIANCE
+   ============================================================ */
+.comp-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.9fr);gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:44px}
+.comp-pillars{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.comp-pillars span{
+  font-family:var(--font-display);font-size:0.8rem;font-weight:500;
+  padding:8px 14px;border-radius:100px;border:1px solid var(--line-2);color:var(--text-2);
+}
+.comp-pillars span b{color:var(--indigo-1);font-weight:600}
+.comp-diagram{
+  border:1px solid var(--line);border-radius:var(--r-lg);background:var(--bg-1);
+  padding:24px;
+}
+.comp-diagram .ring{
+  font-family:var(--font-display);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;
+  color:var(--text-3);margin-bottom:14px;
+}
+.comp-flow{display:flex;flex-direction:column;gap:10px}
+.comp-flow div{display:flex;align-items:center;gap:12px;font-size:0.86rem;color:var(--text-2)}
+.comp-flow .dot{width:9px;height:9px;border-radius:50%;flex:none;background:var(--indigo-1)}
+.comp-flow .bar{flex:1;height:1px;background:var(--line-2)}
+
+.modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.module{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:16px;transition:border-color 0.25s var(--ease),transform 0.25s var(--ease),background 0.25s var(--ease);
+}
+.module:hover{border-color:var(--line-2);transform:translateY(-3px);background:var(--surface-2)}
+.module b{font-family:var(--font-display);font-size:0.92rem;font-weight:600;display:block}
+.module span{font-size:0.76rem;color:var(--text-3)}
+.compliance-note{
+  margin-top:22px;padding:18px 20px;border-radius:var(--r-md);
+  background:var(--bg-1);border:1px solid var(--line);
+  font-size:0.85rem;color:var(--text-3);display:flex;gap:12px;align-items:flex-start;
+}
+.compliance-note svg{width:16px;height:16px;flex:none;margin-top:2px;color:var(--warn)}
+.comp-actions{margin-top:28px}
+
+/* ============================================================
+   PROCESS
+   ============================================================ */
+#process{background:var(--bg-1)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:16px;position:relative}
+.step{padding:26px 22px 26px 0;border-top:1px solid var(--line-2);position:relative}
+.step::before{
+  content:"";position:absolute;top:-4px;left:0;width:7px;height:7px;border-radius:50%;
+  background:var(--indigo-1);
+}
+.step .n{font-family:var(--font-display);font-size:0.78rem;color:var(--text-3);letter-spacing:0.1em}
+.step h3{font-size:1.15rem;margin:12px 0 8px}
+.step p{font-size:0.87rem;color:var(--text-3);line-height:1.55;padding-right:14px}
+
+/* ============================================================
+   LIFECYCLE
+   ============================================================ */
+.lifecycle{
+  display:flex;gap:10px;overflow-x:auto;padding-bottom:10px;margin-top:12px;
+  scroll-snap-type:x mandatory;
+}
+.lc-stage{
+  scroll-snap-align:start;flex:1 1 0;min-width:190px;
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);
+  padding:20px 18px;position:relative;
+}
+.lc-stage .lc-i{
+  width:34px;height:34px;border-radius:9px;background:var(--surface-2);color:var(--indigo-1);
+  display:flex;align-items:center;justify-content:center;margin-bottom:14px;
+}
+.lc-stage .lc-i svg{width:17px;height:17px}
+.lc-stage .k{font-family:var(--font-display);font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--text-3)}
+.lc-stage h3{font-size:1.05rem;margin:6px 0 10px}
+.lc-stage ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.lc-stage li{font-size:0.82rem;color:var(--text-2);padding-left:14px;position:relative}
+.lc-stage li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--text-3)}
+.lifecycle-cap{margin-top:16px;font-family:var(--font-display);color:var(--text-3);font-size:0.88rem}
+
+/* ============================================================
+   TECHNOLOGY
+   ============================================================ */
+#technology{background:var(--bg-1)}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px;margin-top:14px}
+.tech-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;
+  transition:border-color 0.25s var(--ease),background 0.25s var(--ease)}
+.tech-card:hover{border-color:var(--line-2);background:var(--surface-2)}
+.tech-card svg{width:19px;height:19px;color:var(--indigo-1);margin-bottom:13px}
+.tech-card h3{font-size:0.98rem;margin-bottom:6px}
+.tech-card p{font-size:0.85rem;color:var(--text-3);line-height:1.55}
+.tech-disclaimer{margin-top:20px;font-size:0.82rem;color:var(--text-3)}
+
+/* ============================================================
+   DASHBOARD
+   ============================================================ */
+.dash-head{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:26px}
+.badge-illustrative{
+  font-family:var(--font-display);font-size:0.68rem;letter-spacing:0.12em;text-transform:uppercase;
+  color:var(--warn);border:1px solid rgba(251,191,36,0.4);border-radius:100px;padding:5px 11px;
+}
+.dash{
+  display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:16px;
+}
+.panel{
+  background:var(--bg-1);border:1px solid var(--line);border-radius:var(--r-lg);padding:22px;
+}
+.panel h3{
+  font-size:0.8rem;font-family:var(--font-display);letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--text-3);margin-bottom:16px;display:flex;align-items:center;gap:8px;
+}
+.panel h3 .live{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(52,211,153,0.18)}
+.filing{display:flex;flex-direction:column;gap:13px}
+.filing-row{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center}
+.filing-row .tag{font-family:var(--font-display);font-size:0.78rem;font-weight:600;color:var(--text-2)}
+.track{height:6px;border-radius:4px;background:var(--surface-2);overflow:hidden}
+.track i{display:block;height:100%;width:0;border-radius:4px;transition:width 1.1s var(--ease)}
+.pill{font-size:0.68rem;font-family:var(--font-display);letter-spacing:0.04em;padding:3px 9px;border-radius:100px;white-space:nowrap}
+.pill.ok{background:rgba(52,211,153,0.14);color:var(--ok)}
+.pill.due{background:rgba(251,191,36,0.14);color:var(--warn)}
+.score{display:flex;align-items:center;gap:18px}
+.score .num{font-family:var(--font-display);font-size:2.6rem;font-weight:600;line-height:1}
+.score .num span{font-size:1.1rem;color:var(--text-3)}
+.score p{font-size:0.82rem;color:var(--text-3)}
+.mini{display:flex;flex-direction:column;gap:9px;margin-top:4px}
+.mini div{display:flex;justify-content:space-between;font-size:0.83rem;color:var(--text-2);padding:9px 0;border-bottom:1px solid var(--line)}
+.mini div:last-child{border-bottom:none}
+.mini div span{color:var(--text-3)}
+.dash-foot{margin-top:14px;font-size:0.8rem;color:var(--text-3)}
+
+/* ============================================================
+   WHY
+   ============================================================ */
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.why-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:26px 24px;
+  transition:border-color 0.25s var(--ease),transform 0.25s var(--ease)}
+.why-card:hover{border-color:var(--line-2);transform:translateY(-3px)}
+.why-card .n{font-family:var(--font-display);font-size:0.8rem;color:var(--text-3)}
+.why-card h3{font-size:1.08rem;margin:12px 0 8px}
+.why-card p{font-size:0.87rem;color:var(--text-3);line-height:1.6}
+
+/* ============================================================
+   INDUSTRIES
+   ============================================================ */
+#industries{background:var(--bg-1)}
+.ind-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:6px}
+.ind-list span{
+  font-family:var(--font-display);font-size:0.86rem;font-weight:500;color:var(--text-2);
+  border:1px solid var(--line-2);border-radius:100px;padding:9px 16px;
+}
+.ind-note{margin-top:22px;color:var(--text-2);max-width:60ch}
+
+/* ============================================================
+   RESOURCES
+   ============================================================ */
+.res-cats{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;margin-bottom:26px}
+.res-cats span{font-size:0.8rem;color:var(--text-3);border:1px solid var(--line);border-radius:6px;padding:6px 12px}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.res-card{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:22px;
+  display:flex;flex-direction:column;gap:10px;min-height:150px;
+  transition:border-color 0.25s var(--ease),background 0.25s var(--ease)}
+.res-card:hover{border-color:var(--line-2);background:var(--surface-2)}
+.res-card .k{font-family:var(--font-display);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--indigo-1)}
+.res-card h3{font-size:1rem;line-height:1.35}
+.res-card .soon{margin-top:auto;font-size:0.76rem;color:var(--text-3)}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.testi{
+  background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:24px;
+}
+.testi p{font-size:0.92rem;color:var(--text);line-height:1.65;margin-bottom:18px}
+.testi .who{font-size:0.8rem;color:var(--text-3);font-family:var(--font-display)}
+.testi-disc{margin-top:18px;font-size:0.8rem;color:var(--text-3)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+#faq{background:var(--bg-1)}
+.faq-list{margin-top:12px;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  padding:22px 44px 22px 0;position:relative;
+  font-family:var(--font-display);font-size:1.02rem;font-weight:500;color:var(--text);
+}
+.faq-q::after{
+  content:"";position:absolute;right:6px;top:26px;width:12px;height:12px;
+  border-right:2px solid var(--text-3);border-bottom:2px solid var(--text-3);
+  transform:rotate(45deg);transition:transform 0.3s var(--ease);
+}
+.faq-item.open .faq-q::after{transform:rotate(-135deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height 0.35s var(--ease)}
+.faq-a p{padding:0 0 22px;color:var(--text-2);font-size:0.92rem;max-width:70ch}
+
+/* ============================================================
+   FINAL CTA
+   ============================================================ */
+.final{
+  text-align:center;padding:clamp(70px,10vw,130px) var(--pad);position:relative;overflow:hidden;
+}
+.final::before{
+  content:"";position:absolute;inset:0;z-index:0;
+  background:radial-gradient(50% 60% at 50% 40%,rgba(99,102,241,0.16),transparent 70%);
+}
+.final > *{position:relative;z-index:1}
+.final h2{font-size:clamp(2rem,4.5vw,3.3rem);margin-bottom:18px}
+.final p{color:var(--text-2);max-width:52ch;margin:0 auto 32px;font-size:1.05rem}
+.final .hero-cta{justify-content:center}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact{background:var(--bg-1)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,0.85fr) minmax(0,1.15fr);gap:clamp(28px,4vw,56px);margin-top:12px}
+.contact-info{display:flex;flex-direction:column;gap:14px}
+.ci-row{display:flex;gap:14px;align-items:flex-start}
+.ci-row i{width:38px;height:38px;flex:none;border-radius:10px;background:var(--surface-2);color:var(--indigo-1);display:flex;align-items:center;justify-content:center}
+.ci-row i svg{width:17px;height:17px}
+.ci-row .k{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-3);font-family:var(--font-display)}
+.ci-row .v{font-size:0.92rem;color:var(--text)}
+
+.form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:clamp(22px,3vw,34px)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-size:0.74rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-3);font-family:var(--font-display)}
+.field input,.field select,.field textarea{
+  background:var(--bg-2);border:1px solid var(--line);border-radius:var(--r-sm);
+  padding:12px 14px;font-size:0.92rem;transition:border-color 0.2s var(--ease),box-shadow 0.2s var(--ease);
+  width:100%;
+}
+.field textarea{resize:vertical;min-height:104px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236E7599' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--indigo-1);box-shadow:0 0 0 3px rgba(129,140,248,0.16)}
+.field .err{font-size:0.76rem;color:#fca5a5;display:none}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:#f87171}
+.field.invalid .err{display:block}
+.form small{display:block;margin-top:12px;color:var(--text-3);font-size:0.78rem}
+.form-status{margin-top:14px;font-size:0.86rem;color:var(--ok);display:none}
+.form-status.show{display:block}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer{border-top:1px solid var(--line);padding:clamp(48px,7vw,72px) var(--pad) 30px;background:var(--bg)}
+.foot-inner{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:36px}
+.foot-brand img{height:32px;margin-bottom:14px}
+.foot-brand b{font-family:var(--font-display);font-size:1.05rem;display:block}
+.foot-brand span{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3)}
+.foot-brand p{font-size:0.85rem;color:var(--text-3);margin-top:14px;max-width:32ch}
+.foot-col h4{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-bottom:14px;font-weight:600}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot-col a{font-size:0.86rem;color:var(--text-2);transition:color 0.2s var(--ease)}
+.foot-col a:hover{color:var(--text)}
+.foot-bottom{
+  max-width:var(--maxw);margin:44px auto 0;padding-top:22px;border-top:1px solid var(--line);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:0.8rem;color:var(--text-3);
+}
+
+/* ============================================================
+   WHATSAPP FLOAT
+   ============================================================ */
+.wa{
+  position:fixed;right:20px;bottom:20px;z-index:850;
+  width:52px;height:52px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 30px -8px rgba(37,211,102,0.6);
+  transition:transform 0.25s var(--ease);
+}
+.wa:hover{transform:scale(1.08)}
+.wa svg{width:26px;height:26px;fill:#0a0e1a}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1024px){
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .hero-inner{grid-template-columns:1fr;gap:48px}
+  .hero-copy .lead{max-width:52ch}
+  .system{max-width:460px}
+  .comp-top{grid-template-columns:1fr}
+  .svc{grid-template-columns:1fr}
+  .svc-tabs{position:static;flex-direction:row;flex-wrap:wrap}
+  .svc-tab{flex:1 1 160px}
+  .svc-tab span{display:none}
+  .steps{grid-template-columns:1fr 1fr}
+  .dash{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr 1fr}
+}
+@media (max-width:680px){
+  .nav-actions .btn-primary{display:none}
+}
+@media (max-width:560px){
+  .nav-logo .lw span{display:none}
+  .hero-cta .btn,.final .hero-cta .btn{flex:1 1 100%}
+  .problem-bridge .btn{margin-left:0;width:100%}
+  .steps{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .foot-inner{grid-template-columns:1fr}
+  .hero-visual{max-width:420px}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.001ms!important;animation-iteration-count:1!important;transition-duration:0.001ms!important;scroll-behavior:auto!important}
+  .reveal,[data-stagger] > *{opacity:1!important;transform:none!important}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo" aria-label="HR Terrain home">
+    <img src="data:image/png;base64,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" alt="HR Terrain logo" width="120" height="34" />
+    <span class="lw"><b>HR Terrain</b><span>Navigator of HR Landscapes</span></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#compliance">Compliance</a>
+    <a href="#operations">HR Operations</a>
+    <a href="#resources">Resources</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <a href="#contact" class="btn btn-primary">Talk to an HR Expert
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
+  </div>
+</header>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#services">Services</a>
+  <a href="#compliance">Compliance</a>
+  <a href="#operations">HR Operations</a>
+  <a href="#resources">Resources</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#contact" class="btn btn-primary btn-block">Talk to an HR Expert</a>
+</div>
+
+<span id="top"></span>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">HR • Payroll • Compliance</span>
+      <h1>Navigate HR complexity.<br /><span class="muted">Run your business with confidence.</span></h1>
+      <p class="lead">HR Terrain helps businesses simplify HR operations, payroll and statutory compliance through expert support, structured processes and technology-enabled systems.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary btn-lg">Talk to an HR Expert
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#services" class="btn btn-ghost btn-lg">Explore Our Services</a>
+      </div>
+      <div class="hero-meta">
+        <span>Kerala &amp; Karnataka</span>
+        <span>Pan-India remote</span>
+        <span>Compliance-first</span>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <svg class="system float" viewBox="0 0 600 566" width="600" height="566" preserveAspectRatio="xMidYMid meet" role="img"
+        aria-label="Diagram: Payroll, PF/EPF, ESI, Professional Tax, LWF, compliance deadlines, documentation and employee lifecycle all connecting to a central HR Terrain operations core.">
+        <g class="s-link">
+          <line x1="300" y1="284" x2="300" y2="54"/>
+          <line x1="300" y1="284" x2="476" y2="132"/>
+          <line x1="300" y1="284" x2="508" y2="284"/>
+          <line x1="300" y1="284" x2="474" y2="436"/>
+          <line x1="300" y1="284" x2="300" y2="512"/>
+          <line x1="300" y1="284" x2="126" y2="436"/>
+          <line x1="300" y1="284" x2="92" y2="284"/>
+          <line x1="300" y1="284" x2="128" y2="132"/>
+        </g>
+        <g class="s-flow">
+          <line x1="300" y1="284" x2="300" y2="54"/>
+          <line x1="300" y1="284" x2="508" y2="284"/>
+          <line x1="300" y1="284" x2="300" y2="512"/>
+          <line x1="300" y1="284" x2="92" y2="284"/>
+        </g>
+
+        <!-- satellite nodes -->
+        <g class="s-node" transform="translate(300,54)">
+          <rect class="s-chip" x="-58" y="-17" width="116" height="34" rx="17"/>
+          <circle class="s-dot" cx="-40" cy="0" r="3.5"/>
+          <text class="s-label" x="-28" y="5">Payroll</text>
+        </g>
+        <g class="s-node" transform="translate(476,132)">
+          <rect class="s-chip" x="-62" y="-17" width="124" height="34" rx="17"/>
+          <circle class="s-dot" cx="-44" cy="0" r="3.5"/>
+          <text class="s-label" x="-32" y="5">PF / EPF</text>
+        </g>
+        <g class="s-node" transform="translate(508,284)">
+          <rect class="s-chip" x="-48" y="-17" width="96" height="34" rx="17"/>
+          <circle class="s-dot" cx="-30" cy="0" r="3.5"/>
+          <text class="s-label" x="-18" y="5">ESI</text>
+        </g>
+        <g class="s-node" transform="translate(474,436)">
+          <rect class="s-chip" x="-64" y="-17" width="128" height="34" rx="17"/>
+          <circle class="s-dot" cx="-46" cy="0" r="3.5"/>
+          <text class="s-label" x="-34" y="5">Prof. Tax</text>
+        </g>
+        <g class="s-node" transform="translate(300,512)">
+          <rect class="s-chip" x="-46" y="-17" width="92" height="34" rx="17"/>
+          <circle class="s-dot" cx="-28" cy="0" r="3.5"/>
+          <text class="s-label" x="-16" y="5">LWF</text>
+        </g>
+        <g class="s-node" transform="translate(126,436)">
+          <rect class="s-chip" x="-66" y="-17" width="132" height="34" rx="17"/>
+          <circle class="s-dot" cx="-48" cy="0" r="3.5"/>
+          <text class="s-label" x="-36" y="5">Deadlines</text>
+        </g>
+        <g class="s-node" transform="translate(92,284)">
+          <rect class="s-chip" x="-66" y="-17" width="132" height="34" rx="17"/>
+          <circle class="s-dot" cx="-48" cy="0" r="3.5"/>
+          <text class="s-label" x="-36" y="5">Documents</text>
+        </g>
+        <g class="s-node" transform="translate(128,132)">
+          <rect class="s-chip" x="-62" y="-17" width="124" height="34" rx="17"/>
+          <circle class="s-dot" cx="-44" cy="0" r="3.5"/>
+          <text class="s-label" x="-32" y="5">Lifecycle</text>
+        </g>
+
+        <!-- core -->
+        <g transform="translate(300,284)">
+          <rect class="s-core-box" x="-86" y="-42" width="172" height="84" rx="18"/>
+          <text class="s-core-name" x="0" y="-2" text-anchor="middle">HR Terrain</text>
+          <text class="s-core-sub" x="0" y="20" text-anchor="middle">OPERATIONS CORE</text>
+        </g>
+      </svg>
+      <p class="system-caption">Everything connected. Nothing missed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TRUST ============================ -->
+<div class="trust">
+  <div class="trust-inner">
+    <p>What we cover</p>
+    <ul>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v12H4z"/><path d="M4 11h16"/></svg>HR Operations</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg>Payroll</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></svg>Statutory Compliance</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M5 8l7 0M5 8a3 3 0 006 0M13 8a3 3 0 006 0M19 8l-7 0"/></svg>Labour Law</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/></svg>Documentation</li>
+      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg>HR Advisory</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================ PROBLEM ============================ -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">The problem</span>
+      <h2>HR shouldn't feel like a maze.</h2>
+      <p>Most growing businesses carry HR, payroll and compliance across spreadsheets, portals, consultants and memory. The work is recurring, the deadlines are unforgiving, and the rules keep changing.</p>
+    </div>
+    <div class="problem-grid reveal" data-stagger>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><h3>Multiple statutory deadlines</h3><p>PF, ESI, PT and LWF each run on their own calendar, in every state you operate.</p></div>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg><h3>Payroll complexity</h3><p>Salary structures, LOP, arrears and deductions have to reconcile — every month.</p></div>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M4 8l8 0M4 8a3 3 0 006 0"/></svg><h3>Frequent regulatory change</h3><p>Circulars, rate revisions and labour-code shifts land without much warning.</p></div>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/></svg><h3>Employee documentation</h3><p>Offer letters, records and registrations pile up and go out of date.</p></div>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 19c1-4 11-4 12 0M16 11l2 2 4-4"/></svg><h3>Contractor compliance</h3><p>Contract labour brings its own registers, returns and principal-employer duties.</p></div>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4v6c0 5-3.5 7.5-9 9-5.5-1.5-9-4-9-9V7z"/><path d="M12 8v5"/><circle cx="12" cy="16" r="0.6" fill="currentColor"/></svg><h3>Compliance notices</h3><p>A single missed filing can turn into inspections, queries and penalties.</p></div>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v4H6zM6 12h12v8H6z"/></svg><h3>Manual processes</h3><p>Re-keyed data between systems is slow and quietly error-prone.</p></div>
+      <div class="problem-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7.5 7.5l3 8M16.5 7.5l-3 8"/></svg><h3>Fragmented HR data</h3><p>The full picture lives in too many places to see at once.</p></div>
+    </div>
+    <div class="problem-bridge reveal">
+      <p>HR Terrain brings the landscape together — one framework across operations, payroll and compliance.</p>
+      <a href="#services" class="btn btn-ghost">See how</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Services</span>
+      <h2>One framework. Six connected disciplines.</h2>
+      <p>Each service line is scoped to what your organisation actually needs — run individually, or together as a single operating layer.</p>
+    </div>
+
+    <div class="svc reveal">
+      <div class="svc-tabs" role="tablist" aria-label="Services">
+        <button class="svc-tab" role="tab" aria-selected="true" aria-controls="svc-0" id="tab-0">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16v12H4z"/><path d="M4 11h16M9 15h6"/></svg></i>
+          <span class="t"><b>HR Operations</b><span>Onboarding &amp; records</span></span>
+        </button>
+        <button class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-1" id="tab-1">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></i>
+          <span class="t"><b>Payroll</b><span>Processing &amp; controls</span></span>
+        </button>
+        <button class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-2" id="tab-2">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></i>
+          <span class="t"><b>Statutory Compliance</b><span>PF · ESI · PT · LWF</span></span>
+        </button>
+        <button class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-3" id="tab-3">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M9 3v4M15 3v4M9 14l2 2 4-4"/></svg></i>
+          <span class="t"><b>Compliance Management</b><span>Calendars &amp; monitoring</span></span>
+        </button>
+        <button class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-4" id="tab-4">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v5l3 2"/></svg></i>
+          <span class="t"><b>HR Advisory</b><span>Policy &amp; process</span></span>
+        </button>
+        <button class="svc-tab" role="tab" aria-selected="false" aria-controls="svc-5" id="tab-5">
+          <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M9 9h6v6H9zM4 10h-0M20 10h0M10 4v0M14 20v0"/></svg></i>
+          <span class="t"><b>HR Technology &amp; Automation</b><span>Workflows &amp; visibility</span></span>
+        </button>
+      </div>
+
+      <div>
+        <div class="svc-panel" id="svc-0" role="tabpanel" aria-labelledby="tab-0">
+          <span class="n">Service 01</span>
+          <h3>HR Operations</h3>
+          <p>Employee onboarding, documentation, lifecycle management, HR administration and day-to-day operational support — run as a consistent, repeatable process.</p>
+          <div class="svc-list">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Offer, joining and onboarding documentation</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Structured employee records and data hygiene</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Attendance and leave inputs into payroll</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Confirmation, transfer and lifecycle events</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Exit and full-and-final documentation</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>HR helpdesk support for routine employee queries</div>
+          </div>
+        </div>
+
+        <div class="svc-panel" id="svc-1" role="tabpanel" aria-labelledby="tab-1" hidden>
+          <span class="n">Service 02</span>
+          <h3>Payroll</h3>
+          <p>Payroll processing, salary structures, attendance inputs, payroll controls and reporting — accurate, on time, and reconciled every cycle.</p>
+          <div class="svc-list">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Monthly payroll processing with statutory deductions (PF, ESI, PT, TDS)</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Salary structure and CTC design, LOP and arrears handling</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Payslip generation and secure distribution</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Full-and-final settlement and Form 16 coordination</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Multi-branch consolidated payroll with branch-wise reporting</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Reconciliation, registers and management reporting</div>
+          </div>
+        </div>
+
+        <div class="svc-panel" id="svc-2" role="tabpanel" aria-labelledby="tab-2" hidden>
+          <span class="n">Service 03</span>
+          <h3>Statutory Compliance</h3>
+          <p>PF, ESI, Professional Tax, Labour Welfare Fund and applicable statutory filings — handled with the registers, returns and documentation each one requires.</p>
+          <div class="svc-list">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Establishment and employee registration on EPFO &amp; ESIC portals</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Monthly PF ECR filing and ESIC contribution returns</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Professional Tax filings with state-specific slabs</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>LWF contributions, remittance and record maintenance</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Coordination during inspections, audits and departmental notices</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Regulatory alerts on rate and circular changes</div>
+          </div>
+        </div>
+
+        <div class="svc-panel" id="svc-3" role="tabpanel" aria-labelledby="tab-3" hidden>
+          <span class="n">Service 04</span>
+          <h3>Compliance Management</h3>
+          <p>Compliance calendars, deadline tracking, documentation, audit readiness and ongoing monitoring — so status is always known, not discovered.</p>
+          <div class="svc-list">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Establishment-specific compliance calendar</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Deadline tracking with advance reminders</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Central repository for challans, returns and acknowledgements</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Audit and inspection readiness reviews</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Exception and gap reporting</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Periodic compliance status summaries</div>
+          </div>
+        </div>
+
+        <div class="svc-panel" id="svc-4" role="tabpanel" aria-labelledby="tab-4" hidden>
+          <span class="n">Service 05</span>
+          <h3>HR Advisory</h3>
+          <p>Policies, processes, labour-law guidance and HR operational advisory — practical input for the decisions in front of you.</p>
+          <div class="svc-list">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>HR policy and handbook development</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Process design for HR and payroll operations</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Labour-law applicability guidance for your establishment</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Support on structuring, documentation and record-keeping</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Capability building for in-house HR teams</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Guidance during organisational change and scale-up</div>
+          </div>
+        </div>
+
+        <div class="svc-panel" id="svc-5" role="tabpanel" aria-labelledby="tab-5" hidden>
+          <span class="n">Service 06</span>
+          <h3>HR Technology &amp; Automation</h3>
+          <p>Digitising repetitive HR workflows, compliance tracking, documentation and operational processes — technology-enabled operations, run by people who own the outcome.</p>
+          <div class="svc-list">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Automated compliance and deadline reminders</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Centralised documentation and records</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Structured payroll and approval workflows</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Compliance calendars and status dashboards</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Standardised reports and management summaries</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Works alongside the HR/payroll tools you already use</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ COMPLIANCE ============================ -->
+<section class="section" id="compliance">
+  <div class="wrap">
+    <div class="comp-top">
+      <div class="reveal">
+        <span class="eyebrow">Compliance</span>
+        <h2 style="font-size:clamp(1.9rem,4vw,3rem);margin:18px 0 16px">Compliance is more than filing on time.</h2>
+        <p class="lead">Filing is the visible part. Good compliance is the system underneath it — the one that holds up when a notice arrives or an auditor asks for three years of records.</p>
+        <div class="comp-pillars">
+          <span><b>Accuracy</b></span>
+          <span><b>Documentation</b></span>
+          <span><b>Timelines</b></span>
+          <span><b>Monitoring</b></span>
+          <span><b>Accountability</b></span>
+        </div>
+      </div>
+      <div class="comp-diagram reveal">
+        <div class="ring">How a filing actually holds up</div>
+        <div class="comp-flow">
+          <div><span class="dot"></span>Correct inputs &amp; wage computation<span class="bar"></span></div>
+          <div><span class="dot"></span>Filed within the statutory window<span class="bar"></span></div>
+          <div><span class="dot"></span>Challan &amp; acknowledgement archived<span class="bar"></span></div>
+          <div><span class="dot"></span>Registers &amp; returns kept current<span class="bar"></span></div>
+          <div><span class="dot"></span>Reviewed &amp; owned each cycle<span class="bar"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-bottom:24px">
+      <h2 style="font-size:1.4rem">Compliance modules we work across</h2>
+    </div>
+    <div class="modules reveal" data-stagger>
+      <div class="module"><b>EPF</b><span>Provident Fund</span></div>
+      <div class="module"><b>ESI</b><span>Employees' State Insurance</span></div>
+      <div class="module"><b>Professional Tax</b><span>State-wise</span></div>
+      <div class="module"><b>LWF</b><span>Labour Welfare Fund</span></div>
+      <div class="module"><b>Gratuity</b><span>On applicability</span></div>
+      <div class="module"><b>Bonus</b><span>Payment of Bonus Act</span></div>
+      <div class="module"><b>Shops &amp; Establishments</b><span>State registration</span></div>
+      <div class="module"><b>Contract Labour</b><span>CLRA obligations</span></div>
+      <div class="module"><b>Other labour compliances</b><span>As applicable</span></div>
+    </div>
+
+    <div class="compliance-note reveal">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h0"/><path d="M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+      <span>Not every compliance applies to every organisation. Applicability depends on state, establishment type, employee count, industry, wage structure, nature of employment and other legal criteria. We assess what actually applies to you before recommending anything.</span>
+    </div>
+
+    <div class="comp-actions reveal">
+      <a href="#contact" class="btn btn-primary btn-lg">Assess Your Compliance
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="section" id="process">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">How it works</span>
+      <h2>A working relationship, in four moves.</h2>
+      <p>Not a one-time project. A cycle that repeats — with someone accountable for each part of it.</p>
+    </div>
+    <div class="steps reveal" data-stagger>
+      <div class="step"><span class="n">01 — Understand</span><h3>Understand</h3><p>The organisation, the workforce, the establishments and the requirements that actually apply.</p></div>
+      <div class="step"><span class="n">02 — Structure</span><h3>Structure</h3><p>Build the right HR, payroll and compliance processes — and the documentation to support them.</p></div>
+      <div class="step"><span class="n">03 — Execute</span><h3>Execute</h3><p>Run recurring operations and statutory requirements on schedule, every cycle.</p></div>
+      <div class="step"><span class="n">04 — Monitor</span><h3>Monitor</h3><p>Track deadlines, documentation, exceptions and compliance status — and report on them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ OPERATIONS / LIFECYCLE ============================ -->
+<section class="section" id="operations">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">HR Operations</span>
+      <h2>One connected employee journey.</h2>
+      <p>From the first offer letter to the final settlement, every stage produces records, obligations and hand-offs. We keep them connected.</p>
+    </div>
+    <div class="lifecycle reveal">
+      <div class="lc-stage">
+        <div class="lc-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 4v10M8 10l4 4 4-4"/><rect x="4" y="16" width="16" height="4" rx="1"/></svg></div>
+        <span class="k">Stage 01</span><h3>Hire</h3>
+        <ul><li>Offer &amp; joining documentation</li><li>Background &amp; document checks</li><li>Compensation structuring</li></ul>
+      </div>
+      <div class="lc-stage">
+        <div class="lc-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c1.5-4 12.5-4 14 0"/></svg></div>
+        <span class="k">Stage 02</span><h3>Onboard</h3>
+        <ul><li>Employee record creation</li><li>PF / ESI registration</li><li>Policy acknowledgements</li></ul>
+      </div>
+      <div class="lc-stage">
+        <div class="lc-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div>
+        <span class="k">Stage 03</span><h3>Manage</h3>
+        <ul><li>Attendance &amp; leave</li><li>Confirmations &amp; transfers</li><li>Records kept current</li></ul>
+      </div>
+      <div class="lc-stage">
+        <div class="lc-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div>
+        <span class="k">Stage 04</span><h3>Payroll</h3>
+        <ul><li>Monthly processing</li><li>Statutory deductions</li><li>Payslips &amp; reporting</li></ul>
+      </div>
+      <div class="lc-stage">
+        <div class="lc-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+        <span class="k">Stage 05</span><h3>Compliance</h3>
+        <ul><li>PF / ESI / PT / LWF filings</li><li>Registers &amp; returns</li><li>Audit-ready records</li></ul>
+      </div>
+      <div class="lc-stage">
+        <div class="lc-i"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 4v10M12 10l4 4 4-4"/><rect x="4" y="16" width="16" height="4" rx="1"/><path d="M4 4h6"/></svg></div>
+        <span class="k">Stage 06</span><h3>Exit</h3>
+        <ul><li>Full-and-final settlement</li><li>Form 16 &amp; PF exit</li><li>Exit documentation</li></ul>
+      </div>
+    </div>
+    <p class="lifecycle-cap reveal">Hire → Onboard → Manage → Payroll → Compliance → Exit</p>
+  </div>
+</section>
+
+<!-- ============================ TECHNOLOGY ============================ -->
+<section class="section" id="technology">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Technology</span>
+      <h2>Human expertise. Smarter systems.</h2>
+      <p>We use technology to remove repetitive work and improve visibility — not to replace the judgement that compliance actually needs.</p>
+    </div>
+    <div class="tech-grid reveal" data-stagger>
+      <div class="tech-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/></svg><h3>Automated reminders</h3><p>Statutory deadlines tracked and flagged in advance, not on the due date.</p></div>
+      <div class="tech-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/></svg><h3>Centralised documentation</h3><p>Challans, returns, acknowledgements and records in one organised place.</p></div>
+      <div class="tech-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg><h3>Payroll workflows</h3><p>Inputs, review and approval move through a defined, auditable path.</p></div>
+      <div class="tech-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10M8 14l3-3 2 2 3-4"/></svg><h3>Status dashboards</h3><p>Filing status and upcoming deadlines visible at a glance.</p></div>
+      <div class="tech-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M4 8l8 0M4 8a3 3 0 006 0"/></svg><h3>Structured reporting</h3><p>Consistent monthly summaries and reconciliation reports.</p></div>
+      <div class="tech-card"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg><h3>Works with your stack</h3><p>We adapt to the HR and payroll tools your team already uses.</p></div>
+    </div>
+    <p class="tech-disclaimer reveal">HR Terrain provides technology-enabled HR operations. We do not currently market an autonomous AI platform, and we don't claim capabilities the service doesn't provide.</p>
+  </div>
+</section>
+
+<!-- ============================ DASHBOARD ============================ -->
+<section class="section" id="dashboard">
+  <div class="wrap">
+    <div class="dash-head reveal">
+      <span class="eyebrow no-rule">Visibility</span>
+      <span class="badge-illustrative">Illustrative dashboard</span>
+    </div>
+    <div class="section-head reveal" style="margin-bottom:26px">
+      <h2>Always know where compliance stands.</h2>
+      <p>A concept of the reporting view clients receive. Figures shown here are illustrative and not connected to a live system.</p>
+    </div>
+
+    <div class="dash reveal">
+      <div class="panel">
+        <h3><span class="live"></span>Compliance overview — current cycle</h3>
+        <div class="filing" id="filing">
+          <div class="filing-row"><span class="tag">EPF</span><div class="track"><i data-w="100" style="background:var(--indigo-1)"></i></div><span class="pill ok">Filed</span></div>
+          <div class="filing-row"><span class="tag">ESI</span><div class="track"><i data-w="100" style="background:var(--sky)"></i></div><span class="pill ok">Filed</span></div>
+          <div class="filing-row"><span class="tag">PT</span><div class="track"><i data-w="62" style="background:var(--warn)"></i></div><span class="pill due">Due soon</span></div>
+          <div class="filing-row"><span class="tag">LWF</span><div class="track"><i data-w="100" style="background:var(--violet)"></i></div><span class="pill ok">Filed</span></div>
+        </div>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
+        <h3>Recent filings</h3>
+        <div class="mini">
+          <div>EPF — ECR uploaded &amp; paid <span>Cycle close</span></div>
+          <div>ESI — Contribution return filed <span>Cycle close</span></div>
+          <div>LWF — Half-yearly remittance <span>Prior period</span></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h3>Compliance score</h3>
+        <div class="score">
+          <div class="num" id="score">0<span>/100</span></div>
+          <p>Weighted across accuracy, timeliness and documentation completeness.</p>
+        </div>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
+        <h3>Upcoming deadlines</h3>
+        <div class="mini">
+          <div>PF ECR filing <span>Mid-month</span></div>
+          <div>ESI contribution <span>Mid-month</span></div>
+          <div>Professional Tax <span>Month-end</span></div>
+        </div>
+        <div style="height:1px;background:var(--line);margin:20px 0"></div>
+        <h3>Pending actions</h3>
+        <div class="mini">
+          <div>Confirm PT wage inputs <span>1 item</span></div>
+          <div>Upload new joiner KYC <span>2 items</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-foot reveal">Illustrative interface — not live client data. Actual reporting format is agreed as part of an engagement.</p>
+  </div>
+</section>
+
+<!-- ============================ WHY ============================ -->
+<section class="section" id="about">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Why HR Terrain</span>
+      <h2>Built to be the partner you don't have to manage.</h2>
+      <p>HR Terrain focuses on HR operations, payroll and statutory compliance — with regional depth in Kerala and Karnataka, and remote delivery across India.</p>
+    </div>
+    <div class="why-grid reveal" data-stagger>
+      <div class="why-card"><span class="n">01</span><h3>One partner</h3><p>HR operations, payroll and compliance under a single framework — not three vendors to coordinate.</p></div>
+      <div class="why-card"><span class="n">02</span><h3>Compliance first</h3><p>Built around accuracy, deadlines and documentation, because that's what holds up under scrutiny.</p></div>
+      <div class="why-card"><span class="n">03</span><h3>Technology enabled</h3><p>Modern systems reduce manual work and give you visibility into filing status and deadlines.</p></div>
+      <div class="why-card"><span class="n">04</span><h3>Business focused</h3><p>Processes designed around how your organisation actually operates, not a generic template.</p></div>
+      <div class="why-card"><span class="n">05</span><h3>Scalable</h3><p>Suitable for growing organisations and evolving requirements across multiple locations.</p></div>
+      <div class="why-card"><span class="n">06</span><h3>Accountable</h3><p>Clear ownership of outcomes and a direct point of contact — not a ticket queue.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ INDUSTRIES ============================ -->
+<section class="section" id="industries">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Industries</span>
+      <h2>HR challenges vary by industry. Our framework adapts.</h2>
+      <p>Wage structures, shift patterns, contract labour and applicable registrations differ across sectors. We shape the engagement around yours.</p>
+    </div>
+    <div class="ind-list reveal" data-stagger>
+      <span>IT &amp; Technology</span>
+      <span>Healthcare</span>
+      <span>Manufacturing</span>
+      <span>Education</span>
+      <span>Retail</span>
+      <span>Hospitality</span>
+      <span>Professional Services</span>
+      <span>Startups &amp; growing businesses</span>
+    </div>
+    <p class="ind-note reveal">Sectors shown reflect where these HR and compliance challenges commonly arise. We assess each organisation's specific requirements before scoping work.</p>
+  </div>
+</section>
+
+<!-- ============================ RESOURCES ============================ -->
+<section class="section" id="resources">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Resources</span>
+      <h2>Knowledge hub</h2>
+      <p>Practical guidance for employers on payroll, labour law and HR compliance. Articles are being published — the structure below is where they'll live.</p>
+    </div>
+    <div class="res-cats reveal">
+      <span>Labour Law Updates</span><span>Compliance Guides</span><span>Payroll Insights</span>
+      <span>HR Operations</span><span>HR Templates</span><span>Compliance Calendar</span>
+    </div>
+    <div class="res-grid reveal" data-stagger>
+      <div class="res-card"><span class="k">Compliance Guide</span><h3>What employers should know about India's Labour Codes</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Compliance Guide</span><h3>PF compliance: common employer mistakes</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Compliance Guide</span><h3>ESI compliance explained</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Payroll Insights</span><h3>Payroll compliance checklist for employers</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">HR Operations</span><h3>What documents should be maintained for employees?</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Compliance Calendar</span><h3>HR compliance calendar for employers</h3><span class="soon">Coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TESTIMONIALS ============================ -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Client feedback</span>
+      <h2>What clients say</h2>
+      <p>Feedback shared by client HR and finance teams. Identifying details are withheld at their request.</p>
+    </div>
+    <div class="testi-grid reveal" data-stagger>
+      <div class="testi"><p>“HR Terrain has taken the stress of monthly PF and ESIC filings off our plate. Accuracy and on-time delivery have been consistent.”</p><div class="who">HR Manager · Healthcare education · Kerala</div></div>
+      <div class="testi"><p>“Managing compliance across our branches used to be a scramble. Now it runs in the background and we receive the reports.”</p><div class="who">Finance lead · Multi-branch organisation · Kerala &amp; Karnataka</div></div>
+      <div class="testi"><p>“Their proactive approach stands out — we're told about changes that affect us before they become a problem.”</p><div class="who">Founder · Services company · Bengaluru</div></div>
+    </div>
+    <p class="testi-disc reveal">This section is reserved for verified client statements. New feedback is added only with the client's consent.</p>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Questions, answered plainly.</h2>
+    </div>
+    <div class="faq-list reveal">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What HR services does HR Terrain provide?</button><div class="faq-a"><p>HR operations, payroll processing, statutory compliance, compliance management and monitoring, HR advisory, and technology-enabled HR workflows. Engagements are scoped to what your organisation actually needs.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you handle payroll?</button><div class="faq-a"><p>Yes. We manage monthly payroll processing, salary structures, attendance and leave inputs, statutory deductions such as PF, ESI, PT and TDS, payslip generation, and full-and-final settlements — with branch-wise reporting for multi-location organisations.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Which statutory compliances do you support?</button><div class="faq-a"><p>We work across EPF, ESI, Professional Tax and Labour Welfare Fund, along with related registers, returns and documentation. Other labour-law obligations — Bonus, Gratuity, Shops &amp; Establishments, Contract Labour and so on — are handled based on their applicability to your establishment.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you manage employee onboarding and documentation?</button><div class="faq-a"><p>Yes. We handle offer and joining documentation, onboarding workflows, employee records, statutory registrations and exit documentation as one connected lifecycle.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you support multi-location organisations?</button><div class="faq-a"><p>Yes. We support multi-branch and multi-state operations with consolidated processing and branch-wise compliance and reporting.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can HR Terrain help with compliance audits?</button><div class="faq-a"><p>Yes. We help organisations prepare for audits and inspections through documentation review, gap identification, record readiness and coordination during departmental queries.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you work alongside our existing HR or payroll systems?</button><div class="faq-a"><p>Yes. We adapt to the tools your team already uses and build structured processes around them rather than forcing a platform change.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Is the compliance dashboard a live product?</button><div class="faq-a"><p>The dashboard shown on this site is an illustrative concept. Reporting and visibility are provided to clients as part of an engagement; a self-serve live product is not currently offered.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FINAL CTA ============================ -->
+<section class="final">
+  <span class="eyebrow no-rule" style="justify-content:center">Let's talk</span>
+  <h2>Let's make HR simpler.</h2>
+  <p>Whether you need help with payroll, statutory compliance, HR operations or building better HR processes, let's understand your requirements.</p>
+  <div class="hero-cta">
+    <a href="#contact" class="btn btn-primary btn-lg">Talk to an HR Expert
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <a href="#contact" class="btn btn-ghost btn-lg">Contact HR Terrain</a>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Contact</span>
+      <h2>Tell us what you're dealing with.</h2>
+      <p>Share a few details and we'll get back to you to understand your requirements. No obligation.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="ci-row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i><div><div class="k">Email</div><div class="v"><a href="mailto:info.hrterrain@gmail.com">info.hrterrain@gmail.com</a></div></div></div>
+        <div class="ci-row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6l2 5-3 2a12 12 0 006 6l2-3 5 2v6a2 2 0 01-2 2A18 18 0 013 6a2 2 0 011-2z"/></svg></i><div><div class="k">WhatsApp / Phone</div><div class="v"><a href="https://wa.me/919995094978">+91 99950 94978</a></div></div></div>
+        <div class="ci-row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></i><div><div class="k">Serving</div><div class="v">Kerala &amp; Karnataka · Pan-India remote</div></div></div>
+        <div class="ci-row"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></i><div><div class="k">Working hours</div><div class="v">Mon–Sat, 9:00 AM – 6:00 PM IST</div></div></div>
+      </div>
+
+      <form class="form reveal" id="contactForm" action="https://formsubmit.co/info.hrterrain@gmail.com" method="POST" novalidate>
+        <input type="hidden" name="_subject" value="New enquiry — hrterrain.com" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <div class="form-row">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name" /><span class="err">Please enter your name.</span></div>
+          <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization" /><span class="err"></span></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" required autocomplete="email" /><span class="err">Please enter a valid email.</span></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91" /><span class="err"></span></div>
+        </div>
+        <div class="form-row">
+          <div class="field"><label for="f-size">Company size</label>
+            <select id="f-size" name="company_size">
+              <option value="">Select</option>
+              <option>1–20</option><option>21–50</option><option>51–200</option><option>201–500</option><option>500+</option>
+            </select><span class="err"></span>
+          </div>
+          <div class="field"><label for="f-service">Service required</label>
+            <select id="f-service" name="service" required>
+              <option value="">Select</option>
+              <option>HR Operations</option>
+              <option>Payroll</option>
+              <option>Statutory Compliance</option>
+              <option>Compliance Audit</option>
+              <option>HR Advisory</option>
+              <option>HR Technology</option>
+              <option>Other</option>
+            </select><span class="err">Please choose a service.</span>
+          </div>
+        </div>
+        <div class="field"><label for="f-message">Message</label><textarea id="f-message" name="message" required placeholder="A few lines about your organisation and what you need help with."></textarea><span class="err">Please add a short message.</span></div>
+        <button type="submit" class="btn btn-primary btn-lg btn-block">Send enquiry
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <small>Submitting sends your details to HR Terrain by email. This form can be connected to a CRM or form API without design changes.</small>
+        <p class="form-status" id="formStatus">Thanks — your enquiry has been prepared for sending.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <img src="data:image/png;base64,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" alt="HR Terrain logo" width="113" height="32" />
+      <b>HR Terrain</b>
+      <span>Navigator of HR Landscapes</span>
+      <p>Modern HR, payroll and statutory compliance infrastructure for businesses.</p>
+    </div>
+    <div class="foot-col"><h4>Explore</h4><ul>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#compliance">Compliance</a></li>
+      <li><a href="#operations">HR Operations</a></li>
+      <li><a href="#resources">Resources</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></div>
+    <div class="foot-col"><h4>Services</h4><ul>
+      <li><a href="#services">HR Operations</a></li>
+      <li><a href="#services">Payroll</a></li>
+      <li><a href="#services">Statutory Compliance</a></li>
+      <li><a href="#services">Compliance Management</a></li>
+      <li><a href="#services">HR Advisory</a></li>
+      <li><a href="#services">HR Technology</a></li>
+    </ul></div>
+    <div class="foot-col"><h4>Legal</h4><ul>
+      <li><a href="#">Privacy Policy</a></li>
+      <li><a href="#">Terms</a></li>
+      <li><a href="#">Disclaimer</a></li>
+    </ul></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="year">2026</span> HR Terrain. All rights reserved.</span>
+    <span><a href="mailto:info.hrterrain@gmail.com">info.hrterrain@gmail.com</a></span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/919995094978?text=Hi%20HR%20Terrain%2C%20I%27d%20like%20to%20discuss%20HR%20and%20compliance%20support." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.66-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.02a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.38a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.98 2.9a9.82 9.82 0 012.9 6.99c0 5.45-4.44 9.88-9.88 9.88zM20.5 3.5A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.17-3.4-8.42z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* year */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* nav solid + progress */
+  var nav = document.getElementById("nav");
+  var progress = document.getElementById("progress");
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    nav.classList.toggle("solid", y > 24);
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.width = h > 0 ? (Math.min(y / h, 1) * 100) + "%" : "0";
+  }
+  window.addEventListener("scroll", onScroll, {passive:true});
+  onScroll();
+
+  /* mobile menu */
+  var toggle = document.getElementById("navToggle");
+  var menu = document.getElementById("mobileMenu");
+  toggle.addEventListener("click", function(){
+    var open = menu.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  menu.querySelectorAll("a").forEach(function(a){
+    a.addEventListener("click", function(){
+      menu.classList.remove("open");
+      toggle.setAttribute("aria-expanded","false");
+    });
+  });
+
+  /* reveal on scroll */
+  if ("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); }
+      });
+    }, {threshold:0.12, rootMargin:"0px 0px -8% 0px"});
+    document.querySelectorAll(".reveal, [data-stagger]").forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal, [data-stagger]").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* active nav link */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav-links a"));
+  var sections = navLinks.map(function(a){ return document.querySelector(a.getAttribute("href")); });
+  if ("IntersectionObserver" in window){
+    var spy = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){
+          var id = "#" + e.target.id;
+          navLinks.forEach(function(a){ a.classList.toggle("active", a.getAttribute("href") === id); });
+        }
+      });
+    }, {rootMargin:"-45% 0px -50% 0px"});
+    sections.forEach(function(s){ if (s) spy.observe(s); });
+  }
+
+  /* services tabs */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".svc-tab"));
+  var panels = Array.prototype.slice.call(document.querySelectorAll(".svc-panel"));
+  function selectTab(i){
+    tabs.forEach(function(t,idx){ t.setAttribute("aria-selected", idx===i ? "true":"false"); });
+    panels.forEach(function(p,idx){ if (idx===i){ p.removeAttribute("hidden"); } else { p.setAttribute("hidden",""); } });
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener("click", function(){ selectTab(i); });
+    t.addEventListener("keydown", function(e){
+      if (e.key === "ArrowDown" || e.key === "ArrowRight"){ e.preventDefault(); tabs[(i+1)%tabs.length].focus(); selectTab((i+1)%tabs.length); }
+      if (e.key === "ArrowUp" || e.key === "ArrowLeft"){ e.preventDefault(); tabs[(i-1+tabs.length)%tabs.length].focus(); selectTab((i-1+tabs.length)%tabs.length); }
+    });
+  });
+
+  /* faq */
+  document.querySelectorAll(".faq-item").forEach(function(item){
+    var q = item.querySelector(".faq-q");
+    var a = item.querySelector(".faq-a");
+    q.addEventListener("click", function(){
+      var open = item.classList.toggle("open");
+      q.setAttribute("aria-expanded", open ? "true" : "false");
+      a.style.maxHeight = open ? a.scrollHeight + "px" : "0";
+    });
+  });
+
+  /* dashboard animation */
+  function animateDash(){
+    document.querySelectorAll("#filing .track i").forEach(function(el){
+      el.style.width = (el.getAttribute("data-w") || "0") + "%";
+    });
+    var scoreEl = document.getElementById("score");
+    var target = 96, cur = 0;
+    if (reduce){ scoreEl.firstChild.textContent = target; return; }
+    var tick = function(){
+      cur = Math.min(cur + 3, target);
+      scoreEl.firstChild.textContent = cur;
+      if (cur < target) requestAnimationFrame(tick);
+    };
+    tick();
+  }
+  var dash = document.getElementById("dashboard");
+  if ("IntersectionObserver" in window && dash){
+    var dio = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ animateDash(); dio.disconnect(); } });
+    }, {threshold:0.3});
+    dio.observe(dash);
+  } else { animateDash(); }
+
+  /* form validation */
+  var form = document.getElementById("contactForm");
+  var status = document.getElementById("formStatus");
+  function validateField(field){
+    var input = field.querySelector("input,select,textarea");
+    if (!input || !input.hasAttribute("required")) return true;
+    var ok = input.value.trim() !== "";
+    if (ok && input.type === "email"){ ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value.trim()); }
+    field.classList.toggle("invalid", !ok);
+    return ok;
+  }
+  form.querySelectorAll(".field").forEach(function(field){
+    var input = field.querySelector("input,select,textarea");
+    if (input) input.addEventListener("blur", function(){ validateField(field); });
+  });
+  form.addEventListener("submit", function(e){
+    var allOk = true;
+    form.querySelectorAll(".field").forEach(function(field){ if (!validateField(field)) allOk = false; });
+    if (!allOk){
+      e.preventDefault();
+      var firstBad = form.querySelector(".field.invalid input,.field.invalid select,.field.invalid textarea");
+      if (firstBad) firstBad.focus();
+    } else {
+      status.classList.add("show");
+    }
+  });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<script>(function(){try{var t=localStorage.getItem("hrt-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme="light";}})();</script>
+<title>HR Terrain — Modern HR, Payroll &amp; Statutory Compliance Infrastructure</title>
+<meta name="description" content="HR Terrain helps businesses navigate HR operations, payroll and statutory compliance through expert support, structured processes and technology-enabled systems. Serving Kerala, Karnataka and pan-India remote." />
+<meta name="theme-color" content="#FFFFFF" />
+<link rel="canonical" href="https://hrterrain.com/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="HR Terrain" />
+<meta property="og:title" content="HR Terrain — Modern HR, Payroll &amp; Statutory Compliance Infrastructure" />
+<meta property="og:description" content="Navigate HR complexity. Run your business with confidence. Expert-led HR operations, payroll and statutory compliance, backed by technology." />
+<meta property="og:url" content="https://hrterrain.com/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="HR Terrain — Modern HR, Payroll &amp; Statutory Compliance Infrastructure" />
+<meta name="twitter:description" content="Navigate HR complexity. Run your business with confidence." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "HR Terrain",
+  "description": "HR Terrain helps businesses navigate HR operations, payroll and statutory compliance through expert support, structured processes and technology-enabled systems.",
+  "url": "https://hrterrain.com/",
+  "email": "info.hrterrain@gmail.com",
+  "telephone": "+91-99950-94978",
+  "areaServed": ["Kerala", "Karnataka", "India"],
+  "knowsAbout": ["HR Operations","Payroll","Statutory Compliance","Labour Law Compliance","Employee Lifecycle Management","HR Documentation","Compliance Audits","HR Advisory"],
+  "slogan": "Navigator of HR Landscape"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"What HR services does HR Terrain provide?","acceptedAnswer":{"@type":"Answer","text":"HR operations, payroll processing, statutory compliance, compliance management and monitoring, HR advisory, and technology-enabled HR workflows. Engagements are scoped to what your organisation actually needs."}},
+    {"@type":"Question","name":"Do you handle payroll?","acceptedAnswer":{"@type":"Answer","text":"Yes. We manage monthly payroll processing, salary structures, attendance and leave inputs, statutory deductions such as PF, ESI, PT and TDS, payslip generation, and full-and-final settlements, with branch-wise reporting."}},
+    {"@type":"Question","name":"Which statutory compliances do you support?","acceptedAnswer":{"@type":"Answer","text":"We work across EPF, ESI, Professional Tax and Labour Welfare Fund, along with related registers, returns and documentation. Other labour-law obligations are handled based on applicability to your establishment."}},
+    {"@type":"Question","name":"Can you manage employee onboarding and documentation?","acceptedAnswer":{"@type":"Answer","text":"Yes. We handle offer and joining documentation, onboarding workflows, employee records, statutory registrations and exit documentation as one connected lifecycle."}},
+    {"@type":"Question","name":"Do you support multi-location organisations?","acceptedAnswer":{"@type":"Answer","text":"Yes. We support multi-branch and multi-state operations with consolidated processing and branch-wise compliance and reporting."}},
+    {"@type":"Question","name":"Can HR Terrain help with compliance audits?","acceptedAnswer":{"@type":"Answer","text":"Yes. We help organisations prepare for audits and inspections through documentation review, gap identification, record readiness and coordination during departmental queries."}},
+    {"@type":"Question","name":"Can you work alongside our existing HR or payroll systems?","acceptedAnswer":{"@type":"Answer","text":"Yes. We adapt to the tools your team already uses and build structured processes around them rather than forcing a platform change."}},
+    {"@type":"Question","name":"Is the compliance dashboard a live product?","acceptedAnswer":{"@type":"Answer","text":"The dashboard shown on this site is an illustrative concept. Reporting and visibility are provided to clients as part of an engagement; a self-serve live product is not currently offered."}}
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  color-scheme:light;
+
+  /* ---- brand: the logo blue (#0F3473) — used everywhere ---- */
+  --brand:#0F3473;
+  --brand-2:#0A2652;
+  --brand-strong:#17458F;
+  --brand-soft:#E8EEF7;
+  --glow:rgba(15,52,115,0.13);
+  --focus:rgba(15,52,115,0.24);
+
+  /* ---- surfaces / text (light) ---- */
+  --bg:#FFFFFF;
+  --bg-alt:#F1F5FA;
+  --surface:#FFFFFF;
+  --surface-2:#EDF2F9;
+  --line:#E1E8F1;
+  --scroll-thumb:#C6D2E4;
+
+  --heading:#0F3473;
+  --text:#14233D;
+  --text-2:#4B5B77;
+  --text-3:#8592AC;
+
+  --btn-bg:#0F3473;
+  --btn-fg:#FFFFFF;
+  --nav-solid:rgba(255,255,255,0.85);
+
+  /* ---- feature (navy) bands — dark in both themes ---- */
+  --feature-bg:#0F3473;
+  --feature-bg-2:#0A2652;
+  --feature-text:#FFFFFF;
+  --feature-text-2:#B4C6E4;
+  --feature-line:rgba(255,255,255,0.16);
+  --feature-accent:#9BC1EE;
+  --feature-btn-bg:#FFFFFF;
+  --feature-btn-fg:#0F3473;
+  --footer-bg:#0F3473;
+  --logo:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAcYAAAFQCAYAAAAlXd53AAAXd0lEQVR42u3df8RV9wPA8SQS0/MwIxMZj4lEEomZeIxkJJJIPBITychIIpFERiZmZCKRRCITGZORSEZiEjOSyEgiI/W9j+7z7XR2fnzOj3vuOee+/nixPffXueecz+d9z7k/WjS14dAiAOAdKwEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAhBEAEEYAEEYAEEaAdG+Hzg/MWB9YCYAwJhNKYQSYOFsywiiUwggwcW4XCGNSKD+3DoURoM+nUY8OvC4ZyuXWpzAC9C2M0cueFwyj9SmMAJ02EwvbyZxo3hj4QRiFEaDv1g1cL3g0Gb/8mfUojAB9ticnjHOxyw5aZ8II0GcPY+F7Gbv8L6dRhRFgkj+U813s8uPCKIwAPq2KMAJMoH3CKIwAvPe3T5wKIwDpp1F94lQYAYRxBKdRzyfc92XrWxgB2uzACMK4eyr/5+R+s+6FEaAtdg6sHP7301iwnlS87++n/N6qMAJ0/NRp1DcV7jft33p8MXBLHIURoI2mA47ijtcY3JDr3bRdhBFgXE6N6DTnsYTbHxvDB34QRoDCPhk4W3MYs+5ndcB7kettF2EEaIv5f6fxwlT2v9VYJYwLFkeuPxe7bL/tIIwAbbWu4PVXTf33B8jXpMTx4fA2V2J/32K9CyNAn0IajdzayGX7ShxNIowAvfoKyN6Ey8/5PqMwAkzydyPTrvcg4bonCjzOLetaGAG64GQsdvczrru4xNHilcCvgSCMAK09anw7/GBO1nuTn9R8RIowArQ+jgtHkCeGR3uflrjfvbH7u2RdCyNA1+O44PSI38dEGAFaZ29GGH+sObjfWt/CCNAV08NwnR+4OHB4REeh8362voURwKlZp1iFEWDCo/g88qnWpMsfW2/CCNAH1wKPFOO3u+SoURgB+uZJLGpPpsr/w8c/WJ/CCNBl+yu+d+hoURgBeudpxQ/UfCWKwgjQN7d9ylQYAfhQ0j9Ptdl6EUaASXY0IY67rRdhBJhkc06pCiMAH5qtMYrnBFYYAfrg8xruY3fsyHOZ9SqMAJMuGsaz1ocwAgij9yuFsUEzwzfKx2W7bVDIkoFdY9xe84+9tMDyrh/z/tUG86cCNw2sHvjIPlzYZ8IojON8FTZO22yPXJdatL3OdWz/6oJHU+/+TcJZ+/r//ZaxvjZZP8JYt90tnBhsl26FJmtZfxK62jyYevcPBC/v6X79RcLfVgaumzfmBWGs02Fh7JTlHdtevwnaSH3fk9OyL4bP50zkb7+YO4RRGO3cwkgV9wbWdHCf/nfqv7+Ok/U8vxzeboP5QxiFEWEk1PzR1uKevT3wLPC2+4QRYRRGYSRLF0JxIuc5fF0wqsKIMAqjMJLr5w4eNf6bc5s7GadahRFhFEZhJMjlnn2BP3r9Fd5jRBiFURgp61gL9+9DsWX8MfB2f5kbhFEYhVEYqctMy48alxr3wiiMtokw0rQ/WxxH414YhdE2EUbGZlVL9vP535Y9bbwLozAKozDSBseNM2EURmEURmHkQ0+NNWEURmEURmHEWBRGhFEYhZFej8ctA+db9N6pMAqjMAqjMIrjWJyZxHnFBCmMwiiMTPa4nB8L8//s1vw/lr0hdtnahOV/LIwIozAKI30dmyHLl3T5tDAijMIojPRtfIYu3+qE6z8XRoRRGIWRul0Z4/5/PGD59sdus2pS5hcTpDAKozAyPhvHtP+/SliWiwH7ZPSyQ8KIMAqjMNKXcRr6nuLq2GWPIpc9FEaEURiFkb6M1azATUcue1QgqMKIMAqjMFKbbQ3v/4cKnDJd+Nux2N9fCSPCKIzCSJ/Ga/SxV8YuuxC57OeBN1MT9CPpJkhhFEZhpB0ut+h9xplJnl9MkMIojMLIZI7ZJQmPfyBwOTcII8IojMJIE240PA6OlVjGZX2fH0yQwiiMwshkj9vrgcu1Y1LmBxOkMAqjMNIu37fge40LTk3i/GCCFEZhFEaMXXOHMAojwoifiksJ4wVhNEEKozAKI23zcoxh/EUYTZDCKIy2V7fM/ysPWwe+G7ia8uVzp1PLhXH+12x2CaNBJozCaHv1x+aBOz0J407bUxiF0UQrjNT9BfZrHQ7jM9tQGIXRRCuMjMoRp1MRRmE0qISR/zresTAu78A6XTNwcGBWGBFGYbS9uqsrYTzT8vV4tY/7sAEijMJoe02q6x0I45uG18npgSfDx14fcP1vM/bhbV3dvw0OYRRG22uS/eB9xtQj6ZCfg9ubsaxdO/oVRmEURtuLoV+E8f+i3wm9N/zbuuGR4fxp038KLGtnP2VrUAijMNpetDuM6xpcD79WXNYVGev0G2EURhOtMNpe4liH4w2ug6MVl3VX7Huk/w7/ftB7jMJoohVG26t79rY0jHcaXAdfVljO2wOf+FQqwiiMtpejxj5/ACfqwcDZqXf/YPHHvuCPMAqj7TUZvhPGDx535STuBwaCMAqj7UX7jxrH9fz3CCPCKIy2F8L43lFhRBiF0fbijH1jslkJwiiMthcfWm3fEEaEURhtL9p9OvUj20QYhdFEK4wI43sztokwCqOJVhgRxvdmbRNhFEYTrTAijO/tbfj5HxjYOLBYGBFGYbS9aGMYDzX43D8tsV8uFUaEURhtL2Fs0r4Gn/uOEvvlwnXvCyPCKIy2lzA2YVeDz/10wf0y/vWWS8KIMAqj7SWMo7a1wef+e86yPBm4PPXuHy/e0Mf92AAQRmG0vWh/GDc2+Nz/rbCcN4QRYRRG26t/1rZw31jekRcFPnyDMAqj7dVD5yd83yi7jC+EEWEURtvLadS+hzH+izsbh18duTrw1BEjwiiMtpcw2jey19cOYUQYhdH2chpVGD/8xKowIozCaHs5Whyppy1fZ3d8XQNhFEbbq58utjSM5xpeD0sKXv+hMCKMwmh7OVps0rYxHf09L7nehBFhFEbbSxR7+1WN+Q/TrMy4/o3Y9V8LI8IojLaXKPoO43snhBFhFEbbq9vetDyKbzoWRt9jRBiF0fZypDhSpzu0TjYLI8IojLZXN+3rSBTfjvnFwqMCy7mmT/uIQSKMwmh7TYqNHQriOPaJzwMfe+1wXW7o675isAijMNpefXekg0Gcd7vh9TRnfxRGYRRG26u/TnQ0hlGrxrTuVg6PCoURYRRG26tDlgwn750DZwf+6kEI7Q/CKIwGljAW2F6/9XDiJ90FY1QYhVEYhVEYMXaFURgNLmEURv7jmfEpjMIojMIojLy3zPgURhBGYcQLWmEEYRRGHC0KIwijMOK9RWEEYRRGnEIVRhBGYSTcSWNSGEEYhRFHi8IIwiiMiKIwgjAKI2n2GovCCMIojLz/h4CNRWEEYRRGnEIVRhBGYUQUhRGEURgRRWEEYRRGRFEYQRiFEVEURhBGYUQUhRGEURgRRWEEYRRGyrhgnAkjCKMw8s5GY0wYQRiFkQ2HnhtbwgjCKIy8s9W4EkYQRmFkw6F7xpMwgjAKI+8sMZaEEYRRGNlwaJUxJIwgjMI46R4PfGzsCCMIozBOujPGizCCMAojfrVGGEEYhRFhRBgRRmEky01jRRhBGIURR43CCMIojKQ6abwIIwijMOKoURhBGIWxgPsj2CZtDuMOY0YYQRiFsekw7nLUiDCCMApjd44a/QycMIIwCmPjYTza4jC+Nm6EEYRRGJsOY9uPGo0dYaSATS0bwG8GTpHqpjC2NowXWxzGO+Y6YSTcYR9pRxgdNSKMCCPCOAp3W7ydzpvvhBFhRBibDqOjRoRRGEEYY162eFt9a84TRoQRYWw6jMsdNSKMwogwCmN3Tqd+Zd4TRoQRYWw6jOsdNSKMwogwCmN3jhpXmPuEEWFEGJsO4+4WbzM/EyeMCCPC2HgYfXUDYRRGhFEYY463eLv9af4TRoQRYbw/hjHmqBFhFEaEURgjLrV4210zBwojwogwLnLU6KhRGBFGhHG8YbzX4u33vXlQGBFGhNFRo6NGYUQYEcYxh/FVi7fhfnOhMCKMCGPTPnbUiDAKI8IojH5cHGEURoRRGFNtdNSIMAojwiiM3Tlq/MycKIwII8LYtDlHjQijMCKMwtido8Yl5kVhFEYTO8LYtFMt3p5PzYvCKIwmdoTRUaPTqcJYk/M92LmFEWEcjyst3qa3hUYY+/iKTxgRxnaH0VEjwiiMCKMwxjxo8Xa9IDbCKIwgjOYRR43CKIzCiDCO2esWb9sTgiOMwgjC2LQVjhoRRmFEGIWxO3PJN6IjjMIIwti0zY4aEUZhRBiFsTvzyVbhEUZhBGFs2j5HjQijMBqAxS0Xxt6Gse1zyhrjTxiFURiFURib9r2jRoRRGA0+YRTG7swry41BYRRGYRRGYWza9RbPKa+MQWEURmEURmE0txifwiiMBp4wCuOY/dnieeWBcSiMwiiMwiiM5hdjVBiF0aATRmE0v6S6biwKozAKozAKY9NWOmpEGIXRgBNGYezOHHPWeBRGYRRGYRTGps06akQYhdFgE0Zh7M48c8iYFEZhFEZhFMam7XfUiDAKo51cGIWxO3PNduNSGIVRGIVRGJt2xlEjwiiMCKMwdme+mTE2hVEYhVEYhbFpNxw1IozCiDAKY3fmnMXGpzAKozAKozA27VGL55u/jU9hFEZhFEZhNO8Yu8IojAaXMAqjeSfVDWNUGIVRGIVRGJu2ylEjwiiMCKMwdmfu+d44FUZhFEZhFMambXHUiDAKI8IojN2Zf/YZq8IojMIojMLYtIOOGhFGYUQYhbE7c9AXxqswCqMwCqMwNu1HR40IozAKozAKY3fmoWljVhiFURiFURibdrPFc9BLY1YYhVEYhVEYzUXGszAKo4EkjMI4Zo9bPA/dMW6FURiFURiFsWmLHTUijPXtjAcMIhPgCLfXtZYt6+893jfaPBetMXYnJ4yPevIqrU3LfM0O3rkJMGtZl3nR1ZhpR4zCSL1OD1wfo/kgfm07FPrVk+tjdqDAUe6VMS/rTxO0b5xtwb6x4IKxKowAIIwAIIwAIIwAIIwAIIwAIIwAIIwAIIwAIIwAIIwAIIwAIIwAIIwAgDACgDACgDACgDACgDACgDACgDACgDACgDACgDACgDACgDACgDACgDACgDACgDACgDDmeZvgceTyLSnXuZtzv7sTbvOgxLK8jVy+OOXyowXu627AOrmccftPKqzXT0veLs2rnPuazbjtipzb7sp57PsDX9W8L67NeLy1Obf9uMB6K7t861Lub2fkOidTrrM44f6u5yznzYHlNazXBxmP8VEN80Xobben3P5k5DoXUq7zbcL9/ZKz/m4Pt1no8q3PuK+HgfeRNeZuNLCO88btjZx9KnQMTfc5jEsDJqLvSk4wZ0rcJu9xPk25/NeCG7hqmMru3H/VHMasZbkRcNtDGbc/Hfj4T2vaF88GPNbZklGN21xyGdMmnVOR69wp8KIodHkPjeDF74LPa7ivXwJvezxgP36RcvnlimMlb9n2BNzH/pz7uB1wH+dHvI5Dx+3PFeef3/p+xDj/qvV5xs60IuGV7fWAwTqT8or4fM6y/BG7/rWcV9nz//9lyn0VXe6sV0XRV4LfBKzX+Ve+j0oM0IXrvU5Y/mcJf0u6j0MZIdgTeCSWtP1+HR7F/BP7+xcV98GvY/e3PfCyvCOwp5H94HrKGZEiliU8xvyRxGex/eRFwn6XdH97U/bRWzUe5c47nPI412ucL0JuuyrjKHkhfDtTlnV9wv3NpVz35nCslH1BnHbZ5QJB2lbg/utcx2njNmmfmkm4/dXhWbWkfeV6jftkJ95jXBfb+EmTZnTCLvMK89cScXibc/nlAvf1POd6JyLXfZNzX38GPvefIqdvF267L3B5t0Ymtfir+58C18/bCut4wb2U60WDdafGI5qqyxsN/2cZk1eV5T2Tc4r0i8jleyo8/+jR59c1jPMXNT3/25HTcgv3t6nA7a8EHNUt/O1Yxf3naeSyewH3sSnjskcV9s8zBdd91XWcNm73Rf7+R8Dzic+xnxZ8a6g3YUzbyGXC+E3K/a7Oud3JjPcWzpY8pfm8hsl523ByLTrhTw/fDyzyynVhpzuS8Apve+R9vvjtN0aun7Wsf1QMY3RZ/6mw7y0POLKadzFwQGaFcVHABBnih5x1tzly+e4KE/uuGk+n1hnGpDH9qmQYpyP/fXUEYSz6wqvMWwN7I7c/mPG21emA9/brWsch4/ZNiTAuSthWExPGY5H/X18hjPFXzQv//3eFnf3tGMNYZZ1uL3n/R3JOfcSdCrz+/sj1ZksMsFWRv9+qsJ7mAo+KorE5EHh/F4f/P5cSyTrCeHW4zqMeRi7fVWFfPxf5+1ctCeOu2H0cKXGfV2K3eZ3xQryOMF6NXL4x5TpPEo5gLw4/fBhy6rPOuaOOdZw2bmdiH6ALWafRfXuivq6xLmPHfFtDGJM+cZZ32+gpkCXDv02XeAVdNYw7Eia+tQUmoUsJj3GxwDo8mnMEFHczcB3PBq7Le7FXwwdjj1HlwyzxU0xZHwRZEfDBgXgYo17WOF5CPihUNoxzw4nwrxG8WKsjjAu3P57wt6Mlw7g44TMFdYZxb+CLqpcZ2zHrE/WPa95Odazj6LhdNfw0/Y7Yc1pf4gNbX0x6GA9E/rahRBhvxs7NPyr4Ca9VCZ+Aul1iB6waxrJf+Xib8/xHFcboKcdlOaeFF663N3CAjSI4RwMH6kzgKeK5Bj5FVySMO2v4JPLhFobxdYX9+krC9Z+mvBCvI4xzBeadpbH38N8GnHp8OKIwVlnHeeP2Zsl9cuWkhzFt5bwuuHGrfIQ67aj1RYNhvFIijCcDnvvawOU/Fnvll3f9gxmfjEub3FeXHGA3a9j3ZgMDEH2htiPw/Z4VIxovP+bsw7M1hnG2xuWuGsarAfv14pJhXBT7akKdYbxWYtwVuf+LFe9/FOv4XsZ31NcVeM6Xp8Z4+rStYdxVMozRo5HlMTcKDM5jscmwzKezQsMYfdW3Lue+7gY+5sXYc58u8SZ/0TAuCjyaq/Kp1LcjeoVcx6dS2xbGHSWe/5IaP/EbGsb42xZZy3kitl+vLHhknhbGpB8iaOrDNysyXiBGn9/SnPkz7bvKCx+KOxn4XKqu43sVx2hWGE9MFfvBgt6FcVHJMEZ/eaKur1uUnYxDw7iiwAC7G3g/SZc/Kvg8jlcIY9oRy7kCkU8aYPtjA7jq/hc9jXYk53uZeZ/M29dAGH8qEMbtJSf2x7EXl6MM4/6AfXK2hvjkhXFRzWGMf2f3Usrtv8pZ9sMFX7glfYjsVsPreJRhrOPT6K0O47KA05xbCoQx7afDqpye/bvk6bsyp3CvJXyhfj4ivwecSr0f8Fhpv0azIudTmHX88s7Pw4kh9L6OTGX/hFidP7WWdH8XppJ/Hqzoz7XVeWS7I+W+96WcVov6OOH+nuUsa13Po8ovxPwbcL1Hgfd1JOB96lsFwvis4nNL+qnJ58MXo1uHLxhCPwSV9HNyZ4fvh7/O+SRoE+s47z38MvvK5r6GcTpwJ6oSxmeBKz70SG7xCMO4aBiQMuf4nwU81t2U6yQdCX5dcZKfrvge7+mcCX52BPGpsrybGgjj3qn8n2y7OVX9J+EWLv+14TAeKLGMi2Lf0c1a1tMl5ptjNTyvkzWtoyq/k5r1gw9NreMvR/wiqlenUucS7My43kzB+1oVcJ21Aa/U53I+TBKyLHOBr5oWvlryOnZaeE3Op2iTHi96nU8CrhPyHIps391TH/6E2+MCH7nOe+wdkb/vrml/3Bo7tfq0wHafq2mdVVkn0wUef3XC9XZkPN76ksu8MWfdZC3j2oDrzhS4v5Dxvzpwu61Oub89wzNdSwqup30JR2Z/Bn6XMeq7qf/+LODFjBf1TazjuRrGUJE5uxfvMQJAa1kJACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMACCMAIAwAoAwAkCW/wGdUZ2mIyMsZwAAAABJRU5ErkJggg==");
+  --logo-inv:url("data:image/png;base64,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");
+  --mark:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAaMAAAEXCAYAAAAAziuXAAAOmklEQVR42u3df4RVaQPA8SQSa26syBrGMhKJJEasFVmSJUtWZEmGRBKJrMiQRCIrsmQNI5JYMRJ5yVoSr/5JrESWJPKSRCL1nqs76+7pzrm/z/Oc83z++JC5d2bOnPOc59tz7q8VjW3HVwBASHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCAGIEAHYCkLqPLfOZaftDjABCxihPnMQIoBS7CmIkTmIEUIp7fcSoU5w22IdiBDDqS3SnMu8HjNOE/SlGAKOIUfttr/qMkf0pRgB9m87F5GyXUN3O/CJGYgQwDlsyi32umvK3v7QfxQhg1H7qEqMDuduO2mdiBDBqj3OxeZO7/alLdGIEUPYTG07kbp8TIzECCPksO8QIYOxmxUiMAEL72zPlxAggtkt0niknRgC1ebxovsPPvm5/ixFA3pExxGh/o/tbCd0VI4MPSNuPmcnWv1/kIvF8yJ99oeH97cQIYIDLcu0ODfFzl/uspNeZPwRJjACWrO1htTI3wsj1cr87YgSQlnNjuoR2usP3n/YiWzECWM66zKURx6jo52zs4bGlrWIEkLbm5xwtNIo/62iYGC1Z2Xb/A7nbDosRAO229Hn/qcbnb7K6aZkgPW59z43c13eJEQDDxqs9LJvbbpsdYNUkRgAM/Uy6gx1uv+L1RmIEUPZrl5a736MO9z3Tx+/5Q4wAWM7ZXGAeFtx35QCrohs9PmVcjACsjj4z1eWxpnUjXnmJEQDLPib0sHU5rrmq+WqAn3sw9/OuiREAw7zm6PyYH5cSIwA6rmTaXR5x5I6JEQBF1rZiMZ+5mjk5ptVW029iBECoy36VvHznwAJUO0SvGp3f+WHJMzECYFA3e1wR5b/vWhVXRw44QHye50LyvDH4h/X9IkYA9OvwkI8FecwIgJF4MeSTEr6r2muPHHSAON1rJPSO3g44QLw6fdTEDjECoGynOgRpvxgBULYDdb9c5yADVMPOEYboSmxRc4ABqmPDCH7G/twKa40YARBCe4wuiREAoWP0UYzqabr1YGMoPzgGfVmV2RfweDV/9+o+tndr4PEVg+Zlpu2ZjZkvjOG+fS1G6f1vI6Q9jkdX1yI6XlcqNr6q4Enj02f67DTW/3G3YH9tF6N62B/hyei4VGtyL9rWX8VlZB41Pn2o3URNx/U3Hb422eO++SBG1XdSjCplomLH666IjNWFmlzye936ey62fe1WFeYOk5IYiZEY8W8PMpsqOKbfNT5/l4aiv/Pb1vdti2H+MCmJkRiJEctrripW1uzS88sev3dWjMRIjMRIjOIzW4FxfabL3/B9nyETIzESIzESo0j9VsHV0bsu33O/4DKeGImRGImRGEXses1e1Np+//UeMxIjMRIjMaqW0xGO7+O5bbzc4/c99dRuMRIjMRKjapuOfHW0OuZz0qQkRmIkRozOXxEHaYUYiZEYiZEYpWUqknHefC+/81U4J01KYiRGYsR4zDnPxEiMxEiMiMEL55oYiZFjIkY4F8VIjJwAYiRG1OR83JWZH+djYSYlMRIjMcI5uZyLZf0NJiUxEiMxIu3zsnkuND9Co/kBj9tyt23usP3PxEiMxEiMEKQy3uW7233WipEYiZEYIUhlfNzE0v02drj/KzESIzESI+rhRsDxP9fD9h3Ofc/UOOcXk5IYiZEYEc5MoPH/tsO2XO1hTLbfdlyMxEiMxAiX68b1ERPtX9+Yu+1J222PxUiMxEiMEKRhFEVlbdttT/qImBiJkRiJERW3p+Txf7yPy3FLXzud+/pbMRIjMRIjrI5GealuMnfbQuPfH7P+oTHmN4I1KYmRGIkRaX6MedH4my57fjEpiZEYiRFpnrOrOvz+Iz1u5zYxEiMxEiPq63bJ58HpAbZxzTi2xaQkRmIkRqR93i72uF17x7kdJiUxEiMxIi4XInjd0ZJzZW2DSUmMxEiMcO4GnztMSmIkRmKEtwlq/90LYiRGYiRGYkTTm4AxuiVGYiRGYkR3zXeP3p05kfl9mRdkulQ3WIya76qwT4zEyOQmRgxnR+Z+TWL0Y0rHzuAVIzFyvOqq+aLOmxWO0UsxQozEyPGql59dqhMjMTKQxcjxisVcxWI0UYF9uilzNLNTjMTI5CZGjOZFnrG5GPl+/H1UY9igFCMxcrxStViBGH0oeZ+czzxv/e6tPdz/WMEY3tPP+DYgxUiMHK+U/eJxo2VXjL28FdDBRm8fX951lWcwipEYOV6puyVG/2h/zdaD1te2tFZAzUty/+tjW/t6dqCBKEZi5HgRd4y2lLgf/jPktq4v2KeHxEiMECOqG6S5EvfBqSG3dV/udV7vWl8/6jEjMUKM6M3BSGN0v8R98O0Q23kvs86z6cTI5CZG1Hd1FMM+eJS51Pj0IXtfetGrGJncxIjxOSFG//q9k2X9XoNPjMTI8SL+1VGov/8nMRIjk5sYIUahY3RKjMTI5CZGhHHR2PBGqWJkAIsRoW00NsRIjAxgMcKlus99IUaIkRg5XmIU2rQYIUZi5HiJUWg7xQgxEiPHS4xCO1jy338kM5NZKUZiZHITI8RoyfES//avBhiXq8VIjExuYkT9YzRb4t++d4BxuXTfh2IkRiY3MaK+MdpX4t9+vs9xmX8q/DUxEiOTmxhRzxjtLvFv/7PLtjQ/lvx649MH7m0b1Tg26MRIjBwv4o/RTIl/+7shtvO2GImRyU2MGI3NEY6NiYqE2BMYxMjkJkaMyHziY2PQbXwtRmJkchMj6nuJLmSM8u/8MNN6mvnvmRdWRmJkchMjxCjG/bVXjMTI5CZG1PMSXZVi9FyMxMjkJkbUc1X0IvJ9dt9Tu8XI5CZGjM7VSGN0peT9sKrP+z8WIzEyuYkR9V4VNe0JtMp5NeB+EyMxMrmJETULUeindTefkDBZcP/bufu/FyMxMrmJEfUL0ceK7YszYiRGJjcxon8fIg/Rh4rFyOuMxMjkJkbUbEXUdL5C+2SHGImRyU2M6N1sRUL0MXCgn/SxnZuG/d0GphiJkeOVipkKRSjEmNjQ4+/e3NqX20b5+w1QMRIjx6vufq5ghJrulbyfDoQcjwaqGImR41VHZyoaoHZTgfbdZGv1I0ZiZHITIxrd3yWgOWH+mLmUeVqD+CQ9HgxqMRKjahyvuzWcbFneghghRmIkRjh3xUiMDGgxEqOkvRQjxEiMxIjQ1ogRiJEY4T+RYgRiJEZWRWIEYiRGeKxIjECMxMjlOTECMRIjQjgrRiYlxEiMsCoSIxAjMRIiMbITECMxIpSDzkUxQozEiJCeOA/FCMQIl+fECMRIjIQIMQIxQojECMRIjIQIMQIxQojECMRIjIQIMQIxQojECMRIjGpvwXkmRiBGhDTjHBMjECNCeeXcEiMQI0La7bwSIxAjQnngfBIjECNCWuVcEiMQI0KZcg6JEYgRITzLfOncESMQI0K46HwRIxAjMfLuCWIEYiRGYoQYgRiJUUh3nCtiBGIkRlZHYgRiJEZkzjpfxAjESIysjsQIxEiMOno4hmMSc4z2OmfECMQojRjtszoSIxAjMQodo9hXR94CSIxAjBKJ0amIY/TeeSNGIEZpxCj21ZFzR4yitz2yk+ZD5hzLuiNG0cboasQxum+uE6PYnfT0V8TI6ggxEiPEqD4x+m/Ex2nefCdGYoQYpREjqyMxQowQoyhi9CbiY3XMnCdGYoQYpRGjCasjMUKMEKPQMYr9Ut135j0xEiPEKI0YbbU6EiPECDEKHaPYV0frzX1iJEaIURox2h/xMfMWQWIkRohRIjHyNG8xQowQoyhiNBfxcfvL/CdGYoQYpREjqyMxQowQoyhidC3iY3fTHChGYoQYpREjqyMxQowQoyhi9CDi43fBPChGYoQYpREjqyMxQowQoyhi9DbiY3jYXChGYoQYpRGjL62OxAgxQoxCx8gbqIoRYoQYRRGjGasjMUKMEKOHEZxzMR/Lr82JYiRGiFEaMTpgdSRGiBFitMLqqNAq86IYiRFilEaMzkV8PF+YF8VIjBCjNGLkRbBiNFLzNRhQYoQYhXEj4mN6T2iqFaOPYgRiZHUkRgaSGCFGVY7Ro4iP64LYiJEYIUZpxMjqSIzESIwQoyi8j/jYnhEcMRIjxCiNGK23OhIjMRIjxMhcUuyQ6IiRGCFGacRoh9WRGImRyRQxMp8U2y08YiRGiFEaMZq1OhIjMTLoq2JCjGobo9jnlE3OPzESI8QojRhdsDoSIzEy4MVIjMwrxSacg2IkRohRGjFajHhOeescFCMxQozSiJG3CBIjMTLYxUiMovBXxPPKI+ehGIkRYpRGjKyOxEiMDHQxEiPzSxeLzkUxEiMxEqM0YjRpdSRGYmSQi5EYmWOKXXI+ipEYiZEYpRGjnVZHYiRGBrgYiZF5pthxMTJIxEiMxCiNGB22OhIjMTK4xUiMzDXFfhAjA0SMxEiM0ojRRasjMRIjA1uMxMh8U2xajAwOMRIjMUojRretjsRIjAxqMRIjc06xlWJkYIiRGIlRGjF6EvF887cYiZEYiZEYpREjb6AqRmJkQIuRGJl3urgtRgaFGImRGKURoymrIzESI4NZjMTI3FPsghgZEGIkRmKURox2WR2JkRgZyGIkRuafYrNiZDCIkRiJURoxOmp1JEZiZBCLkRiZg4p9I0YGghiJkRilEaPLVkdiJEYGsBiJkXmo2FoxMgjESIzEKI0Y3Yl4DnojRmIkRmIkRmnEyFsEiZEYGbxiJEZReBbxPHRfjMRIjMRIjNKI0UqrIzGq+gA4YuCadMZ4vG5Gtq1/1nhsxDwXbRKjdD9b5GNFB/FNwancpFO0rWv8R6c0a62M0o1RnZzPLAbUjND3jkNfr75fDOxIH6u5G4G39deExsalCMbGkgVPYAAAMQJAjABAjAAQIwAQIwDECADECAAxAgAxAkCMAECMABAjABAjAOru/4PqrSktguBCAAAAAElFTkSuQmCC");
+  --mark-inv:url("data:image/png;base64,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");
+
+  --ok:#1B8F63;
+  --warn:#B7791F;
+
+  /* hero landscape (plotting chart) */
+  --hero-bg:#FDFBF7;
+  --terrain-panel:#FBF8F2;
+  --terrain-panel-line:#EAE3D4;
+  --terrain-line:#0F3473;
+  --route-c:#33518F;
+  --gold:#C9974A;
+  --plot-glow:rgba(255,255,255,0.55);
+
+  --shadow-s:0 1px 2px rgba(10,26,60,0.06),0 4px 12px -4px rgba(10,26,60,0.08);
+  --shadow-m:0 2px 6px rgba(10,26,60,0.06),0 18px 40px -16px rgba(10,26,60,0.16);
+  --shadow-l:0 8px 24px rgba(10,26,60,0.10),0 40px 80px -24px rgba(10,26,60,0.24);
+
+  --r-s:10px; --r-m:16px; --r-l:24px; --r-xl:34px;
+  --maxw:1200px;
+  --pad:clamp(20px,5vw,56px);
+  --f-display:'Space Grotesk','Inter',system-ui,sans-serif;
+  --f-body:'Inter',system-ui,-apple-system,sans-serif;
+  --f-mono:'DM Mono','SFMono-Regular',ui-monospace,monospace;
+  --e-out:cubic-bezier(0.16,1,0.3,1);
+  --e-io:cubic-bezier(0.65,0,0.35,1);
+}
+
+:root[data-theme="dark"],
+:root:not([data-theme="light"]):has(.theme-switch:checked){
+  color-scheme:dark;
+
+  --brand:#6BA1E4;
+  --brand-2:#0C1F3C;
+  --brand-strong:#8FBCF0;
+  --brand-soft:rgba(107,161,228,0.15);
+  --glow:rgba(107,161,228,0.18);
+  --focus:rgba(107,161,228,0.42);
+
+  --bg:#070F1C;
+  --bg-alt:#0B1526;
+  --surface:#0D1A2E;
+  --surface-2:#15253D;
+  --line:rgba(255,255,255,0.10);
+  --scroll-thumb:#2A3A52;
+
+  --heading:#EAF1FA;
+  --text:#E4EBF5;
+  --text-2:#9EAFCB;
+  --text-3:#6A7A9A;
+
+  --btn-bg:#2F6BC7;
+  --btn-fg:#FFFFFF;
+  --nav-solid:rgba(9,16,28,0.85);
+  --mark:var(--mark-inv);
+
+  --feature-bg:#0A1B33;
+  --feature-bg-2:#0A1B33;
+  --feature-text:#EAF1FA;
+  --feature-text-2:#9EAFCB;
+  --feature-line:rgba(255,255,255,0.10);
+  --feature-accent:#6BA1E4;
+  --feature-btn-bg:#2F6BC7;
+  --feature-btn-fg:#FFFFFF;
+
+  --ok:#40BE88;
+  --warn:#E0A83A;
+
+  --hero-bg:#070F1C;
+  --terrain-panel:#0D1A2E;
+  --terrain-panel-line:rgba(255,255,255,0.10);
+  --terrain-line:#6BA1E4;
+  --route-c:#7FB2EE;
+  --gold:#D9A961;
+  --plot-glow:rgba(127,178,238,0.06);
+
+  --shadow-s:0 1px 3px rgba(0,0,0,0.5),0 6px 16px -6px rgba(0,0,0,0.6);
+  --shadow-m:0 3px 10px rgba(0,0,0,0.5),0 22px 46px -18px rgba(0,0,0,0.7);
+  --shadow-l:0 12px 34px rgba(0,0,0,0.6),0 46px 96px -28px rgba(0,0,0,0.75);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{
+  font-family:var(--f-body);
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.62;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button,input,select,textarea{font:inherit;color:inherit}
+::selection{background:var(--brand);color:#fff}
+:focus-visible{outline:2.5px solid var(--brand);outline-offset:3px;border-radius:4px}
+
+::-webkit-scrollbar{width:11px}
+::-webkit-scrollbar-track{background:var(--bg-alt)}
+::-webkit-scrollbar-thumb{background:var(--scroll-thumb);border-radius:20px;border:3px solid var(--bg-alt)}
+
+h1,h2,h3,h4{font-family:var(--f-display);font-weight:600;line-height:1.1;letter-spacing:-0.02em;color:var(--heading)}
+
+/* ============================================================
+   SHARED PRIMITIVES
+   ============================================================ */
+.wrap{max-width:var(--maxw);margin:0 auto}
+.section{padding:clamp(72px,10vw,140px) var(--pad);position:relative}
+.kicker{
+  font-family:var(--f-mono);font-size:0.72rem;font-weight:500;
+  letter-spacing:0.22em;text-transform:uppercase;color:var(--brand);
+  display:inline-flex;align-items:center;gap:12px;
+}
+.kicker::before{content:"";width:22px;height:1px;background:currentColor}
+.kicker.solo::before{display:none}
+.h-lg{font-size:clamp(2rem,4.4vw,3.3rem);margin:20px 0 18px}
+.sec-intro{max-width:640px;margin-bottom:clamp(40px,6vw,68px)}
+.sec-intro p{color:var(--text-2);font-size:1.05rem}
+
+.on-navy{background:var(--feature-bg);color:var(--feature-text)}
+.on-navy h1,.on-navy h2,.on-navy h3,.on-navy h4{color:var(--feature-text)}
+.on-navy .kicker{color:var(--feature-accent)}
+.on-navy .sec-intro p{color:var(--feature-text-2)}
+
+/* buttons */
+.btn{
+  --bg:var(--btn-bg);--fg:var(--btn-fg);
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--f-display);font-weight:600;font-size:0.95rem;
+  padding:15px 26px;border-radius:100px;border:1.5px solid transparent;
+  background:var(--bg);color:var(--fg);cursor:pointer;
+  transition:transform .3s var(--e-out),box-shadow .3s var(--e-out),background .25s;
+  will-change:transform;min-height:52px;
+}
+.btn .arw{width:17px;height:17px;transition:transform .3s var(--e-out)}
+.btn:hover{box-shadow:var(--shadow-m)}
+.btn:hover .arw{transform:translateX(4px)}
+.btn.ghost{--bg:transparent;--fg:var(--text);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--brand);color:var(--brand);box-shadow:none}
+.on-navy .btn.ghost{--fg:var(--feature-text);border-color:var(--feature-line)}
+.on-navy .btn.ghost:hover{border-color:var(--feature-text);color:var(--feature-text);background:rgba(255,255,255,0.09)}
+.btn.white{--bg:var(--feature-btn-bg);--fg:var(--feature-btn-fg)}
+.btn.lg{padding:17px 30px;font-size:1rem;min-height:58px}
+
+/* reveal */
+[data-reveal]{opacity:0;transform:translateY(30px);transition:opacity .8s var(--e-out),transform .8s var(--e-out)}
+[data-reveal="left"]{transform:translateX(-40px)}
+[data-reveal="right"]{transform:translateX(40px)}
+[data-reveal="scale"]{transform:scale(0.94)}
+[data-reveal="clip"]{opacity:1;clip-path:inset(0 100% 0 0);transform:none;transition:clip-path 1s var(--e-io)}
+[data-reveal].in{opacity:1;transform:none;clip-path:inset(0 0 0 0)}
+[data-stagger]>*{opacity:0;transform:translateY(26px);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+[data-stagger].in>*{opacity:1;transform:none}
+[data-stagger].in>*:nth-child(1){transition-delay:.03s}
+[data-stagger].in>*:nth-child(2){transition-delay:.09s}
+[data-stagger].in>*:nth-child(3){transition-delay:.15s}
+[data-stagger].in>*:nth-child(4){transition-delay:.21s}
+[data-stagger].in>*:nth-child(5){transition-delay:.27s}
+[data-stagger].in>*:nth-child(6){transition-delay:.33s}
+[data-stagger].in>*:nth-child(7){transition-delay:.39s}
+[data-stagger].in>*:nth-child(8){transition-delay:.45s}
+[data-stagger].in>*:nth-child(9){transition-delay:.51s}
+
+/* ============================================================
+   PROGRESS + NAV
+   ============================================================ */
+#route{
+  position:fixed;top:0;left:0;height:3px;width:0;z-index:1100;
+  background:linear-gradient(90deg,var(--brand),var(--feature-accent));
+}
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:0 clamp(20px,4vw,44px);height:76px;
+  background:transparent;
+  transition:transform .4s var(--e-out),background .3s,box-shadow .3s,height .3s;
+}
+.nav.solid{background:var(--nav-solid);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 1px 0 var(--line);height:66px}
+.nav.hide{transform:translateY(-100%)}
+.nav-logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.nav-logo .logo-mark{height:31px;aspect-ratio:419/279;background:var(--mark) left center/contain no-repeat}
+.nav.solid .nav-logo .logo-mark{height:28px}
+.logo-text{display:none;flex-direction:column;line-height:1.02;white-space:nowrap}
+.logo-text b{font-family:var(--f-display);font-weight:600;font-size:1.04rem;letter-spacing:-0.01em;color:var(--heading)}
+.logo-text i{font-family:var(--f-mono);font-style:normal;font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text-3);margin-top:4px}
+@media (min-width:340px){.logo-text{display:flex}}
+@media (max-width:410px){.logo-text i{display:none}}
+
+.nav-links{display:flex;align-items:center;gap:2px}
+.nav-links a{
+  position:relative;white-space:nowrap;font-size:0.85rem;font-weight:500;color:var(--text-2);
+  padding:8px 11px;border-radius:8px;transition:color .2s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:11px;right:11px;bottom:4px;height:2px;
+  background:var(--brand);border-radius:2px;transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--e-out);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1)}
+.nav-links a.active{color:var(--text)}
+.nav-cta{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.nav-toggle{
+  display:none;width:46px;height:46px;border:1.5px solid var(--line);border-radius:12px;
+  background:var(--surface);color:var(--text-2);cursor:pointer;align-items:center;justify-content:center;
+}
+.nav-toggle svg{width:20px;height:20px}
+@media (max-width:1320px){
+  .nav-links{display:none}
+  .nav-cta .btn:not(.nav-toggle){display:none}
+  .nav-toggle{display:flex}
+}
+
+.mobile{
+  position:fixed;inset:0 0 0 auto;width:min(86vw,360px);z-index:1050;
+  background:var(--bg);box-shadow:var(--shadow-l);
+  padding:96px 28px 32px;display:flex;flex-direction:column;gap:4px;
+  transform:translateX(100%);transition:transform .4s var(--e-out);
+}
+.mobile.open{transform:none}
+.mobile a{font-family:var(--f-display);font-weight:500;font-size:1.12rem;padding:15px 6px;border-bottom:1px solid var(--line);color:var(--text)}
+.mobile .btn{margin-top:18px}
+.mob-theme{display:flex;align-items:center;gap:12px;width:100%;margin-top:8px;padding:15px 6px;
+  background:none;border:0;border-bottom:1px solid var(--line);color:var(--text);cursor:pointer;
+  font-family:var(--f-display);font-weight:500;font-size:1.12rem;text-align:left}
+.mob-theme svg{width:20px;height:20px;stroke:currentColor;fill:none;flex-shrink:0}
+.mob-theme .i-moon,.mob-theme .lbl-dark{display:none}
+:root[data-theme="dark"] .mob-theme .i-moon,:root[data-theme="dark"] .mob-theme .lbl-dark,
+:root:has(.theme-switch:checked) .mob-theme .i-moon,:root:has(.theme-switch:checked) .mob-theme .lbl-dark{display:inline-block}
+:root[data-theme="dark"] .mob-theme .i-sun,:root[data-theme="dark"] .mob-theme .lbl-light,
+:root:has(.theme-switch:checked) .mob-theme .i-sun,:root:has(.theme-switch:checked) .mob-theme .lbl-light{display:none}
+.scrim{position:fixed;inset:0;z-index:1040;background:rgba(3,20,45,0.4);opacity:0;pointer-events:none;transition:opacity .35s}
+.scrim.show{opacity:1;pointer-events:auto}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{
+  position:relative;overflow:hidden;background:var(--hero-bg);
+  padding:calc(76px + clamp(36px,7vw,74px)) var(--pad) clamp(56px,8vw,104px);
+}
+@keyframes topodrift{to{transform:translateX(-60px)}}
+.hero-inner{position:relative;z-index:2;max-width:940px;margin:0 auto;
+  display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-inner>*{min-width:0}
+.hero .kicker{margin-bottom:2px}
+
+.hero h1{font-size:clamp(2.4rem,5.4vw,4rem);line-height:1.06;letter-spacing:-0.035em;margin:20px auto 22px;max-width:24ch}
+.hero h1 .ln{display:block;opacity:0;transform:translateY(26px);transition:opacity .85s var(--e-out),transform .85s var(--e-out)}
+.hero h1 .ln:nth-child(2){transition-delay:.12s}
+.hero.ready h1 .ln{opacity:1;transform:none}
+.hero h1 .accent{color:var(--brand)}
+.hero-sub{font-size:clamp(1.04rem,1.5vw,1.22rem);color:var(--text-2);max-width:52ch;margin:0 auto;
+  opacity:0;transform:translateY(16px);transition:opacity .8s .4s var(--e-out),transform .8s .4s var(--e-out)}
+.hero.ready .hero-sub{opacity:1;transform:none}
+.hero-cta{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:36px;
+  opacity:0;transform:translateY(16px);transition:opacity .8s .55s var(--e-out),transform .8s .55s var(--e-out)}
+.hero.ready .hero-cta{opacity:1;transform:none}
+.hero-trust{margin-top:32px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;font-family:var(--f-mono);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-2);
+  opacity:0;transition:opacity .8s .8s}
+.hero.ready .hero-trust{opacity:1}
+.hero-trust span{display:inline-flex;align-items:center;gap:8px}
+.hero-trust span::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand)}
+
+/* hero backdrop — drifting topographic contours (decorative only) */
+.hero-bg{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+.hero-bg::before{content:"";position:absolute;left:50%;top:38%;width:min(1100px,120%);aspect-ratio:1;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(closest-side,var(--plot-glow),transparent 72%)}
+.hero-bg svg{position:absolute;left:50%;top:50%;width:min(1720px,168%);height:auto;
+  transform:translate(-50%,-50%);opacity:.7}
+:root[data-theme="dark"] .hero-bg svg,:root:has(.theme-switch:checked) .hero-bg svg{opacity:.42}
+.hero-bg .contour{fill:none;stroke:var(--terrain-line);stroke-width:1.3;
+  opacity:0;stroke-dasharray:1;stroke-dashoffset:1}
+.hero-bg .contour.accent{stroke:var(--brand);stroke-width:1.5}
+.hero.ready .hero-bg .contour{opacity:.6;stroke-dashoffset:0;
+  transition:stroke-dashoffset 2.4s var(--e-out),opacity 1.4s ease}
+.hero.ready .hero-bg .contour.accent{opacity:.78}
+.hero-bg .drift{animation:topodrift 46s linear infinite alternate}
+.hero-bg .drift2{animation:topodrift 66s linear infinite alternate-reverse}
+
+.hero .kicker{opacity:0;transform:translateY(14px);
+  transition:opacity .7s .1s var(--e-out),transform .7s .1s var(--e-out)}
+.hero.ready .kicker{opacity:1;transform:none}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee{background:var(--feature-bg);color:var(--feature-text);padding:18px 0;overflow:hidden;border-block:1px solid var(--feature-bg-2)}
+.marquee-track{display:flex;gap:0;width:max-content;animation:march 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+.marquee-track>span{display:inline-flex;align-items:center;gap:14px;padding:0 30px;font-family:var(--f-display);font-weight:500;font-size:0.98rem;white-space:nowrap;color:var(--feature-text)}
+.marquee-track>span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--feature-accent)}
+@keyframes march{to{transform:translateX(-50%)}}
+
+/* ============================================================
+   PROBLEM
+   ============================================================ */
+#problem{background:var(--bg)}
+.maze-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:14px}
+.maze-card{
+  position:relative;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-m);
+  padding:24px;overflow:hidden;transition:transform .35s var(--e-out),box-shadow .35s var(--e-out),border-color .35s;
+}
+.maze-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-m);border-color:transparent}
+.maze-card .mi{width:38px;height:38px;border-radius:10px;background:var(--brand-soft);color:var(--brand);display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.maze-card .mi svg{width:19px;height:19px}
+.maze-card h3{font-size:1.02rem;margin-bottom:6px}
+.maze-card p{font-size:0.88rem;color:var(--text-2);line-height:1.55}
+.maze-card::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:0;background:var(--brand);transition:width .4s var(--e-out)}
+.maze-card:hover::after{width:100%}
+.bridge{
+  margin-top:36px;padding:30px 34px;border-radius:var(--r-l);
+  background:linear-gradient(120deg,var(--feature-bg),var(--feature-bg-2));color:var(--feature-text);
+  display:flex;gap:22px;align-items:center;flex-wrap:wrap;overflow:hidden;position:relative;
+}
+.bridge::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(40% 120% at 90% 50%,rgba(255,255,255,0.10),transparent 70%);pointer-events:none}
+.bridge p{position:relative;flex:1 1 320px;font-family:var(--f-display);font-weight:500;font-size:clamp(1.12rem,2vw,1.5rem);color:var(--feature-text)}
+.bridge .btn{position:relative;flex:none}
+
+/* ============================================================
+   SERVICES — index / hover-preview
+   ============================================================ */
+#services{background:var(--bg-alt)}
+.svc-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.92fr);gap:clamp(24px,4vw,56px);align-items:start}
+.svc-list{border-top:1px solid var(--line)}
+.svc-row{
+  display:grid;grid-template-columns:auto 1fr auto;gap:18px;align-items:center;
+  width:100%;text-align:left;background:none;border:none;border-bottom:1px solid var(--line);
+  padding:22px 6px;cursor:pointer;transition:padding .3s var(--e-out);
+}
+.svc-row .no{font-family:var(--f-mono);font-size:0.78rem;color:var(--text-2)}
+.svc-row .nm{font-family:var(--f-display);font-weight:600;font-size:clamp(1.1rem,2vw,1.42rem);color:var(--text);transition:color .25s}
+.svc-row .chev{width:18px;height:18px;color:var(--text-2);transition:transform .3s var(--e-out),color .25s}
+.svc-row:hover{padding-left:14px}
+.svc-row:hover .nm,.svc-row[aria-selected="true"] .nm{color:var(--brand)}
+.svc-row[aria-selected="true"] .chev{transform:rotate(90deg);color:var(--brand)}
+.svc-detail{
+  position:sticky;top:100px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);
+  padding:clamp(24px,3vw,38px);box-shadow:var(--shadow-m);overflow:hidden;
+}
+.svc-panel{display:none}
+.svc-panel.active{display:block;animation:panel .5s var(--e-out)}
+@keyframes panel{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.svc-panel .pill{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--brand);background:var(--brand-soft);padding:5px 11px;border-radius:100px}
+.svc-panel h3{font-size:clamp(1.3rem,2.4vw,1.75rem);margin:14px 0 12px}
+.svc-panel .desc{color:var(--text-2);font-size:0.95rem;margin-bottom:20px}
+.svc-feat{display:flex;flex-direction:column;gap:8px}
+.svc-feat div{display:flex;gap:11px;align-items:flex-start;font-size:0.88rem;color:var(--text);padding:11px 13px;background:var(--bg-alt);border-radius:var(--r-s)}
+.svc-feat svg{width:15px;height:15px;color:var(--ok);flex:none;margin-top:3px}
+.svc-detail-mobile{display:none}
+
+/* ============================================================
+   COMPLIANCE (navy)
+   ============================================================ */
+#compliance .comp-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,0.9fr);gap:clamp(28px,4vw,60px);align-items:center;margin-bottom:52px}
+.comp-pillars{display:flex;flex-wrap:wrap;gap:9px;margin-top:24px}
+.comp-pillars span{font-family:var(--f-display);font-weight:500;font-size:0.82rem;color:var(--feature-text);border:1px solid var(--feature-line);border-radius:100px;padding:9px 16px}
+.comp-flow-card{background:rgba(255,255,255,0.04);border:1px solid var(--feature-line);border-radius:var(--r-l);padding:26px}
+.comp-flow-card .ct{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--feature-accent);margin-bottom:16px}
+.flowline{display:flex;flex-direction:column;gap:0}
+.flowline div{display:flex;align-items:center;gap:14px;padding:11px 0;font-size:0.9rem;color:var(--feature-text)}
+.flowline .fdot{width:24px;height:24px;flex:none;border-radius:50%;border:1.5px solid var(--feature-accent);display:flex;align-items:center;justify-content:center;font-family:var(--f-mono);font-size:0.7rem;color:var(--feature-accent)}
+.flowline .fbar{flex:1;height:1px;background:var(--feature-line)}
+
+.modules{display:grid;grid-template-columns:repeat(auto-fill,minmax(158px,1fr));gap:12px}
+.module{
+  background:rgba(255,255,255,0.03);border:1px solid var(--feature-line);border-radius:var(--r-m);
+  padding:18px;transition:transform .3s var(--e-out),background .3s,border-color .3s;
+}
+.module:hover{transform:translateY(-4px);background:rgba(255,255,255,0.07);border-color:var(--feature-accent)}
+.module b{font-family:var(--f-display);font-weight:600;font-size:0.98rem;color:var(--feature-text);display:block}
+.module span{font-size:0.76rem;color:var(--feature-text-2)}
+.comp-note{
+  margin-top:24px;padding:18px 20px;border-radius:var(--r-m);background:rgba(255,255,255,0.04);
+  border:1px solid var(--feature-line);font-size:0.85rem;color:var(--feature-text-2);display:flex;gap:12px;align-items:flex-start;
+}
+.comp-note svg{width:17px;height:17px;flex:none;margin-top:2px;color:var(--warn)}
+.comp-cta{margin-top:30px}
+
+/* ============================================================
+   STORY / HOW IT WORKS — sticky scroll
+   ============================================================ */
+#process{background:var(--bg);padding-bottom:0}
+.story{position:relative;max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:minmax(0,0.9fr) minmax(0,1fr);gap:clamp(24px,5vw,72px)}
+.story-media{position:sticky;top:0;height:100vh;display:flex;align-items:center}
+.story-stage{position:relative;width:100%;aspect-ratio:1/1;max-width:440px;margin-inline:auto;
+  background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--r-xl);overflow:hidden}
+.story-scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;opacity:0;transform:scale(1.04);transition:opacity .6s var(--e-out),transform .6s var(--e-out)}
+.story-scene.on{opacity:1;transform:none}
+.story-scene svg{width:74%;height:auto}
+.story-steps{padding:14vh 0}
+.story-step{min-height:82vh;display:flex;flex-direction:column;justify-content:center;padding:24px 0}
+.story-step .sn{font-family:var(--f-mono);font-size:0.8rem;color:var(--brand);letter-spacing:0.14em}
+.story-step h3{font-size:clamp(1.5rem,3vw,2.2rem);margin:12px 0 14px}
+.story-step p{color:var(--text-2);font-size:1rem;max-width:44ch}
+.story-rail{position:absolute;left:-24px;top:14vh;bottom:14vh;width:2px;background:var(--line);display:none}
+.story-rail i{position:absolute;left:0;top:0;width:100%;height:0;background:var(--brand);transition:height .3s linear}
+
+/* ============================================================
+   LIFECYCLE
+   ============================================================ */
+#lifecycle{background:var(--bg-alt)}
+.lc-track{position:relative;margin-top:16px}
+.lc-line{position:absolute;left:0;right:0;top:26px;height:2px;background:var(--line)}
+.lc-line i{position:absolute;left:0;top:0;height:100%;width:0;background:var(--brand);transition:width 1.4s var(--e-io)}
+.lc-stages{display:flex;gap:14px;overflow-x:auto;padding-bottom:12px;scroll-snap-type:x proximity}
+.lc-stage{scroll-snap-align:start;flex:1 1 0;min-width:186px;position:relative;padding-top:56px}
+.lc-stage .lc-node{position:absolute;top:16px;left:0;width:22px;height:22px;border-radius:50%;background:var(--surface);border:2px solid var(--brand);display:flex;align-items:center;justify-content:center}
+.lc-stage .lc-node::after{content:"";width:7px;height:7px;border-radius:50%;background:var(--brand)}
+.lc-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-m);padding:18px;height:100%}
+.lc-card .k{font-family:var(--f-mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-2)}
+.lc-card h3{font-size:1.02rem;margin:5px 0 10px}
+.lc-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.lc-card li{font-size:0.82rem;color:var(--text-2);padding-left:14px;position:relative}
+.lc-card li::before{content:"";position:absolute;left:0;top:9px;width:4px;height:4px;border-radius:50%;background:var(--brand)}
+.lc-cap{margin-top:18px;font-family:var(--f-mono);font-size:0.8rem;color:var(--text-2);letter-spacing:0.04em}
+
+/* ============================================================
+   TECHNOLOGY
+   ============================================================ */
+#technology{background:var(--bg)}
+.tech-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.tech-card{position:relative;background:var(--bg);border:1px solid var(--line);border-radius:var(--r-m);padding:24px;overflow:hidden;
+  transition:transform .35s var(--e-out),box-shadow .35s var(--e-out)}
+.tech-card:hover{transform:translateY(-5px);box-shadow:var(--shadow-m)}
+.tech-card .spot{position:absolute;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,var(--glow),transparent 70%);pointer-events:none;opacity:0;transform:translate(-50%,-50%);transition:opacity .3s}
+.tech-card:hover .spot{opacity:1}
+.tech-card svg.ti{width:20px;height:20px;color:var(--brand);margin-bottom:13px;position:relative}
+.tech-card h3{font-size:1rem;margin-bottom:6px;position:relative}
+.tech-card p{font-size:0.85rem;color:var(--text-2);line-height:1.55;position:relative}
+.tech-disc{margin-top:22px;font-size:0.82rem;color:var(--text-2)}
+
+/* ============================================================
+   DASHBOARD
+   ============================================================ */
+#dashboard{background:var(--bg-alt)}
+.dash-head{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.badge-ill{font-family:var(--f-mono);font-size:0.66rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--warn);border:1px solid rgba(217,148,0,0.4);border-radius:100px;padding:5px 11px}
+.dash{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:16px;margin-top:8px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:24px;box-shadow:var(--shadow-s)}
+.panel h3{font-family:var(--f-mono);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text-2);margin-bottom:16px;display:flex;align-items:center;gap:9px}
+.panel h3 .live{width:7px;height:7px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 0 rgba(31,169,113,0.5);animation:ping 2.4s ease-out infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(31,169,113,0.45)}100%{box-shadow:0 0 0 10px rgba(31,169,113,0)}}
+.frow{display:grid;grid-template-columns:56px 1fr auto;gap:12px;align-items:center;margin-bottom:13px}
+.frow .tg{font-family:var(--f-display);font-weight:600;font-size:0.8rem}
+.ftrack{height:7px;border-radius:5px;background:var(--bg-alt);overflow:hidden}
+.ftrack i{display:block;height:100%;width:0;border-radius:5px;transition:width 1.2s var(--e-io)}
+.fpill{font-family:var(--f-mono);font-size:0.66rem;letter-spacing:0.03em;padding:3px 9px;border-radius:100px;white-space:nowrap}
+.fpill.ok{background:rgba(31,169,113,0.12);color:var(--ok)}
+.fpill.due{background:rgba(217,148,0,0.14);color:var(--warn)}
+.sep{height:1px;background:var(--line);margin:18px 0}
+.score{display:flex;align-items:center;gap:18px}
+.score .n{font-family:var(--f-display);font-weight:600;font-size:2.7rem;line-height:1;color:var(--brand)}
+.score .n small{font-size:1rem;color:var(--text-2)}
+.score p{font-size:0.82rem;color:var(--text-2)}
+.spark{width:100%;height:44px;margin-top:6px}
+.spark path{fill:none;stroke:var(--brand);stroke-width:2;stroke-linecap:round;stroke-dasharray:var(--sl);stroke-dashoffset:var(--sl);transition:stroke-dashoffset 1.8s var(--e-io)}
+.spark.in path{stroke-dashoffset:0}
+.mini div{display:flex;justify-content:space-between;font-size:0.83rem;color:var(--text);padding:9px 0;border-bottom:1px solid var(--line)}
+.mini div:last-child{border-bottom:none}
+.mini span{color:var(--text-2)}
+.dash-foot{margin-top:14px;font-size:0.8rem;color:var(--text-2)}
+
+/* ============================================================
+   WHY — bento
+   ============================================================ */
+#why{background:var(--bg)}
+.bento{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.bento div{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--r-m);padding:26px;transition:transform .35s var(--e-out),box-shadow .35s var(--e-out)}
+.bento div:hover{transform:translateY(-4px);box-shadow:var(--shadow-m)}
+.bento .b-wide{grid-column:span 2}
+.bento .no{font-family:var(--f-mono);font-size:0.76rem;color:var(--brand)}
+.bento h3{font-size:1.08rem;margin:10px 0 8px}
+.bento p{font-size:0.87rem;color:var(--text-2);line-height:1.6}
+
+/* ============================================================
+   INDUSTRIES
+   ============================================================ */
+#industries{background:var(--bg-alt)}
+.ind-chips{display:flex;flex-wrap:wrap;gap:10px}
+.ind-chips span{font-family:var(--f-display);font-weight:500;font-size:0.88rem;background:var(--surface);border:1px solid var(--line);border-radius:100px;padding:10px 18px;transition:transform .3s var(--e-out),border-color .3s,color .3s}
+.ind-chips span:hover{transform:translateY(-3px);border-color:var(--brand);color:var(--brand)}
+.ind-note{margin-top:22px;color:var(--text-2);max-width:58ch}
+
+/* ============================================================
+   RESOURCES
+   ============================================================ */
+#resources{background:var(--bg)}
+.res-cats{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px}
+.res-cats span{font-family:var(--f-mono);font-size:0.74rem;color:var(--text-2);border:1px solid var(--line);border-radius:7px;padding:6px 12px}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(268px,1fr));gap:14px}
+.res-card{background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--r-m);padding:24px;display:flex;flex-direction:column;gap:12px;min-height:168px;
+  transition:transform .35s var(--e-out),box-shadow .35s var(--e-out)}
+.res-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-m)}
+.res-card .k{font-family:var(--f-mono);font-size:0.68rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--brand)}
+.res-card h3{font-size:1.02rem;line-height:1.35}
+.res-card .soon{margin-top:auto;font-family:var(--f-mono);font-size:0.72rem;color:var(--text-2)}
+
+/* ============================================================
+   TESTIMONIALS
+   ============================================================ */
+#testimonials{background:var(--bg-alt);overflow:hidden}
+.testi-row{display:flex;gap:16px}
+.testi{flex:1 1 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-m);padding:26px}
+.testi p{font-size:0.95rem;line-height:1.6;color:var(--text);margin-bottom:16px}
+.testi .who{font-family:var(--f-mono);font-size:0.76rem;color:var(--text-2);letter-spacing:0.03em}
+.testi-disc{margin-top:18px;font-size:0.8rem;color:var(--text-2)}
+
+/* ============================================================
+   FAQ
+   ============================================================ */
+#faq{background:var(--bg)}
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:22px 46px 22px 0;position:relative;
+  font-family:var(--f-display);font-weight:500;font-size:1.04rem;color:var(--text)}
+.faq-q::after{content:"";position:absolute;right:8px;top:27px;width:12px;height:2px;background:var(--brand)}
+.faq-q::before{content:"";position:absolute;right:13px;top:22px;width:2px;height:12px;background:var(--brand);transition:transform .3s var(--e-out)}
+.faq-item.open .faq-q::before{transform:rotate(90deg);opacity:0}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .4s var(--e-out)}
+.faq-a p{padding:0 0 22px;color:var(--text-2);font-size:0.92rem;max-width:72ch}
+
+/* ============================================================
+   FINAL CTA (navy)
+   ============================================================ */
+.final{position:relative;overflow:hidden;text-align:center;padding:clamp(80px,12vw,150px) var(--pad)}
+.final .topo{position:absolute;inset:0;z-index:0;opacity:0.5}
+.final .topo path{fill:none;stroke:#fff;opacity:0.10;stroke-width:1}
+.final .topo .tl{animation:topodrift linear infinite}
+.final>.inner{position:relative;z-index:1;max-width:720px;margin:0 auto}
+.final h2{font-size:clamp(2.1rem,4.6vw,3.4rem);margin-bottom:18px}
+.final p{color:var(--feature-text-2);font-size:1.08rem;margin-bottom:34px}
+.final .hero-cta{justify-content:center;opacity:1;transform:none}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+#contact{background:var(--bg-alt)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,0.8fr) minmax(0,1.2fr);gap:clamp(28px,4vw,56px)}
+.ci{display:flex;flex-direction:column;gap:14px}
+.ci-row{display:flex;gap:14px;align-items:flex-start}
+.ci-row .cii{width:40px;height:40px;flex:none;border-radius:11px;background:var(--surface);border:1px solid var(--line);color:var(--brand);display:flex;align-items:center;justify-content:center}
+.ci-row .cii svg{width:17px;height:17px}
+.ci-row .k{font-family:var(--f-mono);font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-2)}
+.ci-row .v{font-size:0.92rem;color:var(--text)}
+.form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-l);padding:clamp(22px,3vw,36px);box-shadow:var(--shadow-s)}
+.frow2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.field label{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;color:var(--text-2)}
+.field input,.field select,.field textarea{background:var(--bg-alt);border:1.5px solid var(--line);border-radius:var(--r-s);padding:12px 14px;font-size:0.92rem;transition:border-color .2s,box-shadow .2s;width:100%}
+.field textarea{resize:vertical;min-height:110px}
+.field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23516084' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:38px}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 4px var(--focus);background:var(--surface)}
+.field .err{font-size:0.76rem;color:#d64545;display:none}
+.field.bad input,.field.bad select,.field.bad textarea{border-color:#e08080}
+.field.bad .err{display:block}
+.form small{display:block;margin-top:10px;color:var(--text-2);font-size:0.78rem}
+.form-ok{margin-top:12px;font-size:0.88rem;color:var(--ok);display:none}
+.form-ok.show{display:block}
+
+/* ============================================================
+   FOOTER (navy #00357A — matches Logo 2 bg)
+   ============================================================ */
+footer{background:var(--footer-bg);color:var(--feature-text);padding:clamp(52px,7vw,80px) var(--pad) 32px}
+.foot{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px}
+.foot-brand img{height:104px;width:auto;margin:0 0 4px -4px}
+.foot-brand p{font-size:0.85rem;color:var(--feature-text-2);max-width:32ch;margin-top:14px}
+.foot-col h4{font-family:var(--f-mono);font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--feature-accent);margin-bottom:14px}
+.foot-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.foot-col a{font-size:0.87rem;color:var(--feature-text-2);transition:color .2s}
+.foot-col a:hover{color:var(--feature-text)}
+.foot-bottom{max-width:var(--maxw);margin:44px auto 0;padding-top:22px;border-top:1px solid var(--feature-line);
+  display:flex;justify-content:space-between;gap:6px 24px;flex-wrap:wrap;font-family:var(--f-mono);font-size:0.75rem;color:var(--feature-text-2);word-break:break-word}
+@media (max-width:1040px){.foot-bottom{justify-content:flex-start}footer{padding-bottom:96px}}
+
+/* whatsapp */
+.wa{position:fixed;right:20px;bottom:20px;z-index:900;width:54px;height:54px;border-radius:50%;background:#25D366;
+  display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px -8px rgba(37,211,102,0.55);transition:transform .3s var(--e-out)}
+.wa:hover{transform:scale(1.09)}
+.wa svg{width:27px;height:27px;fill:#fff}
+
+
+/* ---- theme toggle + logo ---- */
+.theme-toggle{width:42px;height:42px;flex-shrink:0;border:1.5px solid var(--line);border-radius:11px;
+  background:var(--surface);color:var(--text-2);cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:color .2s,border-color .2s,background .2s}
+.theme-toggle:hover{color:var(--brand);border-color:var(--brand)}
+.theme-toggle svg{width:19px;height:19px}
+.theme-toggle .i-moon{display:none}
+:root[data-theme="dark"] .theme-toggle .i-moon,:root:has(.theme-switch:checked) .theme-toggle .i-moon{display:block}
+:root[data-theme="dark"] .theme-toggle .i-sun,:root:has(.theme-switch:checked) .theme-toggle .i-sun{display:none}
+.theme-switch{position:absolute;width:1px;height:1px;opacity:0;pointer-events:none;margin:-1px}
+.theme-toggle:focus-visible,.mob-theme:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.logo-mark{display:block;transition:height .3s}
+.foot-brand .logo-mark{height:94px;aspect-ratio:465/346;background:var(--logo-inv) left center/contain no-repeat;margin:-4px 0 4px -3px}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width:1040px){
+  .hero-sub{max-width:54ch}
+  .svc-wrap{grid-template-columns:1fr}
+  .svc-detail{display:none}
+  .svc-detail-mobile{display:block;margin-top:2px}
+  #compliance .comp-top{grid-template-columns:1fr}
+  .story{grid-template-columns:1fr}
+  .story-media{position:sticky;top:70px;height:auto;padding:12px 0 14px;z-index:3;
+    background:var(--bg);box-shadow:0 14px 16px -14px var(--bg)}
+  .story-stage{max-width:190px}
+  .story-scene svg{width:88%}
+  .story-steps{padding:1vh 0 12vh}
+  .story-step{min-height:64vh;padding:16px 0}
+  .dash{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .bento .b-wide{grid-column:span 2}
+  .testi-row{flex-direction:column}
+  .contact-grid{grid-template-columns:1fr}
+  .foot{grid-template-columns:1fr 1fr}
+}
+@media (max-width:560px){
+  .hero-cta .btn{flex:1 1 100%}
+  .bridge .btn{width:100%}
+  .bento{grid-template-columns:1fr}
+  .bento .b-wide{grid-column:span 1}
+  .foot{grid-template-columns:1fr}
+  .final .hero-cta .btn{flex:1 1 100%}
+}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  [data-reveal],[data-stagger]>*{opacity:1!important;transform:none!important;clip-path:none!important}
+  .hero h1 .ln>span{transform:none!important}
+  .marquee-track{animation:none!important}
+  .hero-bg .drift,.hero-bg .drift2{animation:none!important}
+  .hero-bg .contour{opacity:.4!important;stroke-dashoffset:0!important}
+}
+</style>
+<noscript><style>
+  .hero .kicker,.hero h1 .ln,.hero-sub,.hero-cta,.hero-trust{opacity:1!important;transform:none!important}
+  [data-reveal],[data-stagger]>*{opacity:1!important;transform:none!important;clip-path:none!important}
+  .svc-detail{display:block!important}
+  .hero-bg .contour{opacity:.4!important;stroke-dashoffset:0!important}
+  .story{display:block!important}
+  .story-media{display:none!important}
+  .story-steps{padding:0!important}
+  .story-step{min-height:0!important;padding:22px 0!important;border-bottom:1px solid var(--line)}
+</style></noscript>
+</head>
+<body>
+<input type="checkbox" class="theme-switch" id="themeSwitch" tabindex="-1" aria-hidden="true">
+<script>(function(){var c=document.getElementById('themeSwitch');if(c)c.checked=document.documentElement.dataset.theme==='dark';})();</script>
+
+<div id="route"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#top" class="nav-logo" aria-label="HR Terrain — Navigator of HR Landscape, home">
+    <span class="logo-mark" aria-hidden="true"></span>
+    <span class="logo-text"><b>HR Terrain</b><i>Navigator of HR Landscape</i></span>
+  </a>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="#services">Services</a>
+    <a href="#compliance">Compliance</a>
+    <a href="#process">How it works</a>
+    <a href="#lifecycle">HR Operations</a>
+    <a href="#resources">Resources</a>
+    <a href="#why">About</a>
+  </nav>
+  <div class="nav-cta">
+    <label class="theme-toggle" id="themeToggle" for="themeSwitch" role="button" tabindex="0" aria-label="Switch color theme">
+      <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
+    </label>
+    <a href="#contact" class="btn" data-magnetic>Talk to an HR Expert
+      <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+  </div>
+</header>
+<div class="scrim" id="scrim"></div>
+<nav class="mobile" id="mobileMenu" aria-label="Mobile">
+  <a href="#services">Services</a>
+  <a href="#compliance">Compliance</a>
+  <a href="#process">How it works</a>
+  <a href="#lifecycle">HR Operations</a>
+  <a href="#resources">Resources</a>
+  <a href="#why">About</a>
+  <label class="mob-theme" id="themeToggleM" for="themeSwitch" role="button" tabindex="0">
+    <svg class="i-sun" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+    <svg class="i-moon" viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
+    <span class="lbl-light">Dark mode</span><span class="lbl-dark">Light mode</span>
+  </label>
+  <a href="#contact" class="btn">Talk to an HR Expert</a>
+</nav>
+
+<span id="top"></span>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+     <g class="pan">
+      <g class="drift">
+        <path class="contour" pathLength="1" d="M-120 150 C 180 96, 420 200, 700 150 S 1180 92, 1720 168"/>
+        <path class="contour" pathLength="1" d="M-120 268 C 200 210, 430 316, 720 262 S 1200 200, 1720 286"/>
+        <path class="contour accent" pathLength="1" d="M-120 392 C 220 330, 460 442, 760 384 S 1240 316, 1720 410"/>
+        <path class="contour" pathLength="1" d="M-120 520 C 240 456, 470 566, 780 508 S 1260 440, 1720 536"/>
+      </g>
+      <g class="drift2">
+        <path class="contour" pathLength="1" d="M-120 210 C 160 260, 400 150, 700 210 S 1180 280, 1720 206"/>
+        <path class="contour" pathLength="1" d="M-120 650 C 260 588, 500 700, 820 640 S 1300 574, 1720 664"/>
+        <path class="contour accent" pathLength="1" d="M-120 770 C 280 706, 520 820, 860 758 S 1320 690, 1720 786"/>
+        <path class="contour" pathLength="1" d="M-120 878 C 300 818, 540 928, 900 866 S 1360 802, 1720 892"/>
+      </g>
+     </g>
+    </svg>
+  </div>
+  <div class="hero-inner">
+    <span class="kicker solo">HR — Payroll — Compliance</span>
+    <h1>
+      <span class="ln">Navigate the complexity</span>
+      <span class="ln accent">of HR with confidence.</span>
+    </h1>
+    <p class="hero-sub">HR Terrain brings HR operations, payroll and statutory compliance together through structured processes, expert support and technology-enabled solutions.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn lg" data-magnetic>Talk to an HR Expert
+        <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#services" class="btn ghost lg">Explore Our Services</a>
+    </div>
+    <div class="hero-trust">
+      <span>Kerala &amp; Karnataka</span>
+      <span>Pan-India remote</span>
+      <span>Compliance-first</span>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>HR Operations</span><span>Payroll Processing</span><span>Statutory Compliance</span><span>EPF · ESI · PT · LWF</span><span>Labour Law</span><span>Compliance Calendars</span><span>Documentation</span><span>HR Advisory</span><span>Audit Readiness</span><span>Employee Lifecycle</span>
+    <span>HR Operations</span><span>Payroll Processing</span><span>Statutory Compliance</span><span>EPF · ESI · PT · LWF</span><span>Labour Law</span><span>Compliance Calendars</span><span>Documentation</span><span>HR Advisory</span><span>Audit Readiness</span><span>Employee Lifecycle</span>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<section class="section" id="problem">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">The problem</span>
+      <h2 class="h-lg">HR shouldn't feel like a maze.</h2>
+      <p>Most growing businesses carry HR, payroll and compliance across spreadsheets, portals, consultants and memory. The work is recurring, the deadlines are unforgiving, and the rules keep changing.</p>
+    </div>
+    <div class="maze-grid" data-reveal data-stagger>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg></div><h3>Multiple statutory deadlines</h3><p>PF, ESI, PT and LWF each run on their own calendar, in every state you operate.</p></div>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M3 10h18"/></svg></div><h3>Payroll complexity</h3><p>Salary structures, LOP, arrears and deductions have to reconcile — every month.</p></div>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M4 8h8M4 8a3 3 0 006 0"/></svg></div><h3>Frequent regulatory change</h3><p>Circulars, rate revisions and labour-code shifts land without much warning.</p></div>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/></svg></div><h3>Employee documentation</h3><p>Offer letters, records and registrations pile up and go out of date.</p></div>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="8" r="3"/><path d="M3 19c1-4 11-4 12 0M16 11l2 2 4-4"/></svg></div><h3>Contractor compliance</h3><p>Contract labour brings its own registers, returns and principal-employer duties.</p></div>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 4v6c0 5-3.5 7.5-9 9-5.5-1.5-9-4-9-9V7z"/><path d="M12 8v5"/></svg></div><h3>Compliance notices</h3><p>A single missed filing can turn into inspections, queries and penalties.</p></div>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 4h12v4H6zM6 12h12v8H6z"/></svg></div><h3>Manual processes</h3><p>Re-keyed data between systems is slow and quietly error-prone.</p></div>
+      <div class="maze-card"><div class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="2"/><circle cx="18" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><path d="M7.5 7.5l3 8M16.5 7.5l-3 8"/></svg></div><h3>Fragmented HR data</h3><p>The full picture lives in too many places to see at once.</p></div>
+    </div>
+    <div class="bridge" data-reveal>
+      <p>HR Terrain brings the landscape together — one framework across operations, payroll and compliance.</p>
+      <a href="#services" class="btn white" data-magnetic>See how
+        <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">Services</span>
+      <h2 class="h-lg">One framework. Six connected disciplines.</h2>
+      <p>Each service line is scoped to what your organisation actually needs — run individually, or together as a single operating layer.</p>
+    </div>
+
+    <div class="svc-wrap">
+      <div class="svc-list" role="tablist" aria-label="Services" data-reveal>
+        <button class="svc-row" role="tab" aria-selected="true" aria-controls="sp-0" id="st-0"><span class="no">01</span><span class="nm">HR Operations</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="svc-row" role="tab" aria-selected="false" aria-controls="sp-1" id="st-1"><span class="no">02</span><span class="nm">Payroll</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="svc-row" role="tab" aria-selected="false" aria-controls="sp-2" id="st-2"><span class="no">03</span><span class="nm">Statutory Compliance</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="svc-row" role="tab" aria-selected="false" aria-controls="sp-3" id="st-3"><span class="no">04</span><span class="nm">Compliance Management</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="svc-row" role="tab" aria-selected="false" aria-controls="sp-4" id="st-4"><span class="no">05</span><span class="nm">HR Advisory</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+        <button class="svc-row" role="tab" aria-selected="false" aria-controls="sp-5" id="st-5"><span class="no">06</span><span class="nm">HR Technology &amp; Automation</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+
+      <div class="svc-detail" data-reveal="right">
+        <div class="svc-panel active" id="sp-0" role="tabpanel" aria-labelledby="st-0">
+          <span class="pill">Service 01</span><h3>HR Operations</h3>
+          <p class="desc">Employee onboarding, documentation, lifecycle management, HR administration and day-to-day operational support — run as a consistent, repeatable process.</p>
+          <div class="svc-feat">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Offer, joining and onboarding documentation</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Structured employee records and data hygiene</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Attendance and leave inputs into payroll</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Confirmation, transfer and lifecycle events</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Exit and full-and-final documentation</div>
+          </div>
+        </div>
+        <div class="svc-panel" id="sp-1" role="tabpanel" aria-labelledby="st-1">
+          <span class="pill">Service 02</span><h3>Payroll</h3>
+          <p class="desc">Payroll processing, salary structures, attendance inputs, payroll controls and reporting — accurate, on time, and reconciled every cycle.</p>
+          <div class="svc-feat">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Monthly processing with statutory deductions (PF, ESI, PT, TDS)</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Salary structure and CTC design, LOP and arrears</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Payslip generation and secure distribution</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Full-and-final settlement and Form 16 coordination</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Multi-branch consolidated payroll with branch-wise reporting</div>
+          </div>
+        </div>
+        <div class="svc-panel" id="sp-2" role="tabpanel" aria-labelledby="st-2">
+          <span class="pill">Service 03</span><h3>Statutory Compliance</h3>
+          <p class="desc">PF, ESI, Professional Tax, Labour Welfare Fund and applicable statutory filings — handled with the registers, returns and documentation each one requires.</p>
+          <div class="svc-feat">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Establishment and employee registration on EPFO &amp; ESIC portals</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Monthly PF ECR filing and ESIC contribution returns</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Professional Tax filings with state-specific slabs</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>LWF contributions, remittance and record maintenance</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Coordination during inspections, audits and notices</div>
+          </div>
+        </div>
+        <div class="svc-panel" id="sp-3" role="tabpanel" aria-labelledby="st-3">
+          <span class="pill">Service 04</span><h3>Compliance Management</h3>
+          <p class="desc">Compliance calendars, deadline tracking, documentation, audit readiness and ongoing monitoring — so status is always known, not discovered.</p>
+          <div class="svc-feat">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Establishment-specific compliance calendar</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Deadline tracking with advance reminders</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Central repository for challans, returns and acknowledgements</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Audit and inspection readiness reviews</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Exception and gap reporting</div>
+          </div>
+        </div>
+        <div class="svc-panel" id="sp-4" role="tabpanel" aria-labelledby="st-4">
+          <span class="pill">Service 05</span><h3>HR Advisory</h3>
+          <p class="desc">Policies, processes, labour-law guidance and HR operational advisory — practical input for the decisions in front of you.</p>
+          <div class="svc-feat">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>HR policy and handbook development</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Process design for HR and payroll operations</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Labour-law applicability guidance for your establishment</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Support on structuring, documentation and record-keeping</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Capability building for in-house HR teams</div>
+          </div>
+        </div>
+        <div class="svc-panel" id="sp-5" role="tabpanel" aria-labelledby="st-5">
+          <span class="pill">Service 06</span><h3>HR Technology &amp; Automation</h3>
+          <p class="desc">Digitising repetitive HR workflows, compliance tracking, documentation and operational processes — technology-enabled operations, run by people who own the outcome.</p>
+          <div class="svc-feat">
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Automated compliance and deadline reminders</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Centralised documentation and records</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Structured payroll and approval workflows</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Compliance calendars and status dashboards</div>
+            <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l4 4L19 7"/></svg>Works alongside the HR/payroll tools you already use</div>
+          </div>
+        </div>
+      </div>
+      <div class="svc-detail-mobile" id="svcMobile"></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="section on-navy" id="compliance">
+  <div class="wrap">
+    <div class="comp-top">
+      <div data-reveal="left">
+        <span class="kicker">Compliance</span>
+        <h2 class="h-lg">Compliance is more than filing on time.</h2>
+        <p class="sec-intro" style="margin-bottom:0"><span style="color:var(--feature-text-2)">Filing is the visible part. Good compliance is the system underneath it — the one that holds up when a notice arrives or an auditor asks for three years of records.</span></p>
+        <div class="comp-pillars">
+          <span>Accuracy</span><span>Documentation</span><span>Timelines</span><span>Monitoring</span><span>Accountability</span>
+        </div>
+      </div>
+      <div class="comp-flow-card" data-reveal="right">
+        <div class="ct">How a filing actually holds up</div>
+        <div class="flowline">
+          <div><span class="fdot">1</span>Correct inputs &amp; wage computation<span class="fbar"></span></div>
+          <div><span class="fdot">2</span>Filed within the statutory window<span class="fbar"></span></div>
+          <div><span class="fdot">3</span>Challan &amp; acknowledgement archived<span class="fbar"></span></div>
+          <div><span class="fdot">4</span>Registers &amp; returns kept current<span class="fbar"></span></div>
+          <div><span class="fdot">5</span>Reviewed &amp; owned each cycle<span class="fbar"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:1.3rem;margin-bottom:20px" data-reveal>Compliance modules we work across</h3>
+    <div class="modules" data-reveal data-stagger>
+      <div class="module"><b>EPF</b><span>Provident Fund</span></div>
+      <div class="module"><b>ESI</b><span>Employees' State Insurance</span></div>
+      <div class="module"><b>Professional Tax</b><span>State-wise</span></div>
+      <div class="module"><b>LWF</b><span>Labour Welfare Fund</span></div>
+      <div class="module"><b>Gratuity</b><span>On applicability</span></div>
+      <div class="module"><b>Bonus</b><span>Payment of Bonus Act</span></div>
+      <div class="module"><b>Shops &amp; Estab.</b><span>State registration</span></div>
+      <div class="module"><b>Contract Labour</b><span>CLRA obligations</span></div>
+      <div class="module"><b>Other labour laws</b><span>As applicable</span></div>
+    </div>
+
+    <div class="comp-note" data-reveal>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h0"/><path d="M10.3 3.9L2 18a2 2 0 001.7 3h16.6a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/></svg>
+      <span>Not every compliance applies to every organisation. Applicability depends on state, establishment type, employee count, industry, wage structure, nature of employment and other legal criteria. We assess what actually applies to you before recommending anything.</span>
+    </div>
+    <div class="comp-cta" data-reveal>
+      <a href="#contact" class="btn white lg" data-magnetic>Assess Your Compliance
+        <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS — sticky story -->
+<section class="section" id="process">
+  <div class="wrap sec-intro" data-reveal>
+    <span class="kicker">How it works</span>
+    <h2 class="h-lg">A working relationship, in four moves.</h2>
+    <p>Not a one-time project. A cycle that repeats — with someone accountable for each part of it.</p>
+  </div>
+  <div class="story">
+    <div class="story-media">
+      <div class="story-stage">
+        <div class="story-scene on" data-scene="0">
+          <svg viewBox="0 0 200 200" fill="none" stroke="var(--brand)" stroke-width="3"><circle cx="88" cy="88" r="46"/><path d="M122 122l40 40" stroke-linecap="round"/><path d="M70 88h36M88 70v36" stroke="var(--brand)" stroke-linecap="round"/></svg>
+        </div>
+        <div class="story-scene" data-scene="1">
+          <svg viewBox="0 0 200 200" fill="none" stroke="var(--brand)" stroke-width="3"><rect x="36" y="40" width="128" height="34" rx="6"/><rect x="36" y="86" width="128" height="34" rx="6"/><rect x="36" y="132" width="128" height="34" rx="6" stroke="var(--brand)"/></svg>
+        </div>
+        <div class="story-scene" data-scene="2">
+          <svg viewBox="0 0 200 200" fill="none" stroke="var(--brand)" stroke-width="3"><path d="M40 150 L80 110 L110 130 L160 60" stroke-linecap="round" stroke-linejoin="round"/><circle cx="160" cy="60" r="7" fill="var(--brand)" stroke="none"/><path d="M40 168h120" stroke-linecap="round"/></svg>
+        </div>
+        <div class="story-scene" data-scene="3">
+          <svg viewBox="0 0 200 200" fill="none" stroke="var(--brand)" stroke-width="3"><circle cx="100" cy="100" r="58"/><path d="M100 60v40l28 16" stroke="var(--brand)" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+    <div class="story-steps">
+      <div class="story-rail" aria-hidden="true"><i id="storyRailFill"></i></div>
+      <div class="story-step" data-step="0"><span class="sn">01 — Understand</span><h3>Understand</h3><p>The organisation, the workforce, the establishments and the requirements that actually apply.</p></div>
+      <div class="story-step" data-step="1"><span class="sn">02 — Structure</span><h3>Structure</h3><p>Build the right HR, payroll and compliance processes — and the documentation to support them.</p></div>
+      <div class="story-step" data-step="2"><span class="sn">03 — Execute</span><h3>Execute</h3><p>Run recurring operations and statutory requirements on schedule, every cycle.</p></div>
+      <div class="story-step" data-step="3"><span class="sn">04 — Monitor</span><h3>Monitor</h3><p>Track deadlines, documentation, exceptions and compliance status — and report on them.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFECYCLE -->
+<section class="section" id="lifecycle">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">HR Operations</span>
+      <h2 class="h-lg">One connected employee journey.</h2>
+      <p>From the first offer letter to the final settlement, every stage produces records, obligations and hand-offs. We keep them connected.</p>
+    </div>
+    <div class="lc-track" data-reveal>
+      <div class="lc-line"><i id="lcFill"></i></div>
+      <div class="lc-stages">
+        <div class="lc-stage"><span class="lc-node"></span><div class="lc-card"><span class="k">Stage 01</span><h3>Hire</h3><ul><li>Offer &amp; joining documentation</li><li>Document checks</li><li>Compensation structuring</li></ul></div></div>
+        <div class="lc-stage"><span class="lc-node"></span><div class="lc-card"><span class="k">Stage 02</span><h3>Onboard</h3><ul><li>Employee record creation</li><li>PF / ESI registration</li><li>Policy acknowledgements</li></ul></div></div>
+        <div class="lc-stage"><span class="lc-node"></span><div class="lc-card"><span class="k">Stage 03</span><h3>Manage</h3><ul><li>Attendance &amp; leave</li><li>Confirmations &amp; transfers</li><li>Records kept current</li></ul></div></div>
+        <div class="lc-stage"><span class="lc-node"></span><div class="lc-card"><span class="k">Stage 04</span><h3>Payroll</h3><ul><li>Monthly processing</li><li>Statutory deductions</li><li>Payslips &amp; reporting</li></ul></div></div>
+        <div class="lc-stage"><span class="lc-node"></span><div class="lc-card"><span class="k">Stage 05</span><h3>Compliance</h3><ul><li>PF / ESI / PT / LWF filings</li><li>Registers &amp; returns</li><li>Audit-ready records</li></ul></div></div>
+        <div class="lc-stage"><span class="lc-node"></span><div class="lc-card"><span class="k">Stage 06</span><h3>Exit</h3><ul><li>Full-and-final settlement</li><li>Form 16 &amp; PF exit</li><li>Exit documentation</li></ul></div></div>
+      </div>
+    </div>
+    <p class="lc-cap" data-reveal>Hire → Onboard → Manage → Payroll → Compliance → Exit</p>
+  </div>
+</section>
+
+<!-- TECHNOLOGY -->
+<section class="section" id="technology">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">Technology</span>
+      <h2 class="h-lg">Human expertise. Smarter systems.</h2>
+      <p>We use technology to remove repetitive work and improve visibility — not to replace the judgement that compliance actually needs.</p>
+    </div>
+    <div class="tech-grid" data-reveal data-stagger>
+      <div class="tech-card" data-spot><span class="spot"></span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 2"/></svg><h3>Automated reminders</h3><p>Statutory deadlines tracked and flagged in advance, not on the due date.</p></div>
+      <div class="tech-card" data-spot><span class="spot"></span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l4 4v14H7z"/><path d="M13 3v5h5"/></svg><h3>Centralised documentation</h3><p>Challans, returns, acknowledgements and records in one organised place.</p></div>
+      <div class="tech-card" data-spot><span class="spot"></span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h10"/></svg><h3>Payroll workflows</h3><p>Inputs, review and approval move through a defined, auditable path.</p></div>
+      <div class="tech-card" data-spot><span class="spot"></span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M7 20h10M8 14l3-3 2 2 3-4"/></svg><h3>Status dashboards</h3><p>Filing status and upcoming deadlines visible at a glance.</p></div>
+      <div class="tech-card" data-spot><span class="spot"></span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v18M4 8h8M4 8a3 3 0 006 0"/></svg><h3>Structured reporting</h3><p>Consistent monthly summaries and reconciliation reports.</p></div>
+      <div class="tech-card" data-spot><span class="spot"></span><svg class="ti" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"/></svg><h3>Works with your stack</h3><p>We adapt to the HR and payroll tools your team already uses.</p></div>
+    </div>
+    <p class="tech-disc" data-reveal>HR Terrain provides technology-enabled HR operations. We do not currently market an autonomous AI platform, and we don't claim capabilities the service doesn't provide.</p>
+  </div>
+</section>
+
+<!-- DASHBOARD -->
+<section class="section" id="dashboard">
+  <div class="wrap">
+    <div class="dash-head" data-reveal>
+      <span class="kicker solo">Visibility</span>
+      <span class="badge-ill">Illustrative dashboard</span>
+    </div>
+    <div class="sec-intro" data-reveal style="margin-bottom:24px">
+      <h2 class="h-lg">Always know where compliance stands.</h2>
+      <p>A concept of the reporting view clients receive. Figures shown here are illustrative and not connected to a live system.</p>
+    </div>
+    <div class="dash" data-reveal>
+      <div class="panel">
+        <h3><span class="live"></span>Compliance overview — current cycle</h3>
+        <div id="filing">
+          <div class="frow"><span class="tg">EPF</span><div class="ftrack"><i data-w="100" style="background:var(--brand)"></i></div><span class="fpill ok">Filed</span></div>
+          <div class="frow"><span class="tg">ESI</span><div class="ftrack"><i data-w="100" style="background:var(--brand)"></i></div><span class="fpill ok">Filed</span></div>
+          <div class="frow"><span class="tg">PT</span><div class="ftrack"><i data-w="62" style="background:var(--warn)"></i></div><span class="fpill due">Due soon</span></div>
+          <div class="frow"><span class="tg">LWF</span><div class="ftrack"><i data-w="100" style="background:var(--feature-accent)"></i></div><span class="fpill ok">Filed</span></div>
+        </div>
+        <div class="sep"></div>
+        <h3>Filing trend</h3>
+        <svg class="spark" id="spark" viewBox="0 0 300 44" preserveAspectRatio="none">
+          <path d="M0 34 L43 30 L86 32 L129 20 L172 24 L215 12 L258 16 L300 6"/>
+        </svg>
+        <div class="sep"></div>
+        <h3>Recent filings</h3>
+        <div class="mini">
+          <div>EPF — ECR uploaded &amp; paid <span>Cycle close</span></div>
+          <div>ESI — Contribution return filed <span>Cycle close</span></div>
+          <div>LWF — Half-yearly remittance <span>Prior period</span></div>
+        </div>
+      </div>
+      <div class="panel">
+        <h3>Compliance score</h3>
+        <div class="score"><div class="n"><span id="score">0</span><small>/100</small></div><p>Weighted across accuracy, timeliness and documentation completeness.</p></div>
+        <div class="sep"></div>
+        <h3>Upcoming deadlines</h3>
+        <div class="mini">
+          <div>PF ECR filing <span>Mid-month</span></div>
+          <div>ESI contribution <span>Mid-month</span></div>
+          <div>Professional Tax <span>Month-end</span></div>
+        </div>
+        <div class="sep"></div>
+        <h3>Pending actions</h3>
+        <div class="mini">
+          <div>Confirm PT wage inputs <span>1 item</span></div>
+          <div>Upload new joiner KYC <span>2 items</span></div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-foot" data-reveal>Illustrative interface — not live client data. Actual reporting format is agreed as part of an engagement.</p>
+  </div>
+</section>
+
+<!-- WHY -->
+<section class="section" id="why">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">Why HR Terrain</span>
+      <h2 class="h-lg">Built to be the partner you don't have to manage.</h2>
+      <p>HR Terrain focuses on HR operations, payroll and statutory compliance — with regional depth in Kerala and Karnataka, and remote delivery across India.</p>
+    </div>
+    <div class="bento" data-reveal data-stagger>
+      <div class="b-wide"><span class="no">01</span><h3>One partner</h3><p>HR operations, payroll and compliance under a single framework — not three vendors to coordinate, each with its own version of the truth.</p></div>
+      <div><span class="no">02</span><h3>Compliance first</h3><p>Built around accuracy, deadlines and documentation — what holds up under scrutiny.</p></div>
+      <div><span class="no">03</span><h3>Technology enabled</h3><p>Modern systems reduce manual work and surface filing status and deadlines.</p></div>
+      <div class="b-wide"><span class="no">04</span><h3>Business focused &amp; scalable</h3><p>Processes designed around how your organisation actually operates, and ready for growth across multiple locations and evolving requirements.</p></div>
+      <div><span class="no">05</span><h3>Accountable</h3><p>Clear ownership of outcomes and a direct point of contact — not a ticket queue.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INDUSTRIES -->
+<section class="section" id="industries">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">Industries</span>
+      <h2 class="h-lg">HR challenges vary by industry. Our framework adapts.</h2>
+      <p>Wage structures, shift patterns, contract labour and applicable registrations differ across sectors. We shape the engagement around yours.</p>
+    </div>
+    <div class="ind-chips" data-reveal data-stagger>
+      <span>IT &amp; Technology</span><span>Healthcare</span><span>Manufacturing</span><span>Education</span>
+      <span>Retail</span><span>Hospitality</span><span>Professional Services</span><span>Startups &amp; growing businesses</span>
+    </div>
+    <p class="ind-note" data-reveal>Sectors shown reflect where these HR and compliance challenges commonly arise. We assess each organisation's specific requirements before scoping work.</p>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section class="section" id="resources">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">Resources</span>
+      <h2 class="h-lg">Knowledge hub</h2>
+      <p>Practical guidance for employers on payroll, labour law and HR compliance. Articles are being published — the structure below is where they'll live.</p>
+    </div>
+    <div class="res-cats" data-reveal>
+      <span>Labour Law Updates</span><span>Compliance Guides</span><span>Payroll Insights</span><span>HR Operations</span><span>HR Templates</span><span>Compliance Calendar</span>
+    </div>
+    <div class="res-grid" data-reveal data-stagger>
+      <div class="res-card"><span class="k">Compliance Guide</span><h3>What employers should know about India's Labour Codes</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Compliance Guide</span><h3>PF compliance: common employer mistakes</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Compliance Guide</span><h3>ESI compliance explained</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Payroll Insights</span><h3>Payroll compliance checklist for employers</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">HR Operations</span><h3>What documents should be maintained for employees?</h3><span class="soon">Coming soon</span></div>
+      <div class="res-card"><span class="k">Compliance Calendar</span><h3>HR compliance calendar for employers</h3><span class="soon">Coming soon</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section" id="testimonials">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">Client feedback</span>
+      <h2 class="h-lg">What clients say</h2>
+      <p>Feedback shared by client HR and finance teams. Identifying details are withheld at their request.</p>
+    </div>
+    <div class="testi-row" data-reveal data-stagger>
+      <div class="testi"><p>“HR Terrain has taken the stress of monthly PF and ESIC filings off our plate. Accuracy and on-time delivery have been consistent.”</p><div class="who">HR Manager · Healthcare education · Kerala</div></div>
+      <div class="testi"><p>“Managing compliance across our branches used to be a scramble. Now it runs in the background and we receive the reports.”</p><div class="who">Finance lead · Multi-branch organisation · Kerala &amp; Karnataka</div></div>
+      <div class="testi"><p>“Their proactive approach stands out — we're told about changes that affect us before they become a problem.”</p><div class="who">Founder · Services company · Bengaluru</div></div>
+    </div>
+    <p class="testi-disc" data-reveal>This section is reserved for verified client statements. New feedback is added only with the client's consent.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">FAQ</span>
+      <h2 class="h-lg">Questions, answered plainly.</h2>
+    </div>
+    <div class="faq" data-reveal>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What HR services does HR Terrain provide?</button><div class="faq-a"><p>HR operations, payroll processing, statutory compliance, compliance management and monitoring, HR advisory, and technology-enabled HR workflows. Engagements are scoped to what your organisation actually needs.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you handle payroll?</button><div class="faq-a"><p>Yes. We manage monthly payroll processing, salary structures, attendance and leave inputs, statutory deductions such as PF, ESI, PT and TDS, payslip generation, and full-and-final settlements — with branch-wise reporting for multi-location organisations.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Which statutory compliances do you support?</button><div class="faq-a"><p>We work across EPF, ESI, Professional Tax and Labour Welfare Fund, along with related registers, returns and documentation. Other labour-law obligations — Bonus, Gratuity, Shops &amp; Establishments, Contract Labour and so on — are handled based on their applicability to your establishment.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you manage employee onboarding and documentation?</button><div class="faq-a"><p>Yes. We handle offer and joining documentation, onboarding workflows, employee records, statutory registrations and exit documentation as one connected lifecycle.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Do you support multi-location organisations?</button><div class="faq-a"><p>Yes. We support multi-branch and multi-state operations with consolidated processing and branch-wise compliance and reporting.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can HR Terrain help with compliance audits?</button><div class="faq-a"><p>Yes. We help organisations prepare for audits and inspections through documentation review, gap identification, record readiness and coordination during departmental queries.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Can you work alongside our existing HR or payroll systems?</button><div class="faq-a"><p>Yes. We adapt to the tools your team already uses and build structured processes around them rather than forcing a platform change.</p></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">Is the compliance dashboard a live product?</button><div class="faq-a"><p>The dashboard shown on this site is an illustrative concept. Reporting and visibility are provided to clients as part of an engagement; a self-serve live product is not currently offered.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final on-navy">
+  <svg class="topo" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
+    <path class="tl" style="animation-duration:34s" d="M-100 120 C 200 60, 400 180, 700 110 S 1100 60, 1400 140"/>
+    <path class="tl" style="animation-duration:40s" d="M-100 250 C 250 180, 450 320, 720 240 S 1150 200, 1400 280"/>
+    <path class="tl" style="animation-duration:46s" d="M-100 380 C 220 320, 480 440, 760 370 S 1120 330, 1400 410"/>
+  </svg>
+  <div class="inner">
+    <span class="kicker solo" style="justify-content:center;color:var(--feature-accent)">Let's talk</span>
+    <h2 style="margin-top:16px">Let's make HR simpler.</h2>
+    <p>Whether you need help with payroll, statutory compliance, HR operations or building better HR processes, let's understand your requirements.</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn white lg" data-magnetic>Talk to an HR Expert
+        <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#contact" class="btn ghost lg">Contact HR Terrain</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section" id="contact">
+  <div class="wrap">
+    <div class="sec-intro" data-reveal>
+      <span class="kicker">Contact</span>
+      <h2 class="h-lg">Tell us what you're dealing with.</h2>
+      <p>Share a few details and we'll get back to you to understand your requirements. No obligation.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="ci" data-reveal="left">
+        <div class="ci-row"><span class="cii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></span><div><div class="k">Email</div><div class="v"><a href="mailto:info.hrterrain@gmail.com">info.hrterrain@gmail.com</a></div></div></div>
+        <div class="ci-row"><span class="cii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h6l2 5-3 2a12 12 0 006 6l2-3 5 2v6a2 2 0 01-2 2A18 18 0 013 6a2 2 0 011-2z"/></svg></span><div><div class="k">WhatsApp / Phone</div><div class="v"><a href="https://wa.me/919995094978">+91 99950 94978</a></div></div></div>
+        <div class="ci-row"><span class="cii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><div><div class="k">Serving</div><div class="v">Kerala &amp; Karnataka · Pan-India remote</div></div></div>
+        <div class="ci-row"><span class="cii"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="k">Working hours</div><div class="v">Mon–Sat, 9:00 AM – 6:00 PM IST</div></div></div>
+      </div>
+
+      <form class="form" id="contactForm" action="https://formsubmit.co/info.hrterrain@gmail.com" method="POST" novalidate data-reveal="right">
+        <input type="hidden" name="_subject" value="New enquiry — hrterrain.com" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
+        <div class="frow2">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" required autocomplete="name" /><span class="err">Please enter your name.</span></div>
+          <div class="field"><label for="f-company">Company</label><input id="f-company" name="company" type="text" autocomplete="organization" /><span class="err"></span></div>
+        </div>
+        <div class="frow2">
+          <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" required autocomplete="email" /><span class="err">Please enter a valid email.</span></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91" /><span class="err"></span></div>
+        </div>
+        <div class="frow2">
+          <div class="field"><label for="f-size">Company size</label>
+            <select id="f-size" name="company_size"><option value="">Select</option><option>1–20</option><option>21–50</option><option>51–200</option><option>201–500</option><option>500+</option></select><span class="err"></span>
+          </div>
+          <div class="field"><label for="f-service">Service required</label>
+            <select id="f-service" name="service" required><option value="">Select</option><option>HR Operations</option><option>Payroll</option><option>Statutory Compliance</option><option>Compliance Audit</option><option>HR Advisory</option><option>HR Technology</option><option>Other</option></select><span class="err">Please choose a service.</span>
+          </div>
+        </div>
+        <div class="field"><label for="f-message">Message</label><textarea id="f-message" name="message" required placeholder="A few lines about your organisation and what you need help with."></textarea><span class="err">Please add a short message.</span></div>
+        <button type="submit" class="btn lg" style="width:100%">Send enquiry
+          <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </button>
+        <small>Submitting sends your details to HR Terrain by email. This form can be connected to a CRM or form API without design changes.</small>
+        <p class="form-ok" id="formOk">Thanks — your enquiry has been prepared for sending.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div class="foot-brand">
+      <span class="logo-mark" role="img" aria-label="HR Terrain — Navigator of HR Landscape"></span>
+      <p>Modern HR, payroll and statutory compliance infrastructure for businesses.</p>
+    </div>
+    <div class="foot-col"><h4>Explore</h4><ul>
+      <li><a href="#services">Services</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#process">How it works</a></li><li><a href="#lifecycle">HR Operations</a></li><li><a href="#resources">Resources</a></li><li><a href="#why">About</a></li>
+    </ul></div>
+    <div class="foot-col"><h4>Services</h4><ul>
+      <li><a href="#services">HR Operations</a></li><li><a href="#services">Payroll</a></li><li><a href="#services">Statutory Compliance</a></li><li><a href="#services">Compliance Management</a></li><li><a href="#services">HR Advisory</a></li><li><a href="#services">HR Technology</a></li>
+    </ul></div>
+    <div class="foot-col"><h4>Legal</h4><ul>
+      <li><a href="#">Privacy Policy</a></li><li><a href="#">Terms</a></li><li><a href="#">Disclaimer</a></li>
+    </ul></div>
+  </div>
+  <div class="foot-bottom">
+    <span>© <span id="year">2026</span> HR Terrain. All rights reserved.</span>
+    <span><a href="mailto:info.hrterrain@gmail.com">info.hrterrain@gmail.com</a></span>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/919995094978?text=Hi%20HR%20Terrain%2C%20I%27d%20like%20to%20discuss%20HR%20and%20compliance%20support." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.08-.3-.15-1.25-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.6.13-.14.3-.35.44-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.6-.92-2.2-.24-.58-.48-.5-.66-.5h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.48 0 1.46 1.07 2.87 1.22 3.07.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.62.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.8h-.02a9.87 9.87 0 01-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.38a9.86 9.86 0 01-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88 2.64 0 5.12 1.03 6.98 2.9a9.82 9.82 0 012.9 6.99c0 5.45-4.44 9.88-9.88 9.88zM20.5 3.5A11.82 11.82 0 0012.05 0C5.5 0 .16 5.34.16 11.9c0 2.1.55 4.14 1.6 5.95L0 24l6.3-1.65a11.88 11.88 0 005.68 1.45h.01c6.55 0 11.89-5.34 11.9-11.9 0-3.18-1.24-6.17-3.4-8.42z"/></svg>
+</a>
+
+<script>
+(function(){
+  "use strict";
+  var RM = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var FINE = window.matchMedia("(hover:hover) and (pointer:fine)").matches;
+  var $=function(s,c){return (c||document).querySelector(s)};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s))};
+
+  $("#year").textContent = new Date().getFullYear();
+
+  var themeChk = $("#themeSwitch");
+  var themeBtns = $$("#themeToggle,#themeToggleM");
+  if (themeChk){
+    var applyTheme=function(dark){
+      document.documentElement.dataset.theme = dark ? "dark" : "light";
+      themeChk.checked = dark;
+      try{ localStorage.setItem("hrt-theme", dark ? "dark" : "light"); }catch(e){}
+      var m=document.querySelector('meta[name=theme-color]'); if(m) m.content = dark ? "#070F1C" : "#FFFFFF";
+      themeBtns.forEach(function(b){ b.setAttribute("aria-label", dark ? "Switch to light mode" : "Switch to dark mode"); });
+    };
+    applyTheme(document.documentElement.dataset.theme === "dark");
+    themeChk.addEventListener("change", function(){ applyTheme(themeChk.checked); });
+    themeBtns.forEach(function(b){
+      b.addEventListener("keydown", function(e){
+        if (e.key === "Enter" || e.key === " "){ e.preventDefault(); applyTheme(!themeChk.checked); }
+      });
+    });
+  }
+
+  /* hero intro */
+  requestAnimationFrame(function(){ $("#hero").classList.add("ready"); });
+
+  /* nav: solid + hide-on-scroll + progress */
+  var nav = $("#nav"), route = $("#route"), lastY = 0;
+  function scroll(){
+    var y = window.scrollY || 0;
+    nav.classList.toggle("solid", y > 20);
+    if (y > 320 && y > lastY + 6){ nav.classList.add("hide"); }
+    else if (y < lastY - 6 || y < 320){ nav.classList.remove("hide"); }
+    lastY = y;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    route.style.width = h > 0 ? Math.min(y / h * 100, 100) + "%" : "0";
+  }
+  window.addEventListener("scroll", function(){ requestAnimationFrame(scroll); }, {passive:true});
+  scroll();
+
+  /* mobile menu */
+  var tg = $("#navToggle"), mm = $("#mobileMenu"), sc = $("#scrim");
+  function setMenu(open){
+    mm.classList.toggle("open", open); sc.classList.toggle("show", open);
+    tg.setAttribute("aria-expanded", open ? "true" : "false");
+    document.body.style.overflow = open ? "hidden" : "";
+  }
+  tg.addEventListener("click", function(){ setMenu(!mm.classList.contains("open")); });
+  sc.addEventListener("click", function(){ setMenu(false); });
+  $$("#mobileMenu a").forEach(function(a){ a.addEventListener("click", function(){ setMenu(false); }); });
+
+  /* reveal */
+  if ("IntersectionObserver" in window && !RM){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, {threshold:0.12, rootMargin:"0px 0px -6% 0px"});
+    $$("[data-reveal],[data-stagger]").forEach(function(el){ io.observe(el); });
+    var sp = $("#spark");
+    if (sp){ var so = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); so.disconnect(); } }); },{threshold:.4}); so.observe(sp); }
+  } else {
+    $$("[data-reveal],[data-stagger],#spark").forEach(function(el){ el.classList.add("in"); });
+  }
+
+  /* active nav link */
+  var links = $$(".nav-links a");
+  if ("IntersectionObserver" in window){
+    var spy = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){
+          var id = "#" + e.target.id;
+          links.forEach(function(a){ a.classList.toggle("active", a.getAttribute("href") === id); });
+        }
+      });
+    }, {rootMargin:"-46% 0px -50% 0px"});
+    links.forEach(function(a){ var s=$(a.getAttribute("href")); if(s) spy.observe(s); });
+  }
+
+  /* services */
+  var tabs = $$(".svc-row"), panels = $$(".svc-panel"), mob = $("#svcMobile");
+  function pick(i){
+    tabs.forEach(function(t,x){ t.setAttribute("aria-selected", x===i?"true":"false"); });
+    panels.forEach(function(p,x){ p.classList.toggle("active", x===i); });
+    if (mob){ mob.innerHTML = ""; var clone = panels[i].cloneNode(true); clone.classList.add("active"); mob.appendChild(clone); }
+  }
+  tabs.forEach(function(t,i){
+    t.addEventListener("click", function(){ pick(i); });
+    t.addEventListener("mouseenter", function(){ if (FINE) pick(i); });
+    t.addEventListener("keydown", function(e){
+      var n = e.key==="ArrowDown"||e.key==="ArrowRight" ? 1 : (e.key==="ArrowUp"||e.key==="ArrowLeft" ? -1 : 0);
+      if (n){ e.preventDefault(); var j=(i+n+tabs.length)%tabs.length; tabs[j].focus(); pick(j); }
+    });
+  });
+  pick(0);
+
+  /* faq */
+  $$(".faq-item").forEach(function(it){
+    var q = $(".faq-q", it), a = $(".faq-a", it);
+    q.addEventListener("click", function(){
+      var open = it.classList.toggle("open");
+      q.setAttribute("aria-expanded", open ? "true":"false");
+      a.style.maxHeight = open ? a.scrollHeight + "px" : "0";
+    });
+  });
+
+  /* dashboard */
+  function runDash(){
+    $$("#filing .ftrack i").forEach(function(el){ el.style.width = (el.getAttribute("data-w")||0) + "%"; });
+    var s = $("#spark path"); if (s){ var L = s.getTotalLength(); s.style.setProperty("--sl", L); $("#spark").classList.add("in"); }
+    var el = $("#score"), target = 96, cur = 0;
+    if (RM){ el.textContent = target; return; }
+    (function t(){ cur = Math.min(cur + 3, target); el.textContent = cur; if (cur < target) requestAnimationFrame(t); })();
+  }
+  var dash = $("#dashboard");
+  if ("IntersectionObserver" in window && dash){
+    var d = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ runDash(); d.disconnect(); } }); }, {threshold:0.3});
+    d.observe(dash);
+  } else { runDash(); }
+
+  /* lifecycle progress line */
+  var lc = $("#lifecycle"), lcFill = $("#lcFill");
+  if ("IntersectionObserver" in window && lc && lcFill){
+    var l = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ lcFill.style.width = "100%"; l.disconnect(); } }); }, {threshold:0.35});
+    l.observe(lc);
+  } else if (lcFill){ lcFill.style.width = "100%"; }
+
+  /* story sticky steps */
+  var scenes = $$(".story-scene"), steps = $$(".story-step"), rail = $("#storyRailFill");
+  if ("IntersectionObserver" in window && steps.length){
+    var s2 = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        if (e.isIntersecting){
+          var i = +e.target.getAttribute("data-step");
+          scenes.forEach(function(sc,x){ sc.classList.toggle("on", x===i); });
+          if (rail) rail.style.height = ((i+1)/steps.length*100) + "%";
+        }
+      });
+    }, {rootMargin:"-45% 0px -45% 0px"});
+    steps.forEach(function(st){ s2.observe(st); });
+  }
+
+  /* magnetic buttons */
+  if (FINE && !RM){
+    $$("[data-magnetic]").forEach(function(b){
+      b.addEventListener("mousemove", function(e){
+        var r = b.getBoundingClientRect();
+        var x = (e.clientX - r.left - r.width/2) * 0.25;
+        var y = (e.clientY - r.top - r.height/2) * 0.35;
+        b.style.transform = "translate(" + x + "px," + y + "px)";
+      });
+      b.addEventListener("mouseleave", function(){ b.style.transform = ""; });
+    });
+    /* tech card spotlight */
+    $$("[data-spot]").forEach(function(c){
+      var sp = $(".spot", c);
+      c.addEventListener("mousemove", function(e){
+        var r = c.getBoundingClientRect();
+        sp.style.left = (e.clientX - r.left) + "px";
+        sp.style.top = (e.clientY - r.top) + "px";
+      });
+    });
+  }
+
+  /* hero backdrop — gentle pointer parallax on the contour layers */
+  if (FINE && !RM){
+    var hero = $("#hero"), pan = $(".hero-bg .pan");
+    if (hero && pan){
+      var tx = 0, ty = 0, cx = 0, cy = 0, active = false;
+      hero.addEventListener("mousemove", function(e){
+        var r = hero.getBoundingClientRect();
+        tx = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width/2)) / (r.width/2)));
+        ty = Math.max(-1, Math.min(1, (e.clientY - (r.top + r.height/2)) / (r.height/2)));
+        if (!active){ active = true; loop(); }
+      }, {passive:true});
+      function loop(){
+        cx += (tx - cx) * 0.05; cy += (ty - cy) * 0.05;
+        pan.setAttribute("transform", "translate(" + (cx*16).toFixed(2) + "," + (cy*11).toFixed(2) + ")");
+        if (Math.abs(tx-cx) > 0.001 || Math.abs(ty-cy) > 0.001) requestAnimationFrame(loop);
+        else active = false;
+      }
+    }
+  }
+
+  /* form validation */
+  var form = $("#contactForm"), ok = $("#formOk");
+  function vField(f){
+    var i = $("input,select,textarea", f);
+    if (!i || !i.hasAttribute("required")) return true;
+    var good = i.value.trim() !== "";
+    if (good && i.type === "email") good = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(i.value.trim());
+    f.classList.toggle("bad", !good);
+    return good;
+  }
+  $$(".field", form).forEach(function(f){ var i=$("input,select,textarea",f); if(i) i.addEventListener("blur", function(){ vField(f); }); });
+  form.addEventListener("submit", function(e){
+    var good = true;
+    $$(".field", form).forEach(function(f){ if (!vField(f)) good = false; });
+    if (!good){ e.preventDefault(); var b = $(".field.bad input,.field.bad select,.field.bad textarea", form); if (b) b.focus(); }
+    else { ok.classList.add("show"); }
+  });
+})();
+</script>
+</body>
+</html>

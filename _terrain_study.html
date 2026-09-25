@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>HR Terrain — landscape composition study v2</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#0F3473;
+    --route:#3F5C9E;
+    --ink:#12233D;
+    --slate:#51617F;
+    --page:#FDFBF7;
+    --panel:#FBF8F2;
+    --panel-line:#EAE3D4;
+    --line:#E6E1D6;
+    --gold:#C9974A;
+    --f-d:'Space Grotesk',sans-serif; --f-b:'Inter',sans-serif; --f-m:'DM Mono',monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--f-b);background:var(--page);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+
+  .hero{
+    min-height:100vh;display:grid;grid-template-columns:minmax(0,0.92fr) minmax(0,1.08fr);
+    align-items:center;gap:clamp(24px,4vw,72px);
+    max-width:1340px;margin:0 auto;padding:120px clamp(24px,5vw,76px) 80px;
+  }
+
+  /* ---------- LEFT ---------- */
+  .eyebrow{font-family:var(--f-m);font-size:.72rem;font-weight:500;letter-spacing:.24em;
+    text-transform:uppercase;color:var(--route);display:inline-flex;align-items:center;gap:12px}
+  .eyebrow::before{content:"";width:26px;height:1px;background:currentColor;opacity:.55}
+  h1{font-family:var(--f-d);font-weight:600;letter-spacing:-.028em;color:var(--navy);
+    font-size:clamp(2.4rem,4.5vw,3.7rem);line-height:1.07;margin:24px 0 22px}
+  .lead{color:var(--slate);font-size:clamp(1rem,1.2vw,1.12rem);max-width:44ch}
+  .cta{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px}
+  .btn{font-family:var(--f-d);font-weight:600;font-size:.95rem;padding:15px 26px;border-radius:100px;
+    border:1.5px solid transparent;cursor:pointer;display:inline-flex;align-items:center;gap:9px;
+    transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,background .25s;text-decoration:none}
+  .btn.primary{background:var(--navy);color:#fff;box-shadow:0 12px 30px -12px rgba(15,52,115,.5)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px -12px rgba(15,52,115,.6)}
+  .btn.ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+  .btn.ghost:hover{border-color:var(--navy);color:var(--navy)}
+  .btn svg{width:16px;height:16px}
+  .meta{margin-top:30px;display:flex;flex-wrap:wrap;gap:6px 22px;font-family:var(--f-m);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--slate)}
+  .meta span{display:inline-flex;align-items:center;gap:8px}
+  .meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--route)}
+
+  /* ---------- RIGHT : INSTRUMENT ---------- */
+  .plot-wrap{position:relative;width:100%;max-width:660px;margin-left:auto;perspective:1600px}
+  .plot{
+    position:relative;border-radius:20px;background:
+      radial-gradient(120% 90% at 68% 12%,#FEFCF8 0%,var(--panel) 55%,#F5F0E5 100%);
+    border:1px solid var(--panel-line);
+    box-shadow:0 40px 90px -50px rgba(20,35,61,.28), inset 0 1px 0 rgba(255,255,255,.6);
+    overflow:hidden;transform-style:preserve-3d;transition:transform .6s cubic-bezier(.16,1,.3,1);
+  }
+  .plot svg{width:100%;height:auto;display:block}
+
+  .ring{fill:none;stroke:var(--navy);stroke-width:1;opacity:.11;transform-box:fill-box;transform-origin:var(--ox) var(--oy)}
+  .ring.r-hi{opacity:.18}
+  .bearing{stroke:var(--navy);stroke-width:1;opacity:.045;stroke-dasharray:1.5 7}
+  .arc{fill:none;stroke:var(--navy);stroke-width:1;opacity:.055;stroke-linecap:round}
+  .grat line{stroke:var(--navy);stroke-width:1;opacity:.02}
+  .sweep{fill:url(#sweepG)}
+
+  .route{fill:none;stroke:var(--route);stroke-width:2.1;stroke-linecap:round}
+  .route-halo{fill:none;stroke:var(--route);stroke-width:7;stroke-linecap:round;opacity:.06}
+
+  .origin .o-dot{fill:var(--navy)}
+  .origin .o-ring{fill:none;stroke:var(--navy);stroke-width:1.4}
+  .wp{fill:var(--panel);stroke:var(--route);stroke-width:1.7}
+
+  .marker{cursor:pointer}
+  .marker .g-core{fill:var(--panel);stroke:var(--navy);stroke-width:1.5;opacity:1}
+  .marker .g-dot{fill:var(--navy);opacity:.55}
+  .marker .g-tick{stroke:var(--navy);stroke-width:1.1;opacity:.5}
+  .marker .code{font-family:var(--f-m);font-size:9px;letter-spacing:.06em;fill:var(--slate)}
+  .marker .lab{font-family:var(--f-m);font-size:10px;letter-spacing:.03em;fill:var(--navy);opacity:0;transition:opacity .28s,transform .28s cubic-bezier(.16,1,.3,1);transform:translateY(3px)}
+  .marker .lab-bg{fill:var(--panel);opacity:0;transition:opacity .28s}
+  .marker .glyph{transition:transform .3s cubic-bezier(.16,1,.3,1);transform-box:fill-box;transform-origin:center}
+  .marker:hover .glyph,.marker:focus-visible .glyph{transform:translateY(-3px)}
+  .marker:hover .g-core,.marker:focus-visible .g-core{fill:var(--navy);opacity:1}
+  .marker:hover .g-tick,.marker:focus-visible .g-tick{stroke:#fff;opacity:.9}
+  .marker:hover .code,.marker:focus-visible .code{opacity:0}
+  .marker:hover .lab,.marker:focus-visible .lab{opacity:1;transform:none}
+  .marker:hover .lab-bg,.marker:focus-visible .lab-bg{opacity:.92}
+
+  .fix .f-line{stroke:var(--navy);stroke-width:1.2}
+  .fix .f-mark{fill:none;stroke:var(--navy);stroke-width:1.6}
+  .fix .f-bloom{fill:url(#bloomG)}
+  .fix .f-halo{fill:none;stroke:var(--gold);stroke-width:1;opacity:.4}
+
+  .locator{fill:var(--route)}
+  .coord{font-family:var(--f-m);font-size:9px;letter-spacing:.09em;fill:var(--slate);opacity:.7}
+  .scalebar line{stroke:var(--slate);stroke-width:1;opacity:.5}
+  .scalebar text{font-family:var(--f-m);font-size:8px;fill:var(--slate);opacity:.6}
+
+  .caption{position:absolute;left:0;right:0;bottom:-32px;text-align:center;
+    font-family:var(--f-m);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);opacity:.7}
+
+  /* ---- entrance (real timings; JS toggles .go) ---- */
+  .plot .ring,.plot .bearing,.plot .arc,.plot .grat,
+  .plot .origin,.plot .marker .glyph,.plot .marker .code,
+  .plot .wp,.plot .route,.plot .route-halo,.plot .fix,.plot .caption{opacity:0}
+  .plot.go .grat{opacity:.035;transition:opacity .6s ease}
+  .plot.go .ring{opacity:.10;transform:none;transition:opacity .7s ease,transform .9s cubic-bezier(.16,1,.3,1)}
+  .plot.go .ring.r-hi{opacity:.16}
+  .plot.go .bearing{opacity:.06;transition:opacity .6s ease .5s}
+  .plot.go .arc{stroke-dashoffset:0;opacity:.09;transition:stroke-dashoffset 1s cubic-bezier(.16,1,.3,1) .3s,opacity .6s .3s}
+  .plot.go .origin{opacity:1;transition:opacity .5s ease .7s}
+  .plot.go .marker .glyph,.plot.go .marker .code{opacity:1;transition:opacity .5s ease}
+  .plot.go .wp{opacity:1;transition:opacity .4s ease 1.5s}
+  .plot.go .route,.plot.go .route-halo{stroke-dashoffset:0;opacity:1;transition:stroke-dashoffset 1.5s cubic-bezier(.5,0,.15,1) 1s,opacity .3s 1s}
+  .plot.go .route-halo{opacity:.07}
+  .plot.go .fix{opacity:1;transition:opacity .8s ease 1.9s}
+  .plot.go .caption{opacity:.7;transition:opacity .8s ease 2.3s}
+  .plot .ring{transform:scale(.55)}
+  .plot .arc{stroke-dasharray:1;stroke-dashoffset:1}
+  .plot .route,.plot .route-halo{stroke-dasharray:1;stroke-dashoffset:1}
+  .m1{transition-delay:1.0s!important}.m2{transition-delay:1.12s!important}.m3{transition-delay:1.24s!important}
+  .m4{transition-delay:1.36s!important}.m5{transition-delay:1.48s!important}.m6{transition-delay:1.6s!important}
+  .rr1{transition-delay:.3s!important}.rr2{transition-delay:.4s!important}.rr3{transition-delay:.5s!important}
+  .rr4{transition-delay:.6s!important}.rr5{transition-delay:.7s!important}.rr6{transition-delay:.8s!important}
+
+  @media (prefers-reduced-motion:reduce){
+    .plot *{transition:none!important}
+    .plot .ring{transform:none}
+    .plot .arc,.plot .route,.plot .route-halo{stroke-dashoffset:0}
+    .plot :is(.ring,.bearing,.arc,.grat,.origin,.wp,.route,.route-halo,.fix,.caption),
+    .plot .marker .glyph,.plot .marker .code{opacity:1}
+    .sweep,.locator{display:none}
+  }
+  @media (max-width:980px){
+    .hero{grid-template-columns:1fr;padding-top:112px}
+    .plot-wrap{margin:6px auto 0;max-width:560px}
+  }
+  .tag{position:fixed;top:14px;left:14px;font-family:var(--f-m);font-size:.6rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--slate);background:#fff;border:1px solid var(--line);padding:5px 10px;border-radius:6px;z-index:99}
+</style>
+</head>
+<body>
+<div class="tag">Composition study v2 · instrument + terrain · light</div>
+
+<section class="hero">
+  <div>
+    <span class="eyebrow">HR • Payroll • Compliance</span>
+    <h1>Navigate the complexity of HR with confidence.</h1>
+    <p class="lead">HR Terrain brings HR operations, payroll and statutory compliance together through structured processes, expert support and technology-enabled solutions.</p>
+    <div class="cta">
+      <a href="#" class="btn primary">Talk to an HR Expert
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#" class="btn ghost">Explore Our Services</a>
+    </div>
+    <div class="meta"><span>Kerala &amp; Karnataka</span><span>Pan-India remote</span><span>Compliance-first</span></div>
+  </div>
+
+  <div class="plot-wrap" id="pw">
+    <div class="plot" id="plot">
+      <svg id="svg" viewBox="0 0 680 600" role="img"
+        aria-label="A navigator's plotting chart of the HR landscape. Range rings expand from an origin point representing people; the disciplines of HR are plotted across it; a single charted route runs outward through process, payroll and compliance to an established fix representing confidence and control.">
+        <defs>
+          <radialGradient id="bloomG" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#C9974A" stop-opacity="0.16"/>
+            <stop offset="55%" stop-color="#C9974A" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#C9974A" stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="sweepG" x1="0" y1="0" x2="1" y2="0.4">
+            <stop offset="0%" stop-color="#0F3473" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="#0F3473" stop-opacity="0"/>
+          </linearGradient>
+          <radialGradient id="edgeFade" cx="52%" cy="46%" r="70%">
+            <stop offset="0%" stop-color="#fff"/><stop offset="66%" stop-color="#fff"/>
+            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+          </radialGradient>
+          <mask id="fade" maskUnits="userSpaceOnUse"><rect x="-60" y="-60" width="800" height="720" fill="url(#edgeFade)"/></mask>
+        </defs>
+
+        <g mask="url(#fade)">
+          <!-- FAR : graticule + terrain arcs -->
+          <g class="plane" data-depth="1">
+            <g class="grat" id="grat"></g>
+            <path class="arc" pathLength="1" d="M-40 220 C 150 150, 330 260, 510 190 S 720 170, 740 240"/>
+            <path class="arc" pathLength="1" d="M-40 430 C 170 370, 350 470, 530 410 S 720 390, 740 450"/>
+          </g>
+
+          <!-- MID : range rings + bearings + sweep -->
+          <g class="plane" data-depth="0.55" id="mid">
+            <g id="sweep"></g>
+            <g id="rings"></g>
+            <g id="bearings"></g>
+          </g>
+
+          <!-- NEAR : route + markers + fix (most stable) -->
+          <g class="plane" data-depth="0.12">
+            <path class="route-halo" id="routeHalo" pathLength="1"/>
+            <path class="route" id="route" pathLength="1"/>
+
+            <g class="origin">
+              <circle class="o-ring" cx="150" cy="456" r="16" style="opacity:.26"/>
+              <circle class="o-ring" cx="150" cy="456" r="9.5" style="opacity:.5"/>
+              <circle class="o-dot" cx="150" cy="456" r="4"/>
+            </g>
+
+            <g class="wp"><circle cx="262" cy="386" r="3.6"/></g>
+            <g class="wp"><circle cx="392" cy="322" r="3.6"/></g>
+            <g class="wp"><circle cx="504" cy="240" r="3.6"/></g>
+
+            <g id="markers"></g>
+
+            <g class="fix" transform="translate(598,138)">
+              <circle class="f-bloom" cx="0" cy="4" r="82"/>
+              <line class="f-line" x1="-38" y1="26" x2="0" y2="0"/>
+              <line class="f-line" x1="34" y1="28" x2="0" y2="0"/>
+              <line class="f-line" x1="6" y1="-36" x2="0" y2="0"/>
+              <circle class="f-mark" cx="0" cy="0" r="7"/>
+              <circle class="f-halo" cx="0" cy="0" r="16"/>
+            </g>
+
+            <circle class="locator" id="locator" r="3" style="opacity:0"/>
+          </g>
+        </g>
+
+        <text class="coord" x="16" y="26">N 11°15′ 22″ &nbsp; E 75°46′ 08″</text>
+        <text class="coord" x="664" y="30" text-anchor="end">BEARING 041° · CHARTED</text>
+        <g class="scalebar" transform="translate(548,566)">
+          <line x1="0" y1="0" x2="72" y2="0"/><line x1="0" y1="-3" x2="0" y2="3"/><line x1="72" y1="-3" x2="72" y2="3"/>
+          <text x="0" y="14">0</text><text x="60" y="14">50 km</text>
+        </g>
+      </svg>
+    </div>
+    <div class="caption">People → Process → Payroll → Compliance → Confidence</div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var NS="http://www.w3.org/2000/svg";
+  var reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var fine=matchMedia("(hover:hover) and (pointer:fine)").matches;
+  var OX=150, OY=456;               // origin (People) — instrument centre
+  var SQ=0.84;                       // aerial squash
+
+  /* graticule (sparse) */
+  var grat=document.getElementById("grat");
+  for(var x=40;x<=680;x+=80){var l=document.createElementNS(NS,"line");l.setAttribute("x1",x);l.setAttribute("y1",0);l.setAttribute("x2",x);l.setAttribute("y2",600);grat.appendChild(l);}
+  for(var y=40;y<=600;y+=80){var l2=document.createElementNS(NS,"line");l2.setAttribute("x1",0);l2.setAttribute("y1",y);l2.setAttribute("x2",680);l2.setAttribute("y2",y);grat.appendChild(l2);}
+
+  /* range rings (ellipses, squashed) centred on origin */
+  var rings=document.getElementById("rings");
+  [84,164,250,340,436].forEach(function(r,i){
+    var e=document.createElementNS(NS,"ellipse");
+    e.setAttribute("cx",OX);e.setAttribute("cy",OY);
+    e.setAttribute("rx",r);e.setAttribute("ry",r*SQ);
+    e.setAttribute("class","ring rr"+(i+1)+(i%2? " r-hi":""));
+    e.style.setProperty("--ox",OX+"px");e.style.setProperty("--oy",OY+"px");
+    rings.appendChild(e);
+  });
+
+  /* radial bearing lines fanning toward the fix */
+  var bear=document.getElementById("bearings");
+  [-74,-54,-38,-22,-8].forEach(function(deg){
+    var a=deg*Math.PI/180, R=520;
+    var x2=OX+Math.cos(a)*R, y2=OY+Math.sin(a)*R*SQ;
+    var l=document.createElementNS(NS,"line");
+    l.setAttribute("x1",OX);l.setAttribute("y1",OY);l.setAttribute("x2",x2.toFixed(1));l.setAttribute("y2",y2.toFixed(1));
+    l.setAttribute("class","bearing");
+    bear.appendChild(l);
+  });
+
+  /* subtle sweep wedge */
+  var sweepG=document.getElementById("sweep");
+  var wedge=document.createElementNS(NS,"path");
+  wedge.setAttribute("class","sweep");
+  wedge.setAttribute("d","M"+OX+" "+OY+" L "+(OX+430)+" "+(OY-90)+" A 440 380 0 0 1 "+(OX+430)+" "+(OY+70)+" Z");
+  wedge.setAttribute("transform-origin",OX+" "+OY);
+  sweepG.appendChild(wedge);
+
+  /* route */
+  var ROUTE="M 150 456 C 190 430, 224 404, 262 386 S 342 352, 392 322 S 468 282, 504 240 S 576 168, 598 138";
+  document.getElementById("route").setAttribute("d",ROUTE);
+  document.getElementById("routeHalo").setAttribute("d",ROUTE);
+
+  /* discipline markers, plotted across the chart */
+  var REGIONS=[
+    {code:"OP",label:"HR Operations",        x:258, y:388},
+    {code:"EL",label:"Employee Lifecycle",   x:296, y:452},
+    {code:"DC",label:"Documentation",        x:332, y:296},
+    {code:"PY",label:"Payroll",              x:392, y:322},
+    {code:"SC",label:"Statutory Compliance", x:504, y:240},
+    {code:"LL",label:"Labour Law",           x:560, y:308}
+  ];
+  var mk=document.getElementById("markers");
+  REGIONS.forEach(function(rg,i){
+    var g=document.createElementNS(NS,"g");
+    g.setAttribute("class","marker m"+(i+1));
+    g.setAttribute("transform","translate("+rg.x+","+rg.y+")");
+    g.setAttribute("tabindex","0");g.setAttribute("role","img");
+    g.setAttribute("aria-label",rg.label+" — plotted on the HR landscape");
+    var w=rg.label.length*6+16;
+    g.innerHTML=
+      '<g class="glyph">'+
+        '<circle class="g-core" r="7"/>'+
+        '<circle class="g-dot" r="1.7"/>'+
+        '<path class="g-tick" fill="none" d="M0 -11 V -5 M0 5 V 11 M-11 0 H -5 M5 0 H 11"/>'+
+      '</g>'+
+      '<text class="code" x="11" y="3.5">'+rg.code+'</text>'+
+      '<rect class="lab-bg" x="9" y="-8" width="'+w+'" height="16" rx="4"/>'+
+      '<text class="lab" x="13" y="3.5">'+rg.label+'</text>';
+    mk.appendChild(g);
+  });
+
+  /* trigger entrance */
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.getElementById("plot").classList.add("go"); }); });
+
+  /* locator + sweep loops */
+  var route=document.getElementById("route"), loc=document.getElementById("locator");
+  if(!reduce){
+    var len=route.getTotalLength(), t0=null, DUR=12000;
+    function tick(ts){
+      if(!t0)t0=ts;
+      var k=((ts-t0)%DUR)/DUR;
+      var p=route.getPointAtLength(k*len);
+      loc.setAttribute("cx",p.x);loc.setAttribute("cy",p.y);
+      loc.style.opacity=(k<0.05||k>0.95)?0:0.85;
+      requestAnimationFrame(tick);
+    }
+    setTimeout(function(){ requestAnimationFrame(tick); },2600);
+
+    var sw=0;
+    function sweepLoop(){ sw=(sw+0.12)%360; wedge.setAttribute("transform","rotate("+sw+" "+OX+" "+OY+")"); requestAnimationFrame(sweepLoop); }
+    setTimeout(sweepLoop,2600);
+  }
+
+  /* controlled pointer parallax (springy) */
+  if(fine && !reduce){
+    var pw=document.getElementById("pw"), plot=document.getElementById("plot");
+    var planes=[].slice.call(document.querySelectorAll(".plane"));
+    var tx=0,ty=0,cx=0,cy=0;
+    document.addEventListener("mousemove",function(e){
+      var r=pw.getBoundingClientRect();
+      tx=Math.max(-1,Math.min(1,(e.clientX-(r.left+r.width/2))/(r.width/2)));
+      ty=Math.max(-1,Math.min(1,(e.clientY-(r.top+r.height/2))/(r.height/2)));
+    });
+    (function loop(){
+      cx+=(tx-cx)*0.055; cy+=(ty-cy)*0.055;
+      planes.forEach(function(p){
+        var d=parseFloat(p.getAttribute("data-depth"));
+        p.setAttribute("transform","translate("+(cx*12*d).toFixed(2)+","+(cy*8*d).toFixed(2)+")");
+      });
+      plot.style.transform="rotateX("+(-cy*1).toFixed(2)+"deg) rotateY("+(cx*1.3).toFixed(2)+"deg)";
+      requestAnimationFrame(loop);
+    })();
+  }
+})();
+</script>
+</body>
+</html>
