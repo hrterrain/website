@@ -28,7 +28,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Public+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=DM+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,700;1,6..72,500&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Public+Sans:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
 <script type="application/ld+json">
 {
@@ -566,53 +566,26 @@ p,li,dd{text-wrap:pretty}
 .guides p{font-size:.9rem;color:var(--muted);margin-top:6px}
 
 /* ============================================================
-   COMPLIANCE NEWS: a front page, fed by /api/news (Netlify function)
+   COMPLIANCE NEWS: headlines gathered by /api/news (Netlify function)
    ============================================================ */
-.paper{--serif:'Newsreader',Georgia,'Times New Roman',serif;position:relative;background:var(--sheet);color:var(--text);
-  padding:clamp(22px,4vw,56px);border:1px solid var(--rule);box-shadow:var(--shadow-sheet);
-  background-image:radial-gradient(rgba(15,52,115,.035) 1px,transparent 1px);background-size:4px 4px}
-.paper a{color:inherit}
-.masthead{text-align:center;padding-bottom:14px;border-bottom:4px double var(--heading)}
-.mh-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding-bottom:10px;margin-bottom:14px;border-bottom:1px solid var(--heading);
-  font-family:var(--f-type);font-weight:700;font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;color:var(--heading)}
-.mh-title{font-family:var(--serif);font-weight:700;font-size:clamp(2.4rem,7.2vw,5.6rem);line-height:.95;letter-spacing:-.02em;color:var(--heading)}
-.mh-tag{margin-top:12px;font-family:var(--serif);font-style:italic;font-size:clamp(.95rem,1.4vw,1.1rem);color:var(--muted)}
-.kick{display:block;margin-bottom:8px;font-family:var(--f-type);font-weight:700;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pin)}
-.byline{margin-top:10px;font-family:var(--f-type);font-size:.78rem;color:var(--muted)}
-.byline b{color:var(--text)}
-.story h3,.story h4{font-family:var(--serif);font-weight:700;color:var(--heading);letter-spacing:-.01em;text-wrap:balance}
-.story h3 a,.story h4 a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .35s var(--e-out)}
-.story h3 a:hover,.story h4 a:hover,.story a:focus-visible{background-size:100% 1px}
-.front{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:0;margin-top:22px}
-.lead-story{padding-right:clamp(20px,3vw,40px);border-right:1px solid var(--rule-strong)}
-.lead-story h3{font-size:clamp(1.8rem,3.6vw,3rem);line-height:1.06}
-.lead-story .dek{margin-top:14px;font-family:var(--serif);font-size:1.12rem;line-height:1.55;color:var(--muted);max-width:52ch}
-.lead-story .dek::first-letter{float:left;font-weight:700;font-size:3.1em;line-height:.82;padding:4px 8px 0 0;color:var(--heading)}
-.brief{padding-left:clamp(20px,3vw,40px)}
-.brief-h{padding-bottom:8px;margin-bottom:4px;border-bottom:2px solid var(--heading);font-family:var(--f-type);font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--heading)}
-.brief .story{padding:14px 0;border-bottom:1px solid var(--rule)}
-.brief .story:last-child{border-bottom:0}
-.brief h4{font-size:1.14rem;line-height:1.25}
-.columns{margin-top:26px;padding-top:22px;border-top:4px double var(--heading);columns:3;column-gap:clamp(22px,3vw,40px);column-rule:1px solid var(--rule-strong)}
-.columns .story{break-inside:avoid;padding-bottom:16px;margin-bottom:16px;border-bottom:1px solid var(--rule)}
-.columns h4{font-size:1.08rem;line-height:1.28}
-.paper-foot{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px 28px;margin-top:22px;padding-top:14px;border-top:1px solid var(--heading)}
-.paper-foot p{flex:1 1 380px;font-size:.84rem;color:var(--muted)}
-.paper-foot p a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
-.more-link{background:none;border:0;padding:6px 0;min-height:44px;cursor:pointer;font-family:var(--serif);font-style:italic;font-weight:500;font-size:1.1rem;color:var(--heading);border-bottom:1px solid currentColor}
-.more-link span{display:inline-block;transition:transform .3s var(--e-out)}
-.more-link:hover span{transform:translateX(4px)}
-.house-ad{display:block;margin-top:28px;padding:18px 20px;border:1.5px solid var(--heading);outline:1px solid var(--heading);outline-offset:3px;text-align:center;text-decoration:none;color:var(--heading);transition:background .25s}
-.house-ad:hover{background:var(--ink-soft)}
-.house-ad .ad-label{display:block;font-family:var(--f-type);font-weight:700;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
-.house-ad strong{display:block;margin:8px 0 6px;font-family:var(--serif);font-weight:700;font-size:1.45rem;line-height:1.15}
-.house-ad span:not(.ad-label){display:block;font-size:.9rem;color:var(--text)}
-.house-ad em{display:inline-block;margin-top:10px;font-family:var(--serif);font-weight:500;font-size:1.05rem;border-bottom:1px solid currentColor}
-.news-empty{grid-column:1/-1;padding:24px 0;font-family:var(--serif);font-size:1.1rem;color:var(--muted)}
-.sk i{display:block;height:18px;margin:12px 0;border-radius:3px;background:linear-gradient(100deg,var(--paper-2) 30%,var(--hi-soft) 50%,var(--paper-2) 70%);background-size:200% 100%;animation:sk 1.4s linear infinite}
-.lead-story.sk i:first-child{height:44px}
+.news{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.news-card{position:relative;display:flex;flex-direction:column;gap:12px;min-height:188px;padding:24px 24px 22px;color:inherit}
+.news-card[hidden]{display:none}
+.news-tag{align-self:flex-start;font-family:var(--f-type);font-weight:700;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--hi-ink);background:var(--hi-soft);padding:5px 10px;border-radius:999px}
+.news-card h3{font-size:1.08rem;line-height:1.3;letter-spacing:-.01em}
+.news-card h3 a{color:var(--heading);text-decoration:none}
+.news-card h3 a::after{content:"";position:absolute;inset:0;border-radius:inherit}
+.news-card h3 a:focus-visible{outline:none}
+.news-card:focus-within{outline:2.5px solid var(--accent);outline-offset:3px}
+@media (hover:hover){.news-card:hover h3 a{text-decoration:underline;text-underline-offset:3px}}
+.news-meta{margin-top:auto;display:flex;flex-wrap:wrap;gap:4px 10px;font-size:.84rem;color:var(--muted)}
+.news-meta b{font-weight:600;color:var(--text)}
+.news-card.sk{background-image:linear-gradient(100deg,transparent 30%,var(--hi-soft) 50%,transparent 70%);background-size:200% 100%;animation:sk 1.4s linear infinite}
 @keyframes sk{to{background-position:-200% 0}}
-:root[data-theme="dark"] .paper{background-image:radial-gradient(rgba(255,255,255,.03) 1px,transparent 1px)}
+.news-foot{margin-top:24px;display:flex;flex-wrap:wrap;align-items:center;gap:14px 28px}
+.news-foot p{flex:1 1 360px;font-size:.86rem;color:var(--muted)}
+.news-foot a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+.news-empty{grid-column:1/-1;padding:28px;font-size:.95rem;color:var(--muted)}
 
 /* ============================================================
    WHY + INDUSTRIES
@@ -737,7 +710,7 @@ body.menu-open .wa{opacity:0;pointer-events:none}
 .spot{position:relative}
 section>.wrap{position:relative;z-index:1}
 
-.hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq{
+.hz,.prob-close,.legend,.news-card,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq{
   background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-card);box-shadow:var(--glass-shadow);
   -webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6)}
 @media (hover:hover){.hz:hover,.reason:hover,.quote:hover{box-shadow:var(--glass-shadow),0 30px 60px -30px var(--glow-1)}}
@@ -836,7 +809,7 @@ section>.wrap{position:relative;z-index:1}
   .cal{grid-template-columns:1fr;gap:48px}
   .cal-build{grid-template-columns:1fr}
   .cal-live{grid-template-columns:1fr}
-  .columns{columns:2}
+  .news{grid-template-columns:1fr 1fr}
   .faq-grid{grid-template-columns:1fr}
   .faq-grid .sh{position:static}
   .contact{grid-template-columns:1fr}
@@ -878,11 +851,8 @@ section>.wrap{position:relative;z-index:1}
   .quotes{grid-template-columns:1fr}
   .row2{grid-template-columns:1fr}
   .cb-grid{grid-template-columns:1fr}
-  .front{grid-template-columns:1fr}
-  .lead-story{padding-right:0;border-right:0;padding-bottom:18px;border-bottom:1px solid var(--rule-strong)}
-  .brief{padding-left:0;margin-top:14px}
-  .columns{columns:1}
-  .mh-top span:nth-child(2){display:none}
+  .news{grid-template-columns:1fr}
+  .news-card{min-height:0}
   .ci li{grid-template-columns:1fr;gap:2px}
   .foot{grid-template-columns:1fr}
   footer{padding-bottom:100px}
@@ -896,8 +866,8 @@ section>.wrap{position:relative;z-index:1}
 @keyframes nudge{0%,100%{transform:none}50%{transform:translateX(5px)}}
 @media (max-width:760px),(hover:none){
   /* live blur is costly on phones; keep the glass look with a denser fill */
-  .hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
-  .hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq{background:var(--glass-solid)}
+  .hz,.prob-close,.legend,.news-card,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hz,.prob-close,.legend,.news-card,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq{background:var(--glass-solid)}
 }
 @media (max-width:640px){
   .section{padding-block:72px}
@@ -1354,22 +1324,18 @@ section>.wrap{position:relative;z-index:1}
 <!-- NEWS -->
 <section class="section" id="news">
   <div class="wrap">
-    <article class="paper" data-r aria-labelledby="newsTitle">
-      <header class="masthead">
-        <div class="mh-top"><span id="paperEdition">Vol. I</span><span>Kerala · Karnataka · India</span><span id="paperDate"></span></div>
-        <h2 class="mh-title" id="newsTitle">The Compliance Dispatch</h2>
-        <p class="mh-tag">What's changing for employers · PF, ESI, labour codes, wages, payroll tax and state rules · gathered every six hours</p>
-      </header>
-      <div class="front" id="newsList" aria-live="polite" aria-busy="true">
-        <div class="lead-story sk" aria-hidden="true"><i></i><i></i><i></i></div>
-        <aside class="brief sk" aria-hidden="true"><i></i><i></i><i></i></aside>
-      </div>
-      <div class="columns" id="newsMoreList" hidden></div>
-      <div class="paper-foot">
-        <button type="button" class="more-link" id="newsMore" hidden>More headlines <span aria-hidden="true">→</span></button>
-        <p id="newsNote">Headlines link to their original publishers. Read the source before acting, or <a href="#contact">ask us what it means for you</a>. Official notices: <a href="https://www.epfindia.gov.in/site_en/circulars.php" target="_blank" rel="noopener">EPFO</a>, <a href="https://www.esic.gov.in/circulars" target="_blank" rel="noopener">ESIC</a>, <a href="https://labour.gov.in/" target="_blank" rel="noopener">Ministry of Labour</a>.</p>
-      </div>
-    </article>
+    <div class="sh split" data-r>
+      <div><span class="eyebrow">Compliance news</span><h2 class="h2">What's changing for employers.</h2></div>
+      <p class="lede">Recent updates on PF, ESI, the labour codes, wages, payroll tax and state rules, gathered automatically from news sources. Read the original before acting, or ask us what it means for you.</p>
+    </div>
+    <div class="news" id="newsList" aria-live="polite" aria-busy="true">
+      <div class="news-card sk" aria-hidden="true"></div><div class="news-card sk" aria-hidden="true"></div><div class="news-card sk" aria-hidden="true"></div>
+      <div class="news-card sk" aria-hidden="true"></div><div class="news-card sk" aria-hidden="true"></div><div class="news-card sk" aria-hidden="true"></div>
+    </div>
+    <div class="news-foot" data-r>
+      <button type="button" class="btn line" id="newsMore" hidden>Show more news</button>
+      <p id="newsNote">Headlines link to their original publishers. Official sources: <a href="https://www.epfindia.gov.in/site_en/circulars.php" target="_blank" rel="noopener">EPFO circulars</a>, <a href="https://www.esic.gov.in/circulars" target="_blank" rel="noopener">ESIC circulars</a>, <a href="https://labour.gov.in/" target="_blank" rel="noopener">Ministry of Labour</a>.</p>
+    </div>
   </div>
 </section>
 
@@ -1584,7 +1550,7 @@ section>.wrap{position:relative;z-index:1}
 
   /* glass spotlight */
   if (!RM && matchMedia("(hover:hover) and (pointer:fine)").matches){
-    $$(".hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
+    $$(".hz,.prob-close,.legend,.news-card,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
     document.addEventListener("pointermove", function(e){
       var el = e.target.closest && e.target.closest(".spot"); if (!el) return;
       var r = el.getBoundingClientRect();
@@ -1807,40 +1773,29 @@ section>.wrap{position:relative;z-index:1}
     });
   })();
 
-  /* ---------- compliance news: laid out as a front page ---------- */
+  /* ---------- compliance news ---------- */
   (function(){
-    var front = $("#newsList"), rest = $("#newsMoreList"), more = $("#newsMore"); if (!front) return;
-    var now = new Date(), start = new Date(2026, 8, 29);
-    $("#paperDate").textContent = now.toLocaleDateString("en-IN", { weekday:"long", day:"numeric", month:"long", year:"numeric" });
-    $("#paperEdition").textContent = "Vol. I · No. " + Math.max(1, Math.floor((now - start) / 864e5) + 1);
+    var box = $("#newsList"), more = $("#newsMore"); if (!box) return;
+    var SHOW = 6;
     function ago(iso){
       var d = Math.floor((Date.now() - new Date(iso)) / 864e5);
       return d <= 0 ? "Today" : d === 1 ? "Yesterday" : d < 30 ? d + " days ago" : new Date(iso).toLocaleDateString("en-IN", { day:"numeric", month:"short" });
     }
     function esc(t){ return String(t).replace(/[&<>"]/g, function(c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
-    function story(n, tag){
-      return '<div class="story"><span class="kick">' + esc(n.tag) + '</span><' + tag + '><a href="' + esc(n.url) + '" target="_blank" rel="noopener">' + esc(n.title) + '</a></' + tag + '>' +
-        '<p class="byline"><b>' + esc(n.source || "News") + '</b> · ' + ago(n.date) + '</p></div>';
-    }
+    function done(html){ box.innerHTML = html; box.setAttribute("aria-busy", "false"); }
     function fail(){
-      front.innerHTML = '<p class="news-empty">Today\'s edition couldn\'t be printed. For the latest official updates, see the EPFO and ESIC notices linked below, or <a href="#contact">ask us directly</a>.</p>';
-      front.setAttribute("aria-busy", "false");
+      done('<p class="news-empty">News couldn\'t be loaded right now. For the latest official updates, see the EPFO and ESIC circulars linked below, or <a href="#contact">ask us directly</a>.</p>');
     }
     fetch("/api/news", { headers:{ Accept:"application/json" } }).then(function(r){ if (!r.ok) throw 0; return r.json(); }).then(function(j){
       var items = (j && j.items) || []; if (!items.length) return fail();
-      var lead = items[0], brief = items.slice(1, 4), others = items.slice(4);
-      front.innerHTML =
-        '<div class="lead-story story"><span class="kick">Top story · ' + esc(lead.tag) + '</span><h3><a href="' + esc(lead.url) + '" target="_blank" rel="noopener">' + esc(lead.title) + '</a></h3>' +
-        '<p class="dek">Reported by ' + esc(lead.source || "the press") + '. Read the full report at the source, and check whether it changes anything for your establishment before you act.</p>' +
-        '<p class="byline"><b>' + esc(lead.source || "News") + '</b> · ' + ago(lead.date) + '</p>' +
-        '<a class="house-ad" href="#contact"><span class="ad-label">Notice to employers</span><strong>Every filing on time. Every record ready.</strong>' +
-        '<span>PF · ESI · PT · LWF · payroll, run for you every month by HR Terrain.</span><em>Talk to an HR expert →</em></a></div>' +
-        '<aside class="brief" aria-label="In brief"><p class="brief-h">In brief</p>' + brief.map(function(n){ return story(n, "h4"); }).join("") + '</aside>';
-      front.setAttribute("aria-busy", "false");
-      if (others.length){
-        rest.innerHTML = others.map(function(n){ return story(n, "h4"); }).join("");
+      done(items.map(function(n, i){
+        return '<article class="news-card spot"' + (i >= SHOW ? " hidden" : "") + '><span class="news-tag">' + esc(n.tag) + '</span>' +
+          '<h3><a href="' + esc(n.url) + '" target="_blank" rel="noopener">' + esc(n.title) + '</a></h3>' +
+          '<p class="news-meta"><b>' + esc(n.source || "News") + '</b><span>' + ago(n.date) + '</span></p></article>';
+      }).join(""));
+      if (items.length > SHOW){
         more.hidden = false;
-        more.addEventListener("click", function(){ rest.hidden = false; more.hidden = true; rest.querySelector("a").focus(); });
+        more.addEventListener("click", function(){ $$(".news-card[hidden]", box).forEach(function(c){ c.hidden = false; }); more.hidden = true; });
       }
     }).catch(fail);
   })();
