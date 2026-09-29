@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<script>(function(){try{var t=localStorage.getItem("hrt-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){}})();</script>
+<title>Page not found · HR Terrain</title>
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Courier+Prime:wght@400;700&family=Public+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+:root{color-scheme:light;--ink:#0F3473;--heading:#0F3473;--paper:#FDFBF7;--sheet:#FFFFFF;--text:#14233D;--muted:#4B5B77;--rule:#E1E8F1;--rule-strong:#C6D2E4;
+  --contour:#0F3473;--pin:#C23B25;--btn:#0F3473;--btn-2:#0A2652;--mark:url("assets/logo-mark-navy.png");
+  --f-display:'Space Grotesk','Inter',system-ui,sans-serif;--f-body:'Public Sans',system-ui,-apple-system,sans-serif;--f-type:'Courier Prime','Courier New',ui-monospace,monospace;--e-out:cubic-bezier(.16,1,.3,1)}
+:root[data-theme="dark"]{color-scheme:dark;--ink:#6BA1E4;--heading:#EAF1FA;--paper:#070F1C;--sheet:#0D1A2E;--text:#E4EBF5;--muted:#9EAFCB;--rule:rgba(255,255,255,.10);--rule-strong:rgba(255,255,255,.24);
+  --contour:#6BA1E4;--pin:#EC6048;--btn:#2F6BC7;--btn-2:#3A78D6;--mark:url("assets/logo-mark-white.png")}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--f-body);background:var(--paper);color:var(--text);-webkit-font-smoothing:antialiased}
+:focus-visible{outline:2.5px solid var(--ink);outline-offset:3px;border-radius:2px}
+.k{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-type);font-weight:700;font-size:.84rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)}
+.k::before{content:"";width:9px;height:9px;background:currentColor}
+h1,h2,h3{font-family:var(--f-display);font-weight:600;color:var(--heading);letter-spacing:-.025em;line-height:1.05;text-wrap:balance}
+p,li{text-wrap:pretty}
+.btn{display:inline-flex;align-items:center;gap:12px;min-height:54px;padding:0 24px;border-radius:4px;background:var(--btn);color:#fff;text-decoration:none;
+  font-family:var(--f-display);font-weight:700;font-size:.96rem;transition:background .2s,transform .15s var(--e-out)}
+.btn:hover{background:var(--btn-2)}.btn:active{transform:scale(.98)}
+.btn svg{width:18px;height:18px;transition:transform .3s var(--e-out)}.btn:hover svg{transform:translateX(4px)}
+body{min-height:100vh;min-height:100svh;display:grid;place-items:center;padding:24px 16px;text-align:center;color:var(--muted)}
+svg.map{width:min(360px,84vw);height:auto;margin:0 auto 32px;display:block;overflow:visible}
+.map .c{fill:none;stroke:var(--contour);stroke-width:1.2;opacity:.3}
+.map .r{fill:none;stroke:var(--ink);stroke-width:2.4;stroke-linecap:round;stroke-dasharray:8 7;stroke-dashoffset:0;animation:walk 1.6s linear infinite}
+.map .end{fill:var(--paper);stroke:var(--ink);stroke-width:2.2}
+.map .lost{fill:var(--pin)}
+.map text{font-family:var(--f-type);font-size:12px;fill:var(--muted)}
+@keyframes walk{to{stroke-dashoffset:-30}}
+h1{font-size:clamp(2.2rem,6vw,3.4rem);margin:16px 0 14px}
+p{max-width:40ch;margin:0 auto 32px;line-height:1.6}
+@media (prefers-reduced-motion:reduce){.map .r{animation:none}}
+</style>
+</head>
+<body>
+<main>
+  <svg class="map" viewBox="0 0 360 150" aria-hidden="true">
+    <path class="c" d="M0 34 C 80 14, 150 58, 230 32 S 330 18, 360 30"/>
+    <path class="c" d="M0 72 C 90 52, 160 98, 240 70 S 330 56, 360 68"/>
+    <path class="c" d="M0 112 C 80 94, 170 134, 250 108 S 330 98, 360 110"/>
+    <path class="r" d="M40 112 C 90 112, 110 62, 160 66 S 220 96, 250 70"/>
+    <circle class="end" cx="40" cy="112" r="7"/>
+    <circle class="lost" cx="300" cy="44" r="7"/>
+    <text x="300" y="26" text-anchor="middle">?</text>
+  </svg>
+  <span class="k">Error 404</span>
+  <h1>This path isn't on the map.</h1>
+  <p>The page you're looking for doesn't exist or has moved. Let's get you back on route.</p>
+  <a class="btn" href="/">Back to HR Terrain <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</main>
+</body>
+</html>
