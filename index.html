@@ -44,7 +44,8 @@
   "telephone": "+91-99950-94978",
   "areaServed": ["Kerala", "Karnataka", "India"],
   "knowsAbout": ["HR Operations","Payroll","Statutory Compliance","Labour Law Compliance","Employee Lifecycle Management","HR Documentation","Compliance Audits","HR Advisory"],
-  "slogan": "Navigator of HR Landscape"
+  "slogan": "Navigator of HR Landscape",
+  "sameAs": ["https://www.linkedin.com/company/hrterrain/"]
 }
 </script>
 <script type="application/ld+json">
@@ -193,7 +194,7 @@ p,li,dd{text-wrap:pretty}
 .brand{display:flex;align-items:center;gap:12px;flex:none;min-height:44px}
 .brand .mk{height:34px;aspect-ratio:419/279;background:var(--mark) left center/contain no-repeat}
 .brand-t{display:flex;flex-direction:column;line-height:1.02;white-space:nowrap}
-.brand-t i{font-family:var(--f-hero-mono);font-style:normal;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-top:5px}
+.brand-t i{font-family:var(--f-hero-mono);font-style:normal;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 @media (max-width:410px){.brand-t i{display:none}}
 .brand b{font-family:var(--f-hero);font-weight:600;font-size:1.12rem;color:var(--heading);letter-spacing:-.01em}
 .nav-links{display:flex;gap:4px}
@@ -307,11 +308,11 @@ p,li,dd{text-wrap:pretty}
 .legend{position:relative;background:var(--sheet);border:1.5px solid var(--heading);border-radius:3px;box-shadow:var(--shadow-sheet);
   opacity:0;transform:translateY(20px);transition:opacity .8s .35s var(--e-out),transform .8s .35s var(--e-out)}
 .cal-live.go .legend{opacity:1;transform:none}
-.cal-live{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:clamp(40px,5vw,64px)}
+.cal-live{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:clamp(64px,8vw,110px)}
 .cal-live-h{margin-bottom:18px}
 .cal-live-h h3{font-size:clamp(1.4rem,2.2vw,1.8rem);margin:12px 0 8px}
 .cal-live-h p{color:var(--muted);font-size:.95rem}
-.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-type);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--pin)}
+.live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-type);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--pin) 70%,var(--heading))}
 .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pin);box-shadow:0 0 0 0 var(--pin);animation:live 2s ease-out infinite}
 @keyframes live{0%{box-shadow:0 0 0 0 rgba(194,59,37,.5)}100%{box-shadow:0 0 0 10px rgba(194,59,37,0)}}
 .lg-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:13px 18px;border-bottom:1.5px solid var(--heading);
@@ -343,9 +344,19 @@ p,li,dd{text-wrap:pretty}
 /* ============================================================
    PROBLEM
    ============================================================ */
-.hazards{list-style:none;position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.hz-slider-h{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:10px}
+.sl-nav{display:flex;gap:8px}
+.sl-btn{width:46px;height:46px;flex:none;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;border:1px solid var(--rule-strong);background:var(--sheet);color:var(--heading);cursor:pointer;transition:border-color .2s,opacity .2s,transform .15s var(--e-out)}
+.sl-btn svg{width:18px;height:18px}
+.sl-btn:hover:not(:disabled){border-color:var(--heading)}
+.sl-btn:active:not(:disabled){transform:scale(.94)}
+.sl-btn:disabled{opacity:.35;cursor:default}
+.hazards{list-style:none;position:relative;display:flex;gap:16px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+  padding:10px 6px 30px;margin:-10px -6px -30px;scroll-padding-inline:6px}
+.hazards::-webkit-scrollbar{display:none}
+.hazards>.hz{flex:0 0 calc((100% - 48px) / 3.25);scroll-snap-align:start}
+.hz-slider{margin-bottom:clamp(36px,4vw,52px)}
 .hz{display:flex;flex-direction:column;padding:26px 26px 28px}
-.hz.wide{grid-column:span 2}
 @media (hover:hover){.hz:hover,.reason:hover,.quote:hover{translate:0 -4px}}
 .hz-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}
 .hz-i{width:46px;height:46px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--ink-soft);color:var(--ink);transition:background .4s,color .4s}
@@ -354,10 +365,6 @@ p,li,dd{text-wrap:pretty}
 .hz-n{font-family:var(--f-type);font-weight:700;font-size:.8rem;letter-spacing:.08em;color:var(--hi-ink)}
 .hz h3{font-size:1.2rem;letter-spacing:-.015em;margin-bottom:8px}
 .hz p{font-size:.94rem;color:var(--muted);line-height:1.55;max-width:44ch}
-.hz.wide h3{font-size:clamp(1.4rem,2.2vw,1.75rem)}
-.hz-cal{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:22px}
-.hz-cal span{display:inline-flex;align-items:baseline;gap:8px;padding:8px 12px;border-radius:var(--r-ctl);border:1px solid var(--rule);background:var(--sheet);font-size:.84rem;font-weight:600;color:var(--muted)}
-.hz-cal b{color:var(--pin);font-weight:700}
 .prob-close{margin-top:16px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px 48px;padding:clamp(24px,3vw,36px) clamp(24px,3vw,40px)}
 .prob-close p{font-family:var(--f-display);font-weight:700;font-size:clamp(1.4rem,2.6vw,2.2rem);line-height:1.12;letter-spacing:-.02em;color:var(--heading);max-width:28ch}
 
@@ -369,7 +376,7 @@ p,li,dd{text-wrap:pretty}
 .svc-list{border-top:1.5px solid var(--heading)}
 .svc-row{width:100%;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 18px;align-items:center;text-align:left;
   background:none;border:0;border-bottom:1px solid var(--rule);padding:22px 4px;cursor:pointer;position:relative}
-.svc-row .nm{font-family:var(--f-display);font-weight:700;font-size:clamp(1.3rem,2.3vw,1.9rem);letter-spacing:-.02em;color:var(--faint);transition:color .25s}
+.svc-row .nm{font-family:var(--f-display);font-weight:700;font-size:clamp(1.3rem,2.3vw,1.9rem);letter-spacing:-.02em;color:var(--muted);transition:color .25s}
 .svc-row .tg{grid-column:1;font-family:var(--f-type);font-size:.82rem;color:var(--muted)}
 .svc-row .ar{grid-row:1/span 2;grid-column:2;width:40px;height:40px;border-radius:50%;border:1.5px solid var(--rule);display:flex;align-items:center;justify-content:center;color:var(--faint);transition:all .25s}
 .svc-row .ar svg{width:17px;height:17px}
@@ -510,17 +517,6 @@ p,li,dd{text-wrap:pretty}
    CALENDAR
    ============================================================ */
 #calendar{}
-.cal{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,56px)}
-.cal-h{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding-bottom:12px;border-bottom:1.5px solid var(--heading)}
-.cal-h h3{font-size:1.4rem}
-.cal-h span{font-family:var(--f-type);font-size:.82rem;color:var(--muted)}
-.cal-t{width:100%;border-collapse:collapse}
-.cal-t th{text-align:left;font-family:var(--f-type);font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);padding:12px 12px 8px 0;border-bottom:1px solid var(--rule);white-space:nowrap}
-.cal-t td{vertical-align:top;padding:15px 12px 15px 0;border-bottom:1px solid var(--rule);font-size:.88rem;color:var(--muted)}
-.cal-t td:last-child,.cal-t th:last-child{padding-right:0;width:26%}
-.cal-t b{display:block;font-family:var(--f-display);font-weight:700;font-size:1rem;color:var(--heading)}
-.cal-t small{display:block;font-size:.84rem;margin-top:3px;line-height:1.5}
-.cal-d{width:1%;white-space:nowrap;font-family:var(--f-type);font-weight:700;font-size:.92rem!important;color:var(--pin)!important}
 .cal-foot{margin-top:32px;display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center;justify-content:space-between;padding:22px 24px;background:var(--paper);border:1px dashed var(--rule-strong)}
 .cal-foot p{flex:1 1 380px;font-size:.86rem;color:var(--muted);max-width:74ch}
 /* calendar builder: pick what applies, download a Word document */
@@ -632,11 +628,27 @@ p,li,dd{text-wrap:pretty}
    ============================================================ */
 .voices{margin-top:clamp(64px,8vw,104px)}
 .voices-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin-bottom:28px;font-family:var(--f-type);font-size:.8rem;color:var(--muted)}
-.quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,44px)}
-.quote{border-top:1.5px solid var(--heading);padding-top:24px;display:flex;flex-direction:column;gap:20px}
-.quote p{font-family:var(--f-display);font-weight:600;font-size:clamp(1.12rem,1.6vw,1.34rem);line-height:1.35;letter-spacing:-.01em;color:var(--heading)}
-.quote p::before{content:"“";display:block;font-size:3rem;line-height:.7;color:var(--pin);margin-bottom:8px;font-weight:700}
-.quote cite{margin-top:auto;font-style:normal;font-family:var(--f-type);font-size:.84rem;color:var(--muted)}
+.q-stage{display:grid;grid-template-columns:auto minmax(0,840px) auto;justify-content:center;align-items:center;gap:clamp(12px,2.4vw,32px)}
+.quotes{display:grid;touch-action:pan-y}
+.quote{grid-area:1/1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px;padding:clamp(28px,4vw,52px) clamp(22px,5vw,64px);
+  opacity:0;visibility:hidden;transform:translateY(10px) scale(.985);transition:opacity .45s var(--e-out),transform .45s var(--e-out),visibility 0s .45s,translate .5s var(--e-out),box-shadow .5s var(--e-out)}
+.quote.on{opacity:1;visibility:visible;transform:none;transition:opacity .45s var(--e-out),transform .45s var(--e-out),visibility 0s,translate .5s var(--e-out),box-shadow .5s var(--e-out)}
+.quote blockquote p{font-family:var(--f-display);font-weight:600;font-size:clamp(1.25rem,2.3vw,1.8rem);line-height:1.32;letter-spacing:-.015em;color:var(--heading);max-width:34ch;margin-inline:auto}
+.quote blockquote p::before{content:"\201C";display:block;font-size:3.4rem;line-height:.7;color:var(--pin);margin-bottom:12px;font-weight:700}
+.quote figcaption{margin-top:auto;font-family:var(--f-type);font-size:.86rem;color:var(--muted)}
+/* client logo frame: any logo fits inside without cropping */
+.q-logo{display:flex;align-items:center;justify-content:center;flex:none;background:#fff;border:1px solid var(--rule);box-shadow:0 10px 24px -16px rgba(15,40,90,.45);overflow:hidden}
+.q-logo[data-shape="square"]{width:84px;height:84px;border-radius:18px;padding:12px}
+.q-logo[data-shape="circle"]{width:88px;height:88px;border-radius:50%;padding:14px}
+.q-logo[data-shape="wide"]{width:220px;max-width:100%;height:68px;border-radius:14px;padding:12px 20px}
+.q-logo img{display:block;width:100%;height:100%;object-fit:contain}
+.q-logo:has(.q-ph){background:transparent;border:1.5px dashed var(--rule-strong);box-shadow:none}
+.q-ph{font-family:var(--f-type);font-weight:700;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:center;line-height:1.3}
+.q-count{font-family:var(--f-type);font-weight:700;color:var(--heading);letter-spacing:.08em}
+.q-dots{display:flex;justify-content:center;gap:4px;margin-top:20px}
+.q-dot{width:32px;height:32px;padding:0;border:0;background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.q-dot::before{content:"";width:8px;height:8px;border-radius:99px;background:var(--rule-strong);transition:width .3s var(--e-out),background .3s}
+.q-dot[aria-current="true"]::before{width:26px;background:var(--hi)}
 
 /* ============================================================
    FAQ
@@ -716,6 +728,17 @@ footer{background:var(--band-2);color:var(--band-muted);padding:clamp(56px,7vw,8
 .foot ul{list-style:none}
 .foot li a{display:inline-block;padding:6px 0;font-size:.92rem;transition:color .2s}
 .foot li a:hover{color:#fff}
+.social{display:flex;gap:10px;margin-top:20px}
+.social a{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r-ctl);border:1px solid var(--band-rule);color:var(--band-text);transition:background .2s,border-color .2s,color .2s}
+.social a:hover{background:#0A66C2;border-color:#0A66C2;color:#fff}
+.social svg{width:18px;height:18px}
+.li-btn:hover{color:#0A66C2;border-color:#0A66C2}
+:root[data-theme="dark"] .li-btn:hover{color:#70B5F9;border-color:#70B5F9}
+.li-btn svg{width:18px;height:18px}
+@media (max-width:640px){.li-btn{display:none}}
+.drawer-li{display:flex!important;align-items:center;gap:12px}
+.drawer-li svg{width:20px;height:20px;flex:none;color:#0A66C2}
+:root[data-theme="dark"] .drawer-li svg{color:#70B5F9}
 .foot-b{max-width:var(--maxw);margin:48px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-family:var(--f-type);font-size:.8rem}
 
 .wa{position:fixed;right:18px;bottom:18px;z-index:90;width:54px;height:54px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;
@@ -737,7 +760,7 @@ body.menu-open .wa{opacity:0;pointer-events:none}
 .spot{position:relative}
 section>.wrap{position:relative;z-index:1}
 
-.hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq{
+.hz,.prob-close,.legend,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{
   background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-card);box-shadow:var(--glass-shadow);
   -webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6)}
 @media (hover:hover){.hz:hover,.reason:hover,.quote:hover{box-shadow:var(--glass-shadow),0 30px 60px -30px var(--glow-1)}}
@@ -784,13 +807,10 @@ section>.wrap{position:relative;z-index:1}
 .step-out{border-top:1px solid var(--rule)}
 
 /* calendar, reasons, quotes, faq */
-.cal>div{padding:clamp(20px,2.4vw,30px)}
 .cal-foot{border-style:solid}
-.reasons{border:0;display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.reasons{border:0;display:grid;gap:16px}
 .reason{display:block;padding:clamp(24px,3vw,34px);border-bottom:1px solid var(--glass-line)}
 .reason h3{font-size:clamp(1.4rem,2.2vw,1.8rem);margin-bottom:12px}
-.quotes{gap:16px}
-.quote{border-top:1px solid var(--glass-line);padding:28px}
 .faq{border-top:1px solid var(--glass-line);padding:6px clamp(20px,2.6vw,32px)}
 .faq-item:last-child{border-bottom:0}
 
@@ -817,11 +837,205 @@ section>.wrap{position:relative;z-index:1}
 .form-msg.err{background:rgba(255,154,133,.12);color:#FF9A85}
 
 /* ============================================================
+   NEXT DEADLINE COUNTDOWN (problem section)
+   ============================================================ */
+.cd{margin-bottom:clamp(48px,6vw,80px)}
+.cd-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px 24px;margin-bottom:20px}
+.cd-bar-t h3{font-size:clamp(1.4rem,2.2vw,1.8rem);margin-top:12px}
+.cd-filter{display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.cd-filter-l{font-family:var(--f-type);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-right:4px}
+.cd-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px}
+.cd-hero{position:relative;overflow:hidden;padding:clamp(22px,3vw,34px);display:flex;flex-direction:column;gap:22px}
+.cd-hero::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--u,var(--hi))}
+.cd-hero-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:12px}
+.cd-date{display:flex;align-items:baseline;flex-wrap:wrap;gap:12px}
+.cd-date b{font-family:var(--f-display);font-weight:700;font-size:clamp(2.2rem,4.4vw,3.3rem);line-height:1;letter-spacing:-.03em;color:var(--heading)}
+.cd-date span{font-family:var(--f-type);font-weight:700;font-size:.84rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cd-pill{font-family:var(--f-type);font-weight:700;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;padding:7px 12px;border-radius:999px;white-space:nowrap;
+  color:var(--u,var(--hi));background:color-mix(in srgb,var(--u,var(--hi)) 12%,transparent);border:1px solid color-mix(in srgb,var(--u,var(--hi)) 40%,transparent)}
+.cd-clock{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.cd-clock div{text-align:center;padding:14px 6px 12px;border-radius:12px;background:var(--sheet);border:1px solid var(--rule)}
+.cd-clock b{display:block;font-family:var(--f-display);font-weight:700;font-size:clamp(1.8rem,4vw,2.9rem);line-height:1;color:var(--heading);font-variant-numeric:tabular-nums}
+.cd-clock small{display:block;margin-top:8px;font-family:var(--f-type);font-weight:700;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.cd-items{list-style:none;display:flex;flex-direction:column;gap:14px}
+.cd-item{display:grid;grid-template-columns:auto minmax(0,1fr);gap:4px 14px;align-items:baseline}
+.cd-tag{grid-row:span 2;align-self:start;min-width:92px;text-align:center;padding:4px 8px;border-radius:6px;border:1px solid var(--rule-strong);font-family:var(--f-type);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--hi-ink);white-space:nowrap}
+.cd-item h4{font-size:1.12rem;letter-spacing:-.01em;line-height:1.3}
+.cd-item p{font-size:.92rem;color:var(--muted);line-height:1.5}
+.cd-aim{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600;color:var(--warn)}
+.cd-aim::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor;flex:none}
+.cd-next{padding:6px clamp(18px,2.4vw,26px);display:flex;flex-direction:column}
+.cd-next-h{display:flex;justify-content:space-between;gap:12px;padding:16px 0 12px;border-bottom:1.5px solid var(--heading);font-family:var(--f-type);font-weight:700;font-size:.8rem;letter-spacing:.06em;text-transform:uppercase;color:var(--heading)}
+.cd-next-h span:last-child{color:var(--muted)}
+.cd-row{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:14px;align-items:center;padding:14px 0;border-bottom:1px dashed var(--rule)}
+.cd-row:last-child{border-bottom:0}
+.cd-row-d b{display:block;font-family:var(--f-display);font-weight:700;font-size:1.4rem;line-height:1.05;color:var(--heading)}
+.cd-row-d span{font-family:var(--f-type);font-weight:700;font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.cd-row-t{font-weight:600;font-size:.94rem;line-height:1.35;color:var(--text);min-width:0}
+.cd-row-t small{display:block;font-weight:400;font-size:.8rem;color:var(--muted);margin-top:2px}
+.cd-days{font-family:var(--f-type);font-weight:700;font-size:.82rem;color:var(--u,var(--muted));white-space:nowrap}
+.cd-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:20px;border-top:1px solid var(--rule)}
+.cd-note{margin-top:16px;font-size:.84rem;color:var(--muted);max-width:80ch}
+
+/* ============================================================
+   APPLICABILITY CHECKER (calendar section)
+   ============================================================ */
+.ac{margin-bottom:clamp(40px,5vw,64px)}
+.ac-head{margin-bottom:24px;max-width:70ch}
+.ac-head h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:14px 0 10px}
+.ac-head p{color:var(--muted);font-size:.98rem}
+.ac-grid{display:grid;grid-template-columns:minmax(0,390px) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+.ac-form{position:sticky;top:96px;padding:clamp(20px,2.6vw,28px);display:flex;flex-direction:column;gap:20px}
+.ac-pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ac-field{display:flex;flex-direction:column;gap:9px;min-width:0}
+.ac-num{display:grid;grid-template-columns:42px minmax(0,1fr) 42px;border:1px solid var(--rule-strong);border-radius:var(--r-ctl);background:var(--sheet);overflow:hidden}
+.ac-num button{border:0;background:transparent;font:600 1.25rem/1 var(--f-display);color:var(--heading);cursor:pointer;min-height:48px}
+.ac-num button:hover{background:var(--ink-soft)}
+.ac-num input{width:100%;min-width:0;border:0;border-inline:1px solid var(--rule);background:transparent;text-align:center;font:700 1.4rem/1 var(--f-display);color:var(--heading);-moz-appearance:textfield;appearance:textfield}
+.ac-num input::-webkit-outer-spin-button,.ac-num input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.ac-num input:focus-visible,.ac-num button:focus-visible{outline:2.5px solid var(--accent);outline-offset:-3px}
+.ac-qs{border-top:1px solid var(--rule)}
+.ac-q{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--rule)}
+.ac-q:last-child{border-bottom:0}
+.ac-q p{font-size:.92rem;line-height:1.4;color:var(--text)}
+.ac-q p small{display:block;font-size:.78rem;color:var(--muted)}
+.ac-yn{display:inline-flex;border:1px solid var(--rule-strong);border-radius:999px;overflow:hidden;background:var(--sheet)}
+.ac-yn label{position:relative;cursor:pointer}
+.ac-yn input{position:absolute;opacity:0;width:1px;height:1px}
+.ac-yn span{display:block;padding:9px 15px;font-weight:600;font-size:.86rem;color:var(--muted)}
+.ac-yn input:checked+span{background:var(--btn);color:var(--btn-fg)}
+.ac-yn input:focus-visible+span{outline:2.5px solid var(--accent);outline-offset:-3px}
+.ac-sub{border:0;padding:4px 0 0}
+.ac-results{display:flex;flex-direction:column;gap:18px;min-width:0}
+.ac-panel{padding:6px clamp(18px,2.4vw,26px) 20px}
+.ac-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-bottom:1px solid var(--rule)}
+.ac-tab{display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px 4px 14px;margin-bottom:-1px;border:0;border-bottom:3px solid transparent;background:none;cursor:pointer;text-align:left;transition:border-color .2s}
+.ac-tab b{font-family:var(--f-display);font-weight:700;font-size:1.9rem;line-height:1;color:var(--faint);transition:color .2s}
+.ac-tab span{font-size:.86rem;font-weight:600;color:var(--muted)}
+.ac-tab:hover b{color:var(--muted)}
+.ac-tab[aria-selected="true"]{border-bottom-color:var(--c)}
+.ac-tab[aria-selected="true"] b{color:var(--heading)}
+.ac-tab[aria-selected="true"] span{color:var(--heading)}
+.ac-tab:focus-visible{outline:2.5px solid var(--accent);outline-offset:-3px}
+.ac-tip-hint{font-size:.8rem;color:var(--faint);margin:14px 0 6px}
+.ac-empty{padding:14px 0;color:var(--muted);font-size:.92rem}
+.ac-ladder{margin-top:18px;padding-top:16px;border-top:1px solid var(--rule)}
+.ac-ladder-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;font-size:.86rem}
+.ac-ladder-h span:first-child{font-family:var(--f-type);font-weight:700;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.ac-ladder-h span:last-child{color:var(--hi-ink);font-weight:600}
+.ac-track{position:relative;height:6px;border-radius:99px;background:var(--rule);margin:38px 8px 0}
+.ac-fill{position:absolute;inset:0 auto 0 0;border-radius:99px;background:linear-gradient(90deg,var(--hi),var(--ok));transition:width .35s var(--e-out)}
+.ac-you{position:absolute;top:-34px;transform:translateX(-50%);font-family:var(--f-type);font-weight:700;font-size:.74rem;color:var(--paper);background:var(--heading);border-radius:6px;padding:3px 8px;white-space:nowrap;transition:left .35s var(--e-out)}
+.ac-you::after{content:"";position:absolute;left:50%;bottom:-5px;transform:translateX(-50%);border:5px solid transparent;border-bottom:0;border-top-color:var(--heading)}
+.ac-mark{position:absolute;top:50%;width:12px;height:12px;border-radius:50%;transform:translate(-50%,-50%);background:var(--sheet);border:2px solid var(--faint)}
+.ac-mark.on{background:var(--ok);border-color:var(--ok)}
+.ac-steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:10px 8px 0;text-align:center}
+.ac-step b{font-family:var(--f-type);font-weight:700;font-size:.82rem;color:var(--faint)}
+.ac-step.on b{color:var(--ok)}
+.ac-step small{display:none}
+.ac-ladder-note{margin-top:12px;font-size:.8rem;color:var(--muted)}
+.ac-group{display:block}
+/* laws as points: title only; details open on hover, focus or tap */
+.ac-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:24px}
+.ac-pt{position:relative;border-bottom:1px solid var(--rule)}
+.ac-pt-b{width:100%;display:flex;align-items:center;gap:10px;min-height:46px;padding:10px 6px;border-radius:8px;border:1px solid transparent;background:transparent;
+  text-align:left;font-family:var(--f-display);font-weight:600;font-size:.98rem;line-height:1.3;color:var(--heading);cursor:pointer;transition:background .2s,border-color .2s}
+.ac-pt-b::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--c);flex:none}
+.ac-pt.open .ac-pt-b,.ac-pt-b:focus-visible{background:var(--sheet)}
+.ac-tip{position:absolute;z-index:6;left:0;right:0;top:calc(100% + 6px);min-width:240px;display:flex;flex-direction:column;gap:6px;padding:14px 16px;border-radius:12px;
+  background:var(--sheet);border:1px solid var(--rule);border-top:3px solid var(--c);box-shadow:0 22px 44px -18px rgba(10,30,70,.4);
+  opacity:0;visibility:hidden;transform:translateY(-4px);transition:opacity .18s var(--e-out),transform .18s var(--e-out),visibility 0s .18s;pointer-events:none}
+.ac-pt.open{z-index:6}
+.ac-pt.open .ac-tip{opacity:1;visibility:visible;transform:none;transition:opacity .18s var(--e-out),transform .18s var(--e-out),visibility 0s}
+@media (hover:hover){
+  .ac-pt:hover{z-index:6}
+  .ac-pt:hover .ac-pt-b{background:var(--sheet)}
+  .ac-pt:hover .ac-tip{opacity:1;visibility:visible;transform:none;transition:opacity .18s var(--e-out),transform .18s var(--e-out),visibility 0s}
+}
+.ac-law{font-family:var(--f-type);font-weight:700;font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--hi-ink)}
+.ac-tip p{font-size:.88rem;line-height:1.5;color:var(--text)}
+.ac-when{font-family:var(--f-type);font-weight:700;font-size:.76rem;color:var(--muted)}
+.ac-cta{display:flex;flex-wrap:wrap;gap:12px;padding-top:4px}
+.cd [hidden],.ac [hidden],.cal-build [hidden]{display:none!important}
+
+/* ============================================================
+   WHY HR TERRAIN: four reasons, each with a small illustration
+   ============================================================ */
+.reasons{grid-template-columns:repeat(3,minmax(0,1fr))}
+.reason{display:flex;flex-direction:column;gap:26px;overflow:hidden}
+.reason.r-wide{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:24px 36px}
+.r-n{display:block;font-family:var(--f-type);font-weight:700;font-size:.8rem;letter-spacing:.08em;color:var(--hi-ink);margin-bottom:14px}
+.reason p{color:var(--muted)}
+.r-viz{position:relative;list-style:none}
+.reason:not(.r-wide) .r-viz{margin-top:auto}
+/* 01 merge */
+.r-merge{display:grid;grid-template-columns:minmax(0,auto) minmax(40px,1fr) auto;align-items:center;height:210px}
+.rm-from{list-style:none;display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:6px 0}
+.rm-from li{font-size:.88rem;font-weight:600;color:var(--muted);padding:9px 14px;border-radius:999px;border:1px dashed var(--rule-strong);background:var(--sheet);white-space:nowrap;
+  text-decoration:line-through;text-decoration-color:transparent;transition:text-decoration-color .5s var(--e-out),opacity .5s var(--e-out)}
+.rm-lines{width:100%;height:100%;overflow:visible}
+.rm-lines path{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:5 5;vector-effect:non-scaling-stroke;opacity:.5}
+.rm-to{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 22px;border-radius:14px;background:var(--sheet);border:1.5px solid var(--heading);box-shadow:0 14px 30px -18px rgba(15,40,90,.5)}
+.rm-mark{width:56px;height:38px;background:var(--mark) center/contain no-repeat}
+.rm-to b{font-family:var(--f-display);font-size:1.05rem;color:var(--heading)}
+.rm-to small{font-family:var(--f-type);font-weight:700;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--hi-ink)}
+.stagger.in .rm-from li{text-decoration-color:var(--faint);opacity:.75;transition-delay:.9s}
+.stagger.in .rm-lines path{animation:rm-flow 1.6s linear infinite}
+@keyframes rm-flow{to{stroke-dashoffset:-20}}
+/* 02 checklist */
+.r-check{display:flex;flex-direction:column;gap:8px}
+.r-check li{display:flex;align-items:center;gap:10px;font-size:.9rem;font-weight:500;color:var(--text);padding:9px 12px;border-radius:10px;background:var(--sheet);border:1px solid var(--rule)}
+.r-check svg{width:18px;height:18px;flex:none;padding:3px;border-radius:5px;border:1.5px solid var(--rule-strong);fill:none;stroke:transparent;stroke-width:3.5;stroke-linecap:round;stroke-linejoin:round;
+  transition:background .3s,border-color .3s,stroke .3s;transition-delay:calc(.6s + var(--k,0) * .35s)}
+.r-check li:nth-child(2){--k:1}.r-check li:nth-child(3){--k:2}.r-check li:nth-child(4){--k:3}
+.stagger.in .r-check svg{background:var(--ok);border-color:var(--ok);stroke:#fff}
+/* 03 owner */
+.r-owner{display:flex;flex-direction:column;gap:10px}
+.ro-ticket{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 14px;border-radius:10px;border:1px dashed var(--rule-strong);font-family:var(--f-type);font-size:.8rem;color:var(--faint)}
+.ro-ticket span{text-decoration:line-through}
+.ro-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--sheet);border:1px solid var(--rule);box-shadow:0 14px 30px -20px rgba(15,40,90,.5)}
+.ro-av{width:40px;height:40px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:var(--ink-soft);color:var(--ink)}
+.ro-av svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
+.ro-card b{display:block;font-family:var(--f-display);font-size:.95rem;color:var(--heading)}
+.ro-card small{font-size:.8rem;color:var(--muted)}
+.ro-live{margin-left:auto;width:9px;height:9px;border-radius:50%;background:var(--ok);flex:none;box-shadow:0 0 0 0 var(--ok);animation:ro-ping 2.2s ease-out infinite}
+@keyframes ro-ping{0%{box-shadow:0 0 0 0 rgba(27,127,87,.45)}100%{box-shadow:0 0 0 9px rgba(27,127,87,0)}}
+/* 04 route */
+.r-route{height:190px}
+.r-route svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.rr-path{fill:none;stroke:var(--ink);stroke-width:2.2;stroke-dasharray:7 6;stroke-linecap:round;vector-effect:non-scaling-stroke;opacity:.7}
+.rr-pin{position:absolute;transform:translate(-50%,-50%);width:16px;height:16px;border-radius:50%;background:var(--sheet);border:2.5px solid var(--ink)}
+.rr-pin b{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);white-space:nowrap;font-family:var(--f-type);font-weight:700;font-size:.74rem;color:var(--heading)}
+.rr-pin.on{background:var(--ink)}
+.rr-pin.next{border-style:dashed;border-color:var(--pin);animation:rr-pulse 2.4s ease-out infinite}
+.rr-pin.next b{color:var(--pin);left:auto;right:-6px;transform:none}
+@keyframes rr-pulse{0%{box-shadow:0 0 0 0 rgba(194,59,37,.4)}100%{box-shadow:0 0 0 12px rgba(194,59,37,0)}}
+.rr-step{position:absolute;transform:translate(-50%,0);font-family:var(--f-type);font-weight:700;font-size:.7rem;color:var(--muted);padding:3px 8px;border-radius:999px;background:var(--sheet);border:1px solid var(--rule);white-space:nowrap}
+@media (hover:hover){.reason:hover .rr-path{animation:rm-flow 1.2s linear infinite}}
+@media (max-width:1060px){
+  .reasons{grid-template-columns:1fr 1fr}
+  .reason.r-wide{grid-column:span 2}
+}
+@media (max-width:640px){
+  .reason.r-wide{display:flex;flex-direction:column;align-items:stretch}
+  .reasons>.reason{flex-basis:86%}
+  .r-merge{grid-template-columns:auto minmax(24px,1fr) auto}
+  .r-merge{height:160px}
+  .rm-from li{font-size:.72rem;padding:6px 9px}
+  .rm-to{padding:10px 12px}
+  .rm-to b{font-size:.82rem;white-space:nowrap}
+  .rm-to small{display:none}
+}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width:1060px){
   .sh.split{grid-template-columns:1fr;align-items:start}
-  .hazards{grid-template-columns:1fr 1fr}
+  .hazards>.hz{flex-basis:calc((100% - 32px) / 2.2)}
+  .cd-grid{grid-template-columns:1fr}
+  .ac-grid{grid-template-columns:1fr}
+  .ac-form{position:static}
   .svc{grid-template-columns:1fr}
   .svc-panels{display:none}
   .svc-mobile{display:block;padding:4px 0 18px}
@@ -833,7 +1047,6 @@ section>.wrap{position:relative;z-index:1}
   .metro{grid-template-columns:1fr 1fr 1fr;row-gap:36px}
   .metro::before,.metro-run{display:none}
   .rep{grid-template-columns:1fr}
-  .cal{grid-template-columns:1fr;gap:48px}
   .cal-build{grid-template-columns:1fr}
   .cal-live{grid-template-columns:1fr}
   .columns{columns:2}
@@ -844,13 +1057,21 @@ section>.wrap{position:relative;z-index:1}
 }
 @media (max-width:640px){
   .hero-cta .btn{flex:1 1 100%}
-  .hazards{grid-template-columns:1fr}
-  .hz.wide{grid-column:auto}
   .hz{padding:22px}
+  .cd-clock{gap:6px}
+  .cd-filter-l{flex-basis:100%}
+  .cd-item{grid-template-columns:minmax(0,1fr)}
+  .cd-tag{grid-row:auto;justify-self:start;min-width:0}
+  .cd-clock div{padding:12px 2px 10px}
+  .cd-row{grid-template-columns:56px minmax(0,1fr)}
+  .cd-days{grid-column:2}
+  .cd-actions .btn,.ac-cta .btn{width:100%}
+  .ac-list{grid-template-columns:1fr}
+  .q-stage{grid-template-columns:minmax(0,1fr)}
+  .q-prev,.q-next{display:none}
   .register{grid-template-columns:1fr 1fr}
   .register div{padding:18px 14px}
   .steps{grid-template-columns:1fr;row-gap:12px}
-  .reasons{grid-template-columns:1fr}
   .steps::before{display:none}
   .step{display:grid;grid-template-columns:50px 1fr;column-gap:18px}
   .step-pin{grid-row:span 4;margin:0}
@@ -866,16 +1087,10 @@ section>.wrap{position:relative;z-index:1}
   .report{transform:none}
   .rmeta{grid-template-columns:1fr}
   .rtable th:nth-child(3),.rtable td:nth-child(3){display:none}
-  .cal-t thead{display:none}
-  .cal-t tr{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:12px;padding:14px 0;border-bottom:1px solid var(--rule)}
-  .cal-t td{border:0;padding:0}
-  .cal-t td:last-child{grid-column:2;width:auto;margin-top:6px;font-family:var(--f-type);font-size:.8rem}
-  .cal-d{grid-row:span 2;width:auto;white-space:normal}
   .cal-foot .btn{width:100%}
   .guides ul{columns:1}
   .guides li{flex-direction:column;gap:4px}
   .reason{grid-template-columns:1fr}
-  .quotes{grid-template-columns:1fr}
   .row2{grid-template-columns:1fr}
   .cb-grid{grid-template-columns:1fr}
   .front{grid-template-columns:1fr}
@@ -896,19 +1111,18 @@ section>.wrap{position:relative;z-index:1}
 @keyframes nudge{0%,100%{transform:none}50%{transform:translateX(5px)}}
 @media (max-width:760px),(hover:none){
   /* live blur is costly on phones; keep the glass look with a denser fill */
-  .hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
-  .hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq{background:var(--glass-solid)}
+  .hz,.prob-close,.legend,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hz,.prob-close,.legend,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{background:var(--glass-solid)}
 }
 @media (max-width:640px){
   .section{padding-block:72px}
   .h2{font-size:clamp(2rem,9vw,2.6rem)}
   .sh{margin-bottom:32px}
   /* long lists become swipe rows; the next card peeks in */
-  .hazards,.steps,.reasons,.quotes{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
+  .hazards,.steps,.reasons{display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:none;
     margin-inline:calc(-1 * var(--pad));padding:6px var(--pad) 22px;scroll-padding-inline:var(--pad)}
-  .hazards::-webkit-scrollbar,.steps::-webkit-scrollbar,.reasons::-webkit-scrollbar,.quotes::-webkit-scrollbar{display:none}
-  .hazards>*,.steps>*,.reasons>*,.quotes>*{flex:0 0 84%;scroll-snap-align:start}
-  .hz.wide{flex-basis:88%}
+  .hazards::-webkit-scrollbar,.steps::-webkit-scrollbar,.reasons::-webkit-scrollbar{display:none}
+  .hazards>*,.steps>*,.reasons>*{flex:0 0 84%;scroll-snap-align:start}
   .step{grid-template-columns:1fr;row-gap:0}
   .step-pin{grid-row:auto;margin-bottom:14px}
   .prob-close{margin-top:4px}
@@ -970,6 +1184,7 @@ section>.wrap{position:relative;z-index:1}
       <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
     </button>
+    <a class="icon-btn li-btn" href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
     <a href="#contact" class="btn">Talk to an HR expert</a>
     <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
@@ -988,6 +1203,7 @@ section>.wrap{position:relative;z-index:1}
   <a href="#news">Compliance news</a>
   <a href="#why">About</a>
   <a href="#faq">FAQ</a>
+  <a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" class="drawer-li"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
   <a href="#contact" class="btn">Talk to an HR expert</a>
 </nav>
 <div class="scrim" id="scrim"></div>
@@ -1051,9 +1267,48 @@ section>.wrap{position:relative;z-index:1}
       <div><span class="eyebrow">The problem</span><h2 class="h2">HR shouldn't feel like a maze.</h2></div>
       <p class="lede">Most growing businesses carry HR, payroll and compliance across spreadsheets, portals, consultants and memory. The work recurs, the deadlines don't move, and the rules keep changing.</p>
     </div>
-    <p class="swipe-hint" aria-hidden="true">Swipe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
-    <ul class="hazards" data-r data-stagger>
-        <li class="hz wide"><div class="hz-top"><span class="hz-i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span><span class="hz-n">01</span></div><h3>Deadlines on every calendar</h3><p>PF, ESI, PT and LWF each run on their own schedule, in every state you operate.</p><div class="hz-cal" aria-hidden="true"><span><b>07</b>TDS</span><span><b>15</b>PF</span><span><b>15</b>ESI</span><span><b>20</b>PT</span><span><b>15 Jan</b>LWF</span></div></li>
+    <div class="cd" id="deadlines" data-r>
+      <div class="cd-bar">
+        <div class="cd-bar-t"><span class="live">Live · India Standard Time</span><h3>Your next statutory deadline</h3></div>
+        <div class="cd-filter" role="group" aria-labelledby="cdFilterL">
+          <span class="cd-filter-l" id="cdFilterL">I operate in</span>
+          <label class="chip"><input type="checkbox" data-cd-state="KL" checked /><span>Kerala</span></label>
+          <label class="chip"><input type="checkbox" data-cd-state="KA" checked /><span>Karnataka</span></label>
+        </div>
+      </div>
+      <div class="cd-grid">
+        <article class="cd-hero" id="cdHero" aria-live="polite">
+          <div class="cd-hero-top">
+            <div class="cd-date"><b id="cdDate">&nbsp;</b><span id="cdDow"></span></div>
+            <span class="cd-pill" id="cdPill"></span>
+          </div>
+          <div class="cd-clock" role="timer" aria-label="Time left until the deadline">
+            <div><b id="cdD">--</b><small>Days</small></div>
+            <div><b id="cdH">--</b><small>Hours</small></div>
+            <div><b id="cdM">--</b><small>Min</small></div>
+            <div><b id="cdS">--</b><small>Sec</small></div>
+          </div>
+          <ul class="cd-items" id="cdItems"></ul>
+          <p class="cd-aim" id="cdAim" hidden></p>
+          <div class="cd-actions">
+            <a class="btn" href="#calBuild">Get the 12-month calendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
+        <button type="button" class="btn line" id="cdIcs">Add to my calendar</button>
+          </div>
+        </article>
+        <aside class="cd-next" aria-labelledby="cdNextH">
+          <p class="cd-next-h" id="cdNextH"><span>Coming up</span><span id="cdNextCount"></span></p>
+          <div id="cdNextList"></div>
+        </aside>
+      </div>
+      <p class="cd-note">General reference, not legal advice. If a due date falls on a holiday, file on the previous working day unless an extension is notified.</p>
+    </div>
+    <div class="hz-slider" data-r>
+      <div class="hz-slider-h">
+        <span class="eyebrow">Where it slips</span>
+        <div class="sl-nav"><button type="button" class="sl-btn" id="hzPrev" aria-label="Previous problems" aria-controls="hzTrack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button><button type="button" class="sl-btn" id="hzNext" aria-label="More problems" aria-controls="hzTrack"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button></div>
+      </div>
+      <ul class="hazards" id="hzTrack" tabindex="0" aria-label="Common HR problems">
+        <li class="hz"><div class="hz-top"><span class="hz-i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span><span class="hz-n">01</span></div><h3>Deadlines on every calendar</h3><p>PF, ESI, PT and LWF each run on their own schedule, in every state you operate.</p></li>
         <li class="hz"><div class="hz-top"><span class="hz-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg></span><span class="hz-n">02</span></div><h3>Payroll that must reconcile</h3><p>Salary structures, LOP, arrears and deductions have to tie out, every month.</p></li>
         <li class="hz"><div class="hz-top"><span class="hz-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M20 11a8 8 0 0 0-14.5-4.5L4 8M4 13a8 8 0 0 0 14.5 4.5L20 16"/><path d="M4 4v4h4M20 20v-4h-4"/></svg></span><span class="hz-n">03</span></div><h3>Rules that keep shifting</h3><p>Circulars, rate revisions and the Labour Codes land with little warning.</p></li>
         <li class="hz"><div class="hz-top"><span class="hz-i" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M14 3H6.5A1.5 1.5 0 0 0 5 4.5v15A1.5 1.5 0 0 0 6.5 21h11a1.5 1.5 0 0 0 1.5-1.5V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg></span><span class="hz-n">04</span></div><h3>Paperwork that goes stale</h3><p>Offer letters, records and registrations pile up and fall out of date.</p></li>
@@ -1062,6 +1317,7 @@ section>.wrap{position:relative;z-index:1}
         <li class="hz"><div class="hz-top"><span class="hz-i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="11" rx="2"/><path d="M7 11h.01M11 11h.01M15 11h.01M8 14.5h8"/></svg></span><span class="hz-n">07</span></div><h3>Manual re-keying</h3><p>Copying data between systems is slow and quietly error-prone.</p></li>
         <li class="hz"><div class="hz-top"><span class="hz-i" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/><rect x="13.5" y="5" width="6" height="6" rx="1.5" transform="rotate(12 16.5 8)"/><rect x="4" y="14" width="6" height="6" rx="1.5" transform="rotate(-10 7 17)"/><rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/></svg></span><span class="hz-n">08</span></div><h3>No single picture</h3><p>The full view lives in too many places to see at once.</p></li>
     </ul>
+    </div>
     <div class="prob-close" data-r>
       <p>HR Terrain maps the whole landscape: operations, payroll and compliance under one framework.</p>
       <a href="#services" class="btn">See what we handle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -1273,33 +1529,69 @@ section>.wrap{position:relative;z-index:1}
         </div>
       </div>
     </div>
-    <div class="cal" data-r>
-      <div>
-        <div class="cal-h"><h3>Every month</h3><span>for last month's payroll</span></div>
-        <table class="cal-t">
-          <thead><tr><th scope="col">Due by</th><th scope="col">Obligation</th><th scope="col">Applies to</th></tr></thead>
-          <tbody>
-            <tr><td class="cal-d">7th</td><td><b>TDS on salaries</b><small>Deposit tax deducted. March deductions are due by 30 April.</small></td><td>Employers deducting TDS</td></tr>
-            <tr><td class="cal-d">15th</td><td><b>EPF: ECR filing &amp; payment</b><small>Employer and employee PF contributions.</small></td><td>Establishments covered by EPF</td></tr>
-            <tr><td class="cal-d">15th</td><td><b>ESI contribution</b><small>Employer and employee ESI share.</small></td><td>Establishments covered by ESI</td></tr>
-            <tr><td class="cal-d">20th</td><td><b>Professional Tax</b><small>Monthly return and payment.</small></td><td>Karnataka</td></tr>
-          </tbody>
-        </table>
+    <div class="ac" id="applicability">
+      <div class="ac-head" data-r>
+        <span class="eyebrow">Applicability checker</span>
+        <h3>Which labour laws apply to your business?</h3>
+        <p>Answer four questions. See what applies today, what to double-check, and what starts as you grow, under the Labour Codes in force since 21 November 2025.</p>
       </div>
-      <div>
-        <div class="cal-h"><h3>Through the year</h3><span>periodic and annual</span></div>
-        <table class="cal-t">
-          <thead><tr><th scope="col">Due by</th><th scope="col">Obligation</th><th scope="col">Applies to</th></tr></thead>
-          <tbody>
-            <tr><td class="cal-d">31 Jul<br>31 Oct<br>31 Jan<br>31 May</td><td><b>Quarterly TDS return on salaries</b><small>One return per quarter.</small></td><td>Employers deducting TDS</td></tr>
-            <tr><td class="cal-d">15 Jun</td><td><b>Annual TDS certificate to employees</b><small>For the previous financial year.</small></td><td>Employers deducting TDS</td></tr>
-            <tr><td class="cal-d">31 Aug<br>28 Feb</td><td><b>Professional Tax</b><small>Half-yearly, paid to the local body. Confirm the date with your municipality or panchayat.</small></td><td>Kerala</td></tr>
-            <tr><td class="cal-d">15 Jan</td><td><b>Labour Welfare Fund</b><small>Annual contribution for the previous calendar year.</small></td><td>Karnataka</td></tr>
-            <tr><td class="cal-d">15 Jul<br>15 Jan</td><td><b>Labour Welfare Fund</b><small>Half-yearly contribution and return. Shops and commercial establishments pay monthly to a separate board.</small></td><td>Kerala</td></tr>
-            <tr><td class="cal-d">31 Jan</td><td><b>POSH annual report</b><small>Internal Committee report for the previous calendar year, filed with the District Officer. Some districts set a different date.</small></td><td>Employers with 10+ staff</td></tr>
-            <tr><td class="cal-d">30 Nov</td><td><b>Statutory bonus</b><small>Within 8 months of the financial year close.</small></td><td>Establishments covered by bonus law</td></tr>
-          </tbody>
-        </table>
+      <div class="ac-grid">
+        <form class="ac-form" id="acForm" data-r novalidate>
+          <fieldset class="cb-row">
+            <legend class="cb-label">Where you operate</legend>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" id="acKL" value="KL" checked /><span>Kerala</span></label>
+              <label class="chip"><input type="checkbox" id="acKA" value="KA" checked /><span>Karnataka</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="cb-row">
+            <legend class="cb-label">Type of establishment <span>· tick all that apply</span></legend>
+            <div class="chips">
+              <label class="chip"><input type="checkbox" name="acType" value="shop" checked /><span>Shop / office / commercial</span></label>
+              <label class="chip"><input type="checkbox" name="acType" value="factory" /><span>Factory</span></label>
+              <label class="chip"><input type="checkbox" name="acType" value="plantation" /><span>Plantation</span></label>
+            </div>
+            <div class="ac-q ac-sub" id="acPowerRow" hidden><p id="acPowerQ">Does the factory use power?</p>
+              <div class="ac-yn" role="radiogroup" aria-labelledby="acPowerQ"><label><input type="radio" name="acPower" value="1" checked /><span>Yes</span></label><label><input type="radio" name="acPower" value="0" /><span>No</span></label></div></div>
+          </fieldset>
+          <div class="ac-pair">
+            <div class="ac-field"><label class="cb-label" for="acN">Employees</label>
+              <div class="ac-num"><button type="button" data-step="-1" data-for="acN" aria-label="Fewer employees">−</button><input id="acN" type="number" inputmode="numeric" min="1" max="100000" value="24" /><button type="button" data-step="1" data-for="acN" aria-label="More employees">+</button></div></div>
+            <div class="ac-field"><label class="cb-label" for="acC">Contract workers</label>
+              <div class="ac-num"><button type="button" data-step="-1" data-for="acC" aria-label="Fewer contract workers">−</button><input id="acC" type="number" inputmode="numeric" min="0" max="100000" value="0" /><button type="button" data-step="1" data-for="acC" aria-label="More contract workers">+</button></div></div>
+          </div>
+          <p class="cb-hint">Everyone on your rolls in the state. EPF, ESIC and POSH also count contract workers.</p>
+          <div class="ac-qs">
+            <div class="ac-q"><p id="acLowQ">Anyone earning <b>₹21,000 or less</b> a month (Basic &amp; DA)?</p>
+              <div class="ac-yn" role="radiogroup" aria-labelledby="acLowQ"><label><input type="radio" name="acLow" value="1" checked /><span>Yes</span></label><label><input type="radio" name="acLow" value="0" /><span>No</span></label></div></div>
+            <div class="ac-q" id="acHighRow"><p id="acHighQ">Anyone earning <b>₹25,000 or more</b> a month? <small>For Karnataka Professional Tax</small></p>
+              <div class="ac-yn" role="radiogroup" aria-labelledby="acHighQ"><label><input type="radio" name="acHigh" value="1" checked /><span>Yes</span></label><label><input type="radio" name="acHigh" value="0" /><span>No</span></label></div></div>
+          </div>
+        </form>
+        <div class="ac-results" data-r>
+          <div class="ac-panel">
+            <div class="ac-tabs" role="tablist" aria-label="Results">
+              <button type="button" class="ac-tab" role="tab" id="acTyes" data-g="yes" aria-controls="acGyes" aria-selected="true" style="--c:var(--ok)"><b id="acSYes">0</b><span>Apply now</span></button>
+              <button type="button" class="ac-tab" role="tab" id="acTcheck" data-g="check" aria-controls="acGcheck" aria-selected="false" tabindex="-1" style="--c:var(--warn)"><b id="acSCheck">0</b><span>Worth checking</span></button>
+              <button type="button" class="ac-tab" role="tab" id="acTno" data-g="no" aria-controls="acGno" aria-selected="false" tabindex="-1" style="--c:var(--faint)"><b id="acSNo">0</b><span>Start as you grow</span></button>
+            </div>
+            <p class="ac-tip-hint">Hover or tap a law for what it means for you.</p>
+            <div class="ac-group" id="acGyes" role="tabpanel" aria-labelledby="acTyes"></div>
+            <div class="ac-group" id="acGcheck" role="tabpanel" aria-labelledby="acTcheck" hidden></div>
+            <div class="ac-group" id="acGno" role="tabpanel" aria-labelledby="acTno" hidden></div>
+            <div class="ac-ladder">
+              <p class="ac-ladder-h"><span>Headcount</span><span id="acNextStep"></span></p>
+              <div class="ac-track" id="acTrack" aria-hidden="true"><div class="ac-fill" id="acFill"></div><div class="ac-you" id="acYou"></div></div>
+              <div class="ac-steps" id="acSteps" aria-hidden="true"></div>
+              <p class="ac-ladder-note" id="acLadderNote" hidden></p>
+            </div>
+          </div>
+          <div class="ac-cta">
+            <a class="btn" href="#calBuild" id="acToCal">Build my calendar from these answers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
+            <a class="btn line" href="https://wa.me/919995094978?text=Hi%20HR%20Terrain%2C%20I%20used%20the%20applicability%20checker%20and%20would%20like%20help%20with%20compliance." target="_blank" rel="noopener">Ask us on WhatsApp</a>
+          </div>
+          <p class="cb-hint">General reference based on the Labour Codes and Kerala and Karnataka state laws as of September 2026; not legal advice. State rules under the Codes are still being notified, and some thresholds depend on the nature of work.</p>
+        </div>
       </div>
     </div>
     <form class="cal-foot cal-build" id="calBuild" data-r novalidate>
@@ -1325,10 +1617,19 @@ section>.wrap{position:relative;z-index:1}
             <label class="chip"><input type="checkbox" name="law" value="epf" checked /><span>EPF</span></label>
             <label class="chip"><input type="checkbox" name="law" value="esi" checked /><span>ESI</span></label>
             <label class="chip"><input type="checkbox" name="law" value="pt" checked /><span>Professional Tax</span></label>
-            <label class="chip"><input type="checkbox" name="law" value="lwf" /><span>Labour Welfare Fund</span></label>
+            <label class="chip"><input type="checkbox" name="law" value="lwf" checked /><span>Labour Welfare Fund</span></label>
             <label class="chip"><input type="checkbox" name="law" value="bonus" /><span>Statutory bonus</span></label>
             <label class="chip"><input type="checkbox" name="law" value="posh" /><span>POSH annual report</span></label>
           </div>
+        </fieldset>
+        <fieldset class="cb-row" id="cbEstRow">
+          <legend class="cb-label">Establishment type in Kerala <span>· tick all that apply</span></legend>
+          <div class="chips">
+            <label class="chip"><input type="checkbox" name="est" value="shop" checked /><span>Shop / office / commercial establishment</span></label>
+            <label class="chip"><input type="checkbox" name="est" value="factory" /><span>Factory</span></label>
+            <label class="chip"><input type="checkbox" name="est" value="plantation" /><span>Plantation</span></label>
+          </div>
+          <p class="cb-hint">Decides your Kerala Labour Welfare Fund: shops pay the Peedika board monthly; factories and plantations pay the Labour Welfare Fund Board twice a year.</p>
         </fieldset>
         <fieldset class="cb-row">
           <legend class="cb-label">Your details</legend>
@@ -1381,19 +1682,67 @@ section>.wrap{position:relative;z-index:1}
       <div><span class="eyebrow">Why HR Terrain</span><h2 class="h2">The partner you don't have to manage.</h2></div>
       <p class="lede">A focused practice for HR operations, payroll and statutory compliance, with regional depth in Kerala and Karnataka and remote delivery across India.</p>
     </div>
+    <p class="swipe-hint" aria-hidden="true">Swipe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
     <div class="reasons" data-r data-stagger>
-      <div class="reason"><h3>One partner</h3><p>Operations, payroll and compliance under one framework. Not three vendors to coordinate, each with its own version of the truth.</p></div>
-      <div class="reason"><h3>Compliance first</h3><p>Built around accuracy, deadlines and documentation: the things that hold up under scrutiny.</p></div>
-      <div class="reason"><h3>A named owner</h3><p>A direct point of contact who owns the outcome. Not a ticket queue.</p></div>
-      <div class="reason"><h3>Ready to scale</h3><p>Processes designed around how you operate today, and ready for new branches, states and headcount.</p></div>
+      <article class="reason r-wide">
+        <div class="r-copy"><span class="r-n">01</span><h3>One partner</h3><p>Operations, payroll and compliance under one framework. Not three vendors to coordinate, each with its own version of the truth.</p></div>
+        <div class="r-viz r-merge" aria-hidden="true">
+          <ul class="rm-from"><li>Payroll vendor</li><li>Compliance consultant</li><li>HR operations</li></ul>
+          <svg class="rm-lines" viewBox="0 0 120 150" preserveAspectRatio="none"><path d="M0 25 C 60 25, 60 75, 120 75"/><path d="M0 75 L 120 75"/><path d="M0 125 C 60 125, 60 75, 120 75"/></svg>
+          <div class="rm-to"><i class="rm-mark"></i><b>HR Terrain</b><small>One framework</small></div>
+        </div>
+      </article>
+      <article class="reason">
+        <div class="r-copy"><span class="r-n">02</span><h3>Compliance first</h3><p>Built around accuracy, deadlines and documentation: the things that hold up under scrutiny.</p></div>
+        <ul class="r-viz r-check" aria-hidden="true">
+          <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Deadline on the calendar</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Challan paid and saved</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Return filed</li><li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg>Register updated</li>
+        </ul>
+      </article>
+      <article class="reason">
+        <div class="r-copy"><span class="r-n">03</span><h3>A named owner</h3><p>A direct point of contact who owns the outcome. Not a ticket queue.</p></div>
+        <div class="r-viz r-owner" aria-hidden="true">
+          <div class="ro-ticket"><span>Ticket #20931</span><small>Awaiting assignment</small></div>
+          <div class="ro-card"><i class="ro-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c.9-3.8 3.9-6 7.5-6s6.6 2.2 7.5 6"/></svg></i><div><b>Your HR Terrain lead</b><small>Same person, every month</small></div><span class="ro-live"></span></div>
+        </div>
+      </article>
+      <article class="reason r-wide">
+        <div class="r-copy"><span class="r-n">04</span><h3>Ready to scale</h3><p>Processes designed around how you operate today, and ready for new branches, states and headcount.</p></div>
+        <div class="r-viz r-route" aria-hidden="true">
+          <svg viewBox="0 0 320 120" preserveAspectRatio="none"><path class="rr-path" d="M16 96 C 70 96, 80 52, 130 52 S 210 84, 250 50 S 300 24, 308 20"/></svg>
+          <span class="rr-pin on" style="left:5%;top:80%"><b>Kerala</b></span>
+          <span class="rr-pin on" style="left:40.6%;top:43%"><b>Karnataka</b></span>
+          <span class="rr-pin next" style="left:96%;top:17%"><b>Next state</b></span>
+          <span class="rr-step" style="left:26%;top:84%">+ branch</span>
+          <span class="rr-step" style="left:64%;top:84%">+ headcount</span>
+        </div>
+      </article>
     </div>
     <div class="voices">
-      <div class="voices-h" data-r><span class="eyebrow">In their words</span><span>Names withheld at clients' request</span></div>
-      <div class="quotes" data-r data-stagger>
-        <figure class="quote"><p>HR Terrain has taken the stress of monthly PF and ESIC filings off our plate. Accuracy and on-time delivery have been consistent.</p><cite>HR Manager · Healthcare education · Kerala</cite></figure>
-        <figure class="quote"><p>Managing compliance across our branches used to be a scramble. Now it runs in the background and we receive the reports.</p><cite>Finance lead · Multi-branch organisation · Kerala &amp; Karnataka</cite></figure>
-        <figure class="quote"><p>Their proactive approach stands out. We hear about changes that affect us before they become a problem.</p><cite>Founder · Services company · Bengaluru</cite></figure>
+      <div class="voices-h" data-r><span class="eyebrow">In their words</span><span class="q-count" id="qCount" aria-hidden="true">01 / 03</span></div>
+      <!-- Client logos: replace a slide's <span class="q-ph"> with <img src="assets/clients/name.png" alt="Company name">.
+           data-shape sets the frame: "circle" (round seals), "square" (square marks) or "wide" (wordmarks). Any logo fits inside without cropping. -->
+      <div class="q-stage" data-r role="region" aria-roledescription="carousel" aria-label="Client reviews">
+        <button type="button" class="sl-btn q-prev" id="qPrev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
+        <div class="quotes" id="quotes" aria-live="polite">
+        <figure class="quote on" role="group" aria-roledescription="slide" aria-label="1 of 3">
+          <div class="q-logo" data-shape="square"><span class="q-ph" aria-hidden="true">Client logo</span></div>
+          <blockquote><p>HR Terrain has taken the stress of monthly PF and ESIC filings off our plate. Accuracy and on-time delivery have been consistent.</p></blockquote>
+          <figcaption>HR Manager · Healthcare education · Kerala</figcaption>
+        </figure>
+        <figure class="quote" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
+          <div class="q-logo" data-shape="circle"><span class="q-ph" aria-hidden="true">Client logo</span></div>
+          <blockquote><p>Managing compliance across our branches used to be a scramble. Now it runs in the background and we receive the reports.</p></blockquote>
+          <figcaption>Finance lead · Multi-branch organisation · Kerala &amp; Karnataka</figcaption>
+        </figure>
+        <figure class="quote" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
+          <div class="q-logo" data-shape="wide"><span class="q-ph" aria-hidden="true">Client logo</span></div>
+          <blockquote><p>Their proactive approach stands out. We hear about changes that affect us before they become a problem.</p></blockquote>
+          <figcaption>Founder · Services company · Bengaluru</figcaption>
+        </figure>
+        </div>
+        <button type="button" class="sl-btn q-next" id="qNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
       </div>
+      <div class="q-dots" id="qDots"><button type="button" class="q-dot" aria-label="Review 1" aria-current="true"></button><button type="button" class="q-dot" aria-label="Review 2"></button><button type="button" class="q-dot" aria-label="Review 3"></button></div>
     </div>
     <div class="sectors" data-r>
       <span class="eyebrow">Sectors</span>
@@ -1435,6 +1784,7 @@ section>.wrap{position:relative;z-index:1}
       <ul class="ci">
         <li><span>Email</span><div><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></div></li>
         <li><span>WhatsApp</span><div><a href="https://wa.me/919995094978" target="_blank" rel="noopener">+91 99950 94978</a></div></li>
+        <li><span>LinkedIn</span><div><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">linkedin.com/company/hrterrain</a></div></li>
         <li><span>Serving</span><div>Kerala &amp; Karnataka · pan-India remote</div></li>
         <li><span>Hours</span><div>Mon–Sat, 9:00 AM – 6:00 PM IST</div></li>
       </ul>
@@ -1487,9 +1837,9 @@ section>.wrap{position:relative;z-index:1}
 
 <footer>
   <div class="foot">
-    <div><div class="foot-logo" role="img" aria-label="HR Terrain — Navigator of HR Landscape"></div><p>HR operations, payroll and statutory compliance for growing businesses.</p></div>
+    <div><div class="foot-logo" role="img" aria-label="HR Terrain — Navigator of HR Landscape"></div><p>HR operations, payroll and statutory compliance for growing businesses.</p><div class="social"><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div></div>
     <div><h4>Explore</h4><ul><li><a href="#services">Services</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#process">How it works</a></li><li><a href="#calendar">Compliance calendar</a></li><li><a href="#news">Compliance news</a></li><li><a href="#why">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></li><li><a href="https://wa.me/919995094978" target="_blank" rel="noopener">WhatsApp +91 99950 94978</a></li><li><a href="#contact">Enquiry form</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></li><li><a href="https://wa.me/919995094978" target="_blank" rel="noopener">WhatsApp +91 99950 94978</a></li><li><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="#contact">Enquiry form</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="legal.html#privacy">Privacy policy</a></li><li><a href="legal.html#terms">Terms of use</a></li><li><a href="legal.html#disclaimer">Disclaimer</a></li></ul></div>
   </div>
   <div class="foot-b"><span>© <span id="year">2026</span> HR Terrain · Navigator of HR landscape</span><span>Kerala · Karnataka · India</span></div>
@@ -1506,7 +1856,7 @@ section>.wrap{position:relative;z-index:1}
 </div>
 </aside>
 
-<script src="assets/calendar-doc.js?v=20260929"></script>
+<script src="assets/calendar-doc.js?v=20260930"></script>
 <script>
 (function(){
   "use strict";
@@ -1584,7 +1934,7 @@ section>.wrap{position:relative;z-index:1}
 
   /* glass spotlight */
   if (!RM && matchMedia("(hover:hover) and (pointer:fine)").matches){
-    $$(".hz,.prob-close,.legend,.svc-panel,.step,.cal>div,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
+    $$(".hz,.prob-close,.legend,.svc-panel,.step,.cd-next,.ac-form,.ac-panel,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
     document.addEventListener("pointermove", function(e){
       var el = e.target.closest && e.target.closest(".spot"); if (!el) return;
       var r = el.getBoundingClientRect();
@@ -1593,7 +1943,7 @@ section>.wrap{position:relative;z-index:1}
   }
 
   /* phones: swipe rows take keyboard focus so arrow keys can scroll them */
-  var swipe = matchMedia("(max-width:640px)"), rows = [[".hazards","Problems"],[".steps","How it works"],[".reasons","Why HR Terrain"],[".quotes","Client feedback"]];
+  var swipe = matchMedia("(max-width:640px)"), rows = [[".steps","How it works"],[".reasons","Why HR Terrain"]];
   function swipeRows(){
     rows.forEach(function(r){ var el = $(r[0]); if (!el) return;
       if (swipe.matches){ el.tabIndex = 0; if (el.tagName === "DIV") el.setAttribute("role", "region"); el.setAttribute("aria-label", r[1] + ", swipe for more"); }
@@ -1625,6 +1975,415 @@ section>.wrap{position:relative;z-index:1}
       b.addEventListener("mouseleave", function(){ b.style.transform = ""; });
     });
   }
+
+  /* ---------- next statutory deadline: live countdown, always in IST ---------- */
+  (function(){
+    var hero = $("#cdHero"); if (!hero) return;
+    var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var IST = 330 * 60000;
+    // RULES: edit when the law changes. state: null = every employer; wm = wage month (the month before the due month)
+    var MONTHLY = [
+      { day:5,  state:"KL", tag:"Kerala LWF", title:"Peedika welfare fund", note:function(c){ return "Shops and commercial establishments: ₹50 employee + ₹50 employer per employee for " + c.wm + "."; } },
+      { day:7,  state:null, tag:"Wages", title:"Salaries paid", note:function(c){ return c.wm + " wages must be paid by the 7th under the Code on Wages."; } },
+      { day:7,  state:null, tag:"TDS", title:"TDS deposit on salaries", skip:[4], note:function(c){ return "Deposit tax deducted from " + c.wm + " salaries."; } },
+      { day:15, state:null, tag:"EPF", title:"EPF: ECR filing and payment", note:function(c){ return "File the ECR and pay PF for " + c.wm + " wages."; } },
+      { day:15, state:null, tag:"ESIC", title:"ESIC contribution", note:function(c){ return "Pay employer + employee ESI for " + c.wm + " wages."; } },
+      { day:20, state:"KA", tag:"Karnataka PT", title:"Professional Tax", note:function(c){ return "Pay PT deducted from " + c.wm + " salaries." + (c.m === 3 ? " February deduction is ₹300." : ""); } }
+    ];
+    var ANNUAL = [
+      { m:1,  d:14, state:"KL", tag:"Kerala LWF", title:"Kerala Labour Welfare Fund, 2nd half", note:function(c){ return "Factories and plantations: ₹45 employee + ₹45 employer per employee for Jul–Dec " + (c.y - 1) + ". 9% a year interest if late."; } },
+      { m:1,  d:15, state:"KA", tag:"Karnataka LWF", title:"Karnataka Labour Welfare Fund", note:function(){ return "Remit ₹50 employee + ₹100 employer per employee (Form D)."; } },
+      { m:1,  d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Oct–Dec " + (c.y - 1) + "."; } },
+      { m:1,  d:31, state:null, tag:"POSH", title:"POSH annual report", note:function(c){ return "Internal Committee report for " + (c.y - 1) + " to the District Officer. Confirm your district's date."; } },
+      { m:2,  d:0,  state:"KL", tag:"Kerala PT", title:"Professional Tax, 2nd half", note:function(c){ return "Half-yearly PT for Oct " + (c.y - 1) + "–Mar " + c.y + " to your local body."; } },
+      { m:4,  d:1,  state:null, tag:"Wages", title:"Revised minimum wages / VDA", note:function(){ return "Apply any minimum wage or VDA revision notified from 1 April."; } },
+      { m:4,  d:30, state:null, tag:"TDS", title:"TDS deposit for March", note:function(){ return "Tax deducted from March salaries has an extended date."; } },
+      { m:5,  d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Jan–Mar " + c.y + "."; } },
+      { m:6,  d:15, state:null, tag:"TDS", title:"Form 130 to employees", note:function(c){ return "Annual salary TDS certificates for FY " + (c.y - 1) + "-" + String(c.y).slice(2) + "."; } },
+      { m:7,  d:14, state:"KL", tag:"Kerala LWF", title:"Kerala Labour Welfare Fund, 1st half", note:function(c){ return "Factories and plantations: ₹45 employee + ₹45 employer per employee for Jan–Jun " + c.y + ". 9% a year interest if late."; } },
+      { m:7,  d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Apr–Jun " + c.y + "."; } },
+      { m:8,  d:31, state:"KL", tag:"Kerala PT", title:"Professional Tax, 1st half", note:function(c){ return "Half-yearly PT for Apr–Sep " + c.y + " to your local body."; } },
+      { m:10, d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Jul–Sep " + c.y + "."; } },
+      { m:11, d:30, state:null, tag:"Bonus", title:"Statutory bonus", note:function(c){ return "Pay bonus for FY " + (c.y - 1) + "-" + String(c.y).slice(2) + " to eligible employees."; } },
+      { m:12, d:31, state:"KA", tag:"Karnataka LWF", title:"Karnataka LWF deduction", note:function(){ return "Deduct the ₹50 employee share from December wages."; } }
+    ];
+    var active = { KL:true, KA:true }, boxes = $$("[data-cd-state]"), current = null, shownDay = 0;
+    try { var saved = JSON.parse(localStorage.getItem("hrt-cd-states") || "null"); if (saved && typeof saved === "object") active = { KL:!!saved.KL, KA:!!saved.KA }; } catch(e){}
+
+    function ist(ms){ var d = new Date(ms + IST); return { y:d.getUTCFullYear(), m:d.getUTCMonth() + 1, d:d.getUTCDate() }; }
+    function key(y, m, d){ return y * 10000 + m * 100 + d; }
+    function lastDay(y, m){ return new Date(Date.UTC(y, m, 0)).getUTCDate(); }
+    function dow(y, m, d){ return new Date(Date.UTC(y, m - 1, d)).getUTCDay(); }
+    function endMs(g){ return Date.UTC(g.y, g.m - 1, g.d + 1) - IST; }            // midnight IST after the due date
+    function daysLeft(g, n){ return Math.round((Date.UTC(g.y, g.m - 1, g.d) - Date.UTC(n.y, n.m - 1, n.d)) / 864e5); }
+    function urgency(days){ return days <= 3 ? "var(--pin)" : days <= 7 ? "var(--warn)" : "var(--hi)"; }
+    function dueText(days){ return days === 0 ? "Due today" : days === 1 ? "Due tomorrow" : "Due in " + days + " days"; }
+    function esc(v){ return String(v).replace(/[&<>"]/g, function(c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
+    function pad(v){ return (v < 10 ? "0" : "") + v; }
+
+    // upcoming dates (this month + 13), grouped by day, for the states switched on
+    function groups(now){
+      var out = [], map = {}, today = key(now.y, now.m, now.d);
+      for (var i = 0; i < 14; i++){
+        var m = ((now.m - 1 + i) % 12) + 1, y = now.y + Math.floor((now.m - 1 + i) / 12);
+        var ctx = { y:y, m:m, wm:MONTHS[(m + 10) % 12] };
+        MONTHLY.forEach(function(r){ if (!(r.skip && r.skip.indexOf(m) > -1)) out.push({ y:y, m:m, d:r.day, r:r, ctx:ctx }); });
+        ANNUAL.forEach(function(r){ if (r.m === m) out.push({ y:y, m:m, d:r.d || lastDay(y, m), r:r, ctx:ctx }); });
+      }
+      var gs = [];
+      out.filter(function(o){ return key(o.y, o.m, o.d) >= today && (!o.r.state || active[o.r.state]); })
+        .sort(function(a, b){ return key(a.y, a.m, a.d) - key(b.y, b.m, b.d); })
+        .forEach(function(o){
+          var k = key(o.y, o.m, o.d);
+          if (!map[k]){ map[k] = { y:o.y, m:o.m, d:o.d, items:[] }; gs.push(map[k]); }
+          map[k].items.push({ tag:o.r.tag, title:o.r.title, note:o.r.note(o.ctx) });
+        });
+      return gs;
+    }
+
+    function render(){
+      var now = ist(Date.now()), gs = groups(now);
+      shownDay = key(now.y, now.m, now.d);
+      if (!gs.length) return;
+      current = gs[0];
+      var days = daysLeft(current, now), wd = dow(current.y, current.m, current.d), u = urgency(days);
+      hero.style.setProperty("--u", u);
+      $("#cdDate").textContent = current.d + " " + MONTHS[current.m - 1].slice(0, 3);
+      $("#cdDow").textContent = DAYS[wd] + " " + current.y;
+      $("#cdPill").textContent = dueText(days);
+      $("#cdItems").innerHTML = current.items.map(function(o){
+        return '<li class="cd-item"><span class="cd-tag">' + esc(o.tag) + "</span><h4>" + esc(o.title) + "</h4><p>" + esc(o.note) + "</p></li>";
+      }).join("");
+      var aim = $("#cdAim");
+      if (wd === 0 || wd === 6){
+        var p = new Date(Date.UTC(current.y, current.m - 1, current.d));
+        do { p.setUTCDate(p.getUTCDate() - 1); } while (p.getUTCDay() === 0 || p.getUTCDay() === 6);
+        aim.textContent = "Falls on a " + DAYS[wd] + ". Aim to file by " + DAYS[p.getUTCDay()] + ", " + p.getUTCDate() + " " + MONTHS[p.getUTCMonth()].slice(0, 3) + ".";
+        aim.hidden = false;
+      } else aim.hidden = true;
+
+      var next = gs.slice(1, 6);
+      $("#cdNextCount").textContent = "Next " + next.length + " dates";
+      $("#cdNextList").innerHTML = next.map(function(g){
+        var dl = daysLeft(g, now);
+        var tags = g.items.map(function(o){ return o.tag; }).filter(function(t, i, a){ return a.indexOf(t) === i; }).join(" · ");
+        return '<div class="cd-row"><div class="cd-row-d"><b>' + g.d + "</b><span>" + MONTHS[g.m - 1].slice(0, 3) + " · " + DAYS[dow(g.y, g.m, g.d)].slice(0, 3) + "</span></div>" +
+          '<div class="cd-row-t">' + esc(g.items.map(function(o){ return o.title; }).join(" + ")) + "<small>" + esc(tags) + "</small></div>" +
+          '<span class="cd-days" style="--u:' + urgency(dl) + '">' + (dl === 1 ? "1 day" : dl + " days") + "</span></div>";
+      }).join("");
+      tick();
+    }
+
+    function tick(){
+      if (!current) return;
+      var nowMs = Date.now(), n = ist(nowMs), left = endMs(current) - nowMs;
+      if (left <= 0 || key(n.y, n.m, n.d) !== shownDay){ render(); return; }   // deadline passed or a new day began in IST
+      var sec = Math.floor(left / 1000);
+      $("#cdD").textContent = Math.floor(sec / 86400);
+      $("#cdH").textContent = pad(Math.floor(sec % 86400 / 3600));
+      $("#cdM").textContent = pad(Math.floor(sec % 3600 / 60));
+      $("#cdS").textContent = pad(sec % 60);
+    }
+
+    boxes.forEach(function(b){
+      var st = b.getAttribute("data-cd-state");
+      b.checked = active[st];
+      b.addEventListener("change", function(){
+        active[st] = b.checked;
+        try { localStorage.setItem("hrt-cd-states", JSON.stringify(active)); } catch(e){}
+        render();
+      });
+    });
+
+    // .ics file for the next deadline, with a reminder three days before at 9:30 IST
+    $("#cdIcs").addEventListener("click", function(){
+      if (!current) return;
+      var ymd = function(y, m, d){ return "" + y + pad(m) + pad(d); };
+      var ics = function(v){ return String(v).replace(/[\\,;]/g, "\\$&"); };
+      var c = current, end = new Date(Date.UTC(c.y, c.m - 1, c.d + 1));
+      var lines = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//HR Terrain//Deadline//EN"];
+      c.items.forEach(function(o, i){
+        lines.push("BEGIN:VEVENT", "UID:hrt-" + ymd(c.y, c.m, c.d) + "-" + i + "@hrterrain.com",
+          "DTSTAMP:" + new Date().toISOString().replace(/[-:]/g, "").slice(0, 15) + "Z",
+          "DTSTART;VALUE=DATE:" + ymd(c.y, c.m, c.d),
+          "DTEND;VALUE=DATE:" + ymd(end.getUTCFullYear(), end.getUTCMonth() + 1, end.getUTCDate()),
+          "SUMMARY:" + ics("[Due] " + o.title),
+          "DESCRIPTION:" + ics(o.note + " Full calendar: hrterrain.com"),
+          "BEGIN:VALARM", "ACTION:DISPLAY", "DESCRIPTION:" + ics("Due in 3 days: " + o.title), "TRIGGER:-P2DT14H30M", "END:VALARM",
+          "END:VEVENT");
+      });
+      lines.push("END:VCALENDAR");
+      var a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([lines.join("\r\n")], { type:"text/calendar" }));
+      a.download = "hr-terrain-deadline-" + ymd(c.y, c.m, c.d) + ".ics";
+      document.body.appendChild(a); a.click(); a.remove();
+      setTimeout(function(){ URL.revokeObjectURL(a.href); }, 1000);
+    });
+
+    render();
+    setInterval(tick, 1000);
+  })();
+
+  /* ---------- problems: horizontal slider ---------- */
+  (function(){
+    var track = $("#hzTrack"), prev = $("#hzPrev"), next = $("#hzNext"); if (!track) return;
+    function step(){ var c = track.firstElementChild; return c ? c.getBoundingClientRect().width + (parseFloat(getComputedStyle(track).columnGap) || 16) : track.clientWidth; }
+    function sync(){ prev.disabled = track.scrollLeft <= 2; next.disabled = track.scrollLeft >= track.scrollWidth - track.clientWidth - 2; }
+    prev.addEventListener("click", function(){ track.scrollBy({ left:-step(), behavior:RM ? "auto" : "smooth" }); });
+    next.addEventListener("click", function(){ track.scrollBy({ left:step(), behavior:RM ? "auto" : "smooth" }); });
+    track.addEventListener("scroll", function(){ requestAnimationFrame(sync); }, {passive:true});
+    addEventListener("resize", sync);
+    sync();
+  })();
+
+  /* ---------- client reviews: one at a time ---------- */
+  (function(){
+    var box = $("#quotes"); if (!box) return;
+    var slides = $$(".quote", box), dots = $$(".q-dot"), count = $("#qCount"), n = slides.length, i = 0;
+    function pad2(v){ return (v < 10 ? "0" : "") + v; }
+    function show(k){
+      i = (k + n) % n;
+      slides.forEach(function(s, j){ s.classList.toggle("on", j === i); if (j === i) s.removeAttribute("aria-hidden"); else s.setAttribute("aria-hidden", "true"); });
+      dots.forEach(function(d, j){ if (j === i) d.setAttribute("aria-current", "true"); else d.removeAttribute("aria-current"); });
+      count.textContent = pad2(i + 1) + " / " + pad2(n);
+    }
+    $("#qPrev").addEventListener("click", function(){ show(i - 1); });
+    $("#qNext").addEventListener("click", function(){ show(i + 1); });
+    dots.forEach(function(d, j){ d.addEventListener("click", function(){ show(j); }); });
+    $(".q-stage").addEventListener("keydown", function(e){
+      if (e.key === "ArrowLeft"){ e.preventDefault(); show(i - 1); }
+      else if (e.key === "ArrowRight"){ e.preventDefault(); show(i + 1); }
+    });
+    var x0 = null, y0 = 0;
+    box.addEventListener("touchstart", function(e){ x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, {passive:true});
+    box.addEventListener("touchend", function(e){
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+      if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) show(i + (dx < 0 ? 1 : -1));
+      x0 = null;
+    }, {passive:true});
+    show(0);
+  })();
+
+  /* ---------- applicability checker ---------- */
+  (function(){
+    var form = $("#acForm"); if (!form) return;
+    // RULES: edit when the law changes. fn(f) returns null (hide) or { v:"yes"|"check"|"no", note, when? }.
+    // cal: the download-form obligation this rule switches on; calIf: which verdicts count (default: "yes")
+    var RULES = [
+      { title:"Minimum wages and wages by the 7th", law:"Code on Wages", fn:function(){ return { v:"yes", note:"Pay at least the state minimum wage + VDA for each category, by bank transfer, before the 7th of the next month." }; } },
+      { title:"Written appointment letters", law:"OSH Code", fn:function(){ return { v:"yes", note:"Every employee gets a written appointment letter on joining, including existing staff who never received one." }; } },
+      { title:"Full & final within 2 working days", law:"Code on Wages", fn:function(){ return { v:"yes", note:"On resignation, termination or retrenchment, pay all dues within two working days." }; } },
+      { title:"Shops & Establishments registration", law:"State S&E Act", fn:function(f){
+          if (f.shop) return { v:"yes", note:"Register each shop, office or branch with the state labour department and display the certificate." };
+          if (f.factory && f.t < f.facLimit) return { v:"yes", note:"Until the factory crosses the OSH Code threshold, register it under the Shops & Establishments Act." };
+          return null; } },
+      { title:"Factory licence", law:"OSH Code", fn:function(f){
+          if (!f.factory) return null;
+          if (f.t >= f.facLimit) return { v:"yes", note:"You meet the factory definition (" + f.facLimit + "+ workers " + (f.power ? "with" : "without") + " power, contract workers included). Registration, licence, safety and welfare provisions apply." };
+          return { v:"no", note:"Below the factory threshold under the OSH Code; register under the Shops & Establishments Act meanwhile.", when:f.facLimit, by:"t" }; } },
+      { title:"POSH Internal Committee", law:"POSH Act 2013", cal:"posh", fn:function(f){
+          if (f.t >= 10) return { v:"yes", note:"Constitute an Internal Committee, display its members, and file the annual report with the District Officer by 31 January." };
+          return { v:"check", note:"Keep a POSH policy. With fewer than 10 employees, complaints go to the district's Local Committee." }; } },
+      { title:"ESIC", law:"Code on Social Security", cal:"esi", fn:function(f){
+          if (f.t < 10) return { v:"no", note:"Registration becomes mandatory at 10 employees, counting those engaged through a contractor.", when:10, by:"t" };
+          if (f.low) return { v:"yes", note:"Register the establishment. Employees with Basic & DA up to ₹21,000 a month are covered; pay by the 15th." };
+          return { v:"check", note:"The establishment is covered at 10+ employees, but nobody is currently under the ₹21,000 wage limit." }; } },
+      { title:"Gratuity", law:"Code on Social Security", fn:function(f){
+          if (f.n >= 10) return { v:"yes", note:"Payable after 5 years' service (1 year for fixed-term staff), within 30 days of it becoming due. Consider a gratuity insurance policy." };
+          return { v:"no", note:"Applies from 10 employees.", when:10 }; } },
+      { title:"Maternity benefit", law:"Code on Social Security", fn:function(f){
+          if (f.factory || f.plantation || f.n >= 10) return { v:"yes", note:"26 weeks' paid maternity leave for eligible women employees, plus nursing breaks. Include it in your leave policy." };
+          return { v:"no", note:"Applies to shops and establishments from 10 employees.", when:10 }; } },
+      { title:"EPF", law:"Code on Social Security", cal:"epf", fn:function(f){
+          if (f.t >= 20) return { v:"yes", note:"Register with EPFO. PF is mandatory for wages up to ₹25,000 (ceiling raised from 17 Sep 2026). ECR and payment by the 15th." };
+          return { v:"no", note:"Mandatory at 20 employees, counting those engaged through a contractor. You can opt in voluntarily earlier.", when:20, by:"t" }; } },
+      { title:"Statutory bonus", law:"Code on Wages", cal:"bonus", fn:function(f){
+          if (f.n < 20) return { v:"no", note:"Applies from 20 employees.", when:20 };
+          if (f.low) return { v:"yes", note:"8.33% to 20% of wages for employees under the wage limit who worked 30+ days. Pay by 30 November." };
+          return { v:"check", note:"Covered at 20+ employees, but nobody is currently under the ₹21,000 bonus wage limit." }; } },
+      { title:"Grievance Redressal Committee", law:"Industrial Relations Code", fn:function(f){
+          if (f.n >= 20) return { v:"yes", note:"Set up a committee with equal employer and worker members to resolve individual grievances." };
+          return { v:"no", note:"Required from 20 workers.", when:20 }; } },
+      { title:"Crèche", law:"Code on Social Security", fn:function(f){
+          if (f.n >= 50) return { v:"yes", note:"Provide a crèche (own or common facility) and allow mothers four visits a day." };
+          return { v:"no", note:"Required from 50 employees.", when:50 }; } },
+      { title:"Canteen", law:"OSH Code", fn:function(f){
+          if (f.t >= 100) return { v:"yes", note:"Provide a canteen for workers as per state rules." };
+          return { v:"no", note:"Required from 100 workers, contract workers included.", when:100, by:"t" }; } },
+      { title:"Standing orders", law:"Industrial Relations Code", fn:function(f){
+          if (f.n >= 300) return { v:"yes", note:"Adopt standing orders on conditions of service. Prior government permission is needed for lay-off, retrenchment or closure." };
+          return { v:"no", note:"Required from 300 workers (raised from 100 under the Code).", when:300 }; } },
+      { title:"Contract labour", law:"OSH Code", fn:function(f){
+          if (f.c >= 50) return { v:"yes", note:"Register as principal employer; your contractor needs a licence. Verify their wage, PF and ESIC payments every month." };
+          if (f.c > 0) return { v:"check", note:"Below the 50-worker threshold, but you are still liable if the contractor misses wages, PF or ESIC. Collect proof monthly." };
+          return null; } },
+      { title:"Annual health check-up (40+)", law:"OSH Code", fn:function(f){
+          if (f.factory || f.plantation) return { v:"yes", note:"Free annual health check-up for employees aged 40 and above." };
+          return { v:"check", note:"Mandatory in notified establishments; confirm whether your sector is covered." }; } },
+      { title:"Safety committee", law:"OSH Code", fn:function(f){
+          if (!f.factory) return null;
+          if (f.t >= 500) return { v:"yes", note:"Constitute a safety committee with worker representation." };
+          return { v:"no", note:"Required in factories from 500 workers, contract workers included.", when:500, by:"t" }; } },
+      // Kerala
+      { title:"Kerala Professional Tax", law:"Kerala · local body", st:"KL", cal:"pt", fn:function(){ return { v:"yes", note:"Deduct PT from salaries and pay the panchayat, municipality or corporation half-yearly, by 31 August and 28 February." }; } },
+      { title:"Peedika welfare fund", law:"Kerala · Shops & Commercial Estab. WFB", st:"KL", cal:"lwf", fn:function(f){
+          if (!f.shop) return null;
+          return { v:"yes", note:"Every shop and commercial establishment with 1+ employee: ₹50 employee + ₹50 employer per employee, monthly by the 5th." }; } },
+      { title:"Kerala Labour Welfare Fund", law:"Kerala · Labour Welfare Fund Board", st:"KL", cal:"lwf", fn:function(f){
+          if (!(f.factory || f.plantation)) return null;
+          return { v:"yes", note:"₹45 employee + ₹45 employer per employee, half-yearly by 14 July and 14 January. 9% a year interest if late." }; } },
+      // Karnataka
+      { title:"Karnataka Professional Tax", law:"Karnataka PT Act", st:"KA", cal:"pt", fn:function(f){
+          if (f.high) return { v:"yes", note:"Deduct ₹200 a month (₹300 in February) from salaries of ₹25,000+ and pay by the 20th." };
+          return { v:"check", note:"No deduction below ₹25,000 salary, but enrol the establishment so you are ready when anyone crosses it." }; } },
+      { title:"Karnataka Labour Welfare Fund", law:"Karnataka LWF Act", st:"KA", cal:"lwf", calIf:["yes","check"], fn:function(f){
+          if (f.n >= 50) return { v:"yes", note:"₹50 employee + ₹100 employer per employee a year. Deduct from December wages, pay by 15 January (Form D)." };
+          if (f.factory || f.plantation) return { v:"check", note:"Coverage for factories and plantations below 50 employees is read differently in practice; confirm with the Board." };
+          return { v:"no", note:"Applies to shops and establishments from 50 employees.", when:50 }; } }
+    ];
+    var STEPS = [
+      { n:10, t:"ESIC · Gratuity · POSH IC" },
+      { n:20, t:"EPF · Bonus · Grievance committee" },
+      { n:50, t:"Crèche", ka:" · Karnataka LWF" },
+      { n:100, t:"Canteen" },
+      { n:300, t:"Standing orders" }
+    ];
+    function stepText(s, f){ return s.t + (s.ka && f.KA ? s.ka : ""); }
+    var COLORS = { yes:"var(--ok)", check:"var(--warn)", no:"var(--faint)" };
+    var EMPTY = { yes:"Nothing applies yet for these answers.", check:"Nothing to double-check for these answers.", no:"Every headcount threshold here already applies to you." };
+    var tab = "yes", tabs = $$(".ac-tab", form.parentNode);
+    function selectTab(k, focus){
+      tab = k;
+      tabs.forEach(function(t){ var on = t.getAttribute("data-g") === k; t.setAttribute("aria-selected", on ? "true" : "false"); t.tabIndex = on ? 0 : -1; if (on && focus) t.focus(); });
+      ["yes", "check", "no"].forEach(function(g){ $("#acG" + g).hidden = g !== k; });
+    }
+    tabs.forEach(function(t, i){
+      t.addEventListener("click", function(){ selectTab(t.getAttribute("data-g")); });
+      t.addEventListener("keydown", function(e){
+        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0; if (!d) return;
+        e.preventDefault(); selectTab(tabs[(i + d + tabs.length) % tabs.length].getAttribute("data-g"), true);
+      });
+    });
+    var last = null;
+
+    function read(){
+      var types = $$('input[name="acType"]:checked', form).map(function(i){ return i.value; });
+      var power = $('input[name="acPower"]:checked', form).value === "1";
+      return {
+        n:Math.max(1, parseInt($("#acN").value, 10) || 1), c:Math.max(0, parseInt($("#acC").value, 10) || 0),
+        shop:types.indexOf("shop") > -1, factory:types.indexOf("factory") > -1, plantation:types.indexOf("plantation") > -1,
+        power:power, facLimit:power ? 20 : 40,   // OSH Code factory definition
+        KL:$("#acKL").checked, KA:$("#acKA").checked,
+        low:$('input[name="acLow"]:checked', form).value === "1", high:$('input[name="acHigh"]:checked', form).value === "1"
+      };
+    }
+    function esc(v){ return String(v).replace(/[&<>"]/g, function(ch){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[ch]; }); }
+    // ladder scale: each threshold sits at the centre of its label column (10%, 30% ... 90%), linear in between
+    var SCALE = [[1, 0], [10, 10], [20, 30], [50, 50], [100, 70], [300, 90], [500, 100]];
+    function pos(n){
+      if (n >= 500) return 100;
+      for (var i = 1; i < SCALE.length; i++) if (n <= SCALE[i][0]){ var a = SCALE[i - 1], b = SCALE[i]; return a[1] + (Math.max(n, 1) - a[0]) / (b[0] - a[0]) * (b[1] - a[1]); }
+      return 100;
+    }
+
+    function render(){
+      var f = read(), out = { yes:[], check:[], no:[] }, cal = {};
+      f.t = f.n + f.c;
+      $("#acHighRow").hidden = !f.KA;
+      $("#acPowerRow").hidden = !f.factory;   // only Karnataka PT depends on the ₹25,000 question
+      RULES.forEach(function(r){
+        if (r.st && !f[r.st]) return;
+        var res = r.fn(f); if (!res) return;
+        out[res.v].push({ title:r.title, law:r.law, note:res.note, when:res.when, by:res.by || "n" });
+        if (r.cal && (r.calIf || ["yes"]).indexOf(res.v) > -1) cal[r.cal] = true;
+      });
+      out.no.sort(function(a, b){ return (a.when || 0) - (b.when || 0); });
+      last = { f:f, cal:cal };
+
+      $("#acSYes").textContent = out.yes.length;
+      $("#acSCheck").textContent = out.check.length;
+      $("#acSNo").textContent = out.no.length;
+      ["yes", "check", "no"].forEach(function(k){
+        var g = $("#acG" + k);
+        g.hidden = k !== tab;
+        g.style.setProperty("--c", COLORS[k]);
+        if (!out[k].length){ g.innerHTML = '<p class="ac-empty">' + EMPTY[k] + "</p>"; return; }
+        g.innerHTML = '<ul class="ac-list">' + out[k].map(function(it, j){
+            var id = "acTip-" + k + j;
+            var when = it.when ? '<span class="ac-when">At ' + it.when + (it.by === "t" ? " incl. contract workers" : " employees") + " · " + Math.max(0, it.when - f[it.by]) + " more to go</span>" : "";
+            return '<li class="ac-pt"><button type="button" class="ac-pt-b" aria-expanded="false" aria-describedby="' + id + '">' + esc(it.title) + "</button>" +
+              '<div class="ac-tip" id="' + id + '" role="tooltip"><span class="ac-law">' + esc(it.law) + "</span><p>" + esc(it.note) + "</p>" + when + "</div></li>";
+          }).join("") + "</ul>";
+      });
+
+      var p = pos(f.n), you = $("#acYou"), track = $("#acTrack");
+      $("#acFill").style.width = p + "%";
+      you.textContent = "You · " + f.n;
+      you.style.left = Math.min(94, Math.max(6, p)) + "%";
+      $$(".ac-mark", track).forEach(function(m){ m.remove(); });
+      STEPS.forEach(function(s){
+        var m = document.createElement("span");
+        m.className = "ac-mark" + (f.n >= s.n ? " on" : "");
+        m.style.left = pos(s.n) + "%";
+        track.appendChild(m);
+      });
+      $("#acSteps").innerHTML = STEPS.map(function(s){ return '<div class="ac-step' + (f.n >= s.n ? " on" : "") + '"><b>' + s.n + "</b><small>" + stepText(s, f) + "</small></div>"; }).join("");
+      var nxt = STEPS.filter(function(s){ return s.n > f.n; })[0];
+      $("#acNextStep").textContent = nxt ? "Next at " + nxt.n + ": " + stepText(nxt, f) + " (" + (nxt.n - f.n) + " more)" : "All headcount thresholds reached";
+      var note = $("#acLadderNote");
+      note.hidden = !f.c;
+      note.textContent = "The ladder counts your " + f.n + " employees. EPF, ESIC, POSH and the factory limits also count your " + f.c + " contract worker" + (f.c === 1 ? "" : "s") + ": " + f.t + " in all.";
+    }
+
+    form.addEventListener("input", render);
+    form.addEventListener("change", render);
+    form.addEventListener("submit", function(e){ e.preventDefault(); });
+    $$('input[name="acType"]', form).forEach(function(b){
+      b.addEventListener("change", function(){ if (!$('input[name="acType"]:checked', form)) b.checked = true; });   // keep one type ticked
+    });
+    ["#acN", "#acC"].forEach(function(id){
+      var inp = $(id);
+      inp.addEventListener("change", function(){ var min = parseInt(inp.min, 10); inp.value = Math.min(100000, Math.max(min, parseInt(inp.value, 10) || min)); render(); });
+    });
+
+    // law details: hover shows them (CSS); tap, click, Enter or Space pins one open; Escape or a tap elsewhere closes
+    var results = $(".ac-results");
+    function closeTips(except){
+      $$(".ac-pt.open", results).forEach(function(li){ if (li !== except){ li.classList.remove("open"); $(".ac-pt-b", li).setAttribute("aria-expanded", "false"); } });
+    }
+    results.addEventListener("click", function(e){
+      var b = e.target.closest(".ac-pt-b"); if (!b) return;
+      var li = b.parentNode, open = !li.classList.contains("open");
+      closeTips(li);
+      li.classList.toggle("open", open); b.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    document.addEventListener("click", function(e){ if (!e.target.closest(".ac-pt")) closeTips(null); });
+    document.addEventListener("keydown", function(e){
+      if (e.key !== "Escape" || !$(".ac-pt.open", results)) return;
+      var b = $(".ac-pt.open .ac-pt-b", results); closeTips(null); if (b) b.focus();
+    });
+    results.addEventListener("focusout", function(e){ if (!results.contains(e.relatedTarget)) closeTips(null); });
+    $$(".ac-num button", form).forEach(function(b){
+      b.addEventListener("click", function(){
+        var inp = $("#" + b.getAttribute("data-for")), min = parseInt(inp.min, 10) || 0, max = parseInt(inp.max, 10) || 100000;
+        inp.value = Math.min(max, Math.max(min, (parseInt(inp.value, 10) || 0) + parseInt(b.getAttribute("data-step"), 10)));
+        render();
+      });
+    });
+
+    // carry the answers into the calendar download form below
+    $("#acToCal").addEventListener("click", function(){
+      var cb = $("#calBuild"); if (!cb || !last) return;
+      var f = last.f, set = function(name, value, on){ var i = $('input[name="' + name + '"][value="' + value + '"]', cb); if (i){ i.disabled = false; i.checked = on; } };
+      set("state", "KL", f.KL); set("state", "KA", f.KA); set("state", "IN", !f.KL && !f.KA);
+      ["epf", "esi", "pt", "lwf", "bonus", "posh"].forEach(function(k){ set("law", k, !!last.cal[k]); });
+      set("est", "shop", f.shop); set("est", "factory", f.factory); set("est", "plantation", f.plantation);
+      cb.dispatchEvent(new Event("change"));
+    });
+    render();
+  })();
 
   /* ---------- calendar: this month's statutory route, plotted from today ---------- */
   (function(){
@@ -1711,19 +2470,23 @@ section>.wrap{position:relative;z-index:1}
   /* ---------- calendar builder: collect the downloader's details, then build a Word calendar ---------- */
   (function(){
     var f = $("#calBuild"), cal = window.HRTCalendarDoc; if (!f || !cal) return;
-    var count = $("#cbCount"), go = $("#cbGo"), hint = $("#cbStateHint"), label = go.innerHTML, lib = null;
+    var count = $("#cbCount"), go = $("#cbGo"), hint = $("#cbStateHint"), estRow = $("#cbEstRow"), label = go.innerHTML, lib = null;
     var LAW = { tds:"TDS on salaries", epf:"EPF", esi:"ESI", pt:"Professional Tax", lwf:"Labour Welfare Fund", bonus:"Statutory bonus", posh:"POSH annual report" };
     var STATE = { KL:"Kerala", KA:"Karnataka", IN:"Pan-India" };
+    var EST = { shop:"Shop / office / commercial establishment", factory:"Factory", plantation:"Plantation" };
     function picked(name){ return $$('input[name="' + name + '"]:checked', f).map(function(i){ return i.value; }); }
-    function list(){ return cal.deadlines(picked("state"), picked("law")); }
+    function list(){ return cal.deadlines(picked("state"), picked("law"), null, picked("est")); }
+    // the Kerala establishment type only changes the Labour Welfare Fund rows
+    function needsEst(){ return picked("state").indexOf("KL") > -1 && picked("law").indexOf("lwf") > -1; }
 
     function refresh(){
       var st = picked("state"), local = st.indexOf("KL") > -1 || st.indexOf("KA") > -1;
       ["pt", "lwf"].forEach(function(v){ var i = $('input[value="' + v + '"]', f); i.disabled = !local; if (!local) i.checked = false; });
       hint.hidden = st.indexOf("IN") < 0;
-      var n = list().length;
+      estRow.hidden = st.indexOf("KL") < 0;   // asked whenever Kerala is picked
+      var noEst = needsEst() && !picked("est").length, n = noEst ? 0 : list().length;
       count.classList.toggle("err", n === 0);
-      count.textContent = n ? n + " deadlines in the next 12 months" : "Pick at least one state and one obligation";
+      count.textContent = noEst ? "Pick your establishment type in Kerala" : n ? n + " deadlines in the next 12 months" : "Pick at least one state and one obligation";
       go.disabled = n === 0;
     }
     f.addEventListener("change", refresh);
@@ -1773,6 +2536,7 @@ section>.wrap{position:relative;z-index:1}
       d.append("phone", digits($("#cbPhone").value));
       d.append("operates_in", picked("state").map(function(v){ return STATE[v]; }).join(", "));
       d.append("obligations", picked("law").map(function(v){ return LAW[v]; }).join(", "));
+      if (needsEst()) d.append("kerala_establishment", picked("est").map(function(v){ return EST[v]; }).join(", "));
       d.append("deadlines", String(events.length));
       d.append("_subject", "Compliance calendar downloaded: " + $("#cbName").value.trim());
       d.append("_template", "table"); d.append("_captcha", "false");
@@ -1781,6 +2545,7 @@ section>.wrap{position:relative;z-index:1}
 
     f.addEventListener("submit", function(e){
       e.preventDefault();
+      if (go.disabled) return;
       var events = list(); if (!events.length) return;
       var first = null;
       Object.keys(CHECK).forEach(function(id){ if (!valid(id) && !first) first = $("#" + id); });

@@ -132,9 +132,12 @@
     });
   }
 
-  /* the next 12 months of deadlines for the chosen states and obligations */
-  function deadlines(states, laws, now) {
+  /* the next 12 months of deadlines for the chosen states and obligations.
+     est: Kerala establishment types ("shop", "factory", "plantation"); decides which Kerala LWF rows apply */
+  function deadlines(states, laws, now, est) {
     var has = function (v, a) { return a.indexOf(v) > -1; }, KL = has("KL", states), KA = has("KA", states), out = [];
+    est = est || ["shop"];
+    var klShop = KL && has("shop", est), klBoard = KL && (has("factory", est) || has("plantation", est));
     now = now || new Date();
     var today = new Date(now.getFullYear(), now.getMonth(), now.getDate()), until = new Date(today);
     until.setFullYear(until.getFullYear() + 1);
@@ -148,23 +151,27 @@
       if (has("tds", laws)) add(y, m, m === 3 ? 30 : 7, "TDS deposit on salaries", "Deposit tax deducted from " + prev(m) + " salaries." + (m === 3 ? " March deductions are due by 30 April." : ""), "Employers deducting TDS");
       if (has("epf", laws)) add(y, m, 15, "EPF: ECR filing and payment", "File the ECR and pay employer and employee PF for " + prev(m) + " wages.", "Establishments covered by EPF");
       if (has("esi", laws)) add(y, m, 15, "ESI contribution", "Pay employer and employee ESI share for " + prev(m) + " wages.", "Establishments covered by ESI");
-      if (has("pt", laws) && KA) add(y, m, 20, "Professional Tax", "Monthly PT return and payment for " + prev(m) + ".", "Karnataka");
+      if (has("pt", laws) && KA) add(y, m, 20, "Professional Tax", "Monthly PT return and payment for " + prev(m) + " salaries." + (m === 2 ? " February deduction is ₹300." : ""), "Karnataka");
+      if (has("lwf", laws) && klShop) add(y, m, 5, "Peedika welfare fund", "Pay ₹50 employee + ₹50 employer per employee for " + prev(m) + " to the Kerala Shops and Commercial Establishments Workers Welfare Fund Board.", "Kerala · shops and commercial establishments");
     }
     for (var yy = today.getFullYear() - 1; yy <= today.getFullYear() + 1; yy++) {
       if (has("tds", laws)) {
         [[6, 31, "April to June"], [9, 31, "July to September"], [0, 31, "October to December"], [4, 31, "January to March"]].forEach(function (q) {
-          add(yy, q[0], q[1], "Quarterly TDS return", "File Form 24Q for " + q[2] + ".", "Employers deducting TDS");
+          add(yy, q[0], q[1], "Quarterly TDS return", "File the salary TDS statement (Form 138, earlier Form 24Q) for " + q[2] + ".", "Employers deducting TDS");
         });
-        add(yy, 5, 15, "Form 16 to employees", "Issue annual TDS certificates for the previous financial year.", "Employers deducting TDS");
+        add(yy, 5, 15, "Form 130 to employees", "Issue annual salary TDS certificates (Form 130, earlier Form 16) for the previous financial year.", "Employers deducting TDS");
       }
       if (has("pt", laws) && KL) {
         add(yy, 7, 31, "Professional Tax: first half-year", "Pay PT to the local body for April to September. Confirm the date with your municipality or panchayat.", "Kerala");
         add(yy, 1, new Date(yy, 2, 0).getDate(), "Professional Tax: second half-year", "Pay PT to the local body for October to March. Confirm the date with your municipality or panchayat.", "Kerala");
       }
-      if (has("lwf", laws) && KA) add(yy, 0, 15, "Labour Welfare Fund", "Annual LWF contribution for the previous calendar year.", "Karnataka");
-      if (has("lwf", laws) && KL) {
-        add(yy, 6, 15, "Labour Welfare Fund: first half-year", "Pay employer and employee LWF for January to June and file the return. Shops and commercial establishments contribute monthly to a separate board instead.", "Kerala");
-        add(yy, 0, 15, "Labour Welfare Fund: second half-year", "Pay employer and employee LWF for July to December and file the return. Shops and commercial establishments contribute monthly to a separate board instead.", "Kerala");
+      if (has("lwf", laws) && KA) {
+        add(yy, 11, 31, "Labour Welfare Fund: deduct", "Deduct the ₹50 employee share from December wages.", "Karnataka");
+        add(yy, 0, 15, "Labour Welfare Fund: pay", "Remit ₹50 employee + ₹100 employer per employee for the previous calendar year (Form D).", "Karnataka");
+      }
+      if (has("lwf", laws) && klBoard) {
+        add(yy, 6, 14, "Labour Welfare Fund: first half-year", "Pay ₹45 employee + ₹45 employer per employee for January to June to the Kerala Labour Welfare Fund Board. 9% a year interest if late.", "Kerala · factories and plantations");
+        add(yy, 0, 14, "Labour Welfare Fund: second half-year", "Pay ₹45 employee + ₹45 employer per employee for July to December to the Kerala Labour Welfare Fund Board. 9% a year interest if late.", "Kerala · factories and plantations");
       }
       if (has("bonus", laws)) add(yy, 10, 30, "Statutory bonus", "Pay statutory bonus within 8 months of the financial year close.", "Establishments covered by bonus law");
       if (has("posh", laws)) add(yy, 0, 31, "POSH annual report", "File the Internal Committee's annual report with the District Officer. Some districts set a different date.", "Employers with 10+ staff");
