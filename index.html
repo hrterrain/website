@@ -135,7 +135,7 @@ button,input,select,textarea{font:inherit;color:inherit}
 h1,h2,h3,h4{font-family:var(--f-display);color:var(--heading);font-weight:600;letter-spacing:-.022em;line-height:1;text-wrap:balance}
 p,li,dd{text-wrap:pretty}
 .wrap{max-width:var(--maxw);margin:0 auto}
-.section{padding:clamp(80px,11vw,150px) var(--pad);position:relative}
+.section{padding:clamp(56px,6.5vw,96px) var(--pad);position:relative}
 
 /* eyebrow: the logo's square dot + typewritten label */
 .eyebrow{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-type);font-weight:700;font-size:.84rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)}
@@ -660,11 +660,13 @@ p,li,dd{text-wrap:pretty}
 .faq-item{border-bottom:1px solid var(--rule)}
 .faq-q{width:100%;display:flex;justify-content:space-between;gap:20px;align-items:center;text-align:left;background:none;border:0;cursor:pointer;padding:22px 0;
   font-family:var(--f-display);font-weight:700;font-size:1.08rem;color:var(--heading);line-height:1.3}
+.faq-q:focus-visible{outline-offset:6px;border-radius:10px}
 .faq-q i{flex:none;position:relative;width:28px;height:28px;border:1.5px solid var(--rule-strong);border-radius:50%}
 .faq-q i::before,.faq-q i::after{content:"";position:absolute;left:50%;top:50%;width:11px;height:2px;background:var(--heading);transform:translate(-50%,-50%);transition:transform .3s var(--e-out)}
 .faq-q i::after{transform:translate(-50%,-50%) rotate(90deg)}
 .faq-item.open .faq-q i::after{transform:translate(-50%,-50%) rotate(0)}
-.faq-a{overflow:hidden;max-height:0;transition:max-height .4s var(--e-out)}
+.faq-a{overflow:hidden;max-height:0;visibility:hidden;transition:max-height .4s var(--e-out),visibility 0s .4s}
+.faq-item.open .faq-a{visibility:visible;transition:max-height .4s var(--e-out)}
 .faq-a p{padding:0 44px 24px 0;color:var(--muted);font-size:.96rem}
 
 /* ============================================================
@@ -875,6 +877,10 @@ section>.wrap{position:relative;z-index:1}
 .cd-row-t small{display:block;font-weight:400;font-size:.8rem;color:var(--muted);margin-top:2px}
 .cd-days{font-family:var(--f-type);font-weight:700;font-size:.82rem;color:var(--u,var(--muted));white-space:nowrap}
 .cd-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:auto;padding-top:20px;border-top:1px solid var(--rule)}
+.cd-scope{margin:-4px 0 20px;padding:12px 16px;border-radius:12px;border:1px solid var(--rule);background:var(--sheet);font-size:.9rem;color:var(--muted);max-width:none}
+.cd-scope b{color:var(--heading);font-weight:600}
+.cd-scope a{color:var(--accent);text-decoration:underline;text-underline-offset:2px;white-space:nowrap}
+@media (max-width:640px){.cd-scope a{white-space:normal}}
 .cd-note{margin-top:16px;font-size:.84rem;color:var(--muted);max-width:80ch}
 
 /* ============================================================
@@ -1115,7 +1121,7 @@ section>.wrap{position:relative;z-index:1}
   .hz,.prob-close,.legend,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{background:var(--glass-solid)}
 }
 @media (max-width:640px){
-  .section{padding-block:72px}
+  .section{padding-block:56px}
   .h2{font-size:clamp(2rem,9vw,2.6rem)}
   .sh{margin-bottom:32px}
   /* long lists become swipe rows; the next card peeks in */
@@ -1271,11 +1277,12 @@ section>.wrap{position:relative;z-index:1}
       <div class="cd-bar">
         <div class="cd-bar-t"><span class="live">Live · India Standard Time</span><h3>Your next statutory deadline</h3></div>
         <div class="cd-filter" role="group" aria-labelledby="cdFilterL">
-          <span class="cd-filter-l" id="cdFilterL">I operate in</span>
+          <span class="cd-filter-l" id="cdFilterL">State dates for</span>
           <label class="chip"><input type="checkbox" data-cd-state="KL" checked /><span>Kerala</span></label>
           <label class="chip"><input type="checkbox" data-cd-state="KA" checked /><span>Karnataka</span></label>
         </div>
       </div>
+      <p class="cd-scope"><b>Coverage:</b> EPF, ESIC, TDS, bonus and POSH dates apply in every state. State Professional Tax and LWF dates are tracked for Kerala and Karnataka today. <a href="#contact">Operating in another state? We'll map its dates for you.</a></p>
       <div class="cd-grid">
         <article class="cd-hero" id="cdHero" aria-live="polite">
           <div class="cd-hero-top">
@@ -1543,6 +1550,7 @@ section>.wrap{position:relative;z-index:1}
               <label class="chip"><input type="checkbox" id="acKL" value="KL" checked /><span>Kerala</span></label>
               <label class="chip"><input type="checkbox" id="acKA" value="KA" checked /><span>Karnataka</span></label>
             </div>
+            <p class="cb-hint">Central laws are checked for any state. State-specific rules are covered for Kerala and Karnataka today; <a href="#contact">ask us about other states</a>.</p>
           </fieldset>
           <fieldset class="cb-row">
             <legend class="cb-label">Type of establishment <span>· tick all that apply</span></legend>
@@ -2644,12 +2652,19 @@ section>.wrap{position:relative;z-index:1}
   $$(".faq-item").forEach(function(it, i){
     var q = $(".faq-q", it), a = $(".faq-a", it);
     q.id = "fq" + i; a.id = "fa" + i; q.setAttribute("aria-controls", a.id); a.setAttribute("role", "region"); a.setAttribute("aria-labelledby", q.id);
-    q.addEventListener("click", function(){
-      var open = it.classList.toggle("open");
-      q.setAttribute("aria-expanded", open ? "true" : "false");
-      a.style.maxHeight = open ? a.scrollHeight + "px" : "0";
-    });
+    q.addEventListener("click", function(){ setFaq(it, !it.classList.contains("open")); });
+    // once fully open, let the answer size itself so rewrapping on resize never clips it
+    a.addEventListener("transitionend", function(e){ if (e.propertyName === "max-height" && it.classList.contains("open")) a.style.maxHeight = "none"; });
   });
+  // one answer open at a time
+  function setFaq(it, open){
+    if (open) $$(".faq-item.open").forEach(function(o){ if (o !== it) setFaq(o, false); });
+    var q = $(".faq-q", it), a = $(".faq-a", it);
+    if (!open && a.style.maxHeight === "none"){ a.style.maxHeight = a.scrollHeight + "px"; a.offsetHeight; }   // from "none" back to a number so it can animate shut
+    it.classList.toggle("open", open);
+    q.setAttribute("aria-expanded", open ? "true" : "false");
+    a.style.maxHeight = open ? a.scrollHeight + "px" : "0";
+  }
 
   /* form */
   var form = $("#contactForm"), msg = $("#formMsg"), submit = $("button[type=submit]", form);
