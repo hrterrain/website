@@ -278,68 +278,10 @@ p,li,dd{text-wrap:pretty}
 .marquee-track>span::after{content:"";width:5px;height:5px;border-radius:50%;background:var(--band-accent)}
 @keyframes march{to{transform:translateX(-50%)}}
 
-/* live route + legend (calendar section) */
-.cal-live-map{position:relative}
-.trail{width:100%;height:auto;overflow:visible;margin-bottom:-6px}
-.trail .casing{fill:none;stroke:var(--paper);stroke-width:9;stroke-linecap:round;opacity:.9}
-.trail .path{fill:none;stroke:var(--ink);stroke-width:2.6;stroke-dasharray:9 7;stroke-linecap:round}
-.trail .draw{fill:none;stroke:#fff;stroke-width:14;stroke-linecap:round}
-.trail .end circle{fill:var(--paper);stroke:var(--ink);stroke-width:2}
-.trail .summit circle{fill:var(--hi);stroke:var(--hi);filter:drop-shadow(0 0 6px var(--hi))}
-.trail .end text,.trail .lbl{font-family:var(--f-type);font-size:12px;fill:var(--muted);paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
-.pin{opacity:0;transform-box:fill-box;transition:opacity .4s}
-.pin.on{opacity:1}
-.pin .head{fill:var(--sheet);stroke:var(--ink);stroke-width:2.2}
-.pin text{font-family:var(--f-type);font-weight:700;font-size:13px;fill:var(--ink);text-anchor:middle}
-.pin .tag{font-family:var(--f-type);font-weight:700;font-size:12px;fill:var(--heading);text-anchor:middle;paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
-.pin.done .head{stroke:var(--faint);fill:var(--paper-2)}
-.pin.done text{fill:var(--faint)}
-.pin.done .tag{fill:var(--faint)}
-.pin.next .head{fill:var(--pin);stroke:var(--pin)}
-.pin.next text{fill:#fff}
-.pin.next .tag{fill:var(--pin)}
-.pin.next .ring{fill:none;stroke:var(--pin);stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;animation:ring 2.4s ease-out 2.4s infinite}
-@keyframes ring{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(2.1)}}
-.you{opacity:0;transition:opacity .5s .2s}
-.you.on{opacity:1}
-.you path{fill:var(--heading)}
-.you text{font-family:var(--f-type);font-weight:700;font-size:12px;fill:var(--heading);paint-order:stroke;stroke:var(--paper);stroke-width:5px;stroke-linejoin:round}
-
-.legend{position:relative;background:var(--sheet);border:1.5px solid var(--heading);border-radius:3px;box-shadow:var(--shadow-sheet);
-  opacity:0;transform:translateY(20px);transition:opacity .8s .35s var(--e-out),transform .8s .35s var(--e-out)}
-.cal-live.go .legend{opacity:1;transform:none}
-.cal-live{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(24px,4vw,56px);align-items:center;margin-bottom:clamp(64px,8vw,110px)}
-.cal-live-h{margin-bottom:18px}
-.cal-live-h h3{font-size:clamp(1.4rem,2.2vw,1.8rem);margin:12px 0 8px}
-.cal-live-h p{color:var(--muted);font-size:.95rem}
+/* live badge (deadline countdown) */
 .live{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-type);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:color-mix(in srgb,var(--pin) 70%,var(--heading))}
 .live::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--pin);box-shadow:0 0 0 0 var(--pin);animation:live 2s ease-out infinite}
 @keyframes live{0%{box-shadow:0 0 0 0 rgba(194,59,37,.5)}100%{box-shadow:0 0 0 10px rgba(194,59,37,0)}}
-.lg-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:13px 18px;border-bottom:1.5px solid var(--heading);
-  font-family:var(--f-type);font-weight:700;font-size:.8rem;text-transform:uppercase;letter-spacing:.06em;color:var(--heading)}
-.lg-head span:last-child{color:var(--pin)}
-.lg-list{list-style:none;padding:4px 18px}
-.lg-list li{display:grid;grid-template-columns:30px minmax(0,1fr) auto;gap:14px;align-items:center;padding:11px 0;border-bottom:1px dashed var(--rule)}
-.lg-list li:last-child{border-bottom:0}
-.lg-sym{width:28px;height:28px;border-radius:50%;border:2px solid var(--ink);display:flex;align-items:center;justify-content:center;
-  font-family:var(--f-type);font-weight:700;font-size:.78rem;color:var(--ink);background:var(--sheet)}
-.lg-n{font-weight:600;font-size:.94rem;color:var(--text);line-height:1.3}
-.lg-n small{display:block;font-weight:400;font-size:.8rem;color:var(--muted)}
-.lg-s{font-family:var(--f-type);font-weight:700;font-size:.8rem;color:var(--muted);white-space:nowrap}
-.lg-list li.done .lg-sym{border-color:var(--faint);color:var(--faint);background:var(--paper-2)}
-.lg-list li.done .lg-n{color:var(--muted)}
-.lg-list li.next .lg-sym{background:var(--pin);border-color:var(--pin);color:#fff}
-.lg-list li.next .lg-s{color:var(--pin)}
-/* month scale bar — like a map's scale, but in days */
-.lg-scale{padding:12px 18px 14px;border-top:1.5px solid var(--heading);background:var(--paper-2)}
-.lg-bar{position:relative;height:8px;border:1.5px solid var(--heading);
-  background:repeating-linear-gradient(90deg,var(--heading) 0 var(--seg),var(--sheet) var(--seg) calc(var(--seg)*2))}
-.lg-bar i{position:absolute;top:-7px;width:0;height:0;border:6px solid transparent;border-top:7px solid var(--pin);transform:translateX(-6px);display:none}
-.lg-ticks{position:relative;height:16px;margin-top:4px;font-family:var(--f-type);font-size:.7rem;color:var(--muted)}
-.lg-ticks span{position:absolute;transform:translateX(-50%)}
-.lg-ticks span:first-child{transform:none}
-.lg-ticks span:last-child{transform:translateX(-100%)}
-.lg-foot{margin-top:8px;font-size:.76rem;color:var(--muted);line-height:1.45}
 
 /* ============================================================
    PROBLEM
@@ -642,8 +584,6 @@ p,li,dd{text-wrap:pretty}
 .q-logo[data-shape="circle"]{width:88px;height:88px;border-radius:50%;padding:14px}
 .q-logo[data-shape="wide"]{width:220px;max-width:100%;height:68px;border-radius:14px;padding:12px 20px}
 .q-logo img{display:block;width:100%;height:100%;object-fit:contain}
-.q-logo:has(.q-ph){background:transparent;border:1.5px dashed var(--rule-strong);box-shadow:none}
-.q-ph{font-family:var(--f-type);font-weight:700;font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);text-align:center;line-height:1.3}
 .q-count{font-family:var(--f-type);font-weight:700;color:var(--heading);letter-spacing:.08em}
 .q-dots{display:flex;justify-content:center;gap:4px;margin-top:20px}
 .q-dot{width:32px;height:32px;padding:0;border:0;background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
@@ -762,7 +702,7 @@ body.menu-open .wa{opacity:0;pointer-events:none}
 .spot{position:relative}
 section>.wrap{position:relative;z-index:1}
 
-.hz,.prob-close,.legend,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{
+.hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{
   background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-card);box-shadow:var(--glass-shadow);
   -webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6)}
 @media (hover:hover){.hz:hover,.reason:hover,.quote:hover{box-shadow:var(--glass-shadow),0 30px 60px -30px var(--glow-1)}}
@@ -793,10 +733,6 @@ section>.wrap{position:relative;z-index:1}
 
 /* service panel */
 .sp-head{border-bottom:1px solid var(--rule)}
-.legend{overflow:hidden}
-.lg-head{border-bottom:1px solid var(--rule)}
-.lg-scale{border-top:1px solid var(--rule);background:rgba(255,255,255,.25)}
-:root[data-theme="dark"] .lg-scale{background:rgba(255,255,255,.02)}
 .svc-panel{overflow:hidden}
 
 .svc-panel{overflow:hidden}
@@ -1054,7 +990,6 @@ section>.wrap{position:relative;z-index:1}
   .metro::before,.metro-run{display:none}
   .rep{grid-template-columns:1fr}
   .cal-build{grid-template-columns:1fr}
-  .cal-live{grid-template-columns:1fr}
   .columns{columns:2}
   .faq-grid{grid-template-columns:1fr}
   .faq-grid .sh{position:static}
@@ -1117,8 +1052,8 @@ section>.wrap{position:relative;z-index:1}
 @keyframes nudge{0%,100%{transform:none}50%{transform:translateX(5px)}}
 @media (max-width:760px),(hover:none){
   /* live blur is costly on phones; keep the glass look with a denser fill */
-  .hz,.prob-close,.legend,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
-  .hz,.prob-close,.legend,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{background:var(--glass-solid)}
+  .hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{background:var(--glass-solid)}
 }
 @media (max-width:640px){
   .section{padding-block:56px}
@@ -1134,8 +1069,7 @@ section>.wrap{position:relative;z-index:1}
   .prob-close{margin-top:4px}
   .prob-close .btn,.comp-foot .btn,.cal-foot .btn{width:100%}
   .swipe-hint{display:flex}
-  .metro .metro-run,.cal-live .trail{display:none}
-  .cal-live-h{margin-bottom:0}
+  .metro .metro-run{display:none}
   /* bigger tap targets */
   .ci a{display:inline-flex;align-items:center;min-height:44px}
   .ci li{padding:4px 0}
@@ -1159,14 +1093,14 @@ section>.wrap{position:relative;z-index:1}
   .metro-run{display:none}
   .hero .kicker,.hero h1 .ln,.hero-sub,.hero-cta,.hero-trust{opacity:1!important;transform:none!important}
   .hero-bg .contour{opacity:.4!important;stroke-dashoffset:0!important}
-  [data-r],.legend,.stagger>*,.station,.step-pin,.steps::before,.metro::before{opacity:1!important;transform:none!important}
+  [data-r],.stagger>*,.station,.step-pin,.steps::before,.metro::before{opacity:1!important;transform:none!important}
   .stamp{opacity:.88!important}
 }
 </style>
 <noscript><style>
   .hero .kicker,.hero h1 .ln,.hero-sub,.hero-cta,.hero-trust{opacity:1!important;transform:none!important}
   .hero-bg .contour{opacity:.5;stroke-dashoffset:0}
-  [data-r],.legend,.stagger>*,.station,.step-pin,.steps::before,.metro::before{opacity:1!important;transform:none!important}
+  [data-r],.stagger>*,.station,.step-pin,.steps::before,.metro::before{opacity:1!important;transform:none!important}
   .stamp{opacity:.88}
   .svc-panels .svc-panel{display:block;margin-bottom:12px}
 </style></noscript>
@@ -1244,7 +1178,7 @@ section>.wrap{position:relative;z-index:1}
     </h1>
     <p class="hero-sub">HR Terrain brings HR operations, payroll and statutory compliance together through structured processes, expert support and technology-enabled solutions.</p>
     <div class="hero-cta">
-      <a href="#contact" class="btn lg" data-magnetic>Talk to an HR Expert
+      <a href="#contact" class="btn lg" data-magnetic>Talk to an HR expert
         <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
       <a href="#services" class="btn ghost lg">Explore Our Services</a>
@@ -1509,33 +1443,6 @@ section>.wrap{position:relative;z-index:1}
       <div><span class="eyebrow">Resources</span><h2 class="h2">The employer's compliance calendar.</h2></div>
       <p class="lede">The recurring statutory deadlines most employers in Kerala and Karnataka work to. Keep it handy, or let us run it for you.</p>
     </div>
-    <div class="cal-live" id="calLive">
-      <div class="cal-live-map">
-        <div class="cal-live-h"><span class="live">Live</span><h3>This month's statutory route</h3><p>Plotted from today's date. The red pin is your next deadline.</p></div>
-        <svg class="trail" id="trail" viewBox="0 0 600 250" aria-hidden="true">
-        <defs><mask id="trailMask" maskUnits="userSpaceOnUse"><path class="draw" id="trailDraw" d="M24 212 C 90 222, 110 150, 175 150 S 270 205, 330 160 S 420 60, 490 70 S 560 50, 580 34"/></mask></defs>
-        <path class="casing" d="M24 212 C 90 222, 110 150, 175 150 S 270 205, 330 160 S 420 60, 490 70 S 560 50, 580 34"/>
-        <path class="path" id="trailPath" mask="url(#trailMask)" d="M24 212 C 90 222, 110 150, 175 150 S 270 205, 330 160 S 420 60, 490 70 S 560 50, 580 34"/>
-        <g class="end"><circle cx="24" cy="212" r="5"/><text x="24" y="238" text-anchor="middle" id="trailStart">1st</text></g>
-        <g class="end summit"><circle cx="580" cy="34" r="5"/><text x="580" y="18" text-anchor="middle" id="trailEnd">month end</text></g>
-        <g id="trailPins"></g>
-      </svg>
-      </div>
-      <div class="legend" id="legend">
-        <div class="lg-head"><span>Legend · statutory route</span><span id="lgMonth">Every month</span></div>
-        <ol class="lg-list" id="routeList">
-          <li data-day="7" data-short="TDS"><span class="lg-sym">07</span><span class="lg-n">TDS on salaries<small>Deposit tax deducted from last month's pay</small></span><span class="lg-s">Monthly</span></li>
-          <li data-day="15" data-short="PF"><span class="lg-sym">15</span><span class="lg-n">EPF · ECR &amp; payment<small>Provident Fund return and contribution</small></span><span class="lg-s">Monthly</span></li>
-          <li data-day="15" data-short="ESI"><span class="lg-sym">15</span><span class="lg-n">ESI contribution<small>Employer and employee share</small></span><span class="lg-s">Monthly</span></li>
-          <li data-day="20" data-short="PT"><span class="lg-sym">20</span><span class="lg-n">Professional Tax · Karnataka<small>Monthly return and payment</small></span><span class="lg-s">Monthly</span></li>
-        </ol>
-        <div class="lg-scale">
-          <div class="lg-bar" id="lgBar" style="--seg:calc(100% / 6)"><i id="lgToday"></i></div>
-          <div class="lg-ticks" id="lgTicks"><span style="left:0">1</span><span style="left:20%">7</span><span style="left:46.7%">15</span><span style="left:63.3%">20</span><span style="left:100%">30</span></div>
-          <p class="lg-foot" id="routeFoot">Deadlines for the previous month's payroll. Dates move when they fall on a holiday. We track that for you.</p>
-        </div>
-      </div>
-    </div>
     <div class="ac" id="applicability">
       <div class="ac-head" data-r>
         <span class="eyebrow">Applicability checker</span>
@@ -1727,23 +1634,20 @@ section>.wrap{position:relative;z-index:1}
     </div>
     <div class="voices">
       <div class="voices-h" data-r><span class="eyebrow">In their words</span><span class="q-count" id="qCount" aria-hidden="true">01 / 03</span></div>
-      <!-- Client logos: replace a slide's <span class="q-ph"> with <img src="assets/clients/name.png" alt="Company name">.
-           data-shape sets the frame: "circle" (round seals), "square" (square marks) or "wide" (wordmarks). Any logo fits inside without cropping. -->
+      <!-- Client logos (only with the client's permission): add <div class="q-logo" data-shape="square|circle|wide"><img src="assets/clients/name.png" alt="Company name"></div>
+           as the first child of a figure. "circle" for round seals, "square" for square marks, "wide" for wordmarks. -->
       <div class="q-stage" data-r role="region" aria-roledescription="carousel" aria-label="Client reviews">
         <button type="button" class="sl-btn q-prev" id="qPrev" aria-label="Previous review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></button>
         <div class="quotes" id="quotes" aria-live="polite">
         <figure class="quote on" role="group" aria-roledescription="slide" aria-label="1 of 3">
-          <div class="q-logo" data-shape="square"><span class="q-ph" aria-hidden="true">Client logo</span></div>
           <blockquote><p>HR Terrain has taken the stress of monthly PF and ESIC filings off our plate. Accuracy and on-time delivery have been consistent.</p></blockquote>
           <figcaption>HR Manager · Healthcare education · Kerala</figcaption>
         </figure>
         <figure class="quote" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
-          <div class="q-logo" data-shape="circle"><span class="q-ph" aria-hidden="true">Client logo</span></div>
           <blockquote><p>Managing compliance across our branches used to be a scramble. Now it runs in the background and we receive the reports.</p></blockquote>
           <figcaption>Finance lead · Multi-branch organisation · Kerala &amp; Karnataka</figcaption>
         </figure>
         <figure class="quote" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
-          <div class="q-logo" data-shape="wide"><span class="q-ph" aria-hidden="true">Client logo</span></div>
           <blockquote><p>Their proactive approach stands out. We hear about changes that affect us before they become a problem.</p></blockquote>
           <figcaption>Founder · Services company · Bengaluru</figcaption>
         </figure>
@@ -1942,7 +1846,7 @@ section>.wrap{position:relative;z-index:1}
 
   /* glass spotlight */
   if (!RM && matchMedia("(hover:hover) and (pointer:fine)").matches){
-    $$(".hz,.prob-close,.legend,.svc-panel,.step,.cd-next,.ac-form,.ac-panel,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
+    $$(".hz,.prob-close,.svc-panel,.step,.cd-next,.ac-form,.ac-panel,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
     document.addEventListener("pointermove", function(e){
       var el = e.target.closest && e.target.closest(".spot"); if (!el) return;
       var r = el.getBoundingClientRect();
@@ -2393,88 +2297,6 @@ section>.wrap{position:relative;z-index:1}
     render();
   })();
 
-  /* ---------- calendar: this month's statutory route, plotted from today ---------- */
-  (function(){
-    var list = $("#routeList"), path = $("#trailPath"), draw = $("#trailDraw"), pinsG = $("#trailPins");
-    if (!list || !path) return;
-    var MS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-    var ML = ["January","February","March","April","May","June","July","August","September","October","November","December"];
-    var now = new Date(), y = now.getFullYear(), m = now.getMonth(), today = now.getDate(), ahead = false;
-    var rows = $$("li", list);
-    function due(i, mo){ var d = +rows[i].getAttribute("data-day"); return (i === 0 && mo === 3) ? 30 : d; } // March TDS: 30 April
-    var lastDue = Math.max.apply(null, rows.map(function(_, i){ return due(i, m); }));
-    if (today > lastDue){ ahead = true; m = (m + 1) % 12; if (m === 0) y++; }
-    var dim = new Date(y, m + 1, 0).getDate();
-    var base = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-
-    // legend rows
-    var nextDay = null;
-    rows.forEach(function(li, i){
-      var d = due(i, m), sym = $(".lg-sym", li), st = $(".lg-s", li);
-      sym.textContent = (d < 10 ? "0" : "") + d;
-      var left = Math.round((new Date(y, m, d) - base) / 864e5);
-      if (left < 0){ li.classList.add("done"); st.textContent = "Passed"; }
-      else {
-        if (nextDay === null) nextDay = d;
-        st.textContent = left === 0 ? "Due today" : left === 1 ? "Tomorrow" : "In " + left + " days";
-      }
-    });
-    rows.forEach(function(li, i){ if (due(i, m) === nextDay) li.classList.add("next"); });
-    $("#lgMonth").textContent = (ahead ? "Next: " : "") + ML[m] + " " + y;
-    $("#routeFoot").textContent = "For " + ML[(m + 11) % 12] + " payroll. Dates move when they fall on a holiday. We track that for you.";
-    $("#trailStart").textContent = "1 " + MS[m];
-    $("#trailEnd").textContent = dim + " " + MS[m];
-
-    // scale bar: days of the month, with the deadlines and today marked
-    var pct = function(d){ return ((d - 1) / (dim - 1) * 100).toFixed(2) + "%"; };
-    var ticks = [1].concat(rows.map(function(_, i){ return due(i, m); })).concat([dim]).filter(function(v, i, a){ return a.indexOf(v) === i; });
-    $("#lgTicks").innerHTML = ticks.map(function(d){ return '<span style="left:' + pct(d) + '">' + d + "</span>"; }).join("");
-    $("#lgBar").style.setProperty("--seg", "calc(100% / " + ((dim - 1) / 5) + ")");
-    if (!ahead){ var t = $("#lgToday"); t.style.left = pct(today); t.style.display = "block"; t.title = "Today"; }
-
-    // pins placed along the trail by date: the path is the month
-    var NS = "http://www.w3.org/2000/svg", L = path.getTotalLength();
-    function at(d){ return path.getPointAtLength(L * (d - 1) / (dim - 1)); }
-    function el(tag, attrs, parent){ var n = document.createElementNS(NS, tag); for (var k in attrs) n.setAttribute(k, attrs[k]); if (parent) parent.appendChild(n); return n; }
-    var stops = [], seen = {};
-    rows.forEach(function(li, i){
-      var d = due(i, m);
-      if (seen[d]){ seen[d].label += " + " + li.getAttribute("data-short"); return; }
-      seen[d] = { day:d, label:li.getAttribute("data-short"), done:li.classList.contains("done"), next:d === nextDay };
-      stops.push(seen[d]);
-    });
-    var pins = stops.map(function(s){
-      var p = at(s.day), g = el("g", { "class":"pin" + (s.done ? " done" : "") + (s.next ? " next" : ""), transform:"translate(" + p.x.toFixed(1) + " " + p.y.toFixed(1) + ")" }, pinsG);
-      if (s.next) el("circle", { "class":"ring", r:15 }, g);
-      el("circle", { "class":"head", r:15 }, g);
-      el("text", { y:4.5 }, g).textContent = s.day;
-      el("text", { "class":"tag", y:-24 }, g).textContent = s.label;
-      return g;
-    });
-    var you = null;
-    if (!ahead){
-      var tp = at(Math.max(1, Math.min(dim, today)));
-      you = el("g", { "class":"you", transform:"translate(" + tp.x.toFixed(1) + " " + tp.y.toFixed(1) + ")" }, pinsG);
-      el("path", { d:"M0 8 L-7 22 L7 22 Z" }, you);
-      el("text", { y:38, "text-anchor":"middle" }, you).textContent = "You are here";
-    }
-
-    // intro: draw the trail, then drop the pins in date order
-    var DL = draw.getTotalLength();
-    draw.style.strokeDasharray = DL; draw.style.strokeDashoffset = RM ? 0 : DL;
-    function start(){
-      $("#calLive").classList.add("go");
-      if (RM){ pins.forEach(function(p){ p.classList.add("on"); }); if (you) you.classList.add("on"); return; }
-      draw.style.transition = "stroke-dashoffset 1.7s cubic-bezier(.65,0,.35,1) .45s";
-      draw.style.strokeDashoffset = 0;
-      pins.forEach(function(p, i){ setTimeout(function(){ p.classList.add("on"); }, 900 + i * 320); });
-      if (you) setTimeout(function(){ you.classList.add("on"); }, 900 + pins.length * 320);
-    }
-    if ("IntersectionObserver" in window && !RM){
-      var seen = new IntersectionObserver(function(es){ if (es[0].isIntersecting){ seen.disconnect(); start(); } }, {threshold:.3});
-      seen.observe($("#calLive"));
-    } else start();
-  })();
   /* ---------- calendar builder: collect the downloader's details, then build a Word calendar ---------- */
   (function(){
     var f = $("#calBuild"), cal = window.HRTCalendarDoc; if (!f || !cal) return;
