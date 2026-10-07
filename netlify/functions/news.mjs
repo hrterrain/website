@@ -12,8 +12,8 @@ const TOPICS = [
   { tag: "Labour codes", q: '"labour codes" rules OR notified OR employers OR implementation', must: /labou?r codes?/i, also: SIGNAL },
   { tag: "Wages", q: '"minimum wages" notification OR revised OR "variable dearness allowance"', must: /minimum wage|dearness allowance|\bVDA\b/i, also: /notif|revis|hike|increase|court|order|implement|defer|stay|employer|rate/i },
   { tag: "Payroll tax", q: '"TDS on salary" OR "salary TDS" OR "Form 16" OR "Form 130" OR "Form 24Q" OR "Form 138"', must: /\bTDS\b|form (16|130|24Q|138)/i, also: /salar|employer|employee|form (16|130|24Q|138)|payroll/i },
-  { tag: "Kerala", q: 'Kerala "professional tax" OR "labour welfare fund" OR "minimum wages" OR "shops and establishments" OR "labour department" employers', must: /kerala/i, also: /professional tax|welfare fund|minimum wage|shops|establishment|labou?r department|employer|wage/i },
-  { tag: "Karnataka", q: 'Karnataka "professional tax" OR "labour welfare fund" OR "minimum wages" OR "shops and establishments" OR "labour department" employers', must: /karnataka|bengaluru/i, also: /professional tax|welfare fund|minimum wage|shops|establishment|labou?r department|employer|wage/i },
+  { tag: "Professional tax", q: '"professional tax" employers OR slab OR "due date" OR amendment OR notification', must: /professional tax|profession tax|\bPTRC\b/i, also: SIGNAL },
+  { tag: "State rules", q: '"labour welfare fund" OR "shops and establishments" OR "state labour code rules" employers', must: /welfare fund|shops and (commercial )?establishments?|labou?r code rules/i, also: SIGNAL },
   { tag: "POSH", q: '"POSH Act" employer OR compliance OR "internal committee" OR "high court" OR "supreme court"', must: /\bPOSH\b|sexual harassment/i, also: /employer|compan|internal committee|\bIC\b|court|complian|penalt|order|guideline|mandatory|annual report/i },
   { tag: "Apprentices", q: '"Apprentices Act" OR NATS apprenticeship OR NAPS apprenticeship OR "apprenticeship scheme" India', must: /apprentices act|\bNATS\b|\bNAPS\b|apprenticeship/i, also: /stipend|employer|establishment|scheme|rule|amend|portal|mandatory|notif/i }
 ];

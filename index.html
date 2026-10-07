@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <script>(function(){try{var t=localStorage.getItem("hrt-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.dataset.theme=t;}catch(e){document.documentElement.dataset.theme="light";}})();</script>
 <title>HR Terrain | HR, Payroll &amp; Statutory Compliance</title>
-<meta name="description" content="HR Terrain helps businesses navigate HR operations, payroll and statutory compliance through expert support, structured processes and technology-enabled systems. Serving Kerala, Karnataka and pan-India remote." />
+<meta name="description" content="HR Terrain helps businesses navigate HR operations, payroll and statutory compliance through expert support, structured processes and technology-enabled systems. Serving employers across India." />
 <meta name="theme-color" content="#FDFBF7" />
 <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
@@ -42,7 +42,7 @@
   "url": "https://hrterrain.com/",
   "email": "abhiraj@hrterrain.com",
   "telephone": "+91-99950-94978",
-  "areaServed": ["Kerala", "Karnataka", "India"],
+  "areaServed": "IN",
   "knowsAbout": ["HR Operations","Payroll","Statutory Compliance","Labour Law Compliance","Employee Lifecycle Management","HR Documentation","Compliance Audits","HR Advisory"],
   "slogan": "Navigator of HR Landscape",
   "sameAs": ["https://www.linkedin.com/company/hrterrain/"]
@@ -484,6 +484,54 @@ p,li,dd{text-wrap:pretty}
 :root[data-theme="dark"] .chip input:checked+span::before{background-color:var(--btn)}
 .chip input:focus-visible+span{outline:2.5px solid var(--accent);outline-offset:2px}
 .chip input:disabled+span{opacity:.45;cursor:not-allowed}
+/* state picker */
+.sp{position:relative;display:flex;flex-wrap:wrap;align-items:center;gap:8px}
+.sp-btn{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 14px 8px 12px;border-radius:999px;border:1px solid var(--rule-strong);background:var(--sheet);color:var(--heading);font:inherit;font-size:.94rem;font-weight:600;cursor:pointer;transition:border-color .2s,box-shadow .2s,background .2s}
+.sp-btn:hover{border-color:var(--ink)}
+.sp.open .sp-btn,.sp.has .sp-btn{border-color:var(--ink);background:var(--ink-soft)}
+.sp.open .sp-btn{box-shadow:0 0 0 4px color-mix(in srgb,var(--ink) 12%,transparent)}
+.sp-btn svg{width:18px;height:18px;flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.sp-pin{color:var(--hi-ink)}
+.sp-chev{width:14px!important;height:14px!important;transition:transform .2s var(--e-out)}
+.sp.open .sp-chev{transform:rotate(180deg)}
+.sp-pop{position:absolute;z-index:60;top:calc(100% + 8px);left:0;width:min(360px,calc(100vw - 32px));display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--rule-strong);border-radius:16px;
+  box-shadow:0 24px 60px -20px rgba(10,30,70,.35),0 2px 6px rgba(10,30,70,.06);overflow:hidden;animation:spIn .18s var(--e-out)}
+.sp-pop[hidden]{display:none}
+@keyframes spIn{from{opacity:0;transform:translateY(-4px)}}
+.sp.end .sp-pop{left:auto;right:0}
+.sp-top{display:flex;align-items:center;gap:10px;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.sp-top svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round}
+.sp-q{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:1rem;color:var(--text);outline:none}
+.sp-q::-webkit-search-cancel-button{cursor:pointer}
+.sp-list{max-height:min(320px,46vh);overflow-y:auto;overscroll-behavior:contain;padding:6px}
+.sp-opt{display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:center;gap:12px;padding:10px 10px;border-radius:10px;cursor:pointer;font-size:.94rem;color:var(--text)}
+.sp-opt[hidden]{display:none}
+.sp-opt:hover{background:var(--ink-soft)}
+.sp-opt input{position:absolute;opacity:0;width:1px;height:1px}
+.sp-box{width:18px;height:18px;border-radius:5px;border:1.5px solid var(--rule-strong);background:var(--sheet);transition:background .15s,border-color .15s}
+.sp-opt input:checked~.sp-box{background:var(--ink) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7'/%3E%3C/svg%3E") center/11px no-repeat;border-color:var(--ink)}
+:root[data-theme="dark"] .sp-opt input:checked~.sp-box{background-color:var(--btn);border-color:var(--btn)}
+.sp-opt input:checked~.sp-name{font-weight:600;color:var(--heading)}
+.sp-opt input:focus-visible~.sp-box{outline:2.5px solid var(--accent);outline-offset:2px}
+.sp-opt small{font-family:var(--f-type);font-size:.68rem;letter-spacing:.04em;color:var(--faint);white-space:nowrap}
+.sp-none{padding:18px 10px;font-size:.9rem;color:var(--muted)}
+.sp-foot{display:flex;align-items:center;gap:12px;padding:10px 12px;border-top:1px solid var(--rule);background:var(--paper-2)}
+.sp-n{flex:1;font-size:.84rem;color:var(--muted)}
+.sp-clear,.sp-done{min-height:38px;padding:6px 14px;border-radius:999px;font:inherit;font-size:.88rem;font-weight:600;cursor:pointer}
+.sp-clear{border:0;background:none;color:var(--muted)}
+.sp-clear:hover{color:var(--heading)}
+.sp-done{border:0;background:var(--btn);color:var(--btn-fg)}
+.sp-chips{display:contents}
+.sp-chip{display:inline-flex;align-items:center;gap:6px;min-height:34px;padding:4px 8px 4px 12px;border-radius:999px;border:1px solid var(--rule);background:var(--sheet);font:inherit;font-size:.84rem;color:var(--text);cursor:pointer}
+.sp-chip:hover{border-color:var(--pin);color:var(--pin)}
+.sp-chip svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+@media (max-width:640px){
+  .sp-pop{position:fixed;z-index:140;left:12px;right:12px;top:auto;bottom:calc(12px + env(safe-area-inset-bottom));width:auto;border-radius:20px;animation-name:spUp;box-shadow:0 0 0 100vmax rgba(5,15,32,.35),0 24px 60px -20px rgba(10,30,70,.5)}
+  body.sp-on .mbar,body.sp-on .wa{opacity:0;pointer-events:none}
+  .sp.end .sp-pop{right:12px}
+  .sp-list{max-height:52vh}
+  @keyframes spUp{from{opacity:0;transform:translateY(16px)}}
+}
 .cb-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding-top:24px;border-top:1px solid var(--rule)}
 .cb-count{font-family:var(--f-type);font-weight:700;font-size:.86rem;color:var(--hi-ink)}
 .cb-count.err{color:var(--pin)}
@@ -495,6 +543,21 @@ p,li,dd{text-wrap:pretty}
 .cb-field.bad .cb-input{border-color:var(--pin)}
 .cb-field.bad .err{display:block}
 .cb-hint{font-size:.84rem;color:var(--muted);max-width:60ch}
+.cb-peek{margin-top:28px;border:1px solid var(--rule);border-radius:16px;background:var(--sheet);overflow:hidden;box-shadow:0 18px 40px -28px rgba(10,30,70,.4)}
+.cb-peek-h{display:flex;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--rule);font-family:var(--f-type);font-weight:700;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cb-peek-h span:last-child{color:var(--hi-ink)}
+.cb-peek ol{list-style:none;padding:4px 16px}
+.cb-peek li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:12px;align-items:center;padding:10px 0;border-bottom:1px dashed var(--rule)}
+.cb-peek li:last-child{border-bottom:0}
+.cb-peek li b{display:flex;flex-direction:column;align-items:center;font-family:var(--f-display);font-size:1.25rem;line-height:1;color:var(--heading)}
+.cb-peek li b small{margin-top:3px;font-family:var(--f-type);font-size:.64rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cb-peek li span{font-size:.9rem;font-weight:600;color:var(--text);line-height:1.3;min-width:0}
+.cb-peek li span small{display:block;font-weight:400;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cb-peek li.cb-peek-0{display:block;font-size:.88rem;color:var(--muted)}
+.cb-head{position:sticky;top:100px}
+.cb-head .cb-peek-f{max-width:none;padding:10px 16px;border-top:1px solid var(--rule);background:var(--paper-2);font-size:.8rem!important;color:var(--muted)}
+#cdStates .sp-chips{display:none}
+@media (max-width:900px){.cb-peek{display:none}.cb-head{position:static}}
 .cb-hint a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
 .guides{margin-top:clamp(56px,7vw,88px)}
 .guides ul{list-style:none;border-top:1.5px solid var(--heading);margin-top:14px;columns:2;column-gap:48px}
@@ -1184,8 +1247,8 @@ section>.wrap{position:relative;z-index:1}
       <a href="#services" class="btn ghost lg">Explore Our Services</a>
     </div>
     <div class="hero-trust">
-      <span>Kerala &amp; Karnataka</span>
-      <span>Pan-India remote</span>
+      <span>Pan-India</span>
+      <span>All 36 states &amp; UTs</span>
       <span>Compliance-first</span>
     </div>
   </div>
@@ -1211,12 +1274,11 @@ section>.wrap{position:relative;z-index:1}
       <div class="cd-bar">
         <div class="cd-bar-t"><span class="live">Live · India Standard Time</span><h3>Your next statutory deadline</h3></div>
         <div class="cd-filter" role="group" aria-labelledby="cdFilterL">
-          <span class="cd-filter-l" id="cdFilterL">State dates for</span>
-          <label class="chip"><input type="checkbox" data-cd-state="KL" checked /><span>Kerala</span></label>
-          <label class="chip"><input type="checkbox" data-cd-state="KA" checked /><span>Karnataka</span></label>
+          <span class="cd-filter-l" id="cdFilterL">Your states</span>
+          <div id="cdStates" class="end" data-empty="All India"></div>
         </div>
       </div>
-      <p class="cd-scope"><b>Coverage:</b> EPF, ESIC, TDS, bonus and POSH dates apply in every state. State Professional Tax and LWF dates are tracked for Kerala and Karnataka today. <a href="#contact">Operating in another state? We'll map its dates for you.</a></p>
+      <p class="cd-scope">EPF, ESIC, TDS, wages, bonus and POSH dates apply everywhere in India. <span id="cdScopeState">Add your states to include their Professional Tax and Labour Welfare Fund dates.</span></p>
       <div class="cd-grid">
         <article class="cd-hero" id="cdHero" aria-live="polite">
           <div class="cd-hero-top">
@@ -1424,8 +1486,8 @@ section>.wrap{position:relative;z-index:1}
             <tr><td>TDS on salaries</td><td>07 Sep</td><td>05 Sep</td><td class="st-ok">✓ Filed</td></tr>
             <tr><td>EPF · ECR</td><td>15 Sep</td><td>11 Sep</td><td class="st-ok">✓ Filed</td></tr>
             <tr><td>ESI contribution</td><td>15 Sep</td><td>11 Sep</td><td class="st-ok">✓ Filed</td></tr>
-            <tr><td>PT · Karnataka</td><td>20 Sep</td><td>18 Sep</td><td class="st-ok">✓ Filed</td></tr>
-            <tr><td>LWF · Karnataka</td><td>15 Jan</td><td>—</td><td class="st-due">Scheduled</td></tr>
+            <tr><td>PT · Maharashtra</td><td>15 Sep</td><td>12 Sep</td><td class="st-ok">✓ Filed</td></tr>
+            <tr><td>LWF · Maharashtra</td><td>15 Jan</td><td>—</td><td class="st-due">Scheduled</td></tr>
           </tbody>
         </table>
         <div class="ractions"><b>Needed from you</b><ul><li>Confirm wage inputs for 2 new joiners</li><li>Upload KYC for 1 employee</li></ul></div>
@@ -1441,7 +1503,7 @@ section>.wrap{position:relative;z-index:1}
   <div class="wrap">
     <div class="sh split" data-r>
       <div><span class="eyebrow">Resources</span><h2 class="h2">The employer's compliance calendar.</h2></div>
-      <p class="lede">The recurring statutory deadlines most employers in Kerala and Karnataka work to. Keep it handy, or let us run it for you.</p>
+      <p class="lede">The recurring statutory deadlines employers across India work to, with your state's dates added. Keep it handy, or let us run it for you.</p>
     </div>
     <div class="ac" id="applicability">
       <div class="ac-head" data-r>
@@ -1452,15 +1514,12 @@ section>.wrap{position:relative;z-index:1}
       <div class="ac-grid">
         <form class="ac-form" id="acForm" data-r novalidate>
           <fieldset class="cb-row">
-            <legend class="cb-label">Where you operate</legend>
-            <div class="chips">
-              <label class="chip"><input type="checkbox" id="acKL" value="KL" checked /><span>Kerala</span></label>
-              <label class="chip"><input type="checkbox" id="acKA" value="KA" checked /><span>Karnataka</span></label>
-            </div>
-            <p class="cb-hint">Central laws are checked for any state. State-specific rules are covered for Kerala and Karnataka today; <a href="#contact">ask us about other states</a>.</p>
+            <legend class="cb-label">Where you have staff</legend>
+            <div id="acStates" data-name="acState" data-empty="All India · central laws"></div>
+            <p class="cb-hint">Central labour codes apply everywhere. Each state you add brings in its Professional Tax and Labour Welfare Fund.</p>
           </fieldset>
           <fieldset class="cb-row">
-            <legend class="cb-label">Type of establishment <span>· tick all that apply</span></legend>
+            <legend class="cb-label">Type of establishment</legend>
             <div class="chips">
               <label class="chip"><input type="checkbox" name="acType" value="shop" checked /><span>Shop / office / commercial</span></label>
               <label class="chip"><input type="checkbox" name="acType" value="factory" /><span>Factory</span></label>
@@ -1505,7 +1564,7 @@ section>.wrap{position:relative;z-index:1}
             <a class="btn" href="#calBuild" id="acToCal">Build my calendar from these answers <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></a>
             <a class="btn line" href="https://wa.me/919995094978?text=Hi%20HR%20Terrain%2C%20I%20used%20the%20applicability%20checker%20and%20would%20like%20help%20with%20compliance." target="_blank" rel="noopener">Ask us on WhatsApp</a>
           </div>
-          <p class="cb-hint">General reference based on the Labour Codes and Kerala and Karnataka state laws as of September 2026; not legal advice. State rules under the Codes are still being notified, and some thresholds depend on the nature of work.</p>
+          <p class="cb-hint">General reference based on the Labour Codes and state laws as of October 2026; not legal advice. State rules under the Codes are still being notified, and some thresholds depend on the nature of work.</p>
         </div>
       </div>
     </div>
@@ -1514,16 +1573,17 @@ section>.wrap{position:relative;z-index:1}
         <span class="eyebrow">Free download</span>
         <h3>Get your compliance calendar.</h3>
         <p>Pick what applies to you and tell us who it's for. You get a Word document with the next 12 months of deadlines, month by month, ready to print, share or tick off.</p>
+        <div class="cb-peek" aria-hidden="true">
+          <div class="cb-peek-h"><span>Preview</span><span id="cbPeekN"></span></div>
+          <ol id="cbPeek"></ol>
+          <p class="cb-peek-f">…and the rest of the year, month by month.</p>
+        </div>
       </div>
       <div class="cb-body">
         <fieldset class="cb-row">
-          <legend class="cb-label">Where you operate</legend>
-          <div class="chips">
-            <label class="chip"><input type="checkbox" name="state" value="KL" checked /><span>Kerala</span></label>
-            <label class="chip"><input type="checkbox" name="state" value="KA" checked /><span>Karnataka</span></label>
-            <label class="chip"><input type="checkbox" name="state" value="IN" /><span>Pan-India</span></label>
-          </div>
-          <p class="cb-hint" id="cbStateHint" hidden>Pan-India covers the central deadlines. Professional Tax and LWF vary by state, so they're included for Kerala and Karnataka only.</p>
+          <legend class="cb-label">Where you have staff</legend>
+          <div id="cbStates" data-name="state" data-empty="All India · central dates"></div>
+          <p class="cb-hint" id="cbStateHint"></p>
         </fieldset>
         <fieldset class="cb-row">
           <legend class="cb-label">What applies to you</legend>
@@ -1538,7 +1598,7 @@ section>.wrap{position:relative;z-index:1}
           </div>
         </fieldset>
         <fieldset class="cb-row" id="cbEstRow">
-          <legend class="cb-label">Establishment type in Kerala <span>· tick all that apply</span></legend>
+          <legend class="cb-label">Establishment type in Kerala</legend>
           <div class="chips">
             <label class="chip"><input type="checkbox" name="est" value="shop" checked /><span>Shop / office / commercial establishment</span></label>
             <label class="chip"><input type="checkbox" name="est" value="factory" /><span>Factory</span></label>
@@ -1561,7 +1621,7 @@ section>.wrap{position:relative;z-index:1}
       <div class="cb-foot">
         <button type="submit" class="btn" id="cbGo">Download Word calendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
         <p class="cb-count" id="cbCount" role="status" aria-live="polite"></p>
-        <p class="cb-note">General reference, not legal advice. Due dates move when they fall on a holiday or when authorities issue extensions, and applicability depends on your establishment. Last reviewed September 2026.</p>
+        <p class="cb-note">General reference, not legal advice. Due dates move when they fall on a holiday or when authorities issue extensions, and applicability depends on your establishment. Last reviewed October 2026.</p>
       </div>
     </form>
   </div>
@@ -1572,7 +1632,7 @@ section>.wrap{position:relative;z-index:1}
   <div class="wrap">
     <article class="paper" data-r aria-labelledby="newsTitle">
       <header class="masthead">
-        <div class="mh-top"><span id="paperEdition">Vol. I</span><span>Kerala · Karnataka · India</span><span id="paperDate"></span></div>
+        <div class="mh-top"><span id="paperEdition">Vol. I</span><span>All-India edition</span><span id="paperDate"></span></div>
         <h2 class="mh-title" id="newsTitle">The Compliance Dispatch</h2>
         <p class="mh-tag">What's changing for employers · PF, ESI, labour codes, wages, payroll tax and state rules · gathered every six hours</p>
       </header>
@@ -1595,7 +1655,7 @@ section>.wrap{position:relative;z-index:1}
   <div class="wrap">
     <div class="sh split" data-r>
       <div><span class="eyebrow">Why HR Terrain</span><h2 class="h2">The partner you don't have to manage.</h2></div>
-      <p class="lede">A focused practice for HR operations, payroll and statutory compliance, with regional depth in Kerala and Karnataka and remote delivery across India.</p>
+      <p class="lede">A focused practice for HR operations, payroll and statutory compliance, for employers across India, from a single office to teams spread over many states.</p>
     </div>
     <p class="swipe-hint" aria-hidden="true">Swipe <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></p>
     <div class="reasons" data-r data-stagger>
@@ -1624,8 +1684,8 @@ section>.wrap{position:relative;z-index:1}
         <div class="r-copy"><span class="r-n">04</span><h3>Ready to scale</h3><p>Processes designed around how you operate today, and ready for new branches, states and headcount.</p></div>
         <div class="r-viz r-route" aria-hidden="true">
           <svg viewBox="0 0 320 120" preserveAspectRatio="none"><path class="rr-path" d="M16 96 C 70 96, 80 52, 130 52 S 210 84, 250 50 S 300 24, 308 20"/></svg>
-          <span class="rr-pin on" style="left:5%;top:80%"><b>Kerala</b></span>
-          <span class="rr-pin on" style="left:40.6%;top:43%"><b>Karnataka</b></span>
+          <span class="rr-pin on" style="left:5%;top:80%"><b>Head office</b></span>
+          <span class="rr-pin on" style="left:40.6%;top:43%"><b>Branch</b></span>
           <span class="rr-pin next" style="left:96%;top:17%"><b>Next state</b></span>
           <span class="rr-step" style="left:26%;top:84%">+ branch</span>
           <span class="rr-step" style="left:64%;top:84%">+ headcount</span>
@@ -1641,15 +1701,15 @@ section>.wrap{position:relative;z-index:1}
         <div class="quotes" id="quotes" aria-live="polite">
         <figure class="quote on" role="group" aria-roledescription="slide" aria-label="1 of 3">
           <blockquote><p>HR Terrain has taken the stress of monthly PF and ESIC filings off our plate. Accuracy and on-time delivery have been consistent.</p></blockquote>
-          <figcaption>HR Manager · Healthcare education · Kerala</figcaption>
+          <figcaption>HR Manager · Healthcare education</figcaption>
         </figure>
         <figure class="quote" role="group" aria-roledescription="slide" aria-label="2 of 3" aria-hidden="true">
           <blockquote><p>Managing compliance across our branches used to be a scramble. Now it runs in the background and we receive the reports.</p></blockquote>
-          <figcaption>Finance lead · Multi-branch organisation · Kerala &amp; Karnataka</figcaption>
+          <figcaption>Finance lead · Multi-state organisation</figcaption>
         </figure>
         <figure class="quote" role="group" aria-roledescription="slide" aria-label="3 of 3" aria-hidden="true">
           <blockquote><p>Their proactive approach stands out. We hear about changes that affect us before they become a problem.</p></blockquote>
-          <figcaption>Founder · Services company · Bengaluru</figcaption>
+          <figcaption>Founder · Services company</figcaption>
         </figure>
         </div>
         <button type="button" class="sl-btn q-next" id="qNext" aria-label="Next review"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
@@ -1697,7 +1757,7 @@ section>.wrap{position:relative;z-index:1}
         <li><span>Email</span><div><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></div></li>
         <li><span>WhatsApp</span><div><a href="https://wa.me/919995094978" target="_blank" rel="noopener">+91 99950 94978</a></div></li>
         <li><span>LinkedIn</span><div><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">linkedin.com/company/hrterrain</a></div></li>
-        <li><span>Serving</span><div>Kerala &amp; Karnataka · pan-India remote</div></li>
+        <li><span>Serving</span><div>Employers across India</div></li>
         <li><span>Hours</span><div>Mon–Sat, 9:00 AM – 6:00 PM IST</div></li>
       </ul>
       <div class="after">
@@ -1754,7 +1814,7 @@ section>.wrap{position:relative;z-index:1}
     <div><h4>Contact</h4><ul><li><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></li><li><a href="https://wa.me/919995094978" target="_blank" rel="noopener">WhatsApp +91 99950 94978</a></li><li><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="#contact">Enquiry form</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="legal.html#privacy">Privacy policy</a></li><li><a href="legal.html#terms">Terms of use</a></li><li><a href="legal.html#disclaimer">Disclaimer</a></li></ul></div>
   </div>
-  <div class="foot-b"><span>© <span id="year">2026</span> HR Terrain · Navigator of HR landscape</span><span>Kerala · Karnataka · India</span></div>
+  <div class="foot-b"><span>© <span id="year">2026</span> HR Terrain · Navigator of HR landscape</span><span>India</span></div>
 </footer>
 
 <aside aria-label="Quick contact">
@@ -1768,7 +1828,7 @@ section>.wrap{position:relative;z-index:1}
 </div>
 </aside>
 
-<script src="assets/calendar-doc.js?v=20260930"></script>
+<script src="assets/calendar-doc.js?v=20261007"></script>
 <script>
 (function(){
   "use strict";
@@ -1776,6 +1836,65 @@ section>.wrap{position:relative;z-index:1}
   var $ = function(s,c){ return (c||document).querySelector(s); };
   var $$ = function(s,c){ return Array.prototype.slice.call((c||document).querySelectorAll(s)); };
   $("#year").textContent = new Date().getFullYear();
+
+  function andList(a){ return a.length < 2 ? a.join("") : a.slice(0, -1).join(", ") + " and " + a[a.length - 1]; }
+
+  /* state picker: all 36 states and UTs, searchable, many at once. Fires "statechange" on the host.
+     data-name gives the checkboxes a form name; data-empty is the label when nothing is picked */
+  function statePicker(host){
+    var cal = window.HRTCalendarDoc, id = host.id, name = host.getAttribute("data-name"), empty = host.getAttribute("data-empty") || "All India";
+    var cover = function(st){ var p = st.pt ? "PT" : "", l = st.lwf ? "LWF" : ""; return p && l ? "PT · LWF" : p || l || "Central only"; };
+    host.classList.add("sp");
+    host.innerHTML =
+      '<button type="button" class="sp-btn" aria-haspopup="true" aria-expanded="false" aria-controls="' + id + '-pop">' +
+        '<svg class="sp-pin" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>' +
+        '<span class="sp-val"></span><svg class="sp-chev" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>' +
+      '<div class="sp-pop" id="' + id + '-pop" role="dialog" aria-label="Choose states and union territories" hidden>' +
+        '<div class="sp-top"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/></svg><input type="search" class="sp-q" placeholder="Search states and UTs" aria-label="Search states and union territories" autocomplete="off" /></div>' +
+        '<div class="sp-list">' + cal.STATES.map(function(st){
+          return '<label class="sp-opt" data-n="' + st.name.toLowerCase() + '"><input type="checkbox" value="' + st.code + '"' + (name ? ' name="' + name + '"' : "") + ' /><span class="sp-box" aria-hidden="true"></span><span class="sp-name">' + st.name + '</span><small>' + cover(st) + "</small></label>";
+        }).join("") + '<p class="sp-none" hidden>No state or UT matches that.</p></div>' +
+        '<div class="sp-foot"><button type="button" class="sp-clear">Clear</button><span class="sp-n" aria-live="polite"></span><button type="button" class="sp-done">Done</button></div>' +
+      "</div>" +
+      '<div class="sp-chips"></div>';
+    var btn = $(".sp-btn", host), pop = $(".sp-pop", host), q = $(".sp-q", host), boxes = $$(".sp-opt input", host), chips = $(".sp-chips", host);
+    function get(){ return boxes.filter(function(b){ return b.checked; }).map(function(b){ return b.value; }); }
+    function draw(){
+      var on = get(), names = on.map(function(c){ return cal.byCode[c].name; });
+      $(".sp-val", host).textContent = !on.length ? empty : on.length === 1 ? names[0] : names[0] + " +" + (on.length - 1);
+      host.classList.toggle("has", on.length > 0);
+      $(".sp-n", host).textContent = on.length ? on.length + " selected" : "";
+      chips.innerHTML = on.length > 1 ? on.map(function(c){
+        return '<button type="button" class="sp-chip" data-c="' + c + '" aria-label="Remove ' + cal.byCode[c].name + '">' + cal.byCode[c].name + '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></button>';
+      }).join("") : "";
+    }
+    function fire(){ draw(); host.dispatchEvent(new CustomEvent("statechange", { bubbles:true })); }
+    function open(on){
+      pop.hidden = !on; btn.setAttribute("aria-expanded", on ? "true" : "false"); host.classList.toggle("open", on);
+      document.body.classList.toggle("sp-on", on);   // phones: the list is a bottom sheet, so the action bar steps aside
+      if (on){ q.value = ""; filter(); if (matchMedia("(hover:hover)").matches) q.focus(); }
+    }
+    function filter(){
+      var t = q.value.trim().toLowerCase(), n = 0;
+      $$(".sp-opt", host).forEach(function(o){ var hit = !t || o.getAttribute("data-n").indexOf(t) > -1; o.hidden = !hit; if (hit) n++; });
+      $(".sp-none", host).hidden = n > 0;
+    }
+    btn.addEventListener("click", function(){ open(pop.hidden); });
+    q.addEventListener("input", filter);
+    q.addEventListener("keydown", function(e){ if (e.key === "Enter"){ e.preventDefault(); var first = $(".sp-opt:not([hidden]) input", host); if (first){ first.checked = !first.checked; fire(); } } });
+    boxes.forEach(function(b){ b.addEventListener("change", fire); });
+    $(".sp-clear", host).addEventListener("click", function(){ boxes.forEach(function(b){ b.checked = false; }); fire(); });
+    $(".sp-done", host).addEventListener("click", function(){ open(false); btn.focus(); });
+    chips.addEventListener("click", function(e){
+      var c = e.target.closest(".sp-chip"); if (!c) return;
+      boxes.forEach(function(b){ if (b.value === c.getAttribute("data-c")) b.checked = false; }); fire();
+    });
+    document.addEventListener("click", function(e){ if (!pop.hidden && !host.contains(e.target)) open(false); });
+    host.addEventListener("keydown", function(e){ if (e.key === "Escape" && !pop.hidden){ e.stopPropagation(); open(false); btn.focus(); } });
+    host.addEventListener("focusout", function(e){ if (!pop.hidden && e.relatedTarget && !host.contains(e.relatedTarget)) open(false); });
+    draw();
+    return { get:get, set:function(codes){ boxes.forEach(function(b){ b.checked = codes.indexOf(b.value) > -1; }); draw(); } };
+  }
 
   /* theme */
   var root = document.documentElement, themeBtn = $("#themeBtn");
@@ -1894,34 +2013,14 @@ section>.wrap{position:relative;z-index:1}
     var MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     var DAYS = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
     var IST = 330 * 60000;
-    // RULES: edit when the law changes. state: null = every employer; wm = wage month (the month before the due month)
-    var MONTHLY = [
-      { day:5,  state:"KL", tag:"Kerala LWF", title:"Peedika welfare fund", note:function(c){ return "Shops and commercial establishments: ₹50 employee + ₹50 employer per employee for " + c.wm + "."; } },
-      { day:7,  state:null, tag:"Wages", title:"Salaries paid", note:function(c){ return c.wm + " wages must be paid by the 7th under the Code on Wages."; } },
-      { day:7,  state:null, tag:"TDS", title:"TDS deposit on salaries", skip:[4], note:function(c){ return "Deposit tax deducted from " + c.wm + " salaries."; } },
-      { day:15, state:null, tag:"EPF", title:"EPF: ECR filing and payment", note:function(c){ return "File the ECR and pay PF for " + c.wm + " wages."; } },
-      { day:15, state:null, tag:"ESIC", title:"ESIC contribution", note:function(c){ return "Pay employer + employee ESI for " + c.wm + " wages."; } },
-      { day:20, state:"KA", tag:"Karnataka PT", title:"Professional Tax", note:function(c){ return "Pay PT deducted from " + c.wm + " salaries." + (c.m === 3 ? " February deduction is ₹300." : ""); } }
-    ];
-    var ANNUAL = [
-      { m:1,  d:14, state:"KL", tag:"Kerala LWF", title:"Kerala Labour Welfare Fund, 2nd half", note:function(c){ return "Factories and plantations: ₹45 employee + ₹45 employer per employee for Jul–Dec " + (c.y - 1) + ". 9% a year interest if late."; } },
-      { m:1,  d:15, state:"KA", tag:"Karnataka LWF", title:"Karnataka Labour Welfare Fund", note:function(){ return "Remit ₹50 employee + ₹100 employer per employee (Form D)."; } },
-      { m:1,  d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Oct–Dec " + (c.y - 1) + "."; } },
-      { m:1,  d:31, state:null, tag:"POSH", title:"POSH annual report", note:function(c){ return "Internal Committee report for " + (c.y - 1) + " to the District Officer. Confirm your district's date."; } },
-      { m:2,  d:0,  state:"KL", tag:"Kerala PT", title:"Professional Tax, 2nd half", note:function(c){ return "Half-yearly PT for Oct " + (c.y - 1) + "–Mar " + c.y + " to your local body."; } },
-      { m:4,  d:1,  state:null, tag:"Wages", title:"Revised minimum wages / VDA", note:function(){ return "Apply any minimum wage or VDA revision notified from 1 April."; } },
-      { m:4,  d:30, state:null, tag:"TDS", title:"TDS deposit for March", note:function(){ return "Tax deducted from March salaries has an extended date."; } },
-      { m:5,  d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Jan–Mar " + c.y + "."; } },
-      { m:6,  d:15, state:null, tag:"TDS", title:"Form 130 to employees", note:function(c){ return "Annual salary TDS certificates for FY " + (c.y - 1) + "-" + String(c.y).slice(2) + "."; } },
-      { m:7,  d:14, state:"KL", tag:"Kerala LWF", title:"Kerala Labour Welfare Fund, 1st half", note:function(c){ return "Factories and plantations: ₹45 employee + ₹45 employer per employee for Jan–Jun " + c.y + ". 9% a year interest if late."; } },
-      { m:7,  d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Apr–Jun " + c.y + "."; } },
-      { m:8,  d:31, state:"KL", tag:"Kerala PT", title:"Professional Tax, 1st half", note:function(c){ return "Half-yearly PT for Apr–Sep " + c.y + " to your local body."; } },
-      { m:10, d:31, state:null, tag:"TDS", title:"Quarterly TDS return: Form 138", note:function(c){ return "Salary TDS statement for Jul–Sep " + c.y + "."; } },
-      { m:11, d:30, state:null, tag:"Bonus", title:"Statutory bonus", note:function(c){ return "Pay bonus for FY " + (c.y - 1) + "-" + String(c.y).slice(2) + " to eligible employees."; } },
-      { m:12, d:31, state:"KA", tag:"Karnataka LWF", title:"Karnataka LWF deduction", note:function(){ return "Deduct the ₹50 employee share from December wages."; } }
-    ];
-    var active = { KL:true, KA:true }, boxes = $$("[data-cd-state]"), current = null, shownDay = 0;
-    try { var saved = JSON.parse(localStorage.getItem("hrt-cd-states") || "null"); if (saved && typeof saved === "object") active = { KL:!!saved.KL, KA:!!saved.KA }; } catch(e){}
+    // the dates come from the shared calendar rules (assets/calendar-doc.js), so the countdown and the Word calendar always agree
+    var cal = window.HRTCalendarDoc, LAWS = ["wages", "tds", "epf", "esi", "pt", "lwf", "bonus", "posh"], current = null, shownDay = 0;
+    var picker = statePicker($("#cdStates")), active = [];
+    try {
+      var saved = JSON.parse(localStorage.getItem("hrt-cd-states") || "null");
+      if (Array.isArray(saved)) active = saved.filter(function(c){ return cal.byCode[c]; });
+    } catch(e){}
+    picker.set(active);
 
     function ist(ms){ var d = new Date(ms + IST); return { y:d.getUTCFullYear(), m:d.getUTCMonth() + 1, d:d.getUTCDate() }; }
     function key(y, m, d){ return y * 10000 + m * 100 + d; }
@@ -1934,23 +2033,14 @@ section>.wrap{position:relative;z-index:1}
     function esc(v){ return String(v).replace(/[&<>"]/g, function(c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;" }[c]; }); }
     function pad(v){ return (v < 10 ? "0" : "") + v; }
 
-    // upcoming dates (this month + 13), grouped by day, for the states switched on
+    // upcoming dates for the next 12 months, grouped by day, for the states picked (none = central dates only)
     function groups(now){
-      var out = [], map = {}, today = key(now.y, now.m, now.d);
-      for (var i = 0; i < 14; i++){
-        var m = ((now.m - 1 + i) % 12) + 1, y = now.y + Math.floor((now.m - 1 + i) / 12);
-        var ctx = { y:y, m:m, wm:MONTHS[(m + 10) % 12] };
-        MONTHLY.forEach(function(r){ if (!(r.skip && r.skip.indexOf(m) > -1)) out.push({ y:y, m:m, d:r.day, r:r, ctx:ctx }); });
-        ANNUAL.forEach(function(r){ if (r.m === m) out.push({ y:y, m:m, d:r.d || lastDay(y, m), r:r, ctx:ctx }); });
-      }
-      var gs = [];
-      out.filter(function(o){ return key(o.y, o.m, o.d) >= today && (!o.r.state || active[o.r.state]); })
-        .sort(function(a, b){ return key(a.y, a.m, a.d) - key(b.y, b.m, b.d); })
-        .forEach(function(o){
-          var k = key(o.y, o.m, o.d);
-          if (!map[k]){ map[k] = { y:o.y, m:o.m, d:o.d, items:[] }; gs.push(map[k]); }
-          map[k].items.push({ tag:o.r.tag, title:o.r.title, note:o.r.note(o.ctx) });
-        });
+      var map = {}, gs = [];
+      cal.deadlines(active, LAWS, new Date(now.y, now.m - 1, now.d), ["shop", "factory", "plantation"]).forEach(function(e){
+        var y = e.date.getFullYear(), m = e.date.getMonth() + 1, d = e.date.getDate(), k = key(y, m, d);
+        if (!map[k]){ map[k] = { y:y, m:m, d:d, items:[] }; gs.push(map[k]); }
+        map[k].items.push({ tag:e.tag, title:e.title, note:e.desc });
+      });
       return gs;
     }
 
@@ -1998,14 +2088,16 @@ section>.wrap{position:relative;z-index:1}
       $("#cdS").textContent = pad(sec % 60);
     }
 
-    boxes.forEach(function(b){
-      var st = b.getAttribute("data-cd-state");
-      b.checked = active[st];
-      b.addEventListener("change", function(){
-        active[st] = b.checked;
-        try { localStorage.setItem("hrt-cd-states", JSON.stringify(active)); } catch(e){}
-        render();
-      });
+    function scope(){
+      var wait = cal.pending(active, LAWS), names = active.map(function(c){ return cal.byCode[c].name; });
+      $("#cdScopeState").textContent = !active.length ? "Add your states to include their Professional Tax and Labour Welfare Fund dates."
+        : "Showing state dates for " + (names.length > 2 ? names.length + " states" : names.join(" and ")) + "." + (wait.length ? " We'll confirm " + andList(wait) + " for you; those depend on your registration." : "");
+    }
+    scope();
+    $("#cdStates").addEventListener("statechange", function(){
+      active = picker.get(); scope();
+      try { localStorage.setItem("hrt-cd-states", JSON.stringify(active)); } catch(e){}
+      render();
     });
 
     // .ics file for the next deadline, with a reminder three days before at 9:30 IST
@@ -2155,6 +2247,18 @@ section>.wrap{position:relative;z-index:1}
           if (f.factory || f.plantation) return { v:"check", note:"Coverage for factories and plantations below 50 employees is read differently in practice; confirm with the Board." };
           return { v:"no", note:"Applies to shops and establishments from 50 employees.", when:50 }; } }
     ];
+    // every other state: Professional Tax and Labour Welfare Fund from the shared state rules
+    var cal = window.HRTCalendarDoc;
+    cal.STATES.forEach(function(st){
+      if (st.code === "KL" || st.code === "KA") return;
+      if (st.pt) RULES.push({ title:st.name + " Professional Tax", law:st.name + " · Professional Tax", st:st.code, cal:"pt", calIf:["yes", "check"], fn:function(){
+        return st.pt === "check" ? { v:"check", note:"Professional Tax is levied in " + st.name + ". The slab and payment dates depend on your registration; we'll confirm them for you." }
+          : { v:"yes", note:"Register, deduct PT from salaries above the state slab, and pay " + cal.schedule(st.pt) + "." + (st.pt.note || "") }; } });
+      if (st.lwf) RULES.push({ title:st.name + " Labour Welfare Fund", law:st.name + " · Labour Welfare Fund", st:st.code, cal:"lwf", calIf:["yes", "check"], fn:function(){
+        return st.lwf === "check" ? { v:"check", note:"A Labour Welfare Fund applies in " + st.name + ". Coverage and dates depend on your establishment; we'll confirm them." }
+          : { v:"check", note:"Covers most shops, offices and factories; the headcount threshold varies, so confirm yours. Paid " + cal.schedule(st.lwf) + (st.lwf.amt ? ": " + st.lwf.amt + " per employee." : ".") }; } });
+    });
+    var acPicker = statePicker($("#acStates"));
     var STEPS = [
       { n:10, t:"ESIC · Gratuity · POSH IC" },
       { n:20, t:"EPF · Bonus · Grievance committee" },
@@ -2187,7 +2291,7 @@ section>.wrap{position:relative;z-index:1}
         n:Math.max(1, parseInt($("#acN").value, 10) || 1), c:Math.max(0, parseInt($("#acC").value, 10) || 0),
         shop:types.indexOf("shop") > -1, factory:types.indexOf("factory") > -1, plantation:types.indexOf("plantation") > -1,
         power:power, facLimit:power ? 20 : 40,   // OSH Code factory definition
-        KL:$("#acKL").checked, KA:$("#acKA").checked,
+        states:acPicker.get(), KL:acPicker.get().indexOf("KL") > -1, KA:acPicker.get().indexOf("KA") > -1,
         low:$('input[name="acLow"]:checked', form).value === "1", high:$('input[name="acHigh"]:checked', form).value === "1"
       };
     }
@@ -2206,7 +2310,7 @@ section>.wrap{position:relative;z-index:1}
       $("#acHighRow").hidden = !f.KA;
       $("#acPowerRow").hidden = !f.factory;   // only Karnataka PT depends on the ₹25,000 question
       RULES.forEach(function(r){
-        if (r.st && !f[r.st]) return;
+        if (r.st && f.states.indexOf(r.st) < 0) return;
         var res = r.fn(f); if (!res) return;
         out[res.v].push({ title:r.title, law:r.law, note:res.note, when:res.when, by:res.by || "n" });
         if (r.cal && (r.calIf || ["yes"]).indexOf(res.v) > -1) cal[r.cal] = true;
@@ -2289,7 +2393,9 @@ section>.wrap{position:relative;z-index:1}
     $("#acToCal").addEventListener("click", function(){
       var cb = $("#calBuild"); if (!cb || !last) return;
       var f = last.f, set = function(name, value, on){ var i = $('input[name="' + name + '"][value="' + value + '"]', cb); if (i){ i.disabled = false; i.checked = on; } };
-      set("state", "KL", f.KL); set("state", "KA", f.KA); set("state", "IN", !f.KL && !f.KA);
+      var sb = $$('input[name="state"]', cb);
+      sb.forEach(function(b){ b.checked = f.states.indexOf(b.value) > -1; });
+      sb[0].dispatchEvent(new Event("change", { bubbles:true }));   // redraws the calendar's state picker
       ["epf", "esi", "pt", "lwf", "bonus", "posh"].forEach(function(k){ set("law", k, !!last.cal[k]); });
       set("est", "shop", f.shop); set("est", "factory", f.factory); set("est", "plantation", f.plantation);
       cb.dispatchEvent(new Event("change"));
@@ -2302,7 +2408,8 @@ section>.wrap{position:relative;z-index:1}
     var f = $("#calBuild"), cal = window.HRTCalendarDoc; if (!f || !cal) return;
     var count = $("#cbCount"), go = $("#cbGo"), hint = $("#cbStateHint"), estRow = $("#cbEstRow"), label = go.innerHTML, lib = null;
     var LAW = { tds:"TDS on salaries", epf:"EPF", esi:"ESI", pt:"Professional Tax", lwf:"Labour Welfare Fund", bonus:"Statutory bonus", posh:"POSH annual report" };
-    var STATE = { KL:"Kerala", KA:"Karnataka", IN:"Pan-India" };
+    var cbPicker = statePicker($("#cbStates")), STATE = {};
+    cal.STATES.forEach(function(st){ STATE[st.code] = st.name; });
     var EST = { shop:"Shop / office / commercial establishment", factory:"Factory", plantation:"Plantation" };
     function picked(name){ return $$('input[name="' + name + '"]:checked', f).map(function(i){ return i.value; }); }
     function list(){ return cal.deadlines(picked("state"), picked("law"), null, picked("est")); }
@@ -2310,11 +2417,24 @@ section>.wrap{position:relative;z-index:1}
     function needsEst(){ return picked("state").indexOf("KL") > -1 && picked("law").indexOf("lwf") > -1; }
 
     function refresh(){
-      var st = picked("state"), local = st.indexOf("KL") > -1 || st.indexOf("KA") > -1;
-      ["pt", "lwf"].forEach(function(v){ var i = $('input[value="' + v + '"]', f); i.disabled = !local; if (!local) i.checked = false; });
-      hint.hidden = st.indexOf("IN") < 0;
+      var st = picked("state"), specs = st.map(function(c){ return cal.byCode[c]; });
+      ["pt", "lwf"].forEach(function(v){
+        var i = $('input[name="law"][value="' + v + '"]', f), any = specs.some(function(x){ return x[v]; });
+        if (any && i.disabled) i.checked = true;   // re-enable ticked once a state that levies it is picked
+        i.disabled = !any; if (!any) i.checked = false;
+      });
+      var wait = cal.pending(st, picked("law"));
+      hint.textContent = !st.length ? "Central dates only. Add your states to include their Professional Tax and Labour Welfare Fund."
+        : wait.length ? "We'll confirm the dates for " + andList(wait) + " with you; they depend on your registration."
+        : "";
+      hint.hidden = !hint.textContent;
       estRow.hidden = st.indexOf("KL") < 0;   // asked whenever Kerala is picked
       var noEst = needsEst() && !picked("est").length, n = noEst ? 0 : list().length;
+      var MS = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"], ev = noEst ? [] : list();
+      $("#cbPeekN").textContent = n ? n + " dates" : "";
+      $("#cbPeek").innerHTML = ev.slice(0, 4).map(function(e){
+        return "<li><b>" + e.date.getDate() + "<small>" + MS[e.date.getMonth()] + "</small></b><span>" + e.title + "<small>" + e.applies + "</small></span></li>";
+      }).join("") || '<li class="cb-peek-0">Pick at least one obligation to see your dates.</li>';
       count.classList.toggle("err", n === 0);
       count.textContent = noEst ? "Pick your establishment type in Kerala" : n ? n + " deadlines in the next 12 months" : "Pick at least one state and one obligation";
       go.disabled = n === 0;
@@ -2386,7 +2506,7 @@ section>.wrap{position:relative;z-index:1}
       sendLead(events);
       Promise.all([loadLib(), logo()]).then(function(r){
         var docx = r[0];
-        return docx.Packer.toBlob(cal.build(docx, { company:co, states:states, events:events, logo:r[1] }));
+        return docx.Packer.toBlob(cal.build(docx, { company:co, states:states, events:events, logo:r[1], pending:cal.pending(picked("state"), picked("law")) }));
       }).then(function(blob){
         var a = document.createElement("a");
         a.href = URL.createObjectURL(blob);

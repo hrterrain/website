@@ -42,7 +42,7 @@ The calendar panel builds a Word document in the visitor's browser: `assets/cale
 
 ## Compliance news
 
-The news section loads `/api/news`, a Netlify function (`netlify/functions/news.mjs`). It reads Google News RSS for each topic (EPF, ESI, labour codes, wages, payroll tax, Kerala, Karnataka, POSH, apprenticeships), keeps only headlines that mention the topic, balances topics, and returns the latest 12. Netlify caches the result for 6 hours, so the feeds are fetched a few times a day at most.
+The news section loads `/api/news`, a Netlify function (`netlify/functions/news.mjs`). It reads Google News RSS for each topic (EPF, ESI, labour codes, wages, payroll tax, professional tax, state rules, POSH, apprenticeships), keeps only headlines that mention the topic, balances topics, and returns the latest 12. Netlify caches the result for 6 hours, so the feeds are fetched a few times a day at most.
 
 It needs no API keys and no AI service, and runs within Netlify's free tier. To change topics, edit the `TOPICS` list in `news.mjs`. If the function is unavailable, the page shows links to the official EPFO, ESIC and Ministry of Labour sources instead.
 
