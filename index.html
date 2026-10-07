@@ -213,6 +213,16 @@ p,li,dd{text-wrap:pretty}
 :root[data-theme="dark"] .i-sun{display:none}
 :root[data-theme="dark"] .i-moon{display:block}
 .menu-btn{display:none}
+.nav-links a,.nav-r .btn{white-space:nowrap}
+/* laptops at 125% scaling (Windows default) land here: tighten before switching to the menu button */
+@media (max-width:1300px){
+  .nav{gap:10px}
+  .nav-links{gap:0}
+  .nav-links a{padding:10px 10px;font-size:.9rem}
+  .nav-r .btn{padding:0 16px;font-size:.88rem}
+  .li-btn{display:none}
+}
+@media (max-width:1180px){.brand-t i{display:none}}
 @media (max-width:1060px){.nav-links,.nav-r .btn{display:none}.menu-btn{display:flex}}
 
 .drawer{position:fixed;inset:0 0 0 auto;width:min(88vw,380px);z-index:120;background:var(--paper);
@@ -462,7 +472,8 @@ p,li,dd{text-wrap:pretty}
 .cal-foot{margin-top:32px;display:flex;flex-wrap:wrap;gap:18px 40px;align-items:center;justify-content:space-between;padding:22px 24px;background:var(--paper);border:1px dashed var(--rule-strong)}
 .cal-foot p{flex:1 1 380px;font-size:.86rem;color:var(--muted);max-width:74ch}
 /* calendar builder: pick what applies, download a Word document */
-.cal-build{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px clamp(28px,5vw,72px);align-items:start;padding:clamp(24px,3.2vw,40px)}
+.cal-build{display:block;padding:clamp(24px,3.2vw,40px)}
+.cb-cols{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:28px clamp(28px,5vw,72px);align-items:start;margin-bottom:28px}
 .cal-build p{flex:none}
 .cb-head h3{font-size:clamp(1.5rem,2.6vw,2.1rem);margin:14px 0 12px}
 .cb-head p{font-size:.95rem;max-width:40ch}
@@ -532,7 +543,7 @@ p,li,dd{text-wrap:pretty}
   .sp-list{max-height:52vh}
   @keyframes spUp{from{opacity:0;transform:translateY(16px)}}
 }
-.cb-foot{grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding-top:24px;border-top:1px solid var(--rule)}
+.cb-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding-top:24px;border-top:1px solid var(--rule)}
 .cb-count{font-family:var(--f-type);font-weight:700;font-size:.86rem;color:var(--hi-ink)}
 .cb-count.err{color:var(--pin)}
 .cb-note{flex-basis:100%!important;font-size:.84rem!important;max-width:none!important}
@@ -1054,7 +1065,7 @@ section>.wrap{position:relative;z-index:1}
   .metro{grid-template-columns:1fr 1fr 1fr;row-gap:36px}
   .metro::before,.metro-run{display:none}
   .rep{grid-template-columns:1fr}
-  .cal-build{grid-template-columns:1fr}
+  .cb-cols{grid-template-columns:1fr}
   .columns{columns:2}
   .faq-grid{grid-template-columns:1fr}
   .faq-grid .sh{position:static}
@@ -1577,6 +1588,7 @@ section>.wrap{position:relative;z-index:1}
       </div>
     </div>
     <form class="cal-foot cal-build" id="calBuild" data-r novalidate>
+      <div class="cb-cols">
       <div class="cb-head">
         <span class="eyebrow">Free download</span>
         <h3>Get your compliance calendar.</h3>
@@ -1625,6 +1637,7 @@ section>.wrap{position:relative;z-index:1}
           </div>
           <p class="cb-hint">We use these details to follow up about your calendar. See our <a href="legal.html#privacy">privacy policy</a>.</p>
         </fieldset>
+      </div>
       </div>
       <div class="cb-foot">
         <button type="submit" class="btn" id="cbGo">Download Word calendar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg></button>
