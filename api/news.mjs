@@ -1,6 +1,6 @@
 // Compliance news for hrterrain.com.
 // Pulls recent headlines from Google News RSS for each topic, merges and de-duplicates them,
-// and returns JSON. Netlify's CDN caches the response for 6 hours, so the feeds are fetched
+// and returns JSON. Vercel's CDN caches the response for 6 hours, so the feeds are fetched
 // a few times a day at most. No API keys, no paid services.
 
 // Only news an employer's HR / payroll / compliance team would act on.
@@ -46,7 +46,7 @@ async function topic({ tag, q, must, also }) {
   } catch { return []; }
 }
 
-export default async () => {
+export async function GET() {
   const cutoff = Date.now() - MAX_AGE_DAYS * 864e5, seen = [], out = [];
   const lists = (await Promise.all(TOPICS.map(topic))).map((list) =>
     list.filter((n) => new Date(n.date) >= cutoff).sort((a, b) => new Date(b.date) - new Date(a.date)));
@@ -66,9 +66,7 @@ export default async () => {
     headers: {
       "Content-Type": "application/json; charset=utf-8",
       "Cache-Control": "public, max-age=0, must-revalidate",
-      "Netlify-CDN-Cache-Control": items.length ? "public, durable, s-maxage=21600, stale-while-revalidate=86400" : "no-store"
+      "Vercel-CDN-Cache-Control": items.length ? "s-maxage=21600, stale-while-revalidate=86400" : "no-store"
     }
   });
-};
-
-export const config = { path: "/api/news" };
+}

@@ -12,8 +12,7 @@ Marketing site for HR Terrain (HR operations, payroll and statutory compliance).
 | `assets/` | Logos, favicons, share image |
 | `robots.txt`, `sitemap.xml`, `site.webmanifest` | SEO / browser metadata |
 | `vercel.json` | Security + cache headers for Vercel |
-| `_headers` | The same headers for Netlify |
-| `netlify.toml`, `netlify/functions/news.mjs` | Netlify settings and the compliance news function (`/api/news`) |
+| `api/news.mjs` | The compliance news function (`/api/news`, a Vercel Function) |
 | `archive/` | Earlier design iterations (v15–v25) — not deployed |
 | `brand-source/` | Original logo files — not deployed |
 
@@ -25,7 +24,9 @@ python3 -m http.server 8000   # then open http://localhost:8000
 
 ## Deploy
 
-Any static host works (Vercel, Netlify, Cloudflare Pages, GitHub Pages). On Vercel: import the repo, framework preset "Other", no build command, output directory `.`.
+Hosted on Vercel, connected to `github.com/hrterrain/website`. Every push to `main` deploys to production; every other branch gets a preview URL. Project settings: framework preset "Other", no build command, output directory `.` (Vercel picks up `api/` as functions on its own).
+
+The news function `api/news.mjs` is skipped by `python3 -m http.server`; run `npx vercel dev` to try it locally.
 
 ## Contact form
 
@@ -33,7 +34,7 @@ The enquiry form and the calendar download both post to FormSubmit (`abhiraj@hrt
 
 ## Keeping content current
 
-- The hero "route" card dates itself from the visitor's clock; the deadlines are defined in the `#routeList` markup (`data-day`).
+- The deadline countdown, applicability checker and calendar download all read state Professional Tax and Labour Welfare Fund dates from the `STATES` table in `assets/calendar-doc.js`.
 - The compliance calendar (`#resources`) carries a "Last reviewed" date — update it whenever the dates are rechecked.
 
 ## Compliance calendar download
@@ -42,21 +43,14 @@ The calendar panel builds a Word document in the visitor's browser: `assets/cale
 
 ## Compliance news
 
-The news section loads `/api/news`, a Netlify function (`netlify/functions/news.mjs`). It reads Google News RSS for each topic (EPF, ESI, labour codes, wages, payroll tax, professional tax, state rules, POSH, apprenticeships), keeps only headlines that mention the topic, balances topics, and returns the latest 12. Netlify caches the result for 6 hours, so the feeds are fetched a few times a day at most.
+The news section loads `/api/news`, a Vercel Function (`api/news.mjs`). It reads Google News RSS for each topic (EPF, ESI, labour codes, wages, payroll tax, professional tax, state rules, POSH, apprenticeships), keeps only headlines that mention the topic, balances topics, and returns the latest 12. Vercel's CDN caches the result for 6 hours, so the feeds are fetched a few times a day at most.
 
-It needs no API keys and no AI service, and runs within Netlify's free tier. To change topics, edit the `TOPICS` list in `news.mjs`. If the function is unavailable, the page shows links to the official EPFO, ESIC and Ministry of Labour sources instead.
+It needs no API keys and no AI service, and runs within Vercel's free tier. To change topics, edit the `TOPICS` list in `news.mjs`. If the function is unavailable, the page shows links to the official EPFO, ESIC and Ministry of Labour sources instead.
 
 ## Calendar download leads
 
 Before the Word calendar downloads, the visitor enters name, company, work email and phone. These go to FormSubmit (`abhiraj@hrterrain.com`) with the states and obligations they picked. If sending fails, the download still happens.
 
-## Deploying and moving to another account
+## Accounts
 
-Netlify Drop (drag and drop) does **not** deploy functions, so use the Netlify CLI or connect a Git repository:
-
-```sh
-npx netlify-cli login
-npx netlify-cli deploy --prod --dir . --functions netlify/functions
-```
-
-To move the site to the client's Netlify account: log in with their account, run the deploy command above from this folder (it offers to create a new site), then point hrterrain.com at that site in Netlify's domain settings. Nothing in the site depends on this machine or on Claude.
+The GitHub repo, the Vercel project and the Supabase project all belong to HR Terrain. Nothing in the site depends on a developer's machine or on Claude. Keep keys out of the repo: put them in Vercel → Project → Settings → Environment Variables.
