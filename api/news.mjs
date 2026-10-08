@@ -15,10 +15,10 @@ const TOPICS = [
   { tag: "Professional tax", q: '"professional tax" employers OR slab OR "due date" OR amendment OR notification', must: /professional tax|profession tax|\bPTRC\b/i, also: SIGNAL },
   { tag: "State rules", q: '"labour welfare fund" OR "shops and establishments" OR "state labour code rules" employers', must: /welfare fund|shops and (commercial )?establishments?|labou?r code rules/i, also: SIGNAL },
   { tag: "POSH", q: '"POSH Act" employer OR compliance OR "internal committee" OR "high court" OR "supreme court"', must: /\bPOSH\b|sexual harassment/i, also: /employer|compan|internal committee|\bIC\b|court|complian|penalt|order|guideline|mandatory|annual report/i },
-  { tag: "Apprentices", q: '"Apprentices Act" OR NATS apprenticeship OR NAPS apprenticeship OR "apprenticeship scheme" India', must: /apprentices act|\bNATS\b|\bNAPS\b|apprenticeship/i, also: /stipend|employer|establishment|scheme|rule|amend|portal|mandatory|notif/i }
+  { tag: "Apprentices", q: '"Apprentices Act" OR NATS apprenticeship OR NAPS apprenticeship OR "apprenticeship scheme" India', must: /apprentices act|\bNATS\b|\bNAPS\b|apprenticeship/i, also: /employer|establishment|rule|amend|mandatory|notif|quota|penalt|complian/i }
 ];
-// events, PR and tax news that isn't about salaries
-const DROP = /\bseeks?\b|demand|protest|strike|agitation|workshop|sensiti[sz]ation|awareness|seminar|webinar|campaign|felicitat|inaugurat|conclave|summit|quiz|\bheld\b|celebrat|property|real estate|non-resident|NRI|crypto|\bGST\b|mutual fund|stock|share price|reaches .* crore people|health security reaches/i;
+// events, PR, job adverts, partnerships, personal-finance stories and tax news that isn't about salaries
+const DROP = /recruit|vacanc|apply online|apply by|\bapply\b|eligibility|last date|admit card|\bexam|syllabus|\bjobs?\b|hiring|partners? with|partnership|\bMoU\b|tie[- ]up|training|skilling|\bher\b|\bhis\b|refund|\bseeks?\b|demand|protest|strike|agitation|workshop|sensiti[sz]ation|awareness|seminar|webinar|campaign|felicitat|inaugurat|conclave|summit|quiz|\bheld\b|celebrat|property|real estate|non-resident|NRI|crypto|\bGST\b|mutual fund|stock|share price|reaches .* crore people|health security reaches/i;
 const PER_TOPIC = 3, LIMIT = 12, MAX_AGE_DAYS = 45;
 
 const decode = (t) => t

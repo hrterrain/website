@@ -124,6 +124,9 @@
 
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;scroll-behavior:smooth;scroll-padding-top:100px}
+/* big monitors: scale type and the content column up so the page doesn't shrink to a strip */
+@media (min-width:1800px){html{font-size:106.25%}:root{--maxw:1360px}}
+@media (min-width:2300px){html{font-size:118.75%}:root{--maxw:1520px}}
 body{font-variant-numeric:tabular-nums;font-family:var(--f-body);background:var(--paper);color:var(--text);line-height:1.6;overflow-x:clip;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 a{color:inherit;text-decoration:none}
 img,svg{display:block;max-width:100%}
@@ -196,6 +199,7 @@ p,li,dd{text-wrap:pretty}
 .brand-t{display:flex;flex-direction:column;line-height:1.02;white-space:nowrap}
 .brand-t i{font-family:var(--f-hero-mono);font-style:normal;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:5px}
 @media (max-width:410px){.brand-t i{display:none}}
+@media (max-width:360px){.mbar .btn svg{display:none}.mbar .btn{font-size:.9rem}}
 .brand b{font-family:var(--f-hero);font-weight:600;font-size:1.12rem;color:var(--heading);letter-spacing:-.01em}
 .nav-links{display:flex;gap:4px}
 .nav-links a{position:relative;font-size:.95rem;font-weight:600;color:var(--text);padding:10px 14px;border-radius:10px;transition:color .2s,background .2s}
@@ -273,7 +277,7 @@ p,li,dd{text-wrap:pretty}
 .hero-bg{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
 .hero-bg::before{content:"";position:absolute;left:50%;top:38%;width:min(1100px,120%);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;
   background:radial-gradient(closest-side,var(--plot-glow),transparent 72%)}
-.hero-bg svg{position:absolute;left:50%;top:50%;width:min(1720px,168%);height:auto;transform:translate(-50%,-50%);opacity:var(--hero-line-o)}
+.hero-bg svg{position:absolute;left:50%;top:50%;width:max(min(1720px,168%),112%);height:auto;transform:translate(-50%,-50%);opacity:var(--hero-line-o)}
 .hero-bg .contour{fill:none;stroke:var(--ink);stroke-width:1.3;opacity:0;stroke-dasharray:1;stroke-dashoffset:1}
 .hero-bg .contour.accent{stroke-width:1.5}
 .hero.ready .hero-bg .contour{opacity:.6;stroke-dashoffset:0;transition:stroke-dashoffset 2.4s var(--e-out),opacity 1.4s ease}
@@ -334,13 +338,13 @@ p,li,dd{text-wrap:pretty}
 .svc-row .ar svg{width:17px;height:17px}
 /* selected row: a soft tile with the marker inside it, aligned to the service name */
 .svc-row{border-radius:12px;transition:background .3s,padding .35s var(--e-out)}
-.svc-row::before{content:"";position:absolute;left:16px;top:50%;width:8px;height:8px;border-radius:2px;background:var(--hi);transform:translateY(-50%) scale(0);transition:transform .3s var(--e-out)}
+.svc-row .nm::before{content:"";display:inline-block;vertical-align:.18em;width:0;height:.32em;margin-right:0;border-radius:2px;background:var(--hi);transform:scale(0);transition:transform .3s var(--e-out),width .3s var(--e-out),margin .3s var(--e-out)}
 @media (hover:hover){.svc-row:hover .nm{color:var(--heading)}}
 .svc-row:focus-visible{outline-offset:-2px;border-radius:12px}
-.svc-row[aria-selected="true"],.svc-row[aria-expanded="true"]{background:var(--ink-soft);padding-left:38px;border-bottom-color:transparent}
+.svc-row[aria-selected="true"],.svc-row[aria-expanded="true"]{background:var(--ink-soft);padding-left:20px;border-bottom-color:transparent}
 .svc-row[aria-selected="true"] .nm,.svc-row[aria-expanded="true"] .nm{color:var(--heading)}
 .svc-row[aria-selected="true"] .ar,.svc-row[aria-expanded="true"] .ar{background:var(--ink);border-color:var(--ink);color:var(--sheet)}
-.svc-row[aria-selected="true"]::before,.svc-row[aria-expanded="true"]::before{transform:translateY(-50%) scale(1)}
+.svc-row[aria-selected="true"] .nm::before,.svc-row[aria-expanded="true"] .nm::before{width:.32em;margin-right:.4em;transform:none}
 .svc-panels{position:sticky;top:100px}
 .svc-panel{display:none;background:var(--sheet);border:1.5px solid var(--heading);border-radius:3px;box-shadow:var(--shadow-sheet)}
 .svc-panel.active{display:block;animation:up .45s var(--e-out)}
@@ -544,6 +548,7 @@ p,li,dd{text-wrap:pretty}
   @keyframes spUp{from{opacity:0;transform:translateY(16px)}}
 }
 .cb-foot{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;padding-top:24px;border-top:1px solid var(--rule)}
+.cal-build .cb-count{flex:0 1 auto;min-width:0}
 .cb-count{font-family:var(--f-type);font-weight:700;font-size:.86rem;color:var(--hi-ink)}
 .cb-count.err{color:var(--pin)}
 .cb-note{flex-basis:100%!important;font-size:.84rem!important;max-width:none!important}
@@ -565,10 +570,9 @@ p,li,dd{text-wrap:pretty}
 .cb-peek li span{font-size:.9rem;font-weight:600;color:var(--text);line-height:1.3;min-width:0}
 .cb-peek li span small{display:block;font-weight:400;font-size:.78rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .cb-peek li.cb-peek-0{display:block;font-size:.88rem;color:var(--muted)}
-.cb-head{position:sticky;top:100px}
 .cb-head .cb-peek-f{max-width:none;padding:10px 16px;border-top:1px solid var(--rule);background:var(--paper-2);font-size:.8rem!important;color:var(--muted)}
 #cdStates .sp-chips{display:none}
-@media (max-width:900px){.cb-peek{display:none}.cb-head{position:static}}
+@media (max-width:900px){.cb-peek{display:none}}
 .cb-hint a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
 .guides{margin-top:clamp(56px,7vw,88px)}
 .guides ul{list-style:none;border-top:1.5px solid var(--heading);margin-top:14px;columns:2;column-gap:48px}
@@ -659,8 +663,8 @@ p,li,dd{text-wrap:pretty}
 .q-logo[data-shape="wide"]{width:220px;max-width:100%;height:68px;border-radius:14px;padding:12px 20px}
 .q-logo img{display:block;width:100%;height:100%;object-fit:contain}
 .q-count{font-family:var(--f-type);font-weight:700;color:var(--heading);letter-spacing:.08em}
-.q-dots{display:flex;justify-content:center;gap:4px;margin-top:20px}
-.q-dot{width:32px;height:32px;padding:0;border:0;background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
+.q-dots{display:flex;justify-content:center;gap:0;margin-top:16px}
+.q-dot{width:44px;height:44px;padding:0;border:0;background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center}
 .q-dot::before{content:"";width:8px;height:8px;border-radius:99px;background:var(--rule-strong);transition:width .3s var(--e-out),background .3s}
 .q-dot[aria-current="true"]::before{width:26px;background:var(--hi)}
 
@@ -743,6 +747,7 @@ footer{background:var(--band-2);color:var(--band-muted);padding:clamp(56px,7vw,8
 .foot h4{font-family:var(--f-type);font-weight:700;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;color:var(--band-accent);margin-bottom:12px}
 .foot ul{list-style:none}
 .foot li a{display:inline-block;padding:6px 0;font-size:.92rem;transition:color .2s}
+@media (max-width:1060px){.foot li a{padding:10px 0}.foot-b{padding-right:72px}}
 .foot li a:hover{color:#fff}
 .social{display:flex;gap:10px;margin-top:20px}
 .social a{width:42px;height:42px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r-ctl);border:1px solid var(--band-rule);color:var(--band-text);transition:background .2s,border-color .2s,color .2s}
@@ -1164,11 +1169,15 @@ section>.wrap{position:relative;z-index:1}
     box-shadow:0 0 0 1px var(--glass-ring),0 18px 40px -16px rgba(10,30,70,.45);transform:translateY(calc(100% + 30px));transition:transform .45s var(--e-out)}
   .mbar.show{transform:none}
   .mbar .btn{flex:1;min-height:50px}
+  .mbar .btn{white-space:nowrap;padding-inline:14px}
   .mbar-wa{flex:none;width:50px;height:50px;border-radius:var(--r-ctl);background:#25D366;display:flex;align-items:center;justify-content:center}
   .mbar-wa svg{width:24px;height:24px;fill:#fff}
   body.menu-open .mbar{transform:translateY(calc(100% + 30px))}
   footer{padding-bottom:calc(110px + env(safe-area-inset-bottom))}
 }
+
+/* short laptop screens: a sticky panel taller than the window would hide its own bottom edge */
+@media (max-height:700px){.svc-panels,.faq-grid .sh,.ac-form{position:static}}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -1555,7 +1564,9 @@ section>.wrap{position:relative;z-index:1}
           </div>
           <p class="cb-hint">Everyone on your rolls in the state. EPF, ESIC and POSH also count contract workers.</p>
           <div class="ac-qs">
-            <div class="ac-q"><p id="acLowQ">Anyone earning <b>₹21,000 or less</b> a month (Basic &amp; DA)?</p>
+            <div class="ac-q"><p id="acPfQ">Anyone earning <b>₹25,000 or less</b> a month (Basic &amp; DA)? <small>For EPF</small></p>
+              <div class="ac-yn" role="radiogroup" aria-labelledby="acPfQ"><label><input type="radio" name="acPf" value="1" checked /><span>Yes</span></label><label><input type="radio" name="acPf" value="0" /><span>No</span></label></div></div>
+            <div class="ac-q"><p id="acLowQ">Anyone earning <b>₹21,000 or less</b> a month (Basic &amp; DA)? <small>For ESIC and bonus</small></p>
               <div class="ac-yn" role="radiogroup" aria-labelledby="acLowQ"><label><input type="radio" name="acLow" value="1" checked /><span>Yes</span></label><label><input type="radio" name="acLow" value="0" /><span>No</span></label></div></div>
             <div class="ac-q" id="acHighRow"><p id="acHighQ">Anyone earning <b>₹25,000 or more</b> a month? <small>For Karnataka Professional Tax</small></p>
               <div class="ac-yn" role="radiogroup" aria-labelledby="acHighQ"><label><input type="radio" name="acHigh" value="1" checked /><span>Yes</span></label><label><input type="radio" name="acHigh" value="0" /><span>No</span></label></div></div>
@@ -2222,7 +2233,8 @@ section>.wrap{position:relative;z-index:1}
           if (f.factory || f.plantation || f.n >= 10) return { v:"yes", note:"26 weeks' paid maternity leave for eligible women employees, plus nursing breaks. Include it in your leave policy." };
           return { v:"no", note:"Applies to shops and establishments from 10 employees.", when:10 }; } },
       { title:"EPF", law:"Code on Social Security", cal:"epf", fn:function(f){
-          if (f.t >= 20) return { v:"yes", note:"Register with EPFO. PF is mandatory for wages up to ₹25,000 (ceiling raised from 17 Sep 2026). ECR and payment by the 15th." };
+          if (f.t >= 20 && f.pf) return { v:"yes", note:"Register with EPFO. PF is mandatory for employees with Basic & DA up to ₹25,000 (ceiling raised from 17 Sep 2026). ECR and payment by the 15th." };
+          if (f.t >= 20) return { v:"check", note:"The establishment is covered at 20+ employees, but PF is mandatory only up to ₹25,000 Basic & DA. Staff above it can join voluntarily." };
           return { v:"no", note:"Mandatory at 20 employees, counting those engaged through a contractor. You can opt in voluntarily earlier.", when:20, by:"t" }; } },
       { title:"Statutory bonus", law:"Code on Wages", cal:"bonus", fn:function(f){
           if (f.n < 20) return { v:"no", note:"Applies from 20 employees.", when:20 };
@@ -2313,6 +2325,7 @@ section>.wrap{position:relative;z-index:1}
         shop:types.indexOf("shop") > -1, factory:types.indexOf("factory") > -1, plantation:types.indexOf("plantation") > -1,
         power:power, facLimit:power ? 20 : 40,   // OSH Code factory definition
         states:acPicker.get(), KL:acPicker.get().indexOf("KL") > -1, KA:acPicker.get().indexOf("KA") > -1,
+        pf:$('input[name="acPf"]:checked', form).value === "1",
         low:$('input[name="acLow"]:checked', form).value === "1", high:$('input[name="acHigh"]:checked', form).value === "1"
       };
     }
@@ -2375,7 +2388,11 @@ section>.wrap{position:relative;z-index:1}
     }
 
     form.addEventListener("input", render);
-    form.addEventListener("change", render);
+    form.addEventListener("change", function(e){
+      if (e.target.name === "acPf" && e.target.value === "0") $('input[name="acLow"][value="0"]', form).checked = true;
+      if (e.target.name === "acLow" && e.target.value === "1") $('input[name="acPf"][value="1"]', form).checked = true;
+      render();
+    });
     form.addEventListener("submit", function(e){ e.preventDefault(); });
     $$('input[name="acType"]', form).forEach(function(b){
       b.addEventListener("change", function(){ if (!$('input[name="acType"]:checked', form)) b.checked = true; });   // keep one type ticked
