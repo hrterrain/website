@@ -219,14 +219,14 @@ p,li,dd{text-wrap:pretty}
 .menu-btn{display:none}
 .nav-links a,.nav-r .btn{white-space:nowrap}
 /* laptops at 125% scaling (Windows default) land here: tighten before switching to the menu button */
-@media (max-width:1300px){
+@media (max-width:1440px){
   .nav{gap:10px}
   .nav-links{gap:0}
   .nav-links a{padding:10px 10px;font-size:.9rem}
   .nav-r .btn{padding:0 16px;font-size:.88rem}
   .li-btn,.ig-btn{display:none}
 }
-@media (max-width:1180px){.brand-t i{display:none}}
+@media (max-width:1180px){.brand-t i{display:none}.nav-links a{padding:10px 7px;font-size:.86rem}.nav-r .btn{padding:0 12px}}
 @media (max-width:1060px){.nav-links,.nav-r .btn{display:none}.menu-btn{display:flex}}
 
 .drawer{position:fixed;inset:0 0 0 auto;width:min(88vw,380px);z-index:120;background:var(--paper);
@@ -789,7 +789,7 @@ body.menu-open .wa{opacity:0;pointer-events:none}
 .spot{position:relative}
 section>.wrap{position:relative;z-index:1}
 
-.hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{
+.hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel,.calc-card{
   background:var(--glass);border:1px solid var(--glass-line);border-radius:var(--r-card);box-shadow:var(--glass-shadow);
   -webkit-backdrop-filter:blur(20px) saturate(1.6);backdrop-filter:blur(20px) saturate(1.6)}
 @media (hover:hover){.hz:hover,.reason:hover,.quote:hover{box-shadow:var(--glass-shadow),0 30px 60px -30px var(--glow-1)}}
@@ -1069,6 +1069,117 @@ section>.wrap{position:relative;z-index:1}
 }
 
 /* ============================================================
+   CALCULATORS: cost of a hire, cost of paying late
+   ============================================================ */
+.calc-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:clamp(16px,2vw,22px)}
+.calc-tab{display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-rows:auto auto;gap:2px 14px;align-items:center;padding:16px 18px;border-radius:var(--r-card);border:1px solid var(--rule-strong);background:var(--sheet);text-align:left;cursor:pointer;transition:border-color .2s,background .2s,box-shadow .2s}
+.calc-tab b{font-family:var(--f-display);font-weight:600;font-size:1.15rem;line-height:1.2;color:var(--heading)}
+.calc-tab>span:last-child{grid-column:2;font-size:.86rem;line-height:1.35;color:var(--muted)}
+.calc-ic{grid-row:1/span 2;width:44px;height:44px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--ink-soft);color:var(--ink);transition:background .2s,color .2s}
+.calc-ic svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.calc-tab:hover{border-color:var(--ink)}
+.calc-tab[aria-selected="true"]{border-color:var(--ink);box-shadow:inset 0 -3px 0 var(--hi),0 18px 36px -24px var(--hi-edge)}
+.calc-tab[aria-selected="true"] .calc-ic{background:var(--btn);color:var(--btn-fg)}
+.calc-tab:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px}
+.calc-pane{display:grid;grid-template-columns:minmax(0,390px) minmax(0,1fr);gap:clamp(20px,3vw,36px);align-items:start}
+.calc [hidden]{display:none!important}
+.calc-form{padding:clamp(20px,2.6vw,28px);display:flex;flex-direction:column;gap:22px}
+.calc-out{padding:clamp(20px,2.6vw,30px);display:flex;flex-direction:column;gap:22px;min-width:0}
+.cc-field{display:flex;flex-direction:column;gap:9px;min-width:0}
+.cc-lab{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.cc-lab output{font-family:var(--f-type);font-weight:700;font-size:.9rem;color:var(--hi-ink)}
+.cc-money{display:flex;align-items:center;border:1px solid var(--rule-strong);border-radius:var(--r-ctl);background:var(--sheet);padding-left:16px;transition:border-color .2s}
+.cc-money:focus-within{border-color:var(--ink);outline:2.5px solid var(--accent);outline-offset:2px}
+.cc-money span{font:600 1.3rem/1 var(--f-display);color:var(--faint)}
+.cc-money input{flex:1;min-width:0;border:0;background:transparent;padding:12px 14px 12px 6px;font:700 1.45rem/1.1 var(--f-display);color:var(--heading)}
+.cc-money input:focus{outline:none}
+.calc input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:36px;margin:0;background:transparent;cursor:pointer}
+.calc input[type=range]::-webkit-slider-runnable-track{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--hi) var(--p,50%),var(--rule) var(--p,50%))}
+.calc input[type=range]::-moz-range-track{height:6px;border-radius:99px;background:linear-gradient(90deg,var(--hi) var(--p,50%),var(--rule) var(--p,50%))}
+.calc input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;margin-top:-8px;border-radius:50%;background:var(--sheet);border:3px solid var(--ink);box-shadow:0 2px 8px rgba(10,30,70,.25);transition:transform .15s var(--e-out)}
+.calc input[type=range]::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--sheet);border:3px solid var(--ink);box-shadow:0 2px 8px rgba(10,30,70,.25)}
+.calc input[type=range]:active::-webkit-slider-thumb{transform:scale(1.15)}
+.calc input[type=range]:focus{outline:none}
+.calc input[type=range]:focus-visible::-webkit-slider-thumb{outline:2.5px solid var(--accent);outline-offset:2px}
+.calc input[type=range]:focus-visible::-moz-range-thumb{outline:2.5px solid var(--accent);outline-offset:2px}
+.cc-select{width:100%;min-width:0;min-height:50px;padding:0 34px 0 12px;border:1px solid var(--rule-strong);border-radius:var(--r-ctl);-webkit-appearance:none;appearance:none;font-weight:600;font-size:.95rem;color:var(--heading);text-overflow:ellipsis;cursor:pointer;
+  background:var(--sheet) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238592AC' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") right 12px center/14px no-repeat}
+.cc-select:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px}
+.cc-seg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--rule-strong);border-radius:var(--r-ctl);overflow:hidden;background:var(--sheet)}
+.cc-seg.two{grid-template-columns:1fr 1fr}
+.cc-seg label{position:relative;cursor:pointer;min-width:0}
+.cc-seg label+label{border-left:1px solid var(--rule)}
+.cc-seg input{position:absolute;opacity:0;width:1px;height:1px}
+.cc-seg span{display:flex;align-items:center;justify-content:center;min-height:46px;height:100%;padding:6px 8px;text-align:center;font-weight:600;font-size:.86rem;line-height:1.2;color:var(--muted);transition:background .2s,color .2s}
+.cc-seg input:checked+span{background:var(--btn);color:var(--btn-fg)}
+.cc-seg input:focus-visible+span{outline:2.5px solid var(--accent);outline-offset:-3px}
+/* results */
+.cc-big{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.cc-big>div,.lt-parts>div{display:flex;flex-direction:column;gap:6px;min-width:0;padding:16px 18px;border-radius:14px;background:var(--sheet);border:1px solid var(--rule)}
+.cc-big span,.lt-parts span,.lt-head>span{font-family:var(--f-type);font-weight:700;font-size:.76rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.cc-big b{font:700 clamp(1.7rem,3vw,2.5rem)/1.05 var(--f-display);letter-spacing:-.02em;color:var(--heading);white-space:nowrap}
+.cc-big small,.lt-parts small{font-size:.82rem;line-height:1.35;color:var(--muted)}
+.cc-big .k-take b{color:var(--ok)}
+.cc-big .k-cost{border-color:var(--ink);box-shadow:inset 3px 0 0 var(--ink)}
+.cc-viz{--g:80%}
+.cc-bar{display:flex;gap:2px;height:18px;border-radius:99px;overflow:hidden;background:var(--rule)}
+.cc-bar i{display:block;flex:0 0 auto;height:100%;min-width:2px;background:var(--c);transition:width .5s var(--e-out)}
+.cc-bar-w{position:relative}
+.cc-bar-w::after{content:"";position:absolute;top:-5px;bottom:-5px;left:var(--g);width:2px;margin-left:-1px;border-radius:2px;background:var(--heading);transition:left .5s var(--e-out)}
+.cc-axis{display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-family:var(--f-type);font-weight:700;font-size:.76rem;letter-spacing:.04em;color:var(--muted)}
+.cc-axis span+span{text-align:right;color:var(--pin)}
+.cc-lines{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 28px}
+.cc-lines h4{font-family:var(--f-type);font-weight:700;font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-bottom:6px;border-bottom:1px solid var(--rule-strong)}
+.cc-lines ul{list-style:none}
+.cc-row{display:grid;grid-template-columns:10px minmax(0,1fr) auto;gap:2px 10px;align-items:baseline;padding:9px 0;border-bottom:1px solid var(--rule)}
+.cc-row::before{content:"";width:10px;height:10px;border-radius:3px;background:var(--c);transform:translateY(1px)}
+.cc-row b{font-weight:600;font-size:.92rem;color:var(--heading)}
+.cc-row em{font-style:normal;font-family:var(--f-display);font-weight:700;font-size:.98rem;color:var(--heading);text-align:right;white-space:nowrap}
+.cc-row small{grid-column:2/span 2;font-size:.78rem;line-height:1.35;color:var(--muted)}
+.cc-row.off::before{background:transparent;box-shadow:inset 0 0 0 1.5px var(--rule-strong)}
+.cc-row.off b,.cc-row.off em{color:var(--faint);font-weight:500}
+.cc-rule{display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;padding:16px 18px;border-radius:14px;--c:var(--warn);border:1px solid color-mix(in oklab,var(--c) 45%,transparent);background:color-mix(in oklab,var(--c) 8%,var(--sheet))}
+.cc-rule.ok{--c:var(--ok)}
+.cc-rule-ic{grid-row:1/span 3;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--c);color:#fff}
+.cc-rule-ic svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.cc-rule h4{font-family:var(--f-display);font-weight:600;font-size:1.05rem;line-height:1.3;color:var(--heading)}
+.cc-rule p{font-size:.9rem;line-height:1.5;color:var(--text)}
+.cc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.cc-chips span{display:inline-block;max-width:100%;padding:6px 11px;border-radius:999px;background:var(--sheet);border:1px solid var(--rule);font-size:.84rem;color:var(--muted)}
+.cc-chips b{font-family:var(--f-display);font-weight:700;color:var(--heading);white-space:nowrap;margin-left:4px}
+.cc-team{font-size:.95rem;color:var(--text)}
+.cc-team b{font-family:var(--f-display);color:var(--heading)}
+.cc-fine{font-size:.78rem;color:var(--faint);max-width:none}
+/* paying late */
+.lt-head{display:flex;flex-direction:column;gap:6px}
+.lt-head b{font:700 clamp(2.4rem,5vw,3.6rem)/1 var(--f-display);letter-spacing:-.03em;color:var(--pin)}
+.lt-head small{font-size:.92rem;color:var(--muted)}
+.lt-track{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px 4px;padding-top:34px}
+.lt-track i{height:10px;border-radius:99px;background:color-mix(in oklab,var(--pin) calc(var(--k) * 1%),var(--rule))}
+.lt-track small{font-size:.76rem;line-height:1.3;color:var(--muted);padding-top:6px}
+.lt-track small b{display:block;font-family:var(--f-display);font-size:.95rem;color:var(--heading)}
+.lt-track small.on b{color:var(--pin)}
+.lt-you{position:absolute;top:0;left:0;transform:translateX(-50%);font-family:var(--f-type);font-weight:700;font-size:.74rem;color:var(--paper);background:var(--heading);border-radius:6px;padding:3px 8px;white-space:nowrap;transition:left .35s var(--e-out)}
+.lt-you::after{content:"";position:absolute;left:50%;bottom:-5px;transform:translateX(-50%);border:5px solid transparent;border-bottom:0;border-top-color:var(--heading)}
+.lt-parts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.lt-parts b{font:700 clamp(1.3rem,2.2vw,1.7rem)/1.05 var(--f-display);color:var(--heading);white-space:nowrap}
+.lt-note{padding:14px 16px;border-radius:12px;border-left:3px solid var(--pin);background:color-mix(in oklab,var(--pin) 7%,var(--sheet));font-size:.9rem;line-height:1.5;color:var(--text)}
+@media (min-width:1061px) and (min-height:701px){.calc-form{position:sticky;top:96px}}
+@media (max-width:1060px){.calc-pane{grid-template-columns:minmax(0,1fr)}}
+@media (max-width:760px){.cc-lines{grid-template-columns:1fr;gap:18px}.lt-parts{grid-template-columns:1fr 1fr}.lt-parts>div:last-child{grid-column:1/-1}}
+@media (max-width:640px){
+  .calc-tabs{gap:8px}
+  .calc-tab{grid-template-columns:1fr;padding:14px}
+  .calc-ic{grid-row:auto;width:36px;height:36px;margin-bottom:6px}
+  .calc-ic svg{width:19px;height:19px}
+  .calc-tab b{font-size:1rem}
+  .calc-tab>span:last-child{grid-column:1;font-size:.8rem}
+  .cc-big{grid-template-columns:1fr}
+  .cc-big b{font-size:2rem}
+}
+@media (max-width:420px){.lt-parts{grid-template-columns:1fr}.lt-parts>div:last-child{grid-column:auto}.lt-track small{font-size:.7rem}}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media (max-width:1060px){
@@ -1156,8 +1267,8 @@ section>.wrap{position:relative;z-index:1}
 @keyframes nudge{0%,100%{transform:none}50%{transform:translateX(5px)}}
 @media (max-width:760px),(hover:none){
   /* live blur is costly on phones; keep the glass look with a denser fill */
-  .hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
-  .hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel{background:var(--glass-solid)}
+  .hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel,.calc-card,.holds,.register div,.form,.btn.line{-webkit-backdrop-filter:none;backdrop-filter:none}
+  .hz,.prob-close,.svc-panel,.step,.cal-foot,.reason,.quote,.faq,.cd-hero,.cd-next,.ac-form,.ac-panel,.calc-card{background:var(--glass-solid)}
 }
 @media (max-width:640px){
   .section{padding-block:56px}
@@ -1276,6 +1387,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
     <a href="#compliance">Compliance</a>
     <a href="#process">How it works</a>
     <a href="#calendar">Calendar</a>
+    <a href="#numbers">Calculators</a>
     <a href="#news">News</a>
     <a href="#why">About</a>
     <a href="#faq">FAQ</a>
@@ -1302,6 +1414,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
   <a href="#compliance">Compliance</a>
   <a href="#process">How it works</a>
   <a href="#calendar">Compliance calendar</a>
+  <a href="#numbers">Calculators</a>
   <a href="#news">Compliance news</a>
   <a href="#why">About</a>
   <a href="#faq">FAQ</a>
@@ -1731,6 +1844,98 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
   </div>
 </section>
 
+<!-- CALCULATORS -->
+<section class="section" id="numbers">
+  <div class="wrap">
+    <div class="sh split" data-r>
+      <div><span class="eyebrow">Calculators</span><h2 class="h2">Run the numbers before an inspector does.</h2></div>
+      <p class="lede">What one employee really costs under the Labour Codes, and what a late PF or ESIC payment adds up to. Change any figure and the maths updates as you type.</p>
+    </div>
+    <div class="calc" data-r>
+      <div class="calc-tabs" role="tablist" aria-label="Calculators">
+        <button type="button" class="calc-tab" role="tab" id="clTabCost" aria-controls="clCost" aria-selected="true"><span class="calc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M17 4v7M14.5 6.2c0-1 1.1-1.7 2.5-1.7s2.5.7 2.5 1.7c0 2.3-5 1.3-5 3.6 0 1 1.1 1.7 2.5 1.7s2.5-.7 2.5-1.7"/></svg></span><b>Cost of a hire</b><span>Take-home, your real cost and the 50% wage rule</span></button>
+        <button type="button" class="calc-tab" role="tab" id="clTabLate" aria-controls="clLate" aria-selected="false" tabindex="-1"><span class="calc-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2.5M9 2h6"/></svg></span><b>Cost of paying late</b><span>Interest and damages on PF and ESIC</span></button>
+      </div>
+
+      <div class="calc-pane" id="clCost" role="tabpanel" aria-labelledby="clTabCost">
+        <form class="calc-form calc-card" id="ccForm" novalidate>
+          <div class="cc-field">
+            <label class="cb-label" for="ccGross">Monthly gross salary</label>
+            <div class="cc-money"><span aria-hidden="true">₹</span><input id="ccGross" inputmode="numeric" autocomplete="off" value="30,000" /></div>
+            <input type="range" id="ccGrossR" min="10000" max="300000" step="500" value="30000" aria-label="Monthly gross salary" />
+          </div>
+          <div class="cc-field">
+            <div class="cc-lab"><label class="cb-label" for="ccBasic">Basic + DA</label><output id="ccBasicO" for="ccBasic">40%</output></div>
+            <input type="range" id="ccBasic" min="20" max="100" step="5" value="40" />
+            <p class="cb-hint">The share of gross paid as Basic and Dearness Allowance. The rest is HRA and other allowances.</p>
+          </div>
+          <div class="ac-pair">
+            <div class="ac-field"><label class="cb-label" for="ccState">State</label><select id="ccState" class="cc-select"><option value="">Any state</option></select></div>
+            <div class="ac-field"><label class="cb-label" for="ccN">Employees</label>
+              <div class="ac-num"><button type="button" data-step="-1" data-for="ccN" aria-label="Fewer employees">−</button><input id="ccN" type="number" inputmode="numeric" min="1" max="100000" value="25" /><button type="button" data-step="1" data-for="ccN" aria-label="More employees">+</button></div></div>
+          </div>
+          <fieldset class="cb-row"><legend class="cb-label">PF worked out on</legend>
+            <div class="cc-seg"><label><input type="radio" name="ccPf" value="cap" checked /><span>₹25,000 cap</span></label><label><input type="radio" name="ccPf" value="full" /><span>Full wages</span></label><label><input type="radio" name="ccPf" value="none" /><span>No PF</span></label></div>
+          </fieldset>
+        </form>
+        <div class="calc-out calc-card" aria-live="polite">
+          <div class="cc-big">
+            <div class="k-take"><span>Employee takes home</span><b id="ccTake">₹0</b><small>a month, before income tax</small></div>
+            <div class="k-cost"><span>It costs you</span><b id="ccCost">₹0</b><small id="ccPer">a month</small></div>
+          </div>
+          <div class="cc-viz">
+            <div class="cc-bar-w"><div class="cc-bar" id="ccBar" aria-hidden="true"></div></div>
+            <div class="cc-axis" aria-hidden="true"><span id="ccGrossL">Gross salary</span><span id="ccOnTop">+ on top</span></div>
+          </div>
+          <div class="cc-lines" id="ccLines"></div>
+          <div class="cc-rule" id="ccRule"></div>
+          <p class="cc-team" id="ccTeam"></p>
+          <div class="ac-cta"><a class="btn" id="ccWa" href="https://wa.me/919995094978" target="_blank" rel="noopener">Send these numbers to Abhiraj <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#contact">Review my salary structure</a></div>
+          <p class="cb-hint cc-fine">An estimate, not legal advice. Wages follow the Code on Wages: Basic + DA, plus any allowances above half of pay. EPF 12% + 12% (admin and EDLI about 1% more), mandatory up to ₹25,000; ESIC 0.75% + 3.25% up to ₹21,000; gratuity provision 15 days' wages a year; minimum bonus 8.33% on ₹7,000 (or your state's minimum wage, if higher). February PT can be higher, and LWF is extra where it applies.</p>
+        </div>
+      </div>
+
+      <div class="calc-pane" id="clLate" role="tabpanel" aria-labelledby="clTabLate" hidden>
+        <form class="calc-form calc-card" id="ltForm" novalidate>
+          <fieldset class="cb-row"><legend class="cb-label">Which payment</legend>
+            <div class="cc-seg two"><label><input type="radio" name="ltS" value="EPF" checked /><span>EPF</span></label><label><input type="radio" name="ltS" value="ESIC" /><span>ESIC</span></label></div>
+          </fieldset>
+          <div class="cc-field">
+            <label class="cb-label" for="ltAmt">Amount due for the month <span>(employer + employee)</span></label>
+            <div class="cc-money"><span aria-hidden="true">₹</span><input id="ltAmt" inputmode="numeric" autocomplete="off" value="1,50,000" /></div>
+            <input type="range" id="ltAmtR" min="10000" max="2000000" step="10000" value="150000" aria-label="Amount due" />
+          </div>
+          <div class="cc-field">
+            <div class="cc-lab"><label class="cb-label" for="ltDays">Paid late by</label><output id="ltDaysO" for="ltDays">75 days</output></div>
+            <input type="range" id="ltDays" min="1" max="730" step="1" value="75" />
+            <p class="cb-hint" id="ltWhen">Due on the 15th.</p>
+          </div>
+        </form>
+        <div class="calc-out calc-card" aria-live="polite">
+          <div class="lt-head">
+            <span>You'd pay on top</span>
+            <b id="ltTotal">₹0</b>
+            <small id="ltSub">on top of the amount due</small>
+          </div>
+          <div class="lt-track" aria-hidden="true">
+            <span class="lt-you" id="ltYou">75 days</span>
+            <i style="--k:20"></i><i style="--k:42"></i><i style="--k:64"></i><i style="--k:92"></i>
+            <small>To 2 months<b>5%</b></small><small>2–4 months<b>10%</b></small><small>4–6 months<b>15%</b></small><small>Over 6 months<b>25%</b></small>
+          </div>
+          <div class="lt-parts">
+            <div><span>Interest</span><b id="ltInt">₹0</b><small>12% a year, every day it's late</small></div>
+            <div><span>Damages</span><b id="ltDam">₹0</b><small id="ltDamN">5% a year at this delay</small></div>
+            <div><span>Per day of delay</span><b id="ltDay">₹0</b><small id="ltRate">17% a year in effect</small></div>
+          </div>
+          <p class="lt-note" id="ltNote"></p>
+          <div class="ac-cta"><a class="btn" href="#contact">Never pay late again <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#calendar">See the due dates</a></div>
+          <p class="cb-hint cc-fine">An estimate, not legal advice. Interest at 12% a year and damages at the long-standing EPFO and ESIC rates (5%, 10%, 15% and 25% a year as the delay grows). The authorities can levy damages up to the full amount in arrears, and may waive part of them in some cases.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- NEWS -->
 <section class="section" id="news">
   <div class="wrap">
@@ -1929,7 +2134,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
 <footer>
   <div class="foot">
     <div><div class="foot-logo" role="img" aria-label="HR Terrain — Navigator of HR Landscape"></div><p>HR operations, payroll and statutory compliance for growing businesses.</p><div class="social"><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a class="ig" href="https://www.instagram.com/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a></div></div>
-    <div><h4>Explore</h4><ul><li><a href="#services">Services</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#process">How it works</a></li><li><a href="#calendar">Compliance calendar</a></li><li><a href="#news">Compliance news</a></li><li><a href="#why">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div><h4>Explore</h4><ul><li><a href="#services">Services</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#process">How it works</a></li><li><a href="#calendar">Compliance calendar</a></li><li><a href="#numbers">Calculators</a></li><li><a href="#news">Compliance news</a></li><li><a href="#why">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
     <div><h4>Contact</h4><ul><li><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></li><li><a href="https://wa.me/919995094978" target="_blank" rel="noopener">WhatsApp +91 99950 94978</a></li><li><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/hrterrain/" target="_blank" rel="noopener">Instagram</a></li><li><a href="#contact">Enquiry form</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="legal.html#privacy">Privacy policy</a></li><li><a href="legal.html#terms">Terms of use</a></li><li><a href="legal.html#disclaimer">Disclaimer</a></li></ul></div>
   </div>
@@ -2134,7 +2339,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
 
   /* glass spotlight */
   if (!RM && matchMedia("(hover:hover) and (pointer:fine)").matches){
-    $$(".hz,.prob-close,.svc-panel,.step,.cd-next,.ac-form,.ac-panel,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
+    $$(".hz,.prob-close,.svc-panel,.step,.cd-next,.ac-form,.ac-panel,.calc-card,.cal-foot,.reason,.quote,.faq,.register div,.holds,.form").forEach(function(el){ el.classList.add("spot"); });
     document.addEventListener("pointermove", function(e){
       var el = e.target.closest && e.target.closest(".spot"); if (!el) return;
       var r = el.getBoundingClientRect();
@@ -2838,6 +3043,194 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
       .then(function(){ submit.disabled = false; submit.innerHTML = label; });
   });
 
+  /* ---------- calculators: cost of a hire, cost of paying late ---------- */
+  (function(){
+    var root = $("#numbers"); if (!root) return;
+    var inr = function(n){ return "₹" + Math.round(n).toLocaleString("en-IN"); };
+    var big = function(n){ n = Math.round(n); return n >= 1e7 ? "₹" + (n / 1e7).toFixed(2).replace(/\.?0+$/, "") + " crore" : n >= 1e5 ? "₹" + (n / 1e5).toFixed(2).replace(/\.?0+$/, "") + " lakh" : inr(n); };
+    var num = function(s){ return +String(s).replace(/[^\d]/g, "") || 0; };
+
+    // tabs
+    var tabs = $$(".calc-tab", root);
+    function pick(t, focus){
+      tabs.forEach(function(b){ var on = b === t; b.setAttribute("aria-selected", on); b.tabIndex = on ? 0 : -1; $("#" + b.getAttribute("aria-controls")).hidden = !on; });
+      if (focus) t.focus();
+      $$('input[type="range"]', root).forEach(fill);
+    }
+    tabs.forEach(function(b, i){
+      b.addEventListener("click", function(){ pick(b); });
+      b.addEventListener("keydown", function(e){
+        var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+        if (d){ e.preventDefault(); pick(tabs[(i + d + tabs.length) % tabs.length], true); }
+      });
+    });
+
+    // figures glide to their new value
+    function tween(el, to, fmt){
+      var from = el._v == null ? to : el._v; el._v = to;
+      cancelAnimationFrame(el._raf);
+      if (RM || from === to){ el.textContent = fmt(to); return; }
+      var t0 = performance.now();
+      (function step(t){
+        var k = Math.min(1, (t - t0) / 450); k = 1 - Math.pow(1 - k, 3);
+        el.textContent = fmt(from + (to - from) * k);
+        if (k < 1) el._raf = requestAnimationFrame(step);
+      })(t0);
+    }
+    function fill(r){ r.style.setProperty("--p", ((r.value - r.min) / (r.max - r.min) * 100) + "%"); }
+    // a typed amount and its slider stay in step
+    function money(input, range, max, done){
+      input.addEventListener("input", function(){
+        var v = Math.min(num(input.value), max);
+        range.value = v; fill(range); done();
+      });
+      input.addEventListener("blur", function(){ input.value = Math.min(num(input.value), max).toLocaleString("en-IN"); });
+      range.addEventListener("input", function(){ input.value = (+range.value).toLocaleString("en-IN"); fill(range); done(); });
+      fill(range);
+    }
+
+    /* ----- cost of a hire ----- */
+    var C = { form:$("#ccForm"), gross:$("#ccGross"), grossR:$("#ccGrossR"), basic:$("#ccBasic"), basicO:$("#ccBasicO"), state:$("#ccState"), n:$("#ccN") };
+    var STATES = (window.HRTCalendarDoc && window.HRTCalendarDoc.STATES) || [];
+    STATES.forEach(function(s){ var o = document.createElement("option"); o.value = s.code; o.textContent = s.name; C.state.appendChild(o); });
+    // monthly Professional Tax slabs we can state with confidence; [up to this salary, tax]
+    var SLABS = {
+      MH:[[7500,0],[10000,175],[Infinity,200]], KA:[[24999,0],[Infinity,200]], GJ:[[11999,0],[Infinity,200]],
+      TG:[[15000,0],[20000,150],[Infinity,200]], AP:[[15000,0],[20000,150],[Infinity,200]],
+      WB:[[10000,0],[15000,110],[25000,130],[40000,150],[Infinity,200]]
+    };
+    function pt(code, g){
+      var s = STATES.filter(function(x){ return x.code === code; })[0];
+      if (!s) return { v:200, note:"Up to ₹200 a month. Pick a state for its slab." };
+      if (s.pt === null) return { v:0, note:"No Professional Tax in " + s.name + "." };
+      var sl = SLABS[code];
+      if (!sl) return { v:200, note:"Up to ₹200 a month; " + s.name + " sets its own slabs." };
+      var v = sl.filter(function(r){ return g <= r[0]; })[0][1];
+      return { v:v, note: v ? s.name + " slab" + (code === "MH" || code === "KA" ? "; ₹300 in February." : ".") : "Below the " + s.name + " threshold." };
+    }
+    // one employee, one month
+    function hire(G, pct, st, pf, rule){
+      var B = G * pct / 100, W = rule ? Math.max(B, G / 2) : B;
+      var base = pf === "none" ? 0 : pf === "cap" ? Math.min(W, 25000) : W, esi = W <= 21000, p = pt(st, G);
+      var r = { B:B, W:W, base:base, esi:esi, p:p,
+        ePf:.12 * base, eEsi: esi ? .0075 * W : 0, pt:p.v,
+        rPf:.12 * base, rAdm:.005 * base + .005 * Math.min(base, 25000), rEsi: esi ? .0325 * W : 0,
+        grat: W * 15 / 26 / 12, bonus: W <= 21000 ? .0833 * Math.min(W, 7000) : 0 };
+      r.take = G - r.ePf - r.eEsi - r.pt;
+      r.cost = G + r.rPf + r.rAdm + r.rEsi + r.grat + r.bonus;
+      return r;
+    }
+    var COL = { take:"var(--ok)", ePf:"var(--hi)", eEsi:"color-mix(in oklab,var(--hi) 55%,var(--sheet))", pt:"var(--faint)",
+                rPf:"var(--pin)", rAdm:"color-mix(in oklab,var(--pin) 55%,var(--sheet))", rEsi:"var(--warn)", grat:"color-mix(in oklab,var(--warn) 50%,var(--sheet))", bonus:"var(--ink)" };
+    function row(k, name, v, note){ return '<li class="cc-row' + (v ? "" : " off") + '" style="--c:' + COL[k] + '"><b>' + name + '</b><em>' + (v ? inr(v) : "—") + '</em><small>' + note + '</small></li>'; }
+    var ICON_WARN = '<svg viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.5"/></svg>', ICON_OK = '<svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg>';
+
+    function cost(){
+      var G = Math.min(num(C.gross.value), 5000000), pct = +C.basic.value, st = C.state.value,
+          pf = ($('input[name="ccPf"]:checked', C.form) || {}).value || "cap",
+          n = Math.max(1, Math.min(100000, parseInt(C.n.value, 10) || 1));
+      C.basicO.textContent = pct + "% · " + inr(G * pct / 100); fill(C.basic);
+      var r = hire(G, pct, st, pf, true), old = hire(G, pct, st, pf, false);
+      tween($("#ccTake"), r.take, inr);
+      tween($("#ccCost"), r.cost, inr);
+      $("#ccPer").textContent = G ? inr(r.cost / G * 100) + " for every ₹100 of salary" : "a month";
+
+      // the bar: what the employee gets, what comes out of the salary, what you add on top
+      var parts = [["take", r.take], ["ePf", r.ePf], ["eEsi", r.eEsi], ["pt", r.pt], ["rPf", r.rPf], ["rAdm", r.rAdm], ["rEsi", r.rEsi], ["grat", r.grat], ["bonus", r.bonus]];
+      var bar = $("#ccBar");
+      if (!bar.children.length) bar.innerHTML = parts.map(function(p){ return '<i data-k="' + p[0] + '" style="--c:' + COL[p[0]] + '"></i>'; }).join("");
+      parts.forEach(function(p){ var i = $('[data-k="' + p[0] + '"]', bar); i.style.width = r.cost ? Math.max(0, p[1] / r.cost * 100) + "%" : "0"; i.style.display = p[1] > 0 ? "" : "none"; });
+      $(".cc-viz", root).style.setProperty("--g", (r.cost ? G / r.cost * 100 : 100) + "%");
+      $("#ccOnTop").textContent = "+ " + inr(r.cost - G) + " on top";
+      $("#ccGrossL").textContent = "Gross salary " + inr(G);
+
+      var wNote = r.W > r.B + 1 ? " on wages of " + inr(r.W) : "";
+      var pfNote = pf === "none" ? "Not a PF member (allowed only above ₹25,000 wages)." :
+                   "12% of " + inr(r.base) + (pf === "cap" && r.W > 25000 ? ", the ₹25,000 ceiling" : "") + ".";
+      var esiNote = r.esi ? "On wages of " + inr(r.W) + "." : "Not covered: wages above ₹21,000.";
+      $("#ccLines").innerHTML =
+        '<div><h4>Comes out of the salary</h4><ul>' +
+          row("ePf", "Employee PF", r.ePf, pf === "none" ? "Not deducted." : pfNote) +
+          row("eEsi", "Employee ESIC · 0.75%", r.eEsi, esiNote) +
+          row("pt", "Professional Tax", r.pt, r.p.note) +
+        '</ul></div><div><h4>You add on top</h4><ul>' +
+          row("rPf", "Employer PF · 12%", r.rPf, pf === "none" ? "Nothing to pay." : "Split between EPF and the pension scheme.") +
+          row("rAdm", "PF admin & EDLI", r.rAdm, "About 1% more, paid with the ECR.") +
+          row("rEsi", "Employer ESIC · 3.25%", r.rEsi, r.esi ? "Medical and cash benefits for the employee." : "Not covered above ₹21,000.") +
+          row("grat", "Gratuity provision", r.grat, "15 days' wages a year" + wNote + ".") +
+          row("bonus", "Statutory bonus · min 8.33%", r.bonus, r.W <= 21000 ? "Covered at 20+ employees, wages up to ₹21,000." : "Not covered: wages above ₹21,000.") +
+        '</ul></div>';
+
+      // the 50% wage rule under the Code on Wages
+      var rule = $("#ccRule");
+      if (r.W > r.B + 1){
+        var dc = r.cost - old.cost, dt = old.take - r.take;
+        rule.className = "cc-rule";
+        rule.innerHTML = '<span class="cc-rule-ic" aria-hidden="true">' + ICON_WARN + '</span>' +
+          '<h4>The 50% wage rule adds ' + inr(dc) + ' a month to this hire</h4>' +
+          '<p>Basic and DA are ' + pct + '% of pay. Under the Code on Wages, allowances above half of pay count as wages, so PF, ESIC and gratuity are worked out on <b>' + inr(r.W) + '</b>, not ' + inr(r.B) + '. The figures above already include this.</p>' +
+          '<div class="cc-chips"><span>Your cost <b>+' + inr(dc) + '</b></span><span>Take-home <b>−' + inr(dt) + '</b></span>' + (n > 1 ? '<span>Across ' + n.toLocaleString("en-IN") + ' people <b>+' + big(dc * n * 12) + '</b> a year</span>' : "") + '</div>';
+      } else {
+        rule.className = "cc-rule ok";
+        rule.innerHTML = '<span class="cc-rule-ic" aria-hidden="true">' + ICON_OK + '</span>' +
+          '<h4>This structure clears the 50% wage rule</h4>' +
+          '<p>Basic and DA are at least half of pay, so no allowances are added back to wages.</p>';
+      }
+      $("#ccTeam").innerHTML = n > 1 ? "For " + n.toLocaleString("en-IN") + " people on this salary: <b>" + big(r.cost * n) + "</b> a month, <b>" + big(r.cost * n * 12) + "</b> a year." : "";
+      var sName = st ? C.state.options[C.state.selectedIndex].text : "";
+      $("#ccWa").setAttribute("data-wa-ctx", "I tried the cost-of-hire calculator on your website: " + inr(G) + " gross a month, Basic & DA " + pct + "%" + (sName ? ", " + sName : "") + ", " + n + " employee" + (n > 1 ? "s" : "") + ".");
+    }
+    money(C.gross, C.grossR, 5000000, cost);
+    C.basic.addEventListener("input", cost);
+    C.form.addEventListener("change", cost);
+    C.n.addEventListener("input", cost);
+    $$(".ac-num button", C.form).forEach(function(b){
+      b.addEventListener("click", function(){
+        var inp = $("#" + b.getAttribute("data-for"));
+        inp.value = Math.min(+inp.max, Math.max(+inp.min, (parseInt(inp.value, 10) || 0) + parseInt(b.getAttribute("data-step"), 10)));
+        cost();
+      });
+    });
+    C.form.addEventListener("submit", function(e){ e.preventDefault(); });
+    cost();
+
+    /* ----- cost of paying late ----- */
+    var L = { form:$("#ltForm"), amt:$("#ltAmt"), amtR:$("#ltAmtR"), days:$("#ltDays") };
+    var MO = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+    var dstr = function(d){ return d.getDate() + " " + MO[d.getMonth()] + " " + d.getFullYear(); };
+    // damages bands, in days late: up to 2 months 5%, 2–4 months 10%, 4–6 months 15%, beyond 25% (a year)
+    var BANDS = [[0, 60, 5], [60, 120, 10], [120, 180, 15], [180, 730, 25]];
+    function late(){
+      var amt = Math.min(num(L.amt.value), 100000000), d = +L.days.value, s = ($('input[name="ltS"]:checked', L.form) || {}).value || "EPF";
+      var bi = d <= 60 ? 0 : d <= 120 ? 1 : d <= 180 ? 2 : 3, rate = BANDS[bi][2];
+      var interest = amt * .12 * d / 365, damages = amt * rate / 100 * d / 365, total = interest + damages;
+      fill(L.days);
+      var mo = d >= 60 ? " · " + (d / 30.4).toFixed(1).replace(/\.0$/, "") + " months" : "";
+      $("#ltDaysO").textContent = d + (d === 1 ? " day" : " days") + mo;
+      var now = new Date(), due = new Date(now.getFullYear(), now.getMonth(), 15), paid = new Date(due.getTime() + d * 864e5);
+      $("#ltWhen").textContent = "Due " + dstr(due) + ", paid " + dstr(paid) + ".";
+      tween($("#ltTotal"), total, inr);
+      $("#ltSub").textContent = "on top of the " + inr(amt) + " " + s + " you owe";
+      tween($("#ltInt"), interest, inr);
+      tween($("#ltDam"), damages, inr);
+      tween($("#ltDay"), total / d, inr);
+      $("#ltDamN").textContent = rate + "% a year at this delay";
+      $("#ltRate").textContent = (12 + rate) + "% a year in effect";
+      // marker: each band takes a quarter of the track
+      var b = BANDS[bi], pos = (bi + Math.min(1, (d - b[0]) / (b[1] - b[0]))) * 25;
+      var you = $("#ltYou"); you.textContent = d + (d === 1 ? " day" : " days"); you.style.left = "clamp(34px," + pos + "%,calc(100% - 34px))";
+      $$(".lt-track small", root).forEach(function(el, i){ el.classList.toggle("on", i === bi); });
+      $("#ltNote").innerHTML = bi < 3
+        ? "Wait " + (b[1] - d + 1) + " more day" + (b[1] - d ? "s" : "") + " and damages jump to <b>" + BANDS[bi + 1][2] + "% a year</b>, on the whole delay." + (s === "EPF" ? " Deducting the employee's share and not depositing it can also lead to prosecution." : " Repeated delays also invite inspections and recovery action.")
+        : "Past six months, damages run at <b>25% a year</b>, and recovery officers can attach your bank account. Deducting the employee's share and not depositing it can lead to prosecution.";
+    }
+    money(L.amt, L.amtR, 100000000, late);
+    L.days.addEventListener("input", late);
+    L.form.addEventListener("change", late);
+    L.form.addEventListener("submit", function(e){ e.preventDefault(); });
+    late();
+  })();
+
   /* ---------- WhatsApp: a short form writes the first message ---------- */
   (function(){
     var NUM = "919995094978", box = $("#wq"), form = $("#wqForm"), prev = $("#wqPrev"), skip = $("#wqSkip"), opener = null, context = "";
@@ -2865,6 +3258,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
     function open(from){
       opener = from; context = "";
       if (from && from.closest && from.closest(".ac")) context = "I used the applicability checker on your website.";
+      if (from && from.getAttribute && from.getAttribute("data-wa-ctx")) context = from.getAttribute("data-wa-ctx");
       var d = load(); if (d.name && !val("name")) form.elements.name.value = d.name; if (d.company && !val("company")) form.elements.company.value = d.company;
       box.hidden = false; document.body.classList.add("wq-on"); draw();
       skip.href = url("Hello Abhiraj, I found HR Terrain on your website and would like to talk.");
