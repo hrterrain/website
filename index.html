@@ -1197,6 +1197,58 @@ section>.wrap{position:relative;z-index:1}
 /* short laptop screens: a sticky panel taller than the window would hide its own bottom edge */
 @media (max-height:700px){.svc-panels,.faq-grid .sh,.ac-form{position:static}}
 
+/* ============================================================
+   WHATSAPP QUICK START — a few taps write the first message
+   ============================================================ */
+.wq{position:fixed;inset:0;z-index:150;display:flex;align-items:flex-end;justify-content:flex-end;padding:18px;background:rgba(5,15,32,.28)}
+.wq[hidden]{display:none}
+.wq-card{width:min(420px,100%);max-height:calc(100dvh - 36px);display:flex;flex-direction:column;background:var(--paper);border:1px solid var(--rule-strong);border-radius:20px;
+  box-shadow:0 30px 70px -24px rgba(10,30,70,.55);overflow:hidden;animation:wqIn .32s var(--e-out)}
+@keyframes wqIn{from{opacity:0;transform:translateY(14px) scale(.98)}}
+.wq-head{display:flex;align-items:center;gap:12px;padding:14px 14px 14px 18px;background:#075E54;color:#fff}
+.wq-ic{flex:none;width:38px;height:38px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center}
+.wq-ic svg{width:21px;height:21px;color:#fff}
+.wq-head div{flex:1;min-width:0}
+.wq-head h2{font-family:var(--f-display);font-size:1.08rem;font-weight:700;color:#fff;line-height:1.2}
+.wq-head p{font-size:.78rem;opacity:.82}
+.wq-x{flex:none;width:40px;height:40px;border:0;border-radius:50%;background:rgba(255,255,255,.12);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.wq-x:hover{background:rgba(255,255,255,.22)}
+.wq-x svg{width:18px;height:18px}
+.wq-body{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:16px 18px 6px;display:flex;flex-direction:column;gap:14px}
+.wq-lede{font-size:.88rem;color:var(--muted)}
+.wq-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.wq-f{display:flex;flex-direction:column;gap:5px;min-width:0}
+.wq-f span,.wq-set legend,.wq-prev span{font-family:var(--f-type);font-weight:700;font-size:.7rem;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.wq-f i{font-style:normal;text-transform:none;letter-spacing:0;font-weight:400}
+.wq-f input{width:100%;min-height:44px;padding:10px 12px;border-radius:10px;border:1px solid var(--rule-strong);background:var(--sheet);color:var(--text);font:inherit;font-size:.95rem}
+.wq-f input:focus{outline:2px solid var(--accent);outline-offset:1px;border-color:transparent}
+.wq-set{border:0;min-width:0}
+.wq-set legend{margin-bottom:8px}
+.wq-chips{display:flex;flex-wrap:wrap;gap:8px}
+.wq-chips .chip span{min-height:38px;padding:6px 12px;font-size:.86rem}
+.wq-seg{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule-strong);border-radius:12px;overflow:hidden}
+.wq-seg label{position:relative;cursor:pointer}
+.wq-seg input{position:absolute;opacity:0;width:1px;height:1px}
+.wq-seg span{display:flex;align-items:center;justify-content:center;min-height:42px;font-size:.88rem;font-weight:600;color:var(--muted);background:var(--sheet);border-left:1px solid var(--rule)}
+.wq-seg label:first-child span{border-left:0}
+.wq-seg input:checked+span{background:var(--ink);color:var(--sheet)}
+.wq-seg input:focus-visible+span{outline:2.5px solid var(--accent);outline-offset:-3px}
+.wq-prev{border-radius:12px;background:#E7F8EE;border:1px solid #BFE8CF;padding:10px 12px}
+.wq-prev p{margin-top:6px;font-size:.88rem;line-height:1.5;color:#123524;white-space:pre-line}
+:root[data-theme="dark"] .wq-prev{background:rgba(37,211,102,.1);border-color:rgba(37,211,102,.28)}
+:root[data-theme="dark"] .wq-prev p{color:#CFF5DD}
+.wq-foot{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 18px 16px;border-top:1px solid var(--rule)}
+.btn.wq-go{width:100%;background:#25D366;border-color:#25D366;color:#063B22;box-shadow:none}
+.btn.wq-go:hover{background:#1EBE5A;border-color:#1EBE5A}
+.btn.wq-go svg{width:20px;height:20px}
+.wq-skip{font-size:.84rem;color:var(--muted);text-decoration:underline;text-underline-offset:3px;padding:6px}
+body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
+@media (max-width:640px){
+  .wq{padding:0;align-items:flex-end;justify-content:stretch;background:rgba(5,15,32,.4)}
+  .wq-card{width:100%;max-height:92dvh;border-radius:20px 20px 0 0;border-bottom:0;padding-bottom:env(safe-area-inset-bottom)}
+  .wq-row{grid-template-columns:1fr}
+}
+
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .metro-run{display:none}
@@ -1894,6 +1946,47 @@ section>.wrap{position:relative;z-index:1}
   <a class="mbar-wa" href="https://wa.me/919995094978?text=Hi%20HR%20Terrain%2C%20I%27d%20like%20to%20discuss%20HR%20and%20compliance%20support." target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43 2.52 0 4.89.98 6.67 2.77a9.37 9.37 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43m8.03-17.46A11.28 11.28 0 0 0 12.05.72C5.8.72.72 5.8.71 12.05c0 2 .52 3.95 1.52 5.66L.62 23.28l5.7-1.5a11.3 11.3 0 0 0 5.72 1.46h.01c6.25 0 11.33-5.08 11.34-11.33 0-3.03-1.18-5.87-3.32-8.01"/></svg></a>
 </div>
 </aside>
+
+<div class="wq" id="wq" role="dialog" aria-modal="true" aria-labelledby="wqH" hidden>
+  <form class="wq-card" id="wqForm" novalidate>
+    <div class="wq-head">
+      <span class="wq-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.43-9.43 2.52 0 4.89.98 6.67 2.77a9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43m8.02-17.45A11.27 11.27 0 0 0 12.05.75C5.8.75.72 5.83.72 12.08c0 2 .52 3.95 1.52 5.66L.62 23.25l5.65-1.48a11.3 11.3 0 0 0 5.78 1.47h.01c6.24 0 11.33-5.08 11.33-11.33 0-3.02-1.18-5.87-3.32-8"/></svg></span>
+      <div><h2 id="wqH">Chat with Abhiraj</h2><p>Mon–Sat, 9:00 AM–6:00 PM IST</p></div>
+      <button type="button" class="wq-x" id="wqClose" aria-label="Close"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+    <div class="wq-body">
+      <p class="wq-lede">Pick a few details and we'll write your first message. You can edit it in WhatsApp before sending.</p>
+      <div class="wq-row">
+        <label class="wq-f"><span>Your name</span><input name="name" autocomplete="name" placeholder="Name" /></label>
+        <label class="wq-f"><span>Company <i>(optional)</i></span><input name="company" autocomplete="organization" placeholder="Company" /></label>
+      </div>
+      <fieldset class="wq-set"><legend>What do you need help with?</legend>
+        <div class="wq-chips">
+          <label class="chip"><input type="checkbox" name="need" value="Payroll processing" /><span>Payroll</span></label>
+          <label class="chip"><input type="checkbox" name="need" value="EPF and ESIC" /><span>EPF &amp; ESIC</span></label>
+          <label class="chip"><input type="checkbox" name="need" value="Professional Tax and LWF" /><span>PT &amp; LWF</span></label>
+          <label class="chip"><input type="checkbox" name="need" value="Labour code compliance" /><span>Labour codes</span></label>
+          <label class="chip"><input type="checkbox" name="need" value="HR operations" /><span>HR operations</span></label>
+          <label class="chip"><input type="checkbox" name="need" value="a compliance audit or notice" /><span>Audit / notice</span></label>
+        </div>
+      </fieldset>
+      <fieldset class="wq-set"><legend>Team size</legend>
+        <div class="wq-seg">
+          <label><input type="radio" name="size" value="under 10" /><span>1–10</span></label>
+          <label><input type="radio" name="size" value="10–50" /><span>10–50</span></label>
+          <label><input type="radio" name="size" value="50–200" /><span>50–200</span></label>
+          <label><input type="radio" name="size" value="200+" /><span>200+</span></label>
+        </div>
+      </fieldset>
+      <label class="wq-f"><span>Where is your team? <i>(optional)</i></span><input name="where" placeholder="City or states, e.g. Pune, Bengaluru" /></label>
+      <div class="wq-prev" aria-live="polite"><span>Your message</span><p id="wqPrev"></p></div>
+    </div>
+    <div class="wq-foot">
+      <button type="submit" class="btn wq-go"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35M12.05 21.5h-.01a9.4 9.4 0 0 1-4.79-1.31l-.34-.2-3.56.93.95-3.47-.22-.36a9.4 9.4 0 0 1-1.44-5.01c0-5.2 4.23-9.43 9.43-9.43 2.52 0 4.89.98 6.67 2.77a9.36 9.36 0 0 1 2.76 6.67c0 5.2-4.23 9.43-9.44 9.43m8.02-17.45A11.27 11.27 0 0 0 12.05.75C5.8.75.72 5.83.72 12.08c0 2 .52 3.95 1.52 5.66L.62 23.25l5.65-1.48a11.3 11.3 0 0 0 5.78 1.47h.01c6.24 0 11.33-5.08 11.33-11.33 0-3.02-1.18-5.87-3.32-8"/></svg> Continue on WhatsApp</button>
+      <a class="wq-skip" id="wqSkip" href="https://wa.me/919995094978" target="_blank" rel="noopener">Skip, just say hello</a>
+    </div>
+  </form>
+</div>
 
 <script src="assets/calendar-doc.js?v=20261007"></script>
 <script>
@@ -2744,6 +2837,66 @@ section>.wrap{position:relative;z-index:1}
       })
       .then(function(){ submit.disabled = false; submit.innerHTML = label; });
   });
+
+  /* ---------- WhatsApp: a short form writes the first message ---------- */
+  (function(){
+    var NUM = "919995094978", box = $("#wq"), form = $("#wqForm"), prev = $("#wqPrev"), skip = $("#wqSkip"), opener = null, context = "";
+    if (!box) return;
+    var KEY = "hrt-wq";
+    function load(){ try { return JSON.parse(localStorage.getItem(KEY) || "{}"); } catch(e){ return {}; } }
+    function save(v){ try { localStorage.setItem(KEY, JSON.stringify(v)); } catch(e){} }
+    function val(n){ var el = form.elements[n]; return el ? (el.value || "").trim() : ""; }
+    function message(){
+      var name = val("name"), co = val("company"), where = val("where"),
+          needs = $$('input[name="need"]:checked', form).map(function(i){ return i.value; }),
+          size = ($('input[name="size"]:checked', form) || {}).value, lines = [];
+      lines.push("Hello Abhiraj," + (name ? " this is " + name + (co ? " from " + co : "") + "." : co ? " I'm writing from " + co + "." : ""));
+      lines.push(needs.length ? "I'd like help with " + andList(needs) + "." : "I'd like to discuss HR, payroll and compliance support.");
+      var facts = [];
+      if (size) facts.push("We have " + size + " employees");
+      if (where) facts.push((size ? "based in " : "We're based in ") + where);
+      if (facts.length) lines.push(facts.join(", ") + ".");
+      if (context) lines.push(context);
+      lines.push("Could we set up a short call?");
+      return lines.join("\n");
+    }
+    function draw(){ prev.textContent = message(); }
+    function url(text){ return "https://wa.me/" + NUM + "?text=" + encodeURIComponent(text); }
+    function open(from){
+      opener = from; context = "";
+      if (from && from.closest && from.closest(".ac")) context = "I used the applicability checker on your website.";
+      var d = load(); if (d.name && !val("name")) form.elements.name.value = d.name; if (d.company && !val("company")) form.elements.company.value = d.company;
+      box.hidden = false; document.body.classList.add("wq-on"); draw();
+      skip.href = url("Hello Abhiraj, I found HR Terrain on your website and would like to talk.");
+      var first = form.elements.name.value ? $('input[name="need"]', form) : form.elements.name;
+      setTimeout(function(){ if (matchMedia("(hover:hover)").matches) first.focus(); else $("#wqClose").focus(); }, 30);
+    }
+    function close(){ box.hidden = true; document.body.classList.remove("wq-on"); if (opener && opener.focus) opener.focus(); }
+    // every WhatsApp link on the page opens the form first; without JavaScript they still go straight to WhatsApp
+    document.addEventListener("click", function(e){
+      var a = e.target.closest && e.target.closest('a[href*="wa.me/' + NUM + '"]');
+      if (!a || a === skip || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      e.preventDefault(); open(a);
+    });
+    form.addEventListener("input", draw);
+    form.addEventListener("change", draw);
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      save({ name:val("name"), company:val("company") });
+      window.open(url(message()), "_blank", "noopener");
+      close();
+    });
+    skip.addEventListener("click", function(){ setTimeout(close, 0); });
+    $("#wqClose").addEventListener("click", close);
+    box.addEventListener("click", function(e){ if (e.target === box) close(); });
+    box.addEventListener("keydown", function(e){
+      if (e.key === "Escape"){ e.preventDefault(); close(); return; }
+      if (e.key !== "Tab") return;   // keep keyboard focus inside the panel
+      var f = $$("button, a[href], input", box).filter(function(x){ return x.offsetParent !== null; }), first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+    });
+  })();
 })();
 </script>
 </body>
