@@ -3,23 +3,22 @@
 // and returns JSON. Vercel's CDN caches the response for 6 hours, so the feeds are fetched
 // a few times a day at most. No API keys, no paid services.
 
-// Only news an employer's HR / payroll / compliance team would act on.
-// Each headline must match its topic (must), carry a compliance signal (also), and not hit DROP.
-const SIGNAL = /contribut|ceiling|wage|salar|employer|deadline|due date|extend|extension|circular|notif|amend|rule|rate|limit|threshold|penalt|damages|interest|return|filing|ECR|UAN|KYC|withdraw|claim|pension|registration|coverage|cover|comply|complian|court|order|scheme|amnesty|revis|hike|increase|implement|draft|mandatory|exempt/i;
+// Only news that changes what an employer must do: a new rule, rate, ceiling, deadline, notification or enforcement.
+// Each headline must match its topic (must), report a change (CHANGE), and not hit DROP.
+const CHANGE = /notif|amend|revis|hike|increas|raise|reduc|cut|extend|extension|deadline|due date|last date to file|ceiling|threshold|limit|new rule|rules? (?:notified|issued|framed|come|take)|circular|implement|w\.?e\.?f|effective|from (?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec|\d)|mandatory|compulsory|penalt|fine[sd]?\b|damages|crackdown|order[s]? employers|directs?|exempt|amnesty|scheme launched|portal|ECR|UAN|KYC|rate[s]? (?:revised|notified|hiked|cut)|slab/i;
 const TOPICS = [
-  { tag: "EPF", q: 'EPFO OR "provident fund" employer OR contribution OR ceiling OR circular', must: /\bEPFO?\b|provident fund/i, also: SIGNAL },
-  { tag: "ESI", q: 'ESIC contribution OR employer OR "wage ceiling" OR circular OR coverage', must: /\bESIC?\b|state insurance/i, also: SIGNAL },
-  { tag: "Labour codes", q: '"labour codes" rules OR notified OR employers OR implementation', must: /labou?r codes?/i, also: SIGNAL },
-  { tag: "Wages", q: '"minimum wages" notification OR revised OR "variable dearness allowance"', must: /minimum wage|dearness allowance|\bVDA\b/i, also: /notif|revis|hike|increase|court|order|implement|defer|stay|employer|rate/i },
-  { tag: "Payroll tax", q: '"TDS on salary" OR "salary TDS" OR "Form 16" OR "Form 130" OR "Form 24Q" OR "Form 138"', must: /\bTDS\b|form (16|130|24Q|138)/i, also: /salar|employer|employee|form (16|130|24Q|138)|payroll/i },
-  { tag: "Professional tax", q: '"professional tax" employers OR slab OR "due date" OR amendment OR notification', must: /professional tax|profession tax|\bPTRC\b/i, also: SIGNAL },
-  { tag: "State rules", q: '"labour welfare fund" OR "shops and establishments" OR "state labour code rules" employers', must: /welfare fund|shops and (commercial )?establishments?|labou?r code rules/i, also: SIGNAL },
-  { tag: "POSH", q: '"POSH Act" employer OR compliance OR "internal committee" OR "high court" OR "supreme court"', must: /\bPOSH\b|sexual harassment/i, also: /employer|compan|internal committee|\bIC\b|court|complian|penalt|order|guideline|mandatory|annual report/i },
-  { tag: "Apprentices", q: '"Apprentices Act" OR NATS apprenticeship OR NAPS apprenticeship OR "apprenticeship scheme" India', must: /apprentices act|\bNATS\b|\bNAPS\b|apprenticeship/i, also: /employer|establishment|rule|amend|mandatory|notif|quota|penalt|complian/i }
+  { tag: "EPF", q: 'EPFO employers OR circular OR "wage ceiling" OR notification OR deadline', must: /\bEPFO?\b|provident fund/i },
+  { tag: "ESI", q: 'ESIC employers OR circular OR "wage ceiling" OR coverage OR notification', must: /\bESIC?\b|state insurance/i },
+  { tag: "Labour codes", q: '"labour codes" rules notified OR implementation OR employers', must: /labou?r codes?|code on (?:wages|social security)|OSH code|industrial relations code/i },
+  { tag: "Wages", q: '"minimum wages" notification OR revised OR "variable dearness allowance"', must: /minimum wage|dearness allowance|\bVDA\b/i },
+  { tag: "Payroll tax", q: '"TDS on salary" OR "Form 16" OR "Form 130" OR "Form 24Q" OR "Form 138" employers deadline OR notified', must: /\bTDS\b|form (16|130|24Q|138)/i },
+  { tag: "Professional tax", q: '"professional tax" employers OR slab OR "due date" OR amendment OR notification', must: /professional tax|profession tax|\bPTRC\b/i },
+  { tag: "State rules", q: '"labour welfare fund" OR "shops and establishments" OR "state labour code rules" employers', must: /welfare fund|shops and (commercial )?establishments?|labou?r code rules/i },
+  { tag: "POSH", q: '"POSH Act" employers OR mandatory OR "annual report" OR penalty OR guidelines', must: /\bPOSH\b|sexual harassment/i }
 ];
 // events, PR, job adverts, partnerships, personal-finance stories and tax news that isn't about salaries
-const DROP = /recruit|vacanc|apply online|apply by|\bapply\b|eligibility|last date|admit card|\bexam|syllabus|\bjobs?\b|hiring|partners? with|partnership|\bMoU\b|tie[- ]up|training|skilling|\bher\b|\bhis\b|refund|\bseeks?\b|demand|protest|strike|agitation|workshop|sensiti[sz]ation|awareness|seminar|webinar|campaign|felicitat|inaugurat|conclave|summit|quiz|\bheld\b|celebrat|property|real estate|non-resident|NRI|crypto|\bGST\b|mutual fund|stock|share price|reaches .* crore people|health security reaches/i;
-const PER_TOPIC = 3, LIMIT = 12, MAX_AGE_DAYS = 45;
+const DROP = /\?\s*$|\breviews?\b|meeting|chairs?\b|visits?\b|minister (?:says|urges|calls)|panel formed|committee formed|constitut|district (?:collector|officer|administration)|^(?:how|what|why|when|who|does|do|can|is|are|should)\b|questions|explained|explainer|beyond|opinion|column|analysis|lessons|tips|myths|everything you need|apprentic|recruit|vacanc|apply online|apply by|\bapply\b|eligibility|last date|admit card|\bexam|syllabus|\bjobs?\b|hiring|partners? with|partnership|\bMoU\b|tie[- ]up|training|skilling|\bher\b|\bhis\b|refund|\bseeks?\b|demand|protest|strike|agitation|workshop|sensiti[sz]ation|awareness|seminar|webinar|campaign|felicitat|inaugurat|conclave|summit|quiz|\bheld\b|celebrat|property|real estate|non-resident|NRI|crypto|\bGST\b|mutual fund|stock|share price|reaches .* crore people|health security reaches/i;
+const PER_TOPIC = 2, LIMIT = 12, MAX_AGE_DAYS = 45;
 
 const decode = (t) => t
   .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
@@ -31,7 +30,7 @@ const words = (title) => new Set(title.toLowerCase().replace(/[^a-z0-9₹ ]/g, "
 // the same story from two outlets: most of the meaningful words overlap
 const same = (a, b) => { let n = 0; a.forEach((w) => { if (b.has(w)) n++; }); return n / Math.min(a.size, b.size) >= 0.6; };
 
-async function topic({ tag, q, must, also }) {
+async function topic({ tag, q, must }) {
   const url = "https://news.google.com/rss/search?q=" + encodeURIComponent(q + " when:30d") + "&hl=en-IN&gl=IN&ceid=IN:en";
   try {
     const res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 (compatible; HRTerrainNews/1.0)" }, signal: AbortSignal.timeout(8000) });
@@ -42,7 +41,7 @@ async function topic({ tag, q, must, also }) {
       let title = pick(it, "title");
       if (source && title.endsWith(" - " + source)) title = title.slice(0, -(source.length + 3));
       return { tag, title, source, url: pick(it, "link"), date: new Date(pick(it, "pubDate")).toISOString() };
-    }).filter((n) => n.title && n.url && must.test(n.title) && (!also || also.test(n.title)) && !DROP.test(n.title));
+    }).filter((n) => n.title && n.url && must.test(n.title) && CHANGE.test(n.title) && !DROP.test(n.title));
   } catch { return []; }
 }
 
