@@ -110,8 +110,8 @@
       para([run("Want these filings handled for you?", { bold: true, size: 22, color: NAVY })], { keepNext: true, spacing: { after: 60 } }),
       para([run("HR Terrain runs HR operations, payroll and statutory compliance for employers across India.", { size: 18, color: INK })], { keepNext: true, spacing: { after: 60 } }),
       para([
-        run("abhiraj@hrterrain.com", { bold: true, size: 18, color: NAVY }),
-        run("   ·   WhatsApp +91 99950 94978   ·   hrterrain.com", { size: 18, color: INK })
+        run("WhatsApp +91 99950 94978", { bold: true, size: 18, color: NAVY }),
+        run("   ·   hrterrain.com", { size: 18, color: INK })
       ])
     ]);
 
