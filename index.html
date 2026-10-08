@@ -1393,6 +1393,25 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
   [data-r],.stagger>*,.station,.step-pin,.steps::before,.metro::before{opacity:1!important;transform:none!important}
   .stamp{opacity:.88!important}
 }
+
+/* ============================================================
+   PHONES: tighter tiles, inline lifecycle tasks, +91 on phone fields
+   ============================================================ */
+.tel{position:relative;display:block;width:100%}
+.tel::before{content:"+91";position:absolute;left:14px;top:50%;transform:translateY(-50%);font-weight:600;font-size:1rem;opacity:.6;pointer-events:none}
+.tel input{width:100%;padding-left:50px!important}
+@media (max-width:640px){
+  .register{gap:8px}
+  .register div{padding:14px 14px 15px}
+  .register b{font-size:1.2rem}
+  .register span{margin-top:5px;font-size:.74rem;line-height:1.35}
+  .metro>li{padding-bottom:22px}
+  .metro h3{margin-bottom:6px}
+  .metro ul{flex-direction:row;flex-wrap:wrap;gap:6px}
+  .metro ul li{padding:3px 10px;border:1px solid var(--rule);border-radius:999px;background:var(--sheet);font-size:.82rem;line-height:1.45}
+  .rsign{margin-top:56px}
+  .stamp{bottom:50px}
+}
 </style>
 <noscript><style>
   .hero .kicker,.hero h1 .ln,.hero-sub,.hero-cta,.hero-trust{opacity:1!important;transform:none!important}
@@ -1854,7 +1873,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
             <div class="cb-field"><label class="cb-sub" for="cbPerson">Name</label><input class="cb-input" id="cbPerson" name="name" type="text" required maxlength="80" autocomplete="name" aria-describedby="cbErr-name" /><span class="err" id="cbErr-name"></span></div>
             <div class="cb-field"><label class="cb-sub" for="cbName">Company</label><input class="cb-input" id="cbName" name="company" type="text" required maxlength="60" autocomplete="organization" placeholder="Printed on the calendar" aria-describedby="cbErr-company" /><span class="err" id="cbErr-company"></span></div>
             <div class="cb-field"><label class="cb-sub" for="cbEmail">Work email</label><input class="cb-input" id="cbEmail" name="email" type="email" required maxlength="120" autocomplete="email" inputmode="email" aria-describedby="cbErr-email" /><span class="err" id="cbErr-email"></span></div>
-            <div class="cb-field"><label class="cb-sub" for="cbPhone">Phone</label><input class="cb-input" id="cbPhone" name="phone" type="tel" required maxlength="15" autocomplete="tel" inputmode="numeric" placeholder="10-digit mobile" aria-describedby="cbErr-phone" /><span class="err" id="cbErr-phone"></span></div>
+            <div class="cb-field"><label class="cb-sub" for="cbPhone">Phone</label><span class="tel"><input class="cb-input" id="cbPhone" name="phone" type="tel" required maxlength="15" autocomplete="tel" inputmode="numeric" placeholder="98765 43210" aria-describedby="cbErr-phone" /></span><span class="err" id="cbErr-phone"></span></div>
           </div>
           <p class="cb-hint">We use these details to follow up about your calendar. See our <a href="legal.html#privacy">privacy policy</a>.</p>
         </fieldset>
@@ -2133,7 +2152,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
         </div>
         <div class="row2">
           <div class="field"><label for="f-email">Work email</label><input id="f-email" name="email" type="email" required autocomplete="email" inputmode="email" maxlength="120" aria-describedby="e-email" /><span class="err" id="e-email"></span></div>
-          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="numeric" maxlength="15" placeholder="10-digit mobile" aria-describedby="e-phone" /><span class="err" id="e-phone"></span></div>
+          <div class="field"><label for="f-phone">Phone</label><span class="tel"><input id="f-phone" name="phone" type="tel" required autocomplete="tel" inputmode="numeric" maxlength="15" placeholder="98765 43210" aria-describedby="e-phone" /></span><span class="err" id="e-phone"></span></div>
         </div>
         <div class="row2">
           <div class="field"><label for="f-size">Company size <span class="opt">(optional)</span></label>
