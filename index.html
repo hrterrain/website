@@ -45,7 +45,7 @@
   "areaServed": "IN",
   "knowsAbout": ["HR Operations","Payroll","Statutory Compliance","Labour Law Compliance","Employee Lifecycle Management","HR Documentation","Compliance Audits","HR Advisory"],
   "slogan": "Navigator of HR Landscape",
-  "sameAs": ["https://www.linkedin.com/company/hrterrain/"]
+  "sameAs": ["https://www.linkedin.com/company/hrterrain/", "https://www.instagram.com/hrterrain/"]
 }
 </script>
 <script type="application/ld+json">
@@ -224,18 +224,19 @@ p,li,dd{text-wrap:pretty}
   .nav-links{gap:0}
   .nav-links a{padding:10px 10px;font-size:.9rem}
   .nav-r .btn{padding:0 16px;font-size:.88rem}
-  .li-btn{display:none}
+  .li-btn,.ig-btn{display:none}
 }
 @media (max-width:1180px){.brand-t i{display:none}}
 @media (max-width:1060px){.nav-links,.nav-r .btn{display:none}.menu-btn{display:flex}}
 
 .drawer{position:fixed;inset:0 0 0 auto;width:min(88vw,380px);z-index:120;background:var(--paper);
-  padding:88px 24px 28px;display:flex;flex-direction:column;
+  padding:88px 24px 28px;display:flex;flex-direction:column;overflow-y:auto;overscroll-behavior:contain;
   transform:translateX(100%);visibility:hidden;transition:transform .4s var(--e-out),visibility 0s .4s}
 .drawer.open{transform:none;visibility:visible;transition:transform .4s var(--e-out),visibility 0s;box-shadow:-30px 0 60px -30px rgba(0,0,0,.4)}
 .drawer a:not(.btn){font-family:var(--f-display);font-weight:700;font-size:1.3rem;color:var(--heading);padding:14px 2px;border-bottom:1px solid var(--rule)}
 .drawer .btn{margin-top:24px}
 .drawer .close{position:absolute;top:14px;right:16px}
+@media (max-height:560px){.drawer{padding-top:72px}.drawer a:not(.btn){font-size:1.1rem;padding:10px 2px}.drawer .btn{margin-top:16px}}
 .scrim{position:fixed;inset:0;z-index:110;background:rgba(5,15,32,.45);opacity:0;pointer-events:none;transition:opacity .3s}
 .scrim.show{opacity:1;pointer-events:auto}
 
@@ -518,7 +519,9 @@ p,li,dd{text-wrap:pretty}
 .sp-top svg{width:18px;height:18px;flex:none;fill:none;stroke:var(--muted);stroke-width:2;stroke-linecap:round}
 .sp-q{flex:1;min-width:0;border:0;background:none;font:inherit;font-size:1rem;color:var(--text);outline:none}
 .sp-q::-webkit-search-cancel-button{cursor:pointer}
-.sp-list{max-height:min(320px,46vh);overflow-y:auto;overscroll-behavior:contain;padding:6px}
+.sp-list{max-height:min(320px,46vh);overflow-y:auto;overscroll-behavior:contain;padding:6px;flex:1 1 auto;min-height:0}
+.sp-pop{max-height:calc(100dvh - 24px)}
+@media (max-height:500px){.sp-list{max-height:none}.sp-pop{max-height:calc(100dvh - 96px)}}
 .sp-opt{display:grid;grid-template-columns:18px minmax(0,1fr) auto;align-items:center;gap:12px;padding:10px 10px;border-radius:10px;cursor:pointer;font-size:.94rem;color:var(--text)}
 .sp-opt[hidden]{display:none}
 .sp-opt:hover{background:var(--ink-soft)}
@@ -755,10 +758,15 @@ footer{background:var(--band-2);color:var(--band-muted);padding:clamp(56px,7vw,8
 .social svg{width:18px;height:18px}
 .li-btn:hover{color:#0A66C2;border-color:#0A66C2}
 :root[data-theme="dark"] .li-btn:hover{color:#70B5F9;border-color:#70B5F9}
-.li-btn svg{width:18px;height:18px}
-@media (max-width:640px){.li-btn{display:none}}
+.li-btn svg,.ig-btn svg{width:18px;height:18px}
+.ig-btn:hover{color:#D62976;border-color:#D62976}
+:root[data-theme="dark"] .ig-btn:hover{color:#F77EB5;border-color:#F77EB5}
+.social a.ig:hover{background:#D62976;border-color:#D62976}
+@media (max-width:640px){.li-btn,.ig-btn{display:none}}
 .drawer-li{display:flex!important;align-items:center;gap:12px}
 .drawer-li svg{width:20px;height:20px;flex:none;color:#0A66C2}
+.drawer-ig svg{color:#D62976}
+:root[data-theme="dark"] .drawer-ig svg{color:#F77EB5}
 :root[data-theme="dark"] .drawer-li svg{color:#70B5F9}
 .foot-b{max-width:var(--maxw);margin:48px auto 0;padding-top:20px;border-top:1px solid rgba(255,255,255,.14);display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;font-family:var(--f-type);font-size:.8rem}
 
@@ -986,24 +994,37 @@ section>.wrap{position:relative;z-index:1}
    ============================================================ */
 .reasons{grid-template-columns:repeat(3,minmax(0,1fr))}
 .reason{display:flex;flex-direction:column;gap:26px;overflow:hidden}
-.reason.r-wide{grid-column:span 2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);align-items:center;gap:24px 36px}
+.reason.r-wide{grid-column:span 2;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);align-items:center;gap:24px 36px}
 .r-n{display:block;font-family:var(--f-type);font-weight:700;font-size:.8rem;letter-spacing:.08em;color:var(--hi-ink);margin-bottom:14px}
 .reason p{color:var(--muted)}
 .r-viz{position:relative;list-style:none}
+/* mid-size and zoomed laptops: the wide card is too narrow for copy and diagram side by side */
+@media (max-width:1300px){.reason.r-wide{grid-template-columns:1fr;align-items:start}.r-one{max-width:620px}}
 .reason:not(.r-wide) .r-viz{margin-top:auto}
 /* 01 merge */
-.r-merge{display:grid;grid-template-columns:minmax(0,auto) minmax(40px,1fr) auto;align-items:center;height:210px}
-.rm-from{list-style:none;display:flex;flex-direction:column;justify-content:space-between;height:100%;padding:6px 0}
-.rm-from li{font-size:.88rem;font-weight:600;color:var(--muted);padding:9px 14px;border-radius:999px;border:1px dashed var(--rule-strong);background:var(--sheet);white-space:nowrap;
-  text-decoration:line-through;text-decoration-color:transparent;transition:text-decoration-color .5s var(--e-out),opacity .5s var(--e-out)}
-.rm-lines{width:100%;height:100%;overflow:visible}
-.rm-lines path{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-dasharray:5 5;vector-effect:non-scaling-stroke;opacity:.5}
-.rm-to{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 22px;border-radius:14px;background:var(--sheet);border:1.5px solid var(--heading);box-shadow:0 14px 30px -18px rgba(15,40,90,.5)}
-.rm-mark{width:56px;height:38px;background:var(--mark) center/contain no-repeat}
-.rm-to b{font-family:var(--f-display);font-size:1.05rem;color:var(--heading)}
-.rm-to small{font-family:var(--f-type);font-weight:700;font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;color:var(--hi-ink)}
-.stagger.in .rm-from li{text-decoration-color:var(--faint);opacity:.75;transition-delay:.9s}
-.stagger.in .rm-lines path{animation:rm-flow 1.6s linear infinite}
+.r-one{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:14px}
+.op-h{display:block;margin-bottom:10px;font-family:var(--f-type);font-weight:700;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.op-was ul{list-style:none;display:flex;flex-direction:column;gap:8px}
+.op-was li{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:12px;border:1px solid var(--rule);background:var(--paper-2);transition:opacity .6s var(--e-out)}
+.op-was li:nth-child(2){margin-left:10px}
+.op-was svg{flex:none;width:18px;height:18px;fill:none;stroke:var(--muted);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.op-was b{display:block;font-size:.84rem;font-weight:600;color:var(--text);line-height:1.25}
+.op-was small{display:block;font-family:var(--f-type);font-size:.7rem;color:var(--muted)}
+.op-arrow{display:flex;width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;background:var(--hi-soft);color:var(--hi-ink)}
+.op-arrow svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.op-card{padding:16px 18px;border-radius:16px;background:var(--ink);color:var(--sheet);box-shadow:0 18px 36px -20px rgba(15,40,90,.6)}
+.op-top{display:flex;align-items:center;gap:10px;padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid color-mix(in oklab,var(--sheet) 22%,transparent)}
+.op-mark{flex:none;width:34px;height:24px;background:url("assets/logo-mark-white.png") center/contain no-repeat}
+:root[data-theme="dark"] .op-mark{background-image:url("assets/logo-mark-navy.png")}
+.op-top b{font-family:var(--f-display);font-size:1.1rem;font-weight:700;white-space:nowrap}
+.op-card li{white-space:nowrap}
+.op-card ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.op-card li{display:flex;align-items:center;gap:8px;font-size:.88rem;font-weight:600}
+.op-card li::before{content:"";flex:none;width:16px;height:16px;border-radius:50%;background:color-mix(in oklab,var(--sheet) 18%,transparent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/10px no-repeat}
+:root[data-theme="dark"] .op-card li::before{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230D1A2E' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E")}
+.reason .op-card p{margin-top:12px;font-family:var(--f-type);font-size:.7rem;letter-spacing:.04em;color:inherit;opacity:.8}
+/* the three scattered providers fade once the card is in view */
+.stagger.in .op-was li{opacity:.6;transition-delay:.7s}
 @keyframes rm-flow{to{stroke-dashoffset:-20}}
 /* 02 checklist */
 .r-check{display:flex;flex-direction:column;gap:8px}
@@ -1042,12 +1063,9 @@ section>.wrap{position:relative;z-index:1}
 @media (max-width:640px){
   .reason.r-wide{display:flex;flex-direction:column;align-items:stretch}
   .reasons>.reason{flex-basis:86%}
-  .r-merge{grid-template-columns:auto minmax(24px,1fr) auto}
-  .r-merge{height:160px}
-  .rm-from li{font-size:.72rem;padding:6px 9px}
-  .rm-to{padding:10px 12px}
-  .rm-to b{font-size:.82rem;white-space:nowrap}
-  .rm-to small{display:none}
+  .r-one{grid-template-columns:1fr;gap:10px}
+  .op-arrow{transform:rotate(90deg);justify-self:center}
+  .op-was li:nth-child(2){margin-left:0}
 }
 
 /* ============================================================
@@ -1216,6 +1234,7 @@ section>.wrap{position:relative;z-index:1}
       <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a7 7 0 1 0 10.5 10.5z"/></svg>
     </button>
     <a class="icon-btn li-btn" href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+    <a class="icon-btn ig-btn" href="https://www.instagram.com/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
     <a href="#contact" class="btn">Talk to an HR expert</a>
     <button class="icon-btn menu-btn" id="menuBtn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="drawer">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h10"/></svg>
@@ -1235,6 +1254,7 @@ section>.wrap{position:relative;z-index:1}
   <a href="#why">About</a>
   <a href="#faq">FAQ</a>
   <a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" class="drawer-li"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>LinkedIn</a>
+  <a href="https://www.instagram.com/hrterrain/" target="_blank" rel="noopener" class="drawer-li drawer-ig"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg>Instagram</a>
   <a href="#contact" class="btn">Talk to an HR expert</a>
 </nav>
 <div class="scrim" id="scrim"></div>
@@ -1693,10 +1713,24 @@ section>.wrap{position:relative;z-index:1}
     <div class="reasons" data-r data-stagger>
       <article class="reason r-wide">
         <div class="r-copy"><span class="r-n">01</span><h3>One partner</h3><p>Operations, payroll and compliance under one framework. Not three vendors to coordinate, each with its own version of the truth.</p></div>
-        <div class="r-viz r-merge" aria-hidden="true">
-          <ul class="rm-from"><li>Payroll vendor</li><li>Compliance consultant</li><li>HR operations</li></ul>
-          <svg class="rm-lines" viewBox="0 0 120 150" preserveAspectRatio="none"><path d="M0 25 C 60 25, 60 75, 120 75"/><path d="M0 75 L 120 75"/><path d="M0 125 C 60 125, 60 75, 120 75"/></svg>
-          <div class="rm-to"><i class="rm-mark"></i><b>HR Terrain</b><small>One framework</small></div>
+        <div class="r-viz r-one" aria-hidden="true">
+          <div class="op-was">
+            <span class="op-h">Today · 3 providers</span>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M8 15h3"/></svg><span><b>Payroll vendor</b><small>own spreadsheet</small></span></li>
+              <li><svg viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></svg><span><b>Compliance consultant</b><small>own calendar</small></span></li>
+              <li><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M14 3v5h5M9 13h7M9 17h5"/></svg><span><b>HR operations</b><small>own records</small></span></li>
+            </ul>
+          </div>
+          <span class="op-arrow"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          <div class="op-now">
+            <span class="op-h">With HR Terrain</span>
+            <div class="op-card">
+              <div class="op-top"><i class="op-mark"></i><b>One team</b></div>
+              <ul><li>Payroll</li><li>Compliance</li><li>HR operations</li></ul>
+              <p>1 owner · 1 calendar · 1 report</p>
+            </div>
+          </div>
         </div>
       </article>
       <article class="reason">
@@ -1789,6 +1823,7 @@ section>.wrap{position:relative;z-index:1}
         <li><span>Email</span><div><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></div></li>
         <li><span>WhatsApp</span><div><a href="https://wa.me/919995094978" target="_blank" rel="noopener">+91 99950 94978</a></div></li>
         <li><span>LinkedIn</span><div><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">linkedin.com/company/hrterrain</a></div></li>
+        <li><span>Instagram</span><div><a href="https://www.instagram.com/hrterrain/" target="_blank" rel="noopener">instagram.com/hrterrain</a></div></li>
         <li><span>Serving</span><div>Employers across India</div></li>
         <li><span>Hours</span><div>Mon–Sat, 9:00 AM – 6:00 PM IST</div></li>
       </ul>
@@ -1841,9 +1876,9 @@ section>.wrap{position:relative;z-index:1}
 
 <footer>
   <div class="foot">
-    <div><div class="foot-logo" role="img" aria-label="HR Terrain — Navigator of HR Landscape"></div><p>HR operations, payroll and statutory compliance for growing businesses.</p><div class="social"><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a></div></div>
+    <div><div class="foot-logo" role="img" aria-label="HR Terrain — Navigator of HR Landscape"></div><p>HR operations, payroll and statutory compliance for growing businesses.</p><div class="social"><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on LinkedIn"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a><a class="ig" href="https://www.instagram.com/hrterrain/" target="_blank" rel="noopener" aria-label="HR Terrain on Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a></div></div>
     <div><h4>Explore</h4><ul><li><a href="#services">Services</a></li><li><a href="#compliance">Compliance</a></li><li><a href="#process">How it works</a></li><li><a href="#calendar">Compliance calendar</a></li><li><a href="#news">Compliance news</a></li><li><a href="#why">About</a></li><li><a href="#faq">FAQ</a></li></ul></div>
-    <div><h4>Contact</h4><ul><li><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></li><li><a href="https://wa.me/919995094978" target="_blank" rel="noopener">WhatsApp +91 99950 94978</a></li><li><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="#contact">Enquiry form</a></li></ul></div>
+    <div><h4>Contact</h4><ul><li><a href="mailto:abhiraj@hrterrain.com">abhiraj@hrterrain.com</a></li><li><a href="https://wa.me/919995094978" target="_blank" rel="noopener">WhatsApp +91 99950 94978</a></li><li><a href="https://www.linkedin.com/company/hrterrain/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.instagram.com/hrterrain/" target="_blank" rel="noopener">Instagram</a></li><li><a href="#contact">Enquiry form</a></li></ul></div>
     <div><h4>Legal</h4><ul><li><a href="legal.html#privacy">Privacy policy</a></li><li><a href="legal.html#terms">Terms of use</a></li><li><a href="legal.html#disclaimer">Disclaimer</a></li></ul></div>
   </div>
   <div class="foot-b"><span>© <span id="year">2026</span> HR Terrain · Navigator of HR landscape</span><span>India</span></div>
@@ -1904,7 +1939,16 @@ section>.wrap{position:relative;z-index:1}
     function open(on){
       pop.hidden = !on; btn.setAttribute("aria-expanded", on ? "true" : "false"); host.classList.toggle("open", on);
       document.body.classList.toggle("sp-on", on);   // phones: the list is a bottom sheet, so the action bar steps aside
-      if (on){ q.value = ""; filter(); if (matchMedia("(hover:hover)").matches) q.focus(); }
+      if (on){
+        q.value = ""; filter(); if (matchMedia("(hover:hover)").matches) q.focus({ preventScroll:true });
+        if (getComputedStyle(pop).position === "absolute"){
+          // short or zoomed-in windows: lift the button towards the top, then let the list shrink to the space left
+          var over = pop.getBoundingClientRect().bottom + 12 - innerHeight;
+          if (over > 0) window.scrollBy(0, Math.max(0, Math.min(over, btn.getBoundingClientRect().top - 84)));
+          var room = innerHeight - pop.getBoundingClientRect().top - 12;
+          if (pop.getBoundingClientRect().height > room) pop.style.maxHeight = Math.max(room, 200) + "px";
+        }
+      } else pop.style.maxHeight = "";
     }
     function filter(){
       var t = q.value.trim().toLowerCase(), n = 0;
