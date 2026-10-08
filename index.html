@@ -1871,7 +1871,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
           </div>
           <div class="ac-pair">
             <div class="ac-field"><label class="cb-label" for="ccState">State</label><select id="ccState" class="cc-select"><option value="">Any state</option></select></div>
-            <div class="ac-field"><label class="cb-label" for="ccN">Employees</label>
+            <div class="ac-field"><label class="cb-label" for="ccN">Total employees</label>
               <div class="ac-num"><button type="button" data-step="-1" data-for="ccN" aria-label="Fewer employees">−</button><input id="ccN" type="number" inputmode="numeric" min="1" max="100000" value="25" /><button type="button" data-step="1" data-for="ccN" aria-label="More employees">+</button></div></div>
           </div>
           <fieldset class="cb-row"><legend class="cb-label">PF worked out on</legend>
@@ -1891,7 +1891,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
           <div class="cc-rule" id="ccRule"></div>
           <p class="cc-team" id="ccTeam"></p>
           <div class="ac-cta"><a class="btn" id="ccWa" href="https://wa.me/919995094978" target="_blank" rel="noopener">Send these numbers to Abhiraj <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn line" href="#contact">Review my salary structure</a></div>
-          <p class="cb-hint cc-fine">An estimate, not legal advice. Wages follow the Code on Wages: Basic + DA, plus any allowances above half of pay. EPF 12% + 12% (admin and EDLI about 1% more), mandatory up to ₹25,000; ESIC 0.75% + 3.25% up to ₹21,000; gratuity provision 15 days' wages a year; minimum bonus 8.33% on ₹7,000 (or your state's minimum wage, if higher). February PT can be higher, and LWF is extra where it applies.</p>
+          <p class="cb-hint cc-fine">An estimate, not legal advice. Wages follow the Code on Wages: Basic + DA, plus any allowances above half of pay. EPF 12% + 12% (admin and EDLI about 1% more), mandatory up to ₹25,000 at 20+ employees; ESIC 0.75% + 3.25% up to ₹21,000 at 10+; gratuity 15 days' wages a year at 10+; bonus at least 8.33% (worked out on ₹7,000 or the minimum wage, whichever is higher) at 20+, for wages up to ₹21,000. February PT can be higher, LWF is extra where it applies, and income tax is not included.</p>
         </div>
       </div>
 
@@ -3109,20 +3109,25 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
       return { v:v, note: v ? s.name + " slab" + (code === "MH" || code === "KA" ? "; ₹300 in February." : ".") : "Below the " + s.name + " threshold." };
     }
     // one employee, one month
-    function hire(G, pct, st, pf, rule){
+    // applies by headcount: PF and bonus at 20+ employees, ESIC and gratuity at 10+
+    function hire(G, pct, st, pf, rule, n){
       var B = G * pct / 100, W = rule ? Math.max(B, G / 2) : B;
-      var base = pf === "none" ? 0 : pf === "cap" ? Math.min(W, 25000) : W, esi = W <= 21000, p = pt(st, G);
-      var r = { B:B, W:W, base:base, esi:esi, p:p,
-        ePf:.12 * base, eEsi: esi ? .0075 * W : 0, pt:p.v,
+      var pfOn = n >= 20 && pf !== "none", base = !pfOn ? 0 : pf === "cap" ? Math.min(W, 25000) : W,
+          esi = n >= 10 && W <= 21000, p = pt(st, G);
+      var r = { B:B, W:W, base:base, pfOn:pfOn, esi:esi, p:p,
+        // employees averaging ₹176 a day or less pay no ESIC share; the employer still pays
+        ePf:.12 * base, eEsi: esi && W / 26 > 176 ? .0075 * W : 0, pt:p.v,
         rPf:.12 * base, rAdm:.005 * base + .005 * Math.min(base, 25000), rEsi: esi ? .0325 * W : 0,
-        grat: W * 15 / 26 / 12, bonus: W <= 21000 ? .0833 * Math.min(W, 7000) : 0 };
+        grat: n >= 10 ? W * 15 / 26 / 12 : 0,
+        // minimum bonus: 8.33% of wages, worked out on no more than ₹7,000 (or the minimum wage, if higher)
+        bonus: n >= 20 && W <= 21000 ? .0833 * Math.min(W, 7000) : 0 };
       r.take = G - r.ePf - r.eEsi - r.pt;
       r.cost = G + r.rPf + r.rAdm + r.rEsi + r.grat + r.bonus;
       return r;
     }
     var COL = { take:"var(--ok)", ePf:"var(--hi)", eEsi:"color-mix(in oklab,var(--hi) 55%,var(--sheet))", pt:"var(--faint)",
                 rPf:"var(--pin)", rAdm:"color-mix(in oklab,var(--pin) 55%,var(--sheet))", rEsi:"var(--warn)", grat:"color-mix(in oklab,var(--warn) 50%,var(--sheet))", bonus:"var(--ink)" };
-    function row(k, name, v, note){ return '<li class="cc-row' + (v ? "" : " off") + '" style="--c:' + COL[k] + '"><b>' + name + '</b><em>' + (v ? inr(v) : "—") + '</em><small>' + note + '</small></li>'; }
+    function row(k, name, v, note, min){ return '<li class="cc-row' + (v ? "" : " off") + '" style="--c:' + COL[k] + '"><b>' + name + '</b><em>' + (v ? (min ? "from " : "") + inr(v) : "—") + '</em><small>' + note + '</small></li>'; }
     var ICON_WARN = '<svg viewBox="0 0 24 24"><path d="M12 8v5M12 16.5v.5"/></svg>', ICON_OK = '<svg viewBox="0 0 24 24"><path d="M6 12.5l4 4 8-9"/></svg>';
 
     function cost(){
@@ -3130,7 +3135,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
           pf = ($('input[name="ccPf"]:checked', C.form) || {}).value || "cap",
           n = Math.max(1, Math.min(100000, parseInt(C.n.value, 10) || 1));
       C.basicO.textContent = pct + "% · " + inr(G * pct / 100); fill(C.basic);
-      var r = hire(G, pct, st, pf, true), old = hire(G, pct, st, pf, false);
+      var r = hire(G, pct, st, pf, true, n), old = hire(G, pct, st, pf, false, n);
       tween($("#ccTake"), r.take, inr);
       tween($("#ccCost"), r.cost, inr);
       $("#ccPer").textContent = G ? inr(r.cost / G * 100) + " for every ₹100 of salary" : "a month";
@@ -3145,25 +3150,35 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
       $("#ccGrossL").textContent = "Gross salary " + inr(G);
 
       var wNote = r.W > r.B + 1 ? " on wages of " + inr(r.W) : "";
-      var pfNote = pf === "none" ? "Not a PF member (allowed only above ₹25,000 wages)." :
+      var pfNote = n < 20 ? "Not mandatory below 20 employees; you can join voluntarily." :
+                   pf === "none" ? "Not a member (allowed only above ₹25,000 wages)." :
                    "12% of " + inr(r.base) + (pf === "cap" && r.W > 25000 ? ", the ₹25,000 ceiling" : "") + ".";
-      var esiNote = r.esi ? "On wages of " + inr(r.W) + "." : "Not covered: wages above ₹21,000.";
+      var esiNote = n < 10 ? "Not mandatory below 10 employees." : r.W > 21000 ? "Not covered: wages above ₹21,000." :
+                    r.eEsi ? "On wages of " + inr(r.W) + "." : "Exempt at ₹176 a day or less; you still pay your share.";
+      var ptNote = r.p.note + (st === "MH" && r.pt ? " Women earning up to ₹25,000 are exempt." : "");
+      var bonusNote = n < 20 ? "Not mandatory below 20 employees." : r.W > 21000 ? "Not covered: wages above ₹21,000." :
+                      r.W > 7000 ? "8.33% of ₹7,000, or of the minimum wage if higher. Up to 20% with profits." : "8.33% of wages; up to 20% with profits.";
       $("#ccLines").innerHTML =
         '<div><h4>Comes out of the salary</h4><ul>' +
-          row("ePf", "Employee PF", r.ePf, pf === "none" ? "Not deducted." : pfNote) +
+          row("ePf", "Employee PF", r.ePf, pfNote) +
           row("eEsi", "Employee ESIC · 0.75%", r.eEsi, esiNote) +
-          row("pt", "Professional Tax", r.pt, r.p.note) +
+          row("pt", "Professional Tax", r.pt, ptNote) +
         '</ul></div><div><h4>You add on top</h4><ul>' +
-          row("rPf", "Employer PF · 12%", r.rPf, pf === "none" ? "Nothing to pay." : "Split between EPF and the pension scheme.") +
-          row("rAdm", "PF admin & EDLI", r.rAdm, "About 1% more, paid with the ECR.") +
-          row("rEsi", "Employer ESIC · 3.25%", r.rEsi, r.esi ? "Medical and cash benefits for the employee." : "Not covered above ₹21,000.") +
-          row("grat", "Gratuity provision", r.grat, "15 days' wages a year" + wNote + ".") +
-          row("bonus", "Statutory bonus · min 8.33%", r.bonus, r.W <= 21000 ? "Covered at 20+ employees, wages up to ₹21,000." : "Not covered: wages above ₹21,000.") +
+          row("rPf", "Employer PF · 12%", r.rPf, r.pfOn ? "Of which 8.33% goes to the pension scheme, on up to ₹25,000." : pfNote) +
+          row("rAdm", "PF admin & EDLI", r.rAdm, r.pfOn ? "0.5% admin charges + 0.5% EDLI insurance." : "Only with PF.") +
+          row("rEsi", "Employer ESIC · 3.25%", r.rEsi, r.esi ? "Medical and cash benefits for the employee." : esiNote) +
+          row("grat", "Gratuity provision", r.grat, n < 10 ? "Not mandatory below 10 employees." : "15 days' wages per year of service" + wNote + ".") +
+          row("bonus", "Statutory bonus", r.bonus, bonusNote, r.W > 7000) +
         '</ul></div>';
 
       // the 50% wage rule under the Code on Wages
       var rule = $("#ccRule");
-      if (r.W > r.B + 1){
+      if (r.W > r.B + 1 && r.cost - old.cost < 1){
+        rule.className = "cc-rule";
+        rule.innerHTML = '<span class="cc-rule-ic" aria-hidden="true">' + ICON_WARN + '</span>' +
+          '<h4>Basic and DA are under half of pay</h4>' +
+          '<p>At ' + n + ' employee' + (n > 1 ? 's' : '') + ' nothing here depends on wages yet. Once PF, ESIC or gratuity apply, they will be worked out on <b>' + inr(r.W) + '</b>, not ' + inr(r.B) + ', under the Code on Wages.</p>';
+      } else if (r.W > r.B + 1){
         var dc = r.cost - old.cost, dt = old.take - r.take;
         rule.className = "cc-rule";
         rule.innerHTML = '<span class="cc-rule-ic" aria-hidden="true">' + ICON_WARN + '</span>' +
