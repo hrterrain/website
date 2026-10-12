@@ -358,6 +358,7 @@ p,li,dd{text-wrap:pretty}
 .checks li{display:grid;grid-template-columns:22px 1fr;gap:10px;padding:11px 0;border-bottom:1px dashed var(--rule);font-size:.92rem;color:var(--text)}
 .checks svg{width:16px;height:16px;margin-top:4px;color:var(--ok)}
 .svc-mobile{display:none}
+.svc-hint{display:none}
 
 /* ============================================================
    COMPLIANCE (band)
@@ -1036,6 +1037,8 @@ section>.wrap{position:relative;z-index:1}
 .r-owner{display:flex;flex-direction:column;gap:10px}
 .ro-ticket{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:10px 14px;border-radius:10px;border:1px dashed var(--rule-strong);font-family:var(--f-type);font-size:.8rem;color:var(--faint)}
 .ro-ticket span{text-decoration:line-through}
+.ro-vs{display:flex;align-items:center;gap:10px;margin:-2px 0;font-family:var(--f-type);font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--faint)}
+.ro-vs::before,.ro-vs::after{content:"";flex:1;height:1px;background:var(--rule)}
 .ro-card{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:var(--sheet);border:1px solid var(--rule);box-shadow:0 14px 30px -20px rgba(15,40,90,.5)}
 .ro-av{width:40px;height:40px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;background:var(--ink-soft);color:var(--ink)}
 .ro-av svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round}
@@ -1217,6 +1220,10 @@ section>.wrap{position:relative;z-index:1}
   .svc-mobile{display:block;padding:4px 0 18px}
   .svc-mobile:empty{display:none}
   .svc-mobile .svc-panel{display:block;animation:none}
+  .svc-hint{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-family:var(--f-type);font-size:.85rem;color:var(--muted)}
+  .svc-hint::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--hi);flex:none}
+  .svc-row .ar svg{transform:rotate(90deg);transition:transform .3s var(--e-out)}
+  .svc-row[aria-expanded="true"] .ar svg{transform:rotate(-90deg)}
   .comp-top{grid-template-columns:1fr}
   .steps{grid-template-columns:1fr 1fr;row-gap:16px}
   .steps::before{display:none}
@@ -1592,6 +1599,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
       <p class="lede">Each is scoped to what your organisation actually needs. Take one, or run them together as a single operating layer.</p>
     </div>
     <div class="svc">
+      <p class="svc-hint" data-r>Tap any of the six services to open its scope of work.</p>
       <div class="svc-list" role="tablist" aria-label="Services" data-r>
         <button class="svc-row" role="tab" id="st-0" aria-controls="sp-0" aria-selected="true"><span class="nm">HR Operations</span><span class="tg">Onboarding · records · exits</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
         <button class="svc-row" role="tab" id="st-1" aria-controls="sp-1" aria-selected="false"><span class="nm">Payroll</span><span class="tg">Processing · structures · F&amp;F</span><span class="ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
@@ -1874,7 +1882,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
             <div class="cb-field"><label class="cb-sub" for="cbEmail">Work email</label><input class="cb-input" id="cbEmail" name="email" type="email" required maxlength="120" autocomplete="email" inputmode="email" aria-describedby="cbErr-email" /><span class="err" id="cbErr-email"></span></div>
             <div class="cb-field"><label class="cb-sub" for="cbPhone">Phone</label><span class="tel"><input class="cb-input" id="cbPhone" name="phone" type="tel" required maxlength="15" autocomplete="tel" inputmode="numeric" placeholder="98765 43210" aria-describedby="cbErr-phone" /></span><span class="err" id="cbErr-phone"></span></div>
           </div>
-          <p class="cb-hint">We use these details to follow up about your calendar. See our <a href="legal.html#privacy">privacy policy</a>.</p>
+          <p class="cb-hint"><b>Your calendar downloads instantly</b> as a Word file when you press the button. Nothing to wait for in your inbox. We use these details only to follow up about it. See our <a href="legal.html#privacy">privacy policy</a>.</p>
         </fieldset>
       </div>
       </div>
@@ -2042,8 +2050,9 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
       <article class="reason">
         <div class="r-copy"><span class="r-n">03</span><h3>A named owner</h3><p>A direct point of contact who owns the outcome. Not a ticket queue.</p></div>
         <div class="r-viz r-owner" aria-hidden="true">
-          <div class="ro-ticket"><span>Ticket #20931</span><small>Awaiting assignment</small></div>
-          <div class="ro-card"><i class="ro-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c.9-3.8 3.9-6 7.5-6s6.6 2.2 7.5 6"/></svg></i><div><b>Your HR Terrain lead</b><small>Same person, every month</small></div><span class="ro-live"></span></div>
+          <div class="ro-ticket"><span>Ticket #20931</span><small>(Awaiting assignment)</small></div>
+          <div class="ro-vs"><span>vs</span></div>
+          <div class="ro-card"><i class="ro-av"><svg viewBox="0 0 24 24"><circle cx="12" cy="8.5" r="3.6"/><path d="M4.5 20c.9-3.8 3.9-6 7.5-6s6.6 2.2 7.5 6"/></svg></i><div><b>Your HR Terrain lead</b><small>(Same person, every month)</small></div><span class="ro-live"></span></div>
         </div>
       </article>
       <article class="reason r-wide">
@@ -2250,6 +2259,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
      data-name gives the checkboxes a form name; data-empty is the label when nothing is picked */
   function statePicker(host){
     var cal = window.HRTCalendarDoc, id = host.id, name = host.getAttribute("data-name"), empty = host.getAttribute("data-empty") || "All India";
+    if (!cal) return { set:function(){}, get:function(){ return []; } };
     var cover = function(st){ var p = st.pt ? "PT" : "", l = st.lwf ? "LWF" : ""; return p && l ? "PT · LWF" : p || l || "Central only"; };
     host.classList.add("sp");
     host.innerHTML =
@@ -2345,10 +2355,15 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
   onScroll();
 
   /* phones: action bar appears after the hero, steps aside at the contact form */
-  var mbar = $("#mbar"), contact = $("#contact");
+  // tucks away while reading downwards, comes back on any scroll up or when the reader pauses
+  var mbar = $("#mbar"), contact = $("#contact"), barY = scrollY, barDown = false, barIdle;
   function bar(){
-    var past = scrollY > hero.offsetHeight * .7, atForm = contact.getBoundingClientRect().top < innerHeight * .9;
-    mbar.classList.toggle("show", past && !atForm);
+    var y = scrollY, past = y > hero.offsetHeight * .7, atForm = contact.getBoundingClientRect().top < innerHeight * .9;
+    if (y > barY + 8) barDown = true; else if (y < barY - 8) barDown = false;
+    if (Math.abs(y - barY) > 8) barY = y;
+    mbar.classList.toggle("show", past && !atForm && !barDown);
+    clearTimeout(barIdle);
+    if (barDown) barIdle = setTimeout(function(){ barDown = false; bar(); }, 1400);
   }
   addEventListener("scroll", function(){ requestAnimationFrame(bar); }, {passive:true});
 
@@ -2440,6 +2455,20 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
     var IST = 330 * 60000;
     // the dates come from the shared calendar rules (assets/calendar-doc.js), so the countdown and the Word calendar always agree
     var cal = window.HRTCalendarDoc, LAWS = ["wages", "tds", "epf", "esi", "pt", "lwf", "bonus", "posh"], current = null, shownDay = 0;
+    // if the calendar rules fail to load, fall back to the central monthly dates worked out from today, so the clock never shows a stale date
+    if (!cal || !cal.deadlines){
+      $(".cd-filter").hidden = true;
+      cal = { byCode:{}, pending:function(){ return []; }, deadlines:function(st, laws, from){
+        var out = [], add = function(y, m, d, tag, title, desc){ var dt = new Date(y, m, d); if (dt >= from) out.push({ date:dt, tag:tag, title:title, desc:desc }); };
+        for (var i = 0; i < 13; i++){
+          var y = from.getFullYear(), m = from.getMonth() + i;
+          add(y, m, 7, "Wages", "Salaries paid", "Last month's wages must be paid by the 7th under the Code on Wages.");
+          add(y, m, (m % 12) === 3 ? 30 : 7, "TDS", "TDS deposit on salaries", "Deposit tax deducted from last month's salaries.");
+          add(y, m, 15, "EPF", "EPF: ECR filing and payment", "File the ECR and pay employer and employee PF for last month's wages.");
+          add(y, m, 15, "ESIC", "ESI contribution", "Pay employer and employee ESI share for last month's wages.");
+        }
+        return out; } };
+    }
     var picker = statePicker($("#cdStates")), active = [];
     try {
       var saved = JSON.parse(localStorage.getItem("hrt-cd-states") || "null");
@@ -2470,7 +2499,8 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
     }
 
     function render(){
-      var now = ist(Date.now()), gs = groups(now);
+      var now = ist(Date.now()), gs = [];
+      try { gs = groups(now); } catch(e){}
       shownDay = key(now.y, now.m, now.d);
       if (!gs.length) return;
       current = gs[0];
@@ -2675,7 +2705,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
     ];
     // every other state: Professional Tax and Labour Welfare Fund from the shared state rules
     var cal = window.HRTCalendarDoc;
-    cal.STATES.forEach(function(st){
+    (cal ? cal.STATES : []).forEach(function(st){
       if (st.code === "KL" || st.code === "KA") return;
       if (st.pt) RULES.push({ title:st.name + " Professional Tax", law:st.name + " · Professional Tax", st:st.code, cal:"pt", calIf:["yes", "check"], fn:function(){
         return st.pt === "check" ? { v:"check", note:"Professional Tax is levied in " + st.name + ". The slab and payment dates depend on your registration; we'll confirm them for you." }
@@ -3005,6 +3035,7 @@ body.wq-on .wa,body.wq-on .mbar{opacity:0;pointer-events:none}
     mob.innerHTML = "";
     if (acc){
       var c = panels[i].cloneNode(true); c.removeAttribute("id"); c.classList.add("active");
+      var cnt = $(".sp-head span:last-child", c); if (cnt) cnt.textContent = (i + 1) + " of 6";
       c.setAttribute("role", "region"); c.removeAttribute("aria-labelledby"); c.setAttribute("aria-label", $(".nm", tabs[i]).textContent);
       mob.appendChild(c);
       tabs[i].insertAdjacentElement("afterend", mob);
