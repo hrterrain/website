@@ -1,6 +1,6 @@
 # HR Terrain — hrterrain.com
 
-Marketing site for HR Terrain (HR operations, payroll and statutory compliance). Static HTML, no build step.
+Marketing site for HR Terrain (HR operations, payroll and statutory compliance). Static HTML, no build step. Hosted on Hostinger.
 
 ## Structure
 
@@ -11,8 +11,10 @@ Marketing site for HR Terrain (HR operations, payroll and statutory compliance).
 | `404.html` | Not-found page |
 | `assets/` | Logos, favicons, share image |
 | `robots.txt`, `sitemap.xml`, `site.webmanifest` | SEO / browser metadata |
-| `vercel.json` | Security + cache headers for Vercel |
-| `api/news.mjs` | The compliance news function (`/api/news`, a Vercel Function) |
+| `.htaccess` | Headers, caching, redirects and hidden folders for Hostinger |
+| `vercel.json` | The same for Vercel |
+| `api/news.php` | The compliance news feed (`/api/news`) on Hostinger |
+| `api/news.mjs` | The same feed as a Vercel Function |
 | `archive/` | Earlier design iterations (v15–v25) — not deployed |
 | `brand-source/` | Original logo files — not deployed |
 
@@ -24,9 +26,15 @@ python3 -m http.server 8000   # then open http://localhost:8000
 
 ## Deploy
 
-Hosted on Vercel, connected to `github.com/hrterrain/website`. Every push to `main` deploys to production; every other branch gets a preview URL. Project settings: framework preset "Other", no build command, output directory `.` (Vercel picks up `api/` as functions on its own).
+**Hostinger (production).** hPanel → Websites → hrterrain.com → Advanced → **Git**: repository `https://github.com/hrterrain/website`, branch `main`, install path left empty (`public_html`, which must be empty the first time). The repo is public, so no deploy key is needed. Turn on **Auto deployment** and add the webhook URL hPanel gives you under GitHub → Settings → Webhooks, so every push to `main` goes live.
 
-The news function `api/news.mjs` is skipped by `python3 -m http.server`; run `npx vercel dev` to try it locally.
+- `.htaccess` does what `vercel.json` did on Vercel: security headers, asset caching, the 404 page, https and no-www redirects, and it hides folders that are in the repo but not the site (`archive/`, `brand-source/`, `supabase/`, `.git`).
+- `/api/news` is served by `api/news.php` (PHP 8+, needs cURL; both are on by default). It caches the result in `.cache/news.json` for 6 hours.
+- In hPanel → Security → SSL, make sure the free SSL certificate is active before the https redirect matters.
+
+**Vercel (previews).** The Vercel project still builds every push and uses `api/news.mjs` + `vercel.json`. `.vercelignore` keeps the Hostinger files out of it. If both stay, keep the two news files in step when editing topics or filters.
+
+The news endpoint is skipped by `python3 -m http.server`; run `php -S localhost:8000` and open `/api/news.php` to try the Hostinger version locally.
 
 ## Contact form
 

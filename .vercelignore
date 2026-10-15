@@ -3,3 +3,5 @@ brand-source
 .playwright-mcp
 README.md
 supabase
+api/news.php
+.htaccess
